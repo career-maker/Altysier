@@ -44,10 +44,10 @@ js/main.js         → assets/js/main.js  (enqueue via wp_enqueue_script;
   site's own; only content, nav items and imagery are Altysier's. This is
   an explicit, full pivot requested by the client, not a partial patch —
   the "flat corporate minimal" direction described below is retired.
-- **Brand palette (client-supplied logo)**: `ink #610908` and `accent
+- **Brand palette (client-supplied logo)**: `ink #900909` and `accent
   #dc080c` are sampled directly, pixel-for-pixel, from the client's own
   logo file (the "A6" gradient icon) — `#dc080c` at its brightest corner
-  down to `#610908` at its darkest, replacing an earlier MVP-inspired navy
+  down to `#900909` at its darkest, replacing an earlier MVP-inspired navy
   placeholder palette. `ink` carries the same structural role the navy
   did (default text color, dark button/card fills, border tint at reduced
   opacity — same ~13.5:1 contrast on white), `accent` is the brighter red
