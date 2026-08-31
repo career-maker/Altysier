@@ -1226,49 +1226,184 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* ---------------------------------------------------------------------- */
 /* 05 — Global Reach + Impact                                             */
 /* ---------------------------------------------------------------------- */
-.reach { position: relative; min-height: auto; display: flex; align-items: center; padding: 80rem 0 90rem; background-color: var(--near-black); overflow: hidden; }
+.reach {
+  position: relative;
+  min-height: auto;
+  display: flex;
+  align-items: center;
+  padding: 85rem 0 95rem;
+  background-color: var(--near-black);
+  overflow: hidden;
+}
 .reach .section-watermark,
 .why .section-watermark { color: rgba(255, 255, 255, 0.035); }
 .reach__bg { opacity: 0.9; }
 .reach__bg .section-photo { opacity: 0.22; }
 .reach__bg .route-line { stroke: rgba(255, 255, 255, 0.1); }
 .reach__container { position: relative; z-index: 1; width: 100%; }
-.reach__head { margin-bottom: 38rem; }
-.reach__head-info { max-width: 780rem; }
+
+.reach__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 48rem;
+  align-items: center;
+}
+.reach__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.reach__head { margin-bottom: 24rem; }
+.reach__head-info { max-width: 620rem; }
 .reach__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: #d48080; margin-bottom: 12rem; }
 .reach__title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 46rem; line-height: 1.15; color: #ffffff; letter-spacing: -0.01em; margin-bottom: 16rem; }
 .reach__accent-line { display: block; width: 44rem; height: 2.5rem; background-color: #d48080; margin-bottom: 22rem; border-radius: 2rem; }
-.reach__intro { font-family: Inter, sans-serif; font-size: 15rem; line-height: 1.55; color: rgba(255, 255, 255, 0.78); max-width: 580rem; }
+.reach__intro { font-family: Inter, sans-serif; font-size: 15rem; line-height: 1.6; color: rgba(255, 255, 255, 0.78); max-width: 540rem; margin-bottom: 32rem; }
 
-.reach__grid { display: grid; grid-template-columns: 7fr 5fr; gap: 40rem; align-items: start; }
-.reach__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12rem; }
-.reach__stat { border-radius: 14rem; border: 1rem solid rgba(255, 255, 255, 0.16); padding: 16rem; }
-.reach__stat-value { font-size: 30rem; color: #fff; line-height: 1; }
-.reach__stat-label { margin-top: 6rem; font-family: Inter, sans-serif; font-size: 11rem; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.55); }
-.reach__side { border-left: 1rem solid rgba(255, 255, 255, 0.16); padding-left: 40rem; }
-.reach__pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10rem; margin-bottom: 20rem; }
-.pillar { border-radius: 14rem; border: 1rem solid rgba(255, 255, 255, 0.16); background-color: rgba(255, 255, 255, 0.04); padding: 16rem; }
-.pillar__title { font-family: Inter, sans-serif; font-weight: 700; font-size: 13rem; color: #fff; margin-bottom: 5rem; }
-.pillar__text { font-family: Inter, sans-serif; font-size: 12rem; line-height: 1.4; color: rgba(255, 255, 255, 0.6); }
+/* Bigger, prominent stat cards */
+.reach__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14rem;
+}
+.reach__stat {
+  border-radius: 18rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12rem);
+  -webkit-backdrop-filter: blur(12rem);
+  padding: 30rem 16rem 28rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 155rem;
+  box-shadow: 0 6rem 20rem rgba(0, 0, 0, 0.2);
+  transition: transform var(--t-fast), border-color var(--t-fast), background-color var(--t-fast);
+}
+.reach__stat:hover {
+  transform: translateY(-4rem);
+  border-color: rgba(255, 255, 255, 0.28);
+  background-color: rgba(255, 255, 255, 0.07);
+}
+.reach__stat-value {
+  font-family: 'Oswald', 'Bebas Neue', sans-serif;
+  font-weight: 700;
+  font-size: 42rem;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 12rem;
+}
+.reach__stat-label {
+  font-family: Inter, sans-serif;
+  font-size: 11.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+/* Right side pillars */
+.reach__side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+.reach__pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rem;
+  margin-bottom: 28rem;
+}
+.pillar {
+  border-radius: 18rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12rem);
+  -webkit-backdrop-filter: blur(12rem);
+  padding: 22rem 20rem 22rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 140rem;
+  box-shadow: 0 6rem 20rem rgba(0, 0, 0, 0.2);
+  transition: transform var(--t-fast), border-color var(--t-fast), background-color var(--t-fast);
+}
+.pillar:hover {
+  transform: translateY(-4rem);
+  border-color: rgba(144, 9, 9, 0.6);
+  background-color: rgba(255, 255, 255, 0.07);
+}
+.pillar__top {
+  display: flex;
+  align-items: center;
+  gap: 12rem;
+  margin-bottom: 10rem;
+}
+.pillar__icon {
+  width: 44rem;
+  height: 44rem;
+  border-radius: 50%;
+  background: rgba(144, 9, 9, 0.18);
+  border: 1.5rem solid rgba(144, 9, 9, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.pillar__icon svg {
+  width: 20rem;
+  height: 20rem;
+  color: #e65c5c;
+}
+.pillar__title {
+  font-family: 'Oswald', 'Bebas Neue', sans-serif;
+  font-weight: 700;
+  font-size: 20rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+}
+.pillar__text {
+  font-family: Inter, sans-serif;
+  font-size: 13rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+}
+.reach__action {
+  display: flex;
+  justify-content: flex-end;
+}
 
 @media only screen and (max-width: 1440px) {
   .reach__title { font-size: 40rem; }
+  .reach__stat-value { font-size: 38rem; }
 }
 
 @media only screen and (max-width: 1024px) {
   .reach { padding: 50rem 0 60rem; }
-  .reach__grid { grid-template-columns: 1fr; gap: 30rem; }
+  .reach__grid { grid-template-columns: 1fr; gap: 34rem; }
   .reach__title { font-size: 34rem; max-width: 100%; }
-  .reach__stats { grid-template-columns: repeat(2, 1fr); gap: 10rem; }
-  .reach__stat-value { font-size: 28rem; }
-  .reach__side { border-left: 0; padding-left: 0; border-top: 1rem solid rgba(255, 255, 255, 0.16); padding-top: 26rem; }
-  .reach__pillars { grid-template-columns: repeat(2, 1fr); }
+  .reach__intro { margin-bottom: 24rem; }
+  .reach__stats { grid-template-columns: repeat(2, 1fr); gap: 12rem; }
+  .reach__stat { min-height: 130rem; padding: 22rem 16rem; }
+  .reach__stat-value { font-size: 32rem; }
+  .reach__pillars { grid-template-columns: repeat(2, 1fr); gap: 12rem; }
+  .reach__action { justify-content: flex-start; }
 }
 
 @media only screen and (max-width: 640px) {
   .reach__title { font-size: 28rem; }
   .reach__intro { font-size: 14rem; }
-  .reach__pillars { grid-template-columns: 1fr; }
+  .reach__stats { grid-template-columns: repeat(2, 1fr); gap: 10rem; }
+  .reach__stat { min-height: 115rem; padding: 18rem 12rem; }
+  .reach__stat-value { font-size: 28rem; }
+  .reach__pillars { grid-template-columns: 1fr; gap: 10rem; }
 }
 
 /* ---------------------------------------------------------------------- */
