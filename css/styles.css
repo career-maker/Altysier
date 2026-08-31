@@ -1147,13 +1147,67 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* 04 — Our Business Ecosystem (horizontal, alternating navy/light cards) */
 /* ---------------------------------------------------------------------- */
 .businesses { position: relative; overflow: hidden; min-height: auto; display: flex; align-items: center; padding: 70rem 0 80rem; background-color: var(--paper); }
-.businesses > .container { position: relative; z-index: 1; width: 100%; }
-.businesses__head { margin-bottom: 36rem; }
-.businesses__head-info { max-width: 680rem; }
-.businesses__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: none; letter-spacing: 0.08em; color: #a45d5d; margin-bottom: 12rem; }
-.businesses__title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 46rem; line-height: 1.15; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 16rem; }
-.businesses__accent-line { display: block; width: 44rem; height: 2.5rem; background-color: var(--ink); margin-bottom: 22rem; border-radius: 2rem; }
-.businesses__intro { font-family: Inter, sans-serif; font-size: 15rem; line-height: 1.55; color: #555555; max-width: 580rem; }
+.strip-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24rem;
+  margin-bottom: 36rem;
+}
+.strip-nav {
+  display: flex;
+  align-items: center;
+  gap: 12rem;
+  margin-bottom: 4rem;
+  flex-shrink: 0;
+}
+.strip-counter {
+  font-family: Inter, sans-serif;
+  font-size: 14rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: 0.05em;
+  margin-right: 4rem;
+}
+.strip-nav-btn {
+  width: 44rem;
+  height: 44rem;
+  border-radius: 50%;
+  border: 1.5rem solid rgba(144, 9, 9, 0.2);
+  background-color: #ffffff;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4rem 14rem rgba(0, 0, 0, 0.04);
+  transition: border-color var(--t-fast), background-color var(--t-fast), transform var(--t-fast);
+}
+.strip-nav-btn svg { width: 18rem; height: 18rem; }
+.strip-nav-btn:hover {
+  border-color: var(--ink);
+  background-color: #FAF4F4;
+  transform: translateY(-2rem);
+}
+.strip-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+  pointer-events: none;
+  transform: none;
+}
+.strip-track {
+  display: flex;
+  gap: 20rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: 4rem;
+  padding: 6rem 4rem 18rem;
+  margin: -6rem -4rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.strip-track::-webkit-scrollbar { display: none; }
 
 .business-card {
   scroll-snap-align: start;
@@ -1251,14 +1305,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   display: flex;
   align-items: center;
   padding: 85rem 0 95rem;
-  background-color: var(--near-black);
+  background-color: #FAF4F4;
   overflow: hidden;
 }
-.reach .section-watermark,
-.why .section-watermark { color: rgba(255, 255, 255, 0.035); }
-.reach__bg { opacity: 0.9; }
-.reach__bg .section-photo { opacity: 0.22; }
-.reach__bg .route-line { stroke: rgba(255, 255, 255, 0.1); }
+.reach__bg { opacity: 0.7; }
+.reach__bg .section-photo { opacity: 0.05; filter: grayscale(100%); }
+.reach__bg .route-line { stroke: rgba(144, 9, 9, 0.12); }
+.reach__bg .route-node { fill: var(--ink); opacity: 0.35; }
 .reach__container { position: relative; z-index: 1; width: 100%; }
 
 .reach__grid {
@@ -1275,10 +1328,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .reach__head { margin-bottom: 24rem; }
 .reach__head-info { max-width: 620rem; }
-.reach__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: none; letter-spacing: 0.08em; color: #d48080; margin-bottom: 12rem; }
-.reach__title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 46rem; line-height: 1.15; color: #ffffff; letter-spacing: -0.01em; margin-bottom: 16rem; }
-.reach__accent-line { display: block; width: 44rem; height: 2.5rem; background-color: #d48080; margin-bottom: 22rem; border-radius: 2rem; }
-.reach__intro { font-family: Inter, sans-serif; font-size: 15rem; line-height: 1.6; color: rgba(255, 255, 255, 0.78); max-width: 540rem; margin-bottom: 32rem; }
+.reach__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: none; letter-spacing: 0.08em; color: #a45d5d; margin-bottom: 12rem; }
+.reach__title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 46rem; line-height: 1.15; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 16rem; }
+.reach__accent-line { display: block; width: 44rem; height: 2.5rem; background-color: var(--ink); margin-bottom: 22rem; border-radius: 2rem; }
+.reach__intro { font-family: Inter, sans-serif; font-size: 15rem; line-height: 1.6; color: #555555; max-width: 540rem; margin-bottom: 32rem; }
 
 /* Bigger, prominent stat cards */
 .reach__stats {
@@ -1288,10 +1341,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .reach__stat {
   border-radius: 18rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.035);
-  backdrop-filter: blur(12rem);
-  -webkit-backdrop-filter: blur(12rem);
+  border: 1.5rem solid rgba(144, 9, 9, 0.14);
+  background: #ffffff;
   padding: 30rem 16rem 28rem;
   display: flex;
   flex-direction: column;
@@ -1299,19 +1350,19 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   align-items: center;
   text-align: center;
   min-height: 155rem;
-  box-shadow: 0 6rem 20rem rgba(0, 0, 0, 0.2);
-  transition: transform var(--t-fast), border-color var(--t-fast), background-color var(--t-fast);
+  box-shadow: 0 4rem 18rem rgba(0, 0, 0, 0.025);
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
 }
 .reach__stat:hover {
   transform: translateY(-4rem);
-  border-color: rgba(255, 255, 255, 0.28);
-  background-color: rgba(255, 255, 255, 0.07);
+  border-color: var(--ink);
+  box-shadow: 0 8rem 28rem rgba(144, 9, 9, 0.08);
 }
 .reach__stat-value {
-  font-family: 'Oswald', 'Bebas Neue', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 42rem;
-  color: #ffffff;
+  color: var(--ink);
   line-height: 1;
   letter-spacing: -0.01em;
   margin-bottom: 12rem;
@@ -1322,7 +1373,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.65);
+  color: #555555;
 }
 
 /* Right side pillars */
@@ -1340,22 +1391,20 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .pillar {
   border-radius: 18rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.035);
-  backdrop-filter: blur(12rem);
-  -webkit-backdrop-filter: blur(12rem);
+  border: 1.5rem solid rgba(144, 9, 9, 0.14);
+  background: #ffffff;
   padding: 22rem 20rem 22rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   min-height: 140rem;
-  box-shadow: 0 6rem 20rem rgba(0, 0, 0, 0.2);
-  transition: transform var(--t-fast), border-color var(--t-fast), background-color var(--t-fast);
+  box-shadow: 0 4rem 18rem rgba(0, 0, 0, 0.025);
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
 }
 .pillar:hover {
   transform: translateY(-4rem);
-  border-color: rgba(144, 9, 9, 0.6);
-  background-color: rgba(255, 255, 255, 0.07);
+  border-color: var(--ink);
+  box-shadow: 0 8rem 28rem rgba(144, 9, 9, 0.08);
 }
 .pillar__top {
   display: flex;
@@ -1367,8 +1416,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   width: 44rem;
   height: 44rem;
   border-radius: 50%;
-  background: rgba(144, 9, 9, 0.18);
-  border: 1.5rem solid rgba(144, 9, 9, 0.55);
+  background: rgba(144, 9, 9, 0.08);
+  border: 1.5rem solid rgba(144, 9, 9, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1377,22 +1426,22 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .pillar__icon svg {
   width: 20rem;
   height: 20rem;
-  color: #e65c5c;
+  color: var(--ink);
 }
 .pillar__title {
   font-family: 'Oswald', sans-serif;
   font-weight: 600;
   font-size: 21rem;
   text-transform: none;
-  color: #ffffff;
+  color: var(--ink);
   letter-spacing: 0.01em;
   line-height: 1.15;
 }
 .pillar__text {
   font-family: Inter, sans-serif;
-  font-size: 13rem;
+  font-size: 13.5rem;
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.65);
+  color: #555555;
 }
 .reach__action {
   display: flex;
@@ -1432,7 +1481,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   position: relative;
   overflow: hidden;
   padding: 80rem 0 90rem;
-  background-color: var(--near-black);
+  background-color: #ffffff;
 }
 .why__bg {
   position: absolute;
@@ -1440,16 +1489,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   z-index: 0;
 }
 .why__bg .section-photo {
-  opacity: 0.18;
+  opacity: 0.04;
+  filter: grayscale(100%);
   object-fit: cover;
   width: 100%;
   height: 100%;
-}
-.why__bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(14, 14, 14, 0.4) 0%, rgba(14, 14, 14, 0.9) 70%, var(--near-black) 100%);
 }
 .why > .container {
   position: relative;
@@ -1468,7 +1512,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0.08em;
-  color: #d48080;
+  color: #a45d5d;
   margin-bottom: 12rem;
 }
 .why__title {
@@ -1476,7 +1520,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-weight: 700;
   font-size: 46rem;
   line-height: 1.15;
-  color: #ffffff;
+  color: var(--ink);
   margin-bottom: 16rem;
   letter-spacing: -0.01em;
 }
@@ -1484,7 +1528,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   display: block;
   width: 44rem;
   height: 2.5rem;
-  background-color: #d48080;
+  background-color: var(--ink);
   margin-bottom: 22rem;
   border-radius: 2rem;
 }
@@ -1492,7 +1536,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-family: Inter, sans-serif;
   font-size: 15rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.78);
+  color: #555555;
   max-width: 620rem;
   text-transform: none;
 }
@@ -1507,27 +1551,26 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 
 .principle {
   border-radius: 16rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(12rem);
-  -webkit-backdrop-filter: blur(12rem);
+  border: 1.5rem solid rgba(144, 9, 9, 0.14);
+  background: #FAF4F4;
   padding: 22rem 18rem;
   display: flex;
   align-items: flex-start;
   gap: 14rem;
-  transition: border-color var(--t-fast), background-color var(--t-fast), transform var(--t-fast);
+  box-shadow: 0 4rem 18rem rgba(0, 0, 0, 0.02);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
 }
 .principle:hover {
-  border-color: rgba(144, 9, 9, 0.6);
-  background-color: rgba(255, 255, 255, 0.07);
+  border-color: var(--ink);
+  box-shadow: 0 8rem 28rem rgba(144, 9, 9, 0.08);
   transform: translateY(-3rem);
 }
 .principle__icon {
   width: 46rem;
   height: 46rem;
   border-radius: 50%;
-  background: rgba(144, 9, 9, 0.15);
-  border: 1.5rem solid rgba(144, 9, 9, 0.55);
+  background: rgba(144, 9, 9, 0.08);
+  border: 1.5rem solid rgba(144, 9, 9, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1536,7 +1579,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .principle__icon svg {
   width: 20rem;
   height: 20rem;
-  color: #e65c5c;
+  color: var(--ink);
 }
 .principle__content {
   flex: 1;
@@ -1546,7 +1589,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
   font-size: 32rem;
-  color: #ffffff;
+  color: var(--ink);
   line-height: 1;
   margin-bottom: 8rem;
 }
@@ -1554,7 +1597,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-family: Inter, sans-serif;
   font-weight: 700;
   font-size: 13.5rem;
-  color: #ffffff;
+  color: var(--ink);
   line-height: 1.35;
   margin-bottom: 6rem;
 }
@@ -1562,18 +1605,17 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-family: Inter, sans-serif;
   font-size: 12rem;
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.65);
+  color: #666666;
 }
 
 /* Testimonials Box Container */
 .testimonials-box {
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1.5rem solid rgba(144, 9, 9, 0.14);
   border-radius: 24rem;
   padding: 34rem 36rem 38rem;
-  background: rgba(0, 0, 0, 0.32);
-  backdrop-filter: blur(16rem);
-  -webkit-backdrop-filter: blur(16rem);
+  background: #FAF4F4;
+  box-shadow: 0 4rem 20rem rgba(0, 0, 0, 0.02);
   width: 100%;
 }
 .testimonials-box__head {
@@ -1592,7 +1634,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-weight: 600;
   text-transform: none;
   letter-spacing: 0.1em;
-  color: #d48080;
+  color: #a45d5d;
   margin-bottom: 6rem;
 }
 .testimonials-box__title {
@@ -1600,7 +1642,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-weight: 600;
   font-size: 32rem;
   text-transform: none;
-  color: #ffffff;
+  color: var(--ink);
   letter-spacing: 0.01em;
   line-height: 1.1;
 }
@@ -1615,8 +1657,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .testimonials-box__counter {
   font-family: Inter, sans-serif;
   font-size: 13.5rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  color: #333333;
   margin: 0 4rem;
   letter-spacing: 0.04em;
 }
@@ -1624,9 +1666,9 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   width: 40rem;
   height: 40rem;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: transparent;
-  color: #ffffff;
+  border: 1.5rem solid #e4d8d8;
+  background: #ffffff;
+  color: #333333;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1638,8 +1680,9 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   height: 16rem;
 }
 .testimonials-box__nav-btn:hover {
-  border-color: #ffffff;
-  background-color: rgba(255, 255, 255, 0.15);
+  border-color: var(--ink);
+  color: var(--ink);
+  background-color: #fdf6f6;
   transform: translateY(-2rem);
 }
 .testimonials-box__nav-btn:disabled {
@@ -1659,18 +1702,20 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 
 .testimonial-card {
   position: relative;
-  background: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #ffffff;
+  border: 1.5rem solid rgba(144, 9, 9, 0.12);
   border-radius: 18rem;
   padding: 26rem 24rem 22rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 230rem;
-  transition: border-color var(--t-fast), transform var(--t-fast);
+  box-shadow: 0 4rem 18rem rgba(0, 0, 0, 0.025);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
 }
 .testimonial-card:hover {
-  border-color: rgba(255, 255, 255, 0.22);
+  border-color: var(--ink);
+  box-shadow: 0 8rem 28rem rgba(144, 9, 9, 0.08);
   transform: translateY(-3rem);
 }
 
@@ -1678,7 +1723,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-family: Georgia, serif;
   font-size: 36rem;
   line-height: 0.8;
-  color: #d15050;
+  color: var(--ink);
   margin-bottom: 12rem;
   user-select: none;
 }
@@ -1686,7 +1731,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-family: Inter, sans-serif;
   font-size: 14rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.82);
+  color: #444444;
   margin-bottom: 24rem;
   flex-grow: 1;
 }
@@ -1695,7 +1740,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   align-items: center;
   gap: 14rem;
   padding-top: 18rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(144, 9, 9, 0.1);
 }
 .testimonial-card__avatar {
   width: 42rem;
@@ -1729,13 +1774,13 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-family: Inter, sans-serif;
   font-weight: 700;
   font-size: 14rem;
-  color: #ffffff;
+  color: var(--ink);
   margin-bottom: 3rem;
 }
 .testimonial-card__role {
   font-family: Inter, sans-serif;
   font-size: 12rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: #666666;
 }
 
 @media only screen and (max-width: 1440px) {
@@ -1755,6 +1800,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .testimonials-box__track {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
     scroll-snap-type: x proximity;
     scroll-padding-left: 20rem;
     padding: 6rem 4rem 16rem;
