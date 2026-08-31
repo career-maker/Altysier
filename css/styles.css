@@ -107,9 +107,9 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 @media only screen and (max-width: 768px) { .container { padding: 0 20rem; } }
 
 .hidden { display: none !important; }
-.eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; }
+.eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: none; letter-spacing: 0.08em; }
 @media only screen and (max-width: 768px) {
-  .eyebrow { font-size: 12rem; letter-spacing: 0.18em; }
+  .eyebrow { font-size: 12rem; letter-spacing: 0.06em; }
 }
 
 /* Section titles — the primary heading of each of the 7 numbered sections */
@@ -185,12 +185,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   overflow: hidden;
   z-index: 1;
   isolation: isolate;
-  font-family: 'Bebas Neue', sans-serif;
-  text-transform: uppercase;
-  font-weight: 400;
+  font-family: 'Oswald', 'Inter', sans-serif;
+  text-transform: none;
+  font-weight: 600;
   line-height: 1.1;
-  font-size: 21rem;
-  letter-spacing: 0.03em;
+  font-size: 17.5rem;
+  letter-spacing: 0.02em;
   padding: 0 38rem;
   height: 58rem;
   background-color: var(--paper-200);
@@ -588,7 +588,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .stat-card__content { display: flex; flex-direction: column; }
 .stat-card__icon { width: 36rem; height: 36rem; color: #222222; opacity: 0.85; stroke-width: 1.35; flex-shrink: 0; margin-left: 12rem; }
 .stat-card__value { font-family: 'Oswald', 'Bebas Neue', sans-serif; font-weight: 700; font-size: 42rem; color: var(--ink); line-height: 1; }
-.stat-card__label { margin-top: 8rem; font-family: Inter, sans-serif; font-size: 11.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #444444; }
+.stat-card__label { margin-top: 8rem; font-family: Inter, sans-serif; font-size: 12rem; font-weight: 600; text-transform: none; letter-spacing: 0.02em; color: #444444; }
 
 .hero__scroll-cue {
   display: flex;
@@ -798,13 +798,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   justify-content: space-between;
 }
 .sector-card__name {
-  font-family: 'Oswald', 'Bebas Neue', sans-serif;
-  font-size: 22rem;
-  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-size: 23rem;
+  font-weight: 600;
+  text-transform: none;
   color: var(--ink);
-  line-height: 1.18;
+  line-height: 1.2;
   margin-bottom: 10rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
 }
 .sector-card__text {
   font-family: Inter, sans-serif;
@@ -822,10 +823,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .sector-card__tag {
   font-family: Inter, sans-serif;
-  font-size: 11rem;
+  font-size: 11.5rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  text-transform: none;
+  letter-spacing: 0.02em;
   padding: 5rem 12rem;
   border-radius: 999rem;
   background-color: rgba(144, 9, 9, 0.08);
@@ -1064,12 +1065,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   flex-direction: column;
 }
 .journey-card__title {
-  font-family: 'Oswald', 'Bebas Neue', sans-serif;
-  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
   font-size: 22rem;
-  text-transform: uppercase;
+  text-transform: none;
   color: var(--ink);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   margin-bottom: 12rem;
 }
 .journey-card__text {
@@ -1149,7 +1150,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .businesses > .container { position: relative; z-index: 1; width: 100%; }
 .businesses__head { margin-bottom: 36rem; }
 .businesses__head-info { max-width: 680rem; }
-.businesses__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: #a45d5d; margin-bottom: 12rem; }
+.businesses__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: none; letter-spacing: 0.08em; color: #a45d5d; margin-bottom: 12rem; }
 .businesses__title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 46rem; line-height: 1.15; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 16rem; }
 .businesses__accent-line { display: block; width: 44rem; height: 2.5rem; background-color: var(--ink); margin-bottom: 22rem; border-radius: 2rem; }
 .businesses__intro { font-family: Inter, sans-serif; font-size: 15rem; line-height: 1.55; color: #555555; max-width: 580rem; }
@@ -1178,17 +1179,17 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .business-card__tag {
   align-self: flex-start;
   font-family: Inter, sans-serif;
-  font-size: 11rem;
+  font-size: 11.5rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  text-transform: none;
+  letter-spacing: 0.02em;
   padding: 5rem 13rem;
   border-radius: 999rem;
   background-color: rgba(144, 9, 9, 0.08);
   margin-bottom: 12rem;
 }
 .business-card._accent .business-card__tag { background-color: rgba(255, 255, 255, 0.14); }
-.business-card__name { font-size: 24rem; text-transform: uppercase; line-height: 1.05; margin-bottom: 10rem; }
+.business-card__name { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 24rem; text-transform: none; line-height: 1.18; margin-bottom: 10rem; }
 .business-card__text { font-family: Inter, sans-serif; font-size: 13rem; line-height: 1.45; opacity: 0.75; flex-grow: 1; }
 .business-card__link {
   margin-top: 16rem;
@@ -1256,7 +1257,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .reach__head { margin-bottom: 24rem; }
 .reach__head-info { max-width: 620rem; }
-.reach__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: #d48080; margin-bottom: 12rem; }
+.reach__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: none; letter-spacing: 0.08em; color: #d48080; margin-bottom: 12rem; }
 .reach__title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 46rem; line-height: 1.15; color: #ffffff; letter-spacing: -0.01em; margin-bottom: 16rem; }
 .reach__accent-line { display: block; width: 44rem; height: 2.5rem; background-color: #d48080; margin-bottom: 22rem; border-radius: 2rem; }
 .reach__intro { font-family: Inter, sans-serif; font-size: 15rem; line-height: 1.6; color: rgba(255, 255, 255, 0.78); max-width: 540rem; margin-bottom: 32rem; }
@@ -1299,10 +1300,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .reach__stat-label {
   font-family: Inter, sans-serif;
-  font-size: 11.5rem;
+  font-size: 12rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  text-transform: none;
+  letter-spacing: 0.04em;
   color: rgba(255, 255, 255, 0.65);
 }
 
@@ -1361,12 +1362,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   color: #e65c5c;
 }
 .pillar__title {
-  font-family: 'Oswald', 'Bebas Neue', sans-serif;
-  font-weight: 700;
-  font-size: 20rem;
-  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 21rem;
+  text-transform: none;
   color: #ffffff;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   line-height: 1.15;
 }
 .pillar__text {
@@ -1447,8 +1448,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-family: Inter, sans-serif;
   font-size: 13rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
+  text-transform: none;
+  letter-spacing: 0.08em;
   color: #d48080;
   margin-bottom: 12rem;
 }
@@ -1571,18 +1572,18 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   font-family: Inter, sans-serif;
   font-size: 12.5rem;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.24em;
+  text-transform: none;
+  letter-spacing: 0.1em;
   color: #d48080;
   margin-bottom: 6rem;
 }
 .testimonials-box__title {
-  font-family: 'Oswald', 'Bebas Neue', sans-serif;
-  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
   font-size: 32rem;
-  text-transform: uppercase;
+  text-transform: none;
   color: #ffffff;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
   line-height: 1.1;
 }
 .testimonials-box__nav {
@@ -1768,7 +1769,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .faq__grid { display: flex; gap: 48rem; align-items: flex-start; }
 .faq__col-left { width: 440rem; flex-shrink: 0; }
 .faq__col-right { flex: 1; min-width: 0; }
-.faq__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: #a45d5d; margin-bottom: 12rem; }
+.faq__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: none; letter-spacing: 0.08em; color: #a45d5d; margin-bottom: 12rem; }
 .faq__title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 38rem; line-height: 1.15; color: var(--ink); letter-spacing: -0.01em; margin-bottom: 16rem; }
 .faq__accent-line { display: block; width: 44rem; height: 2.5rem; background-color: var(--ink); margin-bottom: 22rem; border-radius: 2rem; }
 .faq__intro, .faq__form-text { font-family: Inter, sans-serif; font-size: 15rem; line-height: 1.55; color: #555555; max-width: 480rem; margin-bottom: 24rem; }
@@ -1776,7 +1777,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .contact-form { display: flex; flex-direction: column; gap: 12rem; }
 .contact-form__row { display: flex; gap: 12rem; }
 .contact-form__field { display: flex; flex-direction: column; gap: 6rem; flex: 1; }
-.contact-form__field span { font-family: Inter, sans-serif; font-weight: 600; font-size: 11rem; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(144, 9, 9, 0.55); }
+.contact-form__field span { font-family: Inter, sans-serif; font-weight: 600; font-size: 11.5rem; text-transform: none; letter-spacing: 0.02em; color: rgba(144, 9, 9, 0.7); }
 .contact-form__field input,
 .contact-form__field textarea {
   font-family: Inter, sans-serif;
@@ -1835,7 +1836,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .footer__social-link { display: flex; align-items: center; justify-content: center; width: 46rem; height: 46rem; border-radius: 999rem; border: 1rem solid rgba(255, 255, 255, 0.2); transition: background-color var(--t-fast), border-color var(--t-fast); }
 .footer__social-link svg { width: 18rem; height: 18rem; }
 .footer__social-link:hover { background-color: #fff; border-color: #fff; color: var(--near-black); }
-.footer__heading { font-size: 22rem; text-transform: uppercase; margin-bottom: 24rem; color: rgba(255, 255, 255, 0.9); }
+.footer__heading { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 22rem; text-transform: none; margin-bottom: 24rem; color: rgba(255, 255, 255, 0.9); }
 .footer__col a, .footer__col span { display: block; font-family: Inter, sans-serif; font-size: 15rem; margin-bottom: 13rem; font-weight: 400; color: rgba(255, 255, 255, 0.6); overflow-wrap: break-word; }
 .footer__col a:last-child, .footer__col span:last-child { margin-bottom: 0; }
 .footer__col a:hover { color: #fff; }
@@ -1843,7 +1844,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .footer__wordmark { margin-top: 60rem; padding-top: 24rem; border-top: 1rem solid rgba(255, 255, 255, 0.15); font-size: clamp(36rem, 8vw, 130rem); line-height: 0.9; text-transform: uppercase; color: rgba(255, 255, 255, 0.08); }
 .footer__bottom { margin-top: 24rem; padding: 20rem 0; border-top: 1rem solid rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12rem; }
 .footer__copyrights, .footer__tagline { font-family: Inter, sans-serif; font-size: 13rem; color: rgba(255, 255, 255, 0.55); }
-.footer__up-btn { display: flex; align-items: center; gap: 10rem; font-family: Inter, sans-serif; font-size: 13rem; text-transform: uppercase; color: rgba(255, 255, 255, 0.55); }
+.footer__up-btn { display: flex; align-items: center; gap: 10rem; font-family: Inter, sans-serif; font-size: 13rem; text-transform: none; color: rgba(255, 255, 255, 0.55); }
 .footer__up-icon { width: 32rem; height: 32rem; border-radius: 999rem; background-color: rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; transition: background-color var(--t-fast); }
 .footer__up-icon svg { width: 15rem; height: 15rem; }
 .footer__up-btn:hover .footer__up-icon { background-color: #fff; color: var(--near-black); }
