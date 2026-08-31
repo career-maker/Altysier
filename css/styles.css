@@ -507,7 +507,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 130rem;
+  padding-top: 175rem;
   padding-bottom: 32rem;
   background-color: #ffffff;
 }
@@ -598,7 +598,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 @media (prefers-reduced-motion: reduce) { .hero__scroll-cue svg { animation: none; } }
 
 @media only screen and (max-width: 1440px) {
-  .hero { padding-top: 116rem; }
+  .hero { padding-top: 155rem; }
   .hero__title { font-size: 46rem; max-width: 680rem; margin-bottom: 20rem; }
   .hero__text { font-size: 15rem; max-width: 520rem; margin-bottom: 30rem; }
   .stat-grid { gap: 12rem; }
@@ -607,7 +607,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 @media only screen and (max-width: 1024px) {
-  .hero { padding-top: 100rem; padding-bottom: 44rem; min-height: auto; height: auto; }
+  .hero { padding-top: 130rem; padding-bottom: 44rem; min-height: auto; height: auto; }
   .hero > .hero__bg .section-photo { opacity: 0.35; }
   .hero__scrim { background: linear-gradient(180deg, #fff 0%, #fff 64%, rgba(255, 255, 255, 0.92) 80%, rgba(255, 255, 255, 0.6) 100%); }
   .hero__eyebrow { margin-bottom: 14rem; }
@@ -621,7 +621,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 @media only screen and (max-width: 640px) {
-  .hero { padding-top: 90rem; padding-bottom: 36rem; }
+  .hero { padding-top: 110rem; padding-bottom: 36rem; }
   .hero__title { font-size: 30rem; }
   .hero__actions { flex-direction: column; width: 100%; gap: 10rem; }
   .hero__actions .btn { width: 100%; justify-content: center; }
