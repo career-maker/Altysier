@@ -139,13 +139,15 @@ wrapper (`.section-photo`, `.business-card__photo`,
 `.journey-card__photo`, `.sectors__panel-photo`) so replacement is a
 straight `src` swap with no layout changes needed.
 
-- **Full-bleed section photos** (Hero, Reach, Why, the final CTA banner)
-  sit at low opacity (12–32%, tuned per photo — a naturally bright photo
-  needs a lower opacity than a naturally dark one to read as equally
-  subtle) directly over the section's own existing brand-color background,
-  with no separate tint layer: the background paints first, so even
-  before/if a photo loads, brand color always dominates and text contrast
-  is never at risk.
+- **Full-bleed section photos** (Reach, Why) sit at low opacity (12–22%,
+  tuned per photo — a naturally bright photo needs a lower opacity than a
+  naturally dark one to read as equally subtle) directly over the
+  section's own existing brand-color background, with no separate tint
+  layer: the background paints first, so even before/if a photo loads,
+  brand color always dominates and text contrast is never at risk. The
+  Hero is the one exception, redesigned later to run its photo at
+  near-full opacity (94%) under a white gradient scrim instead — see
+  "Hero redesign" under intentional design decisions below.
 - **Sector explorer panel**: seven photos (one per sector) are all
   present in the DOM as stacked, absolutely-positioned `<img>` elements
   and crossfaded via a `.is-active` class toggle in `js/main.js` — chosen
@@ -215,20 +217,22 @@ straight `src` swap with no layout changes needed.
   quote/name/designation/company (and logo, where approved) only once a
   client-approved testimonial exists. Do not put placeholder testimonial
   content there in the meantime.
-- **All 23 photos are Unsplash placeholders**, not Altysier's own
+- **All 20 photos are Unsplash placeholders**, not Altysier's own
   photography — see the "Photography" section above for the full list of
   what's used where and how to swap them.
 
 ## Notes on intentional design decisions
 
 - **One-screen-per-section (desktop only)**: every section (`.hero`,
-  `.group`, `.businesses`, `.reach`, `.why`, `.faq`) is `height: 100vh` +
-  `display: flex; align-items: center` at desktop widths (≥1025px) —
-  content is centered and sized to fit inside one viewport, no scrolling
-  within a section. `.journey` is the one exception: even after the same
-  round of size cuts its 5 cards comfortably fit in well under a screen
-  height, so forcing it to fill 100vh would just add dead whitespace — it
-  keeps natural height instead. Getting here meant cutting card/icon/text
+  `.group`, `.journey`, `.businesses`, `.reach`, `.why`, `.faq`) is
+  `height: 100vh` + `display: flex; align-items: center` at desktop widths
+  (≥1025px) — content is centered and sized to fit inside one viewport, no
+  scrolling within a section. `.journey`'s 5 cards are noticeably shorter
+  than a full screen even after the same round of size cuts, so forcing it
+  to 100vh leaves a wide, deliberate band of whitespace above/below the
+  card row (verified symmetric with `getBoundingClientRect()`) rather than
+  the section growing past the viewport or the cards stretching to fill
+  it. Getting here meant cutting card/icon/text
   sizes hard across every section (e.g. the Group section's sector-explorer
   tab rows went from 24rem to 8rem vertical padding, the FAQ accordion's
   question padding from 26rem to 14rem) — verified with
@@ -254,11 +258,33 @@ straight `src` swap with no layout changes needed.
   the `setInterval` carousel JS all removed together — nothing dormant
   left behind); the sector explorer two sections down already covers the
   same 7 sectors properly, interactively. In its place, the Group
-  section's 4 stat cards now live in the hero instead — same `.stat-card`
-  markup/CSS, just relocated and given an `._on-dark` modifier (translucent
-  glass, white text) since the hero sits on a dark/photo backdrop instead
-  of Group's white ground. The wrapper class was renamed `.group__stats` →
-  `.stat-grid` since it no longer belongs to the Group section.
+  section's 4 stat cards now live in the hero instead — the wrapper class
+  was renamed `.group__stats` → `.stat-grid` since it no longer belongs to
+  the Group section.
+- **Hero redesign — white-gradient-over-photo, light card treatment**: a
+  later pass moved the hero off its dark maroon radial-gradient background
+  onto a near-full-opacity photo (`.hero > .hero__bg .section-photo`,
+  0.94, scoped so it doesn't leak into `.reach__bg` which shares the
+  `.hero__bg` base class) with a white `.hero__scrim` linear-gradient
+  washing over the text column and fading out toward the photo on the
+  right. Headline/eyebrow/body copy flipped from white to dark `--ink`
+  tones to match. The decorative `route-bg` SVG (dashed lines/nodes) was
+  dropped from the hero specifically — still present on `.reach`, which
+  kept its original dark treatment — since the brief's reference layout
+  has no line-graphic overlay. Stat cards dropped the `._on-dark` glass
+  modifier for a light `rgba(244,244,247,.88)` card (the modifier's CSS
+  rule was removed as unused) and each one gained a `.stat-card__icon`
+  (building/pie-chart/globe/award line icons, top-right of the card).
+  Buttons swapped from `._light`/`._on-dark` to `._accent`/a new `._outline`
+  variant (white fill, visible ink border — added because bare `.btn`'s
+  border matches its own fill color and would have blended into a white
+  background); both new variants reuse the shared `.btn`/`.btn::after`
+  hover-sweep mechanics untouched. Mobile gets its own heavier, top-to-
+  bottom `.hero__scrim` (desktop's left-to-right wash isn't enough
+  coverage once the layout stacks full-width). Hero and Reach also each
+  gained a `.section-watermark` (`01`, `05`) — previously the only two
+  sections without one; the hero's needed a `z-index: 1` override (instead
+  of the shared -1) to still read at all against a near-opaque photo.
 - **Section title sizes reduced**: the 8 Oswald section titles (see the
   shared selector block after `.eyebrow`) were sized quite large in the
   original pass (up to 96rem on the hero) — trimmed by roughly 20% across
@@ -280,8 +306,21 @@ straight `src` swap with no layout changes needed.
   pairing. BebasNeuePro (the source's actual paid font) was not used or
   redistributed — Bebas Neue is Google Fonts' free, metrically similar
   equivalent.
-- **No inline contact form or modal on the homepage**: an earlier pass
-  added an MVP-style inline form + "leave a request" modal that didn't
-  exist in the prior build. Removed to keep the homepage's content and
-  functionality exactly what it was — the final CTA links to
-  `contact.html`, same as before.
+- **FAQ section now carries an inline contact form (left) + the accordion
+  (right)**: an earlier pass had removed an MVP-style inline form to keep
+  homepage content unchanged, then a later, explicit request asked for a
+  form back in this exact spot — so `.faq__col-left` (widened
+  300rem → 420rem) now holds a "Let's Build What Comes Next" pitch +
+  Name/Email/Message `<form>`, and the accordion moved into a new
+  `.faq__col-right` alongside its own heading. The standalone `.cta`
+  banner that used to sit below the FAQ grid (photo background, same
+  pitch copy, a single "Contact Us" link to `contact.html`) was removed —
+  its copy was folded into the new form's heading/intro instead, since a
+  real inline form and a link-out button both pointing at "get in touch"
+  in the same one-screen section was redundant. `id="contact"` moved from
+  the old `.cta` div onto `.faq__col-left`, so the header/hero's `#contact`
+  anchor links still land in the right place. The form has no backend on
+  this static build — `action="mailto:info@altysiergroup.com"` is the
+  interim submission path (opens the visitor's email client, pre-filled);
+  swap in a real form endpoint before launch. `.cta`'s CSS rules (and its
+  entry in the shared Oswald-title selector list) were removed as unused.
