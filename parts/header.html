@@ -1,0 +1,62 @@
+<!-- ==========================================================================
+     TEMPLATE PART: Header
+     Extracted from index.html for reuse across every internal page.
+     UI ported from mvplogistics.eu — see WP-CONVERSION-NOTES.md. Vanilla
+     JS only (js/main.js) — no external animation library required.
+
+     WordPress (Block Theme / FSE) conversion:
+       - Save as parts/header.html inside the theme.
+       - Register in theme.json under "templateParts" (area: "header").
+       - Swap the plain <a> nav links for <!-- wp:navigation --> pointing at
+         a "Primary" menu (About / Group Of Companies / CSR / Contact) so
+         editors can manage it without touching markup.
+       - Requires js/main.js's header show/hide + text-hover + hamburger
+         wiring on every page that includes this part.
+     ========================================================================== -->
+
+<header class="header">
+  <div class="container header__container">
+    <a href="index.html" class="header__logo"><img src="img/logo-icon.png" alt="" class="header__logo-icon">ALTYSIER<span>GROUP</span></a>
+
+    <nav class="header__menu" aria-label="Primary">
+      <a href="about.html" class="header__menu-item text-hover">
+        <span class="text-hover__inner">
+          <span class="text-hover__elem text-hover__elem-1">About</span>
+          <span class="text-hover__elem text-hover__elem-2">About</span>
+        </span>
+      </a>
+      <a href="group-of-companies.html" class="header__menu-item text-hover">
+        <span class="text-hover__inner">
+          <span class="text-hover__elem text-hover__elem-1">Group Of Companies</span>
+          <span class="text-hover__elem text-hover__elem-2">Group Of Companies</span>
+        </span>
+      </a>
+      <a href="csr.html" class="header__menu-item text-hover">
+        <span class="text-hover__inner">
+          <span class="text-hover__elem text-hover__elem-1">CSR</span>
+          <span class="text-hover__elem text-hover__elem-2">CSR</span>
+        </span>
+      </a>
+      <a href="contact.html" class="header__menu-item text-hover">
+        <span class="text-hover__inner">
+          <span class="text-hover__elem text-hover__elem-1">Contact</span>
+          <span class="text-hover__elem text-hover__elem-2">Contact</span>
+        </span>
+      </a>
+    </nav>
+
+    <button type="button" class="header__hamburger-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="is-not-active">Menu</span>
+      <span class="is-active">Close</span>
+    </button>
+  </div>
+</header>
+
+<div class="header__hamburger" id="mobile-menu">
+  <nav class="header__hamburger-menu" aria-label="Mobile primary">
+    <a href="about.html">About</a>
+    <a href="group-of-companies.html">Group Of Companies</a>
+    <a href="csr.html">CSR</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</div>

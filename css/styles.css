@@ -1,0 +1,930 @@
+/* ==========================================================================
+   ALTYSIER GROUP — Homepage
+   UI ported from the MVP Trans-logistics reference site
+   (mvplogistics.eu/en/main-en/): colors, type, spacing scale, preloader,
+   pill nav + hide-on-scroll header, per-character hover flip, animation
+   timing. Content and section structure follow the client's approved
+   homepage brief (see WP-CONVERSION-NOTES.md) — story arc: Who We Are →
+   What We Do → How We Create Value → Our Companies → Our Reach & Impact →
+   Why Trust Us → Insights & FAQs → Partnership.
+
+   Deliberately NO external animation library (no GSAP/ScrollTrigger/
+   Swiper). Every effect the reference site builds with those paid/CDN
+   libraries is reproduced with plain CSS transitions/keyframes plus small
+   hand-written JS (native scroll-snap sliders, requestAnimationFrame,
+   IntersectionObserver, CSS custom-property stagger) — same visual
+   result, but nothing that can fail to load over a CDN and leave the
+   page stuck or scroll-locked.
+
+   Fluid "rem = design px" scaling: sizes are authored in `rem`, and
+   html{font-size} below rescales that ratio fluidly with a floor (via
+   max()) so text never drops below a comfortable minimum on narrower
+   "desktop" widths (1025–1400px laptops) — a pure linear formula was
+   producing sub-1px rem values there and reading as too small.
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+@media only screen and (min-width: 1025px) {
+  html { font-size: max(0.8px, calc(0.58px + 0.62 * (100vw - 960px) / 960)); }
+}
+@media only screen and (max-width: 1024px) {
+  html { font-size: max(1.05px, calc(1px + 1.5 * (100vw - 375px) / 584)); }
+}
+
+html { scroll-behavior: smooth; overflow-x: hidden; } /* belt-and-suspenders alongside
+  body's overflow-x:hidden below — a stray wide element can otherwise expand the root
+  element's scrollable area even while body's own overflow is clipped. */
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* The header is a fixed bar of floating pills with transparent gaps between
+   them (not a solid full-width bar) — page content scrolls directly
+   underneath it. Without this, jumping to any anchor (nav links, "Explore
+   Our Group", the footer's "Up" button, etc.) lands that section's heading
+   flush against the viewport top, right where it visually collides with
+   the header. scroll-padding-top on the scrolling element is what actually
+   governs where the browser aligns an anchor target — the equivalent
+   scroll-margin-top set directly on each section target does NOT get
+   honored the same way, verified empirically before settling on this. */
+@media only screen and (min-width: 1025px) { html { scroll-padding-top: 110px; } }
+@media only screen and (max-width: 1024px) { html { scroll-padding-top: 76px; } }
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, figure { margin: 0; padding: 0; }
+ul, ol { list-style: none; }
+img, svg, video { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+input, textarea { font: inherit; color: inherit; }
+
+:root {
+  /* Brand palette sampled directly from the Altysier logo mark (the "A6"
+     gradient icon): #dc080c at its brightest corner down to #610908 at its
+     darkest. --ink plays the same structural role the old navy #1f1f61
+     did — default text color, dark button/card fills, border tint at
+     reduced opacity — just recolored to the logo's dark maroon, which
+     carries the same ~13.5:1 contrast on white the navy did. --accent is
+     the logo's brighter red for the hero backdrop gradient and any spot
+     that wants the punchier top-of-gradient tone. */
+  --ink: #610908;
+  --ink-2: #8a1912;
+  --accent: #dc080c;
+  --near-black: #141414;
+  --paper: #ffffff;
+  --paper-200: #f4f4f7;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-brand: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --t-fast: 0.35s;
+  --t-med: 0.6s;
+  --t-slow: 1s;
+}
+
+body {
+  min-width: 320px;
+  line-height: 1.2;
+  font-size: 20rem; /* explicit baseline so any text that ends up with no more specific
+    rule inherits a readable size instead of the raw (sub-1px) html rem unit */
+  font-family: 'Bebas Neue', sans-serif;
+  background-color: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--ink); color: #fff; }
+
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.container { width: 100%; padding: 0 40rem; }
+@media only screen and (max-width: 1024px) { .container { padding: 0 20rem; } }
+
+.hidden { display: none !important; }
+.eyebrow { font-family: Inter, sans-serif; font-size: 15rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; }
+
+/* Section titles — the primary heading of each of the 7 numbered sections
+   (Hero, Group, Journey/Businesses strip title, Reach, Why, FAQ, CTA).
+   These read in Title Case, not ALL CAPS, so they're set in Oswald Bold
+   rather than the site's default display face, Bebas Neue: Bebas Neue is
+   a caps-only font with no lowercase letterforms at all — text-transform
+   has zero effect on it either way, verified directly (rendering it with
+   transform:none and transform:uppercase produces pixel-identical output).
+   Oswald was chosen over the alternatives as the closest match to Bebas
+   Neue's condensed, bold, all-caps-native weight and feel while actually
+   having real lowercase. Every other Bebas Neue usage on the page (nav,
+   buttons, card titles, footer wordmark, etc.) is untouched — those stay
+   uppercase by design, this only reclassifies the 7 big section headings. */
+.hero__title, .group__statement, .sectors__title, .strip-title,
+.reach__title, .why__title, .faq__title, .cta__title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+}
+
+/* ---------------------------------------------------------------------- */
+/* Section photography — full-bleed background photo, sat low-opacity      */
+/* directly over the section's own brand-color background (no separate    */
+/* tint layer needed: the existing background paints first, the photo     */
+/* paints above it at partial opacity, so brand color always dominates    */
+/* and text contrast is unaffected even before/if the photo loads).       */
+/* Placeholder photography — Unsplash, license-free for this use; swap    */
+/* for licensed/owned photography before production launch.               */
+/* ---------------------------------------------------------------------- */
+.section-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.32;
+}
+@media only screen and (max-width: 1024px) {
+  .section-photo { opacity: 0.24; } /* smaller screens sit closer to the photo — keep it quieter */
+}
+
+/* ---------------------------------------------------------------------- */
+/* Section watermark — giant low-opacity numeral behind a section's       */
+/* content, bleeding off the section edge. Purely decorative (aria-hidden */
+/* in markup); sits on z-index:-1 so it paints behind the section's own   */
+/* in-flow content without needing z-index bookkeeping on every heading.  */
+/* ---------------------------------------------------------------------- */
+.section-watermark {
+  position: absolute;
+  z-index: -1;
+  font-family: 'Bebas Neue', sans-serif;
+  line-height: 0.75;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+@media only screen and (max-width: 1024px) {
+  .section-watermark { display: none; } /* too little room on small screens for a bleeding
+    giant numeral to read as intentional rather than a layout bug */
+}
+
+/* Grid items default to min-width:auto, which lets long unbreakable
+   content refuse to shrink below its own natural width — forcing a
+   track (and the whole grid, and the page) wider than the viewport.
+   Every grid on this page opts its children out of that default. */
+.group__stats > *, .sectors__grid > *, .reach__grid > *, .reach__stats > *,
+.reach__pillars > *, .why__list > *, .footer__top > * { min-width: 0; }
+
+/* ---------------------------------------------------------------------- */
+/* Buttons — pill, flat, fill wipes bottom→top on hover                   */
+/* ---------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Bebas Neue', sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  line-height: 1.1;
+  font-size: 26rem;
+  letter-spacing: 0.02em;
+  padding: 0 50rem;
+  height: 96rem;
+  background-color: var(--paper-200);
+  border: 1rem solid var(--paper-200);
+  color: var(--ink);
+  border-radius: 999rem;
+  transition: color var(--t-fast);
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1; /* keeps the hover fill-sweep behind the button's own text —
+    without this, an absolutely-positioned ::after with the default z-index:auto
+    paints above plain (non-positioned) text content per the CSS stacking order,
+    hiding the label whenever the sweep is visible */
+  display: block;
+  background-color: var(--ink);
+  opacity: 0;
+  border-radius: 100%;
+  transform: translateY(100%);
+  transition: opacity 0.65s var(--ease-brand), border-radius 0s 0.65s, transform 0s 0.65s;
+}
+.btn:hover { color: #fff; }
+.btn:hover::after {
+  opacity: 1;
+  border-radius: 0;
+  transform: translate(0);
+  transition: border-radius 0.65s var(--ease-brand), transform 0.65s var(--ease-brand);
+}
+.btn._accent { background-color: var(--ink); border-color: var(--ink); color: #fff; }
+.btn._accent::after { background-color: var(--paper-200); }
+.btn._accent:hover { color: var(--ink); }
+/* Solid _accent reads fine on white/paper-200 sections, but nearly
+   disappears against this page's dark maroon hero/CTA gradients — _light is
+   the high-contrast primary button for dark backgrounds (solid white fill),
+   _on-dark is the secondary/lower-emphasis one (translucent outline). */
+.btn._light { background-color: #fff; border-color: #fff; color: var(--ink); }
+.btn._light::after { background-color: var(--paper-200); }
+.btn._light:hover { color: var(--ink); }
+.btn._on-dark { background-color: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.25); color: #fff; }
+.btn._on-dark::after { background-color: #fff; }
+.btn._on-dark:hover { color: var(--ink); }
+@media only screen and (max-width: 1024px) {
+  .btn { width: 100%; height: 68rem; font-size: 19rem; }
+  .btn::after { display: none; }
+  .btn:hover { color: var(--ink); }
+  .btn._accent:hover, .btn._on-dark:hover { color: var(--paper-200); }
+  .btn._light:hover { color: var(--ink); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn::after { display: none; }
+  .btn:hover { color: var(--ink); }
+  .btn._accent:hover, .btn._on-dark:hover { color: var(--paper-200); }
+  .btn._light:hover { color: var(--ink); }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Text-hover — per-character flip swap, CSS-driven stagger               */
+/* ---------------------------------------------------------------------- */
+.text-hover__inner { display: block; overflow: hidden; position: relative; height: 1.15em; }
+.text-hover__elem { display: block; }
+.text-hover__elem-2 { position: absolute; top: 100%; left: 0; }
+.text-hover .char {
+  display: inline-block;
+  transition: transform var(--t-fast) var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 15ms);
+}
+.text-hover:hover .text-hover__elem-1 .char { transform: translateY(-120%); }
+.text-hover:hover .text-hover__elem-2 .char { transform: translateY(-100%); }
+@media (prefers-reduced-motion: reduce) { .text-hover .char { transition: none; } }
+
+/* ---------------------------------------------------------------------- */
+/* Scroll reveal — IntersectionObserver toggles .in-view (js/main.js)     */
+/* ---------------------------------------------------------------------- */
+.reveal.js-reveal-ready {
+  opacity: 0;
+  transform: translateY(24rem);
+  transition: opacity var(--t-slow) var(--ease-out), transform var(--t-slow) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.js-reveal-ready.in-view { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal.js-reveal-ready { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
+
+/* Staggered reveal for card grids — each card in these four grids is its
+   own .reveal element (not just the wrapper), so IntersectionObserver
+   fades them in individually; the nth-child rules below just offset when
+   each one starts so they cascade rather than all fade in at once. */
+.stat-card.reveal:nth-child(1) { --reveal-delay: 0ms; }
+.stat-card.reveal:nth-child(2) { --reveal-delay: 90ms; }
+.stat-card.reveal:nth-child(3) { --reveal-delay: 180ms; }
+.stat-card.reveal:nth-child(4) { --reveal-delay: 270ms; }
+.reach__stat.reveal:nth-child(1) { --reveal-delay: 0ms; }
+.reach__stat.reveal:nth-child(2) { --reveal-delay: 90ms; }
+.reach__stat.reveal:nth-child(3) { --reveal-delay: 180ms; }
+.reach__stat.reveal:nth-child(4) { --reveal-delay: 270ms; }
+.pillar.reveal:nth-child(1) { --reveal-delay: 0ms; }
+.pillar.reveal:nth-child(2) { --reveal-delay: 90ms; }
+.pillar.reveal:nth-child(3) { --reveal-delay: 180ms; }
+.pillar.reveal:nth-child(4) { --reveal-delay: 270ms; }
+.principle.reveal:nth-child(1) { --reveal-delay: 0ms; }
+.principle.reveal:nth-child(2) { --reveal-delay: 80ms; }
+.principle.reveal:nth-child(3) { --reveal-delay: 160ms; }
+.principle.reveal:nth-child(4) { --reveal-delay: 240ms; }
+.principle.reveal:nth-child(5) { --reveal-delay: 320ms; }
+
+/* ---------------------------------------------------------------------- */
+/* Preloader                                                               */
+/* ---------------------------------------------------------------------- */
+.preloader {
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  padding-bottom: 60rem;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: var(--paper);
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--t-med) var(--ease-out), visibility 0s var(--t-med);
+}
+.preloader.is-done { opacity: 0; visibility: hidden; }
+.preloader__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  position: relative;
+  font-size: 34rem;
+  line-height: 0.9;
+  text-transform: uppercase;
+  padding-bottom: 20rem;
+}
+.preloader__text.js-split .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30rem);
+  transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+  transition-delay: calc(var(--i, 0) * 30ms);
+}
+.preloader.is-revealing .preloader__text.js-split .char { opacity: 1; transform: none; }
+.preloader__container-line {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2rem;
+  background-color: rgba(97, 9, 8, 0.15);
+  width: 0%;
+  transition: width 1.4s var(--ease-brand);
+}
+.preloader.is-counting .preloader__container-line { width: 100%; }
+.preloader__progress { text-align: right; color: var(--ink); }
+@media only screen and (max-width: 1024px) { .preloader__container { font-size: 24rem; } }
+@media (prefers-reduced-motion: reduce) {
+  .preloader { transition: none; }
+  .preloader__text.js-split .char { transition: none; opacity: 1; transform: none; }
+  .preloader__container-line { transition: none; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Ticker marquee                                                          */
+/* ---------------------------------------------------------------------- */
+.ticker { animation: ticker 22s linear infinite; white-space: nowrap; display: inline-block; padding-left: 100%; }
+.ticker__item { margin-right: 60rem; }
+.ticker__item:last-child { margin-right: 0; }
+@keyframes ticker {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-100%, 0, 0); }
+}
+@media (prefers-reduced-motion: reduce) { .ticker { animation: none; } }
+
+/* ---------------------------------------------------------------------- */
+/* Header — floating pill nav, slides in on load, hides on scroll-down    */
+/* ---------------------------------------------------------------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transform: translateY(-140%);
+  transition: transform var(--t-slow) var(--ease-out);
+}
+.header.is-visible { transform: translateY(0); }
+.header.is-hidden-scroll { transform: translateY(-140%); }
+@media (prefers-reduced-motion: reduce) { .header { transform: none; transition: none; } }
+.header__container { padding: 20rem 40rem 0; display: flex; justify-content: space-between; align-items: center; }
+.header__logo {
+  height: 72rem;
+  background-color: var(--paper-200);
+  border-radius: 999rem;
+  display: flex;
+  align-items: center;
+  gap: 12rem;
+  padding: 0 28rem 0 18rem;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+.header__logo-icon { width: auto; height: 38rem; flex-shrink: 0; }
+.header__logo span { margin-left: 8rem; font-size: 0.5em; font-family: Inter, sans-serif; font-weight: 600; letter-spacing: 0.3em; color: rgba(97, 9, 8, 0.55); }
+.header__menu {
+  height: 72rem;
+  background-color: var(--paper-200);
+  border-radius: 999rem;
+  display: flex;
+  align-items: center;
+  gap: 40rem;
+  padding: 0 38rem;
+  font-size: 17rem;
+  text-transform: uppercase;
+}
+.header__menu-item { color: var(--ink); }
+.header__hamburger-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 60rem;
+  padding: 0 24rem;
+  font-size: 14rem;
+  text-transform: uppercase;
+  background-color: var(--paper-200);
+  border-radius: 999rem;
+}
+@media only screen and (max-width: 1024px) {
+  .header { transform: translateY(0); }
+  .header.is-hidden-scroll { transform: translateY(-140%); }
+  .header__container { padding: 16rem 20rem 0; }
+  .header__logo { height: 56rem; padding: 0 16rem; font-size: 19rem; }
+  .header__menu { display: none; }
+  .header__hamburger-btn { display: flex; }
+  .header__hamburger-btn .is-active { display: none; }
+  .header__hamburger-btn.active .is-active { display: block; }
+  .header__hamburger-btn.active .is-not-active { display: none; }
+}
+
+.header__hamburger {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  background-color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 20rem;
+  transform: translateX(100%);
+  transition: transform var(--t-med) var(--ease-out), visibility var(--t-med);
+  visibility: hidden;
+  z-index: 40;
+}
+.header__hamburger.active { transform: translateX(0); visibility: visible; }
+.header__hamburger-menu { display: flex; flex-direction: column; gap: 14rem; }
+.header__hamburger-menu a { font-size: 36rem; text-transform: uppercase; color: #fff; padding-bottom: 12rem; border-bottom: 1rem solid rgba(255, 255, 255, 0.15); }
+
+/* ---------------------------------------------------------------------- */
+/* Route graphic — shared inline SVG background motif (our own artwork,   */
+/* standing in for the source site's real fleet video)                   */
+/* ---------------------------------------------------------------------- */
+.route-bg { position: absolute; inset: 0; overflow: hidden; }
+.route-bg .section-photo { z-index: 0; }
+.route-bg svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+.route-bg .route-line { fill: none; stroke: rgba(255, 255, 255, 0.16); stroke-width: 1.5; stroke-dasharray: 10 10; animation: routeDash 30s linear infinite; }
+.route-bg .route-node { fill: #fff; opacity: 0.5; }
+.route-bg .route-glyph { stroke: rgba(255, 255, 255, 0.4); stroke-width: 1.6; fill: none; }
+@keyframes routeDash { to { stroke-dashoffset: -1000; } }
+@media (prefers-reduced-motion: reduce) { .route-bg .route-line { animation: none; } }
+
+/* ---------------------------------------------------------------------- */
+/* 01 — Hero                                                                */
+/* ---------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding-top: 220rem;
+  padding-bottom: 100rem;
+  background: radial-gradient(120% 90% at 12% 8%, var(--accent) 0%, var(--ink) 45%, #2b0605 100%);
+}
+.hero__container { position: relative; z-index: 2; width: 100%; }
+.hero__eyebrow { color: rgba(255, 255, 255, 0.55); margin-bottom: 28rem; }
+.hero__row { display: flex; justify-content: space-between; align-items: flex-end; gap: 40rem; }
+.hero__col-left { flex: 1; min-width: 0; }
+.hero__title { font-size: 96rem; max-width: 1200rem; line-height: 1.12; color: #fff; margin-bottom: 36rem; }
+.hero__text { font-family: Inter, sans-serif; font-size: 20rem; font-weight: 400; line-height: 1.5; max-width: 600rem; color: rgba(255, 255, 255, 0.72); margin-bottom: 48rem; }
+.hero__actions { display: flex; gap: 16rem; flex-wrap: wrap; }
+
+.hero-slider { background-color: var(--paper); border-radius: 20rem; width: 500rem; overflow: hidden; flex-shrink: 0; }
+.hero-slider__head { display: flex; align-items: center; justify-content: space-between; padding: 34rem 34rem 0; }
+.hero-slider__counter { font-size: 20rem; color: var(--ink); display: flex; }
+.hero-slider__counter-total { opacity: 0.35; }
+.hero-slider__title { font-size: 15rem; text-transform: uppercase; letter-spacing: 0.06em; }
+.hero-slider__track-wrap { margin-top: 28rem; height: 140rem; overflow: hidden; }
+.hero-slider__track { transition: transform var(--t-slow) var(--ease-brand); }
+.hero-slider__item-inner { height: 140rem; padding: 0 34rem; display: flex; justify-content: space-between; align-items: center; }
+.hero-slider__item-title { font-size: 26rem; line-height: 0.95; text-transform: uppercase; max-width: 300rem; }
+.hero-slider__item-box { width: 44rem; height: 44rem; border-radius: 10rem; background-color: var(--ink); display: flex; justify-content: center; align-items: center; flex-shrink: 0; }
+.hero-slider__item-box svg { width: 17rem; height: 17rem; }
+.hero-slider__progressbar { margin: 0 34rem 28rem; height: 2rem; background-color: rgba(97, 9, 8, 0.15); position: relative; }
+.hero-slider__progressbar-fill { position: absolute; inset: 0; background-color: var(--ink); width: 0%; transition: width linear; }
+
+.hero__scroll-cue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8rem;
+  width: fit-content;
+  margin: 70rem auto 0;
+  font-family: Inter, sans-serif;
+  font-size: 12rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color var(--t-fast);
+}
+.hero__scroll-cue:hover { color: #fff; }
+.hero__scroll-cue svg { width: 18rem; height: 18rem; animation: scrollCue 1.8s ease-in-out infinite; }
+@keyframes scrollCue {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(6rem); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .hero__scroll-cue svg { animation: none; } }
+
+@media only screen and (max-width: 1024px) {
+  /* The mobile hero was cramming a 5-line headline (sized for a 1920px
+     desktop canvas, just linearly scaled down) plus a long paragraph, two
+     full-width buttons, the full sector-slider card and a scroll cue into
+     one tall stack — technically fine, visually cluttered. Every value
+     below is tuned specifically for narrow screens rather than being a
+     straight scale-down of the desktop numbers. */
+  .hero { padding-top: 96rem; padding-bottom: 40rem; min-height: auto; }
+  .hero__eyebrow { margin-bottom: 16rem; }
+  .hero__row { flex-direction: column; align-items: stretch; }
+  .hero__title { font-size: 34rem; line-height: 1.1; margin-bottom: 16rem; }
+  .hero__text { font-size: 15rem; line-height: 1.5; margin-bottom: 24rem; max-width: 100%; }
+  .hero__actions { flex-direction: column; gap: 10rem; margin-bottom: 28rem; }
+  .hero-slider { width: 100%; }
+  .hero-slider__head { padding: 22rem 22rem 0; }
+  .hero-slider__title { font-size: 12rem; }
+  .hero-slider__counter { font-size: 16rem; }
+  .hero-slider__track-wrap { margin-top: 16rem; height: 96rem; }
+  .hero-slider__item-inner { height: 96rem; padding: 0 22rem; }
+  .hero-slider__item-title { font-size: 19rem; max-width: 210rem; }
+  .hero-slider__item-box { width: 36rem; height: 36rem; }
+  .hero-slider__progressbar { margin: 0 22rem 18rem; }
+  .hero__scroll-cue { display: none; } /* on a page this long, "scroll" is
+    not news to someone already scrolling — cut for the vertical space back */
+  .hero__scroll-cue { margin-top: 40rem; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* 02 — The Group: statement + stats + sector explorer, one section       */
+/* ---------------------------------------------------------------------- */
+.group { position: relative; overflow: hidden; padding: 100rem 0; }
+.group > .container { position: relative; z-index: 1; }
+.group .section-watermark { right: -20rem; bottom: -50rem; font-size: 340rem; color: rgba(97, 9, 8, 0.045); }
+.group__eyebrow { color: rgba(97, 9, 8, 0.55); margin-bottom: 18rem; }
+.group__statement { max-width: 1200rem; font-size: 68rem; line-height: 1.18; color: var(--ink); margin-bottom: 60rem; }
+.group__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12rem; margin-bottom: 20rem; }
+.stat-card { border-radius: 16rem; border: 1rem solid rgba(97, 9, 8, 0.14); padding: 30rem; }
+.stat-card__value { font-size: 60rem; color: var(--ink); line-height: 1; }
+.stat-card__label { margin-top: 12rem; font-family: Inter, sans-serif; font-size: 14rem; text-transform: uppercase; letter-spacing: 0.04em; color: rgba(97, 9, 8, 0.6); }
+
+.group__ticker-wrap { margin: 50rem 0 70rem; padding: 20rem 0; border-top: 1rem solid rgba(97, 9, 8, 0.14); border-bottom: 1rem solid rgba(97, 9, 8, 0.14); overflow: hidden; font-size: 24rem; text-transform: uppercase; color: rgba(97, 9, 8, 0.35); }
+
+.sectors__head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20rem; margin-bottom: 40rem; flex-wrap: wrap; }
+.sectors__title { font-size: 48rem; color: var(--ink); line-height: 1.15; }
+.sectors__intro { font-family: Inter, sans-serif; font-size: 16rem; color: rgba(97, 9, 8, 0.6); max-width: 460rem; }
+.sectors__grid { display: grid; grid-template-columns: 5fr 7fr; gap: 30rem; align-items: start; margin-bottom: 50rem; }
+.sectors__tabs { border-radius: 18rem; border: 1rem solid rgba(97, 9, 8, 0.14); overflow: hidden; }
+.sector-tab {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 18rem;
+  padding: 24rem 28rem;
+  text-align: left;
+  border-bottom: 1rem solid rgba(97, 9, 8, 0.1);
+  border-left: 3rem solid transparent;
+  transition: background-color var(--t-fast), border-color var(--t-fast);
+}
+.sector-tab:last-child { border-bottom: 0; }
+.sector-tab[data-active="true"] { background-color: var(--paper-200); border-left-color: var(--ink); }
+.sector-tab__index { font-size: 16rem; color: rgba(97, 9, 8, 0.4); width: 30rem; flex-shrink: 0; }
+.sector-tab[data-active="true"] .sector-tab__index,
+.sector-tab[data-active="true"] .sector-tab__name { color: var(--ink); }
+.sector-tab__name { font-family: Inter, sans-serif; font-weight: 600; font-size: 16rem; color: rgba(97, 9, 8, 0.75); }
+.sectors__panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18rem;
+  background-color: var(--ink); /* shows briefly before the first photo decodes, and is the
+    fallback if it never does — never a jarring flash of unstyled white */
+  padding: 48rem;
+  min-height: 320rem;
+  color: #fff;
+}
+.sectors__panel-photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity var(--t-med) var(--ease-out);
+}
+.sectors__panel-photo.is-active { opacity: 1; }
+.sectors__panel::after {
+  /* dark gradient scrim over the photo so the white text stays legible
+     regardless of which photo is showing */
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(200deg, rgba(20, 6, 5, 0.55) 0%, rgba(15, 4, 4, 0.88) 100%);
+}
+.sectors__panel-body { position: relative; z-index: 2; }
+.sectors__panel-icon { width: 64rem; height: 64rem; border-radius: 14rem; background-color: rgba(255, 255, 255, 0.14); backdrop-filter: blur(6rem); display: flex; align-items: center; justify-content: center; }
+.sectors__panel-icon svg { width: 28rem; height: 28rem; color: #fff; }
+.sectors__panel-index { margin-top: 30rem; font-size: 16rem; color: rgba(255, 255, 255, 0.75); }
+.sectors__panel-name { margin-top: 8rem; font-size: 38rem; text-transform: uppercase; color: #fff; }
+.sectors__panel-copy { margin-top: 14rem; font-family: Inter, sans-serif; font-size: 16rem; line-height: 1.5; color: rgba(255, 255, 255, 0.8); max-width: 440rem; }
+@media only screen and (max-width: 1024px) {
+  .group { padding: 60rem 0; }
+  .group__statement { font-size: 34rem; margin-bottom: 30rem; }
+  .group__stats { grid-template-columns: repeat(2, 1fr); }
+  .stat-card__value { font-size: 38rem; }
+  .group__ticker-wrap { margin: 30rem 0 40rem; font-size: 16rem; }
+  .sectors__title { font-size: 28rem; }
+  .sectors__grid { grid-template-columns: 1fr; }
+  .sectors__panel { padding: 30rem; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Horizontal scroll-snap strip — shared by "How We Create Value" and     */
+/* "Our Business Ecosystem". Native CSS scroll-snap: no JS required for   */
+/* it to work, JS only adds prev/next buttons + a progress readout.       */
+/* ---------------------------------------------------------------------- */
+.strip-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20rem; margin-bottom: 46rem; flex-wrap: wrap; }
+.strip-eyebrow { color: rgba(97, 9, 8, 0.5); margin-bottom: 12rem; }
+.strip-eyebrow._on-dark { color: rgba(255, 255, 255, 0.5); }
+.strip-title { font-size: 60rem; color: var(--ink); line-height: 1.15; }
+.strip-title._on-dark { color: #fff; }
+.strip-intro { margin-top: 16rem; max-width: 620rem; font-family: Inter, sans-serif; font-size: 16rem; color: rgba(97, 9, 8, 0.6); }
+.strip-intro._on-dark { color: rgba(255, 255, 255, 0.6); }
+.strip-nav { display: flex; gap: 10rem; align-items: center; flex-shrink: 0; }
+.strip-counter { font-family: Inter, sans-serif; font-size: 15rem; color: rgba(97, 9, 8, 0.55); margin-right: 6rem; }
+.strip-counter._on-dark { color: rgba(255, 255, 255, 0.55); }
+.strip-nav-btn {
+  width: 56rem;
+  height: 56rem;
+  border-radius: 999rem;
+  border: 1rem solid rgba(97, 9, 8, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background-color var(--t-fast), border-color var(--t-fast), color var(--t-fast);
+}
+.strip-nav-btn._on-dark { border-color: rgba(255, 255, 255, 0.25); color: #fff; }
+.strip-nav-btn svg { width: 18rem; height: 18rem; }
+.strip-nav-btn:hover { background-color: var(--ink); border-color: var(--ink); color: #fff; }
+.strip-nav-btn._on-dark:hover { background-color: #fff; border-color: #fff; color: var(--ink); }
+.strip-nav-btn:disabled { opacity: 0.35; cursor: default; pointer-events: none; }
+.strip-track {
+  display: flex;
+  gap: 14rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: 40rem;
+  padding: 4rem 4rem 10rem;
+  margin: -4rem;
+  scrollbar-width: none;
+}
+.strip-track::-webkit-scrollbar { display: none; height: 0; }
+
+/* 03 — How We Create Value */
+.journey { position: relative; overflow: hidden; padding: 100rem 0; background-color: var(--paper-200); }
+.journey > .container { position: relative; z-index: 1; }
+.journey .section-watermark { right: -14rem; top: -24rem; font-size: 300rem; color: rgba(97, 9, 8, 0.05); }
+.journey-card {
+  position: relative;
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 380rem;
+  border-radius: 18rem;
+  background-color: #fff;
+  border: 2rem solid rgba(97, 9, 8, 0.12);
+  padding: 40rem;
+  transition: border-color var(--t-fast);
+}
+.journey-card:hover { border-color: var(--ink); }
+.journey-card__photo {
+  position: absolute;
+  top: 40rem;
+  right: 40rem;
+  width: 72rem;
+  height: 72rem;
+  border-radius: 16rem;
+  object-fit: cover;
+}
+.journey-card__num { font-size: 90rem; color: var(--ink); line-height: 1; }
+.journey-card__title { margin-top: 16rem; font-size: 38rem; text-transform: uppercase; color: var(--ink); max-width: 240rem; }
+.journey-card__text { margin-top: 14rem; font-family: Inter, sans-serif; font-size: 16rem; line-height: 1.5; color: rgba(97, 9, 8, 0.65); max-width: 260rem; }
+.journey-card__arrow { margin-top: 20rem; width: 30rem; height: 30rem; color: rgba(97, 9, 8, 0.3); }
+@media only screen and (max-width: 1024px) {
+  .journey { padding: 60rem 0; }
+  .journey-card { width: 260rem; padding: 28rem; }
+  .journey-card__photo { width: 50rem; height: 50rem; top: 24rem; right: 24rem; border-radius: 12rem; }
+  .journey-card__num { font-size: 56rem; }
+  .journey-card__title { font-size: 26rem; max-width: 160rem; }
+  .journey-card__text { max-width: 100%; }
+}
+
+/* 04 — Our Business Ecosystem (horizontal, alternating navy/light cards) */
+.businesses { position: relative; overflow: hidden; padding: 100rem 0; background-color: var(--paper); }
+.businesses > .container { position: relative; z-index: 1; }
+.businesses .section-watermark { left: -14rem; bottom: -60rem; font-size: 320rem; color: rgba(97, 9, 8, 0.045); }
+.business-card {
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  width: 460rem;
+  border-radius: 18rem;
+  border: 1rem solid rgba(97, 9, 8, 0.14);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--paper-200);
+  color: var(--ink);
+}
+.business-card._accent { background-color: var(--ink); color: #fff; border-color: var(--ink); }
+.business-card__photo-wrap { height: 190rem; flex-shrink: 0; }
+.business-card__photo { width: 100%; height: 100%; object-fit: cover; }
+.business-card__body { padding: 32rem 32rem 36rem; display: flex; flex-direction: column; flex: 1; }
+.business-card__top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 26rem; }
+.business-card__icon { width: 56rem; height: 56rem; border-radius: 12rem; background-color: rgba(97, 9, 8, 0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.business-card._accent .business-card__icon { background-color: rgba(255, 255, 255, 0.12); }
+.business-card__icon svg { width: 24rem; height: 24rem; }
+.business-card__index { font-size: 15rem; opacity: 0.5; }
+.business-card__tag {
+  align-self: flex-start;
+  font-family: Inter, sans-serif;
+  font-size: 12rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 7rem 15rem;
+  border-radius: 999rem;
+  background-color: rgba(97, 9, 8, 0.08);
+  margin-bottom: 20rem;
+}
+.business-card._accent .business-card__tag { background-color: rgba(255, 255, 255, 0.14); }
+.business-card__name { font-size: 34rem; text-transform: uppercase; line-height: 1; margin-bottom: 16rem; }
+.business-card__text { font-family: Inter, sans-serif; font-size: 15rem; line-height: 1.55; opacity: 0.75; flex-grow: 1; }
+.business-card__link {
+  margin-top: 26rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8rem;
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 14rem;
+  align-self: flex-start;
+}
+.business-card__link svg { width: 14rem; height: 14rem; transition: transform var(--t-fast); }
+.business-card__link:hover svg { transform: translate(3rem, -3rem); }
+@media only screen and (max-width: 1024px) {
+  .businesses { padding: 60rem 0; }
+  .business-card { width: 290rem; }
+  .business-card__photo-wrap { height: 140rem; }
+  .business-card__body { padding: 24rem; }
+  .business-card__name { font-size: 26rem; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* 05 — Global Reach + Impact                                             */
+/* ---------------------------------------------------------------------- */
+.reach { position: relative; padding: 100rem 0; background-color: var(--near-black); overflow: hidden; }
+.reach__bg { opacity: 0.9; }
+.reach__bg .section-photo { opacity: 0.22; }
+.reach__bg .route-line { stroke: rgba(255, 255, 255, 0.1); }
+.reach__container { position: relative; z-index: 1; }
+.reach__grid { display: grid; grid-template-columns: 7fr 5fr; gap: 40rem; align-items: start; }
+.reach__eyebrow { color: rgba(255, 255, 255, 0.5); margin-bottom: 16rem; }
+.reach__title { max-width: 600rem; font-size: 54rem; line-height: 1.18; margin-bottom: 46rem; color: #fff; }
+.reach__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10rem; }
+.reach__stat { border-radius: 16rem; border: 1rem solid rgba(255, 255, 255, 0.16); padding: 24rem; }
+.reach__stat-value { font-size: 42rem; color: #fff; line-height: 1; }
+.reach__stat-label { margin-top: 10rem; font-family: Inter, sans-serif; font-size: 12rem; text-transform: uppercase; letter-spacing: 0.05em; color: rgba(255, 255, 255, 0.55); }
+.reach__side { border-left: 1rem solid rgba(255, 255, 255, 0.16); padding-left: 40rem; }
+.reach__intro { font-family: Inter, sans-serif; font-size: 19rem; line-height: 1.5; color: rgba(255, 255, 255, 0.72); margin-bottom: 30rem; }
+.reach__pillars { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12rem; margin-bottom: 34rem; }
+.pillar { border-radius: 16rem; border: 1rem solid rgba(255, 255, 255, 0.16); background-color: rgba(255, 255, 255, 0.04); padding: 24rem; }
+.pillar__title { font-family: Inter, sans-serif; font-weight: 700; font-size: 16rem; color: #fff; margin-bottom: 8rem; }
+.pillar__text { font-family: Inter, sans-serif; font-size: 14rem; line-height: 1.5; color: rgba(255, 255, 255, 0.6); }
+@media only screen and (max-width: 1024px) {
+  .reach { padding: 60rem 0; }
+  .reach__grid { grid-template-columns: 1fr; gap: 30rem; }
+  .reach__title { font-size: 30rem; max-width: 100%; margin-bottom: 30rem; }
+  .reach__stats { grid-template-columns: repeat(2, 1fr); }
+  .reach__stat-value { font-size: 32rem; }
+  .reach__side { border-left: 0; padding-left: 0; border-top: 1rem solid rgba(255, 255, 255, 0.16); padding-top: 30rem; }
+  .reach__pillars { grid-template-columns: 1fr; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* 06 — Why Altysier + Testimonials                                       */
+/* ---------------------------------------------------------------------- */
+.why { position: relative; overflow: hidden; padding: 100rem 0; background-color: var(--near-black); }
+.why__bg { position: absolute; inset: 0; z-index: 0; }
+.why__bg .section-photo { opacity: 0.12; } /* this particular photo (a brightly-lit office) reads much
+  more strongly against near-black than the darker photos used elsewhere at the same opacity — dialed
+  down further so it stays a quiet texture, not a distraction behind the principle cards' body text */
+.why__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.2) 0%, var(--near-black) 85%);
+}
+.why > .container { position: relative; z-index: 1; }
+.why .section-watermark { right: -10rem; bottom: -40rem; font-size: 280rem; color: rgba(255, 255, 255, 0.04); }
+.why__eyebrow { color: rgba(255, 255, 255, 0.5); margin-bottom: 16rem; }
+.why__title { font-size: 56rem; line-height: 1.18; color: #fff; margin-bottom: 50rem; max-width: 1000rem; }
+.why__list { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12rem; margin-bottom: 60rem; }
+.principle { border-radius: 16rem; border: 1rem solid rgba(255, 255, 255, 0.16); background-color: rgba(255, 255, 255, 0.04); padding: 28rem 24rem; }
+.principle__num { font-size: 40rem; color: rgba(255, 255, 255, 0.85); line-height: 1; margin-bottom: 16rem; }
+.principle__heading { font-family: Inter, sans-serif; font-weight: 700; font-size: 16rem; color: #fff; margin-bottom: 8rem; }
+.principle__text { font-family: Inter, sans-serif; font-size: 14rem; line-height: 1.5; color: rgba(255, 255, 255, 0.6); }
+
+.testimonials { border-radius: 18rem; border: 1rem dashed rgba(255, 255, 255, 0.22); padding: 50rem; text-align: center; }
+.testimonials__eyebrow { color: rgba(255, 255, 255, 0.5); margin-bottom: 16rem; }
+.testimonials__title { font-size: 34rem; text-transform: uppercase; color: #fff; margin-bottom: 14rem; }
+.testimonials__note { font-family: Inter, sans-serif; font-size: 16rem; line-height: 1.5; color: rgba(255, 255, 255, 0.55); max-width: 520rem; margin: 0 auto; }
+@media only screen and (max-width: 1024px) {
+  .why { padding: 60rem 0; }
+  .why__title { font-size: 32rem; margin-bottom: 30rem; }
+  .why__list { grid-template-columns: repeat(2, 1fr); margin-bottom: 30rem; }
+  .testimonials { padding: 34rem 26rem; }
+  .testimonials__title { font-size: 26rem; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* 07 — FAQ + Partnership CTA                                             */
+/* ---------------------------------------------------------------------- */
+.faq { position: relative; overflow: hidden; padding: 100rem 0; }
+.faq > .container { position: relative; z-index: 1; }
+.faq .section-watermark { left: -14rem; top: -20rem; font-size: 300rem; color: rgba(97, 9, 8, 0.045); }
+.faq__grid { display: flex; gap: 60rem; align-items: flex-start; }
+.faq__col-left { width: 380rem; flex-shrink: 0; }
+.faq__eyebrow { color: rgba(97, 9, 8, 0.5); margin-bottom: 16rem; }
+.faq__title { font-size: 52rem; color: var(--ink); line-height: 1.18; position: sticky; top: 100rem; }
+.faq__list { flex: 1; display: flex; flex-direction: column; gap: 10rem; }
+.faq__item { border-radius: 16rem; border: 1rem solid rgba(97, 9, 8, 0.14); padding: 0 30rem; }
+.faq__item[data-open="true"] { border-color: var(--ink); }
+.faq__trigger { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 24rem; padding: 26rem 0; text-align: left; }
+.faq__question { font-family: Inter, sans-serif; font-weight: 600; font-size: 17rem; color: var(--ink); }
+.faq__icon { flex-shrink: 0; width: 22rem; height: 22rem; color: var(--ink); transition: transform 0.35s var(--ease-out); }
+.faq__item[data-open="true"] .faq__icon { transform: rotate(45deg); }
+.faq__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.4s var(--ease-out); }
+.faq__panel > div { overflow: hidden; }
+.faq__item[data-open="true"] .faq__panel { grid-template-rows: 1fr; }
+.faq__answer { font-family: Inter, sans-serif; font-size: 16rem; line-height: 1.55; color: rgba(97, 9, 8, 0.65); max-width: 640rem; padding-bottom: 26rem; }
+
+.cta {
+  position: relative;
+  overflow: hidden;
+  margin-top: 70rem;
+  border-radius: 20rem;
+  background-color: var(--ink);
+  padding: 56rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40rem;
+  flex-wrap: wrap;
+  /* clearance under the fixed header for the #contact anchor is handled
+     globally by html{scroll-padding-top} above */
+}
+.cta .section-photo { opacity: 0.3; }
+.cta__col { position: relative; z-index: 1; max-width: 780rem; }
+.cta > .btn { position: relative; z-index: 1; }
+.cta__title { font-size: 54rem; color: #fff; line-height: 1.18; margin-bottom: 18rem; }
+.cta__text { font-family: Inter, sans-serif; font-size: 17rem; line-height: 1.55; color: rgba(255, 255, 255, 0.7); }
+@media only screen and (max-width: 1024px) {
+  .faq { padding: 60rem 0; }
+  .faq__grid { flex-direction: column; gap: 30rem; }
+  .faq__col-left { width: 100%; position: static; }
+  .faq__title { font-size: 30rem; position: static; }
+  .cta { padding: 34rem; flex-direction: column; align-items: flex-start; }
+  .cta__title { font-size: 30rem; }
+  .cta .btn { width: 100%; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Footer                                                                   */
+/* ---------------------------------------------------------------------- */
+.footer { padding-top: 100rem; color: #fff; background-color: var(--near-black); }
+.footer__top { display: grid; grid-template-columns: 2fr 1fr 2fr 1.6fr; gap: 30rem; }
+.footer__logo { font-family: 'Bebas Neue', sans-serif; font-size: 28rem; letter-spacing: 0.02em; display: flex; align-items: center; gap: 12rem; }
+.footer__logo-icon { width: auto; height: 40rem; flex-shrink: 0; }
+.footer__logo span { margin-left: 8rem; font-size: 0.5em; font-family: Inter, sans-serif; font-weight: 600; letter-spacing: 0.3em; color: rgba(255, 255, 255, 0.45); }
+.footer__blurb { font-family: Inter, sans-serif; font-size: 15rem; line-height: 1.5; color: rgba(255, 255, 255, 0.55); max-width: 280rem; margin-top: 20rem; }
+.footer__social { display: flex; gap: 10rem; margin-top: 26rem; }
+.footer__social-link { display: flex; align-items: center; justify-content: center; width: 46rem; height: 46rem; border-radius: 999rem; border: 1rem solid rgba(255, 255, 255, 0.2); transition: background-color var(--t-fast), border-color var(--t-fast); }
+.footer__social-link svg { width: 18rem; height: 18rem; }
+.footer__social-link:hover { background-color: #fff; border-color: #fff; color: var(--near-black); }
+.footer__heading { font-size: 22rem; text-transform: uppercase; margin-bottom: 24rem; color: rgba(255, 255, 255, 0.9); }
+.footer__col a, .footer__col span { display: block; font-family: Inter, sans-serif; font-size: 15rem; margin-bottom: 13rem; font-weight: 400; color: rgba(255, 255, 255, 0.6); overflow-wrap: break-word; }
+.footer__col a:last-child, .footer__col span:last-child { margin-bottom: 0; }
+.footer__col a:hover { color: #fff; }
+
+.footer__wordmark { margin-top: 80rem; padding-top: 28rem; border-top: 1rem solid rgba(255, 255, 255, 0.15); font-size: 130rem; line-height: 0.9; text-transform: uppercase; }
+.footer__bottom { margin-top: 28rem; padding: 24rem 0; border-top: 1rem solid rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12rem; }
+.footer__copyrights, .footer__tagline { font-family: Inter, sans-serif; font-size: 13rem; color: rgba(255, 255, 255, 0.55); }
+.footer__up-btn { display: flex; align-items: center; gap: 10rem; font-family: Inter, sans-serif; font-size: 13rem; text-transform: uppercase; color: rgba(255, 255, 255, 0.55); }
+.footer__up-icon { width: 32rem; height: 32rem; border-radius: 999rem; background-color: rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; transition: background-color var(--t-fast); }
+.footer__up-icon svg { width: 15rem; height: 15rem; }
+.footer__up-btn:hover .footer__up-icon { background-color: #fff; color: var(--near-black); }
+@media only screen and (max-width: 1024px) {
+  .footer { padding-top: 60rem; }
+  .footer__top { grid-template-columns: repeat(2, 1fr); gap: 34rem; }
+  .footer__heading { font-size: 19rem; margin-bottom: 16rem; }
+  .footer__wordmark { font-size: 44rem; margin-top: 46rem; padding-top: 22rem; }
+  .footer__bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* Misc                                                                     */
+/* ---------------------------------------------------------------------- */
+.btn-tap:active { transform: scale(0.98); }

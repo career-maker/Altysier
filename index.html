@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Altysier Group</title>
+<meta name="description" content="Altysier Group is a diversified business group operating across international trade, industrial investment, manufacturing, transportation, agriculture, food security, healthcare and mobility.">
+
+<meta property="og:title" content="Altysier Group">
+<meta property="og:description" content="Building businesses. Connecting markets. Creating long-term value.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/logo-full.png">
+<meta name="theme-color" content="#610908">
+
+<!-- ==========================================================================
+     UI ported from mvplogistics.eu/en/main-en/ (colors, type, spacing
+     scale, preloader, pill nav, hover-flip, animation timing). Section
+     structure and copy follow the approved homepage brief — story arc:
+     Who We Are → What We Do → How We Create Value → Our Companies →
+     Our Reach & Impact → Why Trust Us → Insights & FAQs → Partnership.
+     See WP-CONVERSION-NOTES.md. No external animation library — see
+     css/styles.css and js/main.js header comments.
+
+     Brand palette + logo (img/logo-icon.png, img/logo-full.png) are the
+     client's own supplied assets — colors sampled directly from the logo
+     file, see the :root comment in css/styles.css.
+     ========================================================================== -->
+
+<link rel="icon" type="image/png" href="img/favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="home">
+
+<!-- ==========================================================================
+     PRELOADER
+     ========================================================================== -->
+<div class="preloader">
+  <div class="container">
+    <div class="preloader__container">
+      <div class="preloader__text">Altysier Group</div>
+      <div class="preloader__progress">
+        <span class="preloader__progress-number" data-num="100">0</span>%
+      </div>
+      <span class="preloader__container-line"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     TOP MENU BAR
+     ========================================================================== -->
+<header class="header">
+  <div class="container header__container">
+    <a href="index.html" class="header__logo"><img src="img/logo-icon.png" alt="" class="header__logo-icon">ALTYSIER<span>GROUP</span></a>
+
+    <nav class="header__menu" aria-label="Primary">
+      <a href="about.html" class="header__menu-item text-hover">
+        <span class="text-hover__inner">
+          <span class="text-hover__elem text-hover__elem-1">About</span>
+          <span class="text-hover__elem text-hover__elem-2">About</span>
+        </span>
+      </a>
+      <a href="group-of-companies.html" class="header__menu-item text-hover">
+        <span class="text-hover__inner">
+          <span class="text-hover__elem text-hover__elem-1">Group Of Companies</span>
+          <span class="text-hover__elem text-hover__elem-2">Group Of Companies</span>
+        </span>
+      </a>
+      <a href="csr.html" class="header__menu-item text-hover">
+        <span class="text-hover__inner">
+          <span class="text-hover__elem text-hover__elem-1">CSR</span>
+          <span class="text-hover__elem text-hover__elem-2">CSR</span>
+        </span>
+      </a>
+      <a href="contact.html" class="header__menu-item text-hover">
+        <span class="text-hover__inner">
+          <span class="text-hover__elem text-hover__elem-1">Contact</span>
+          <span class="text-hover__elem text-hover__elem-2">Contact</span>
+        </span>
+      </a>
+    </nav>
+
+    <button type="button" class="header__hamburger-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="is-not-active">Menu</span>
+      <span class="is-active">Close</span>
+    </button>
+  </div>
+</header>
+
+<div class="header__hamburger" id="mobile-menu">
+  <nav class="header__hamburger-menu" aria-label="Mobile primary">
+    <a href="about.html">About</a>
+    <a href="group-of-companies.html">Group Of Companies</a>
+    <a href="csr.html">CSR</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</div>
+
+<main>
+
+<!-- ==========================================================================
+     01. HERO — Building Businesses. Connecting Markets.
+     ========================================================================== -->
+<section class="hero" id="hero">
+  <div class="hero__bg route-bg" aria-hidden="true">
+    <img class="section-photo" src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1600&q=75&auto=format&fit=crop" alt="" loading="eager" decoding="async">
+    <svg viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+      <path class="route-line" d="M20 640 Q220 260 420 430 T780 210"/>
+      <path class="route-line" d="M60 200 Q300 520 490 330 T760 580"/>
+      <path class="route-line" d="M120 720 Q420 40 720 540"/>
+      <g class="route-node">
+        <circle cx="20" cy="640" r="6"/><circle cx="420" cy="430" r="7"/><circle cx="780" cy="210" r="6"/>
+        <circle cx="60" cy="200" r="6"/><circle cx="490" cy="330" r="6"/><circle cx="760" cy="580" r="6"/>
+        <circle cx="120" cy="720" r="6"/><circle cx="720" cy="540" r="7"/>
+      </g>
+      <!-- Abstract motifs for the five combined worlds — markets, industry, logistics, manufacturing, agriculture -->
+      <g class="route-glyph" transform="translate(560,120) scale(0.9)"><path d="M0 20 L20 0 L20 8 L36 8 L36 32 L20 32 L20 40Z"/></g>
+      <g class="route-glyph" transform="translate(120,80) scale(0.9)"><rect x="0" y="0" width="16" height="16" rx="2"/><rect x="22" y="0" width="16" height="16" rx="2"/><rect x="0" y="22" width="16" height="16" rx="2"/></g>
+      <g class="route-glyph" transform="translate(620,540) scale(0.9)"><path d="M14 0v34M14 0C6 3 1 10 1 18a13 13 0 0026 0c0-8-5-15-13-18Z"/></g>
+    </svg>
+  </div>
+
+  <div class="container hero__container">
+    <p class="hero__eyebrow eyebrow">Altysier Group</p>
+    <div class="hero__row">
+      <div class="hero__col-left">
+        <h1 class="hero__title">Building Businesses. Connecting Markets. Creating Long-Term Value.</h1>
+        <p class="hero__text">A diversified business group operating across international trade, industrial investment, manufacturing, transportation, agriculture, food security, healthcare and mobility.</p>
+        <div class="hero__actions">
+          <a href="#group" class="btn _light">Explore Our Group</a>
+          <a href="#contact" class="btn _on-dark">Partner With Us</a>
+        </div>
+      </div>
+
+      <div class="hero-slider">
+        <div class="hero-slider__head">
+          <div class="hero-slider__counter">
+            <span class="hero-slider__counter-current">01</span>
+            <span class="hero-slider__counter-total">/07</span>
+          </div>
+          <h3 class="hero-slider__title">Our Sectors</h3>
+        </div>
+
+        <div class="hero-slider__track-wrap">
+          <div class="hero-slider__track">
+            <div class="hero-slider__item-inner">
+              <span class="hero-slider__item-title">International Trade</span>
+              <span class="hero-slider__item-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <div class="hero-slider__item-inner">
+              <span class="hero-slider__item-title">Industrial Investment</span>
+              <span class="hero-slider__item-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <div class="hero-slider__item-inner">
+              <span class="hero-slider__item-title">Manufacturing</span>
+              <span class="hero-slider__item-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <div class="hero-slider__item-inner">
+              <span class="hero-slider__item-title">Transportation &amp; Logistics</span>
+              <span class="hero-slider__item-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <div class="hero-slider__item-inner">
+              <span class="hero-slider__item-title">Agriculture &amp; Food Security</span>
+              <span class="hero-slider__item-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <div class="hero-slider__item-inner">
+              <span class="hero-slider__item-title">Healthcare &amp; Medical Supplies</span>
+              <span class="hero-slider__item-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+            <div class="hero-slider__item-inner">
+              <span class="hero-slider__item-title">Mobility &amp; Vehicle Distribution</span>
+              <span class="hero-slider__item-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-slider__progressbar"><div class="hero-slider__progressbar-fill"></div></div>
+      </div>
+    </div>
+
+    <a href="#group" class="hero__scroll-cue" aria-label="Scroll to explore">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     02. THE GROUP — One Group. Multiple Businesses.
+     (Group introduction + statistics + sector explorer, combined)
+     ========================================================================== -->
+<section class="group" id="group">
+  <span class="section-watermark" aria-hidden="true">02</span>
+  <div class="container">
+    <p class="group__eyebrow eyebrow reveal">One Group. Multiple Businesses.</p>
+    <h2 class="group__statement reveal">A diversified portfolio of businesses working across essential industries and international markets.</h2>
+
+    <div class="group__stats">
+      <div class="stat-card reveal"><div class="stat-card__value">05</div><div class="stat-card__label">Group Companies</div></div>
+      <div class="stat-card reveal"><div class="stat-card__value">07+</div><div class="stat-card__label">Business Sectors</div></div>
+      <!-- TODO: figure to be confirmed by client -->
+      <div class="stat-card reveal"><div class="stat-card__value">18+</div><div class="stat-card__label">Markets / Countries</div></div>
+      <!-- TODO: figure to be confirmed by client -->
+      <div class="stat-card reveal"><div class="stat-card__value">20+</div><div class="stat-card__label">Years of Experience</div></div>
+    </div>
+
+    <div class="group__ticker-wrap reveal">
+      <div class="ticker">
+        <span class="ticker__item">05 Group Companies&nbsp;&nbsp;•&nbsp;&nbsp;07+ Business Sectors&nbsp;&nbsp;•&nbsp;&nbsp;18+ Markets&nbsp;&nbsp;•&nbsp;&nbsp;20+ Years of Experience&nbsp;&nbsp;•</span>
+        <span class="ticker__item">05 Group Companies&nbsp;&nbsp;•&nbsp;&nbsp;07+ Business Sectors&nbsp;&nbsp;•&nbsp;&nbsp;18+ Markets&nbsp;&nbsp;•&nbsp;&nbsp;20+ Years of Experience&nbsp;&nbsp;•</span>
+        <span class="ticker__item">05 Group Companies&nbsp;&nbsp;•&nbsp;&nbsp;07+ Business Sectors&nbsp;&nbsp;•&nbsp;&nbsp;18+ Markets&nbsp;&nbsp;•&nbsp;&nbsp;20+ Years of Experience&nbsp;&nbsp;•</span>
+      </div>
+    </div>
+
+    <div class="sectors__head">
+      <div>
+        <h3 class="sectors__title reveal">Where We Operate</h3>
+        <p class="sectors__intro reveal">Seven sectors, one connected group. Select a sector to explore what we do.</p>
+      </div>
+    </div>
+
+    <div class="sectors__grid reveal">
+      <div class="sectors__tabs" role="tablist" aria-label="Business sectors">
+        <button type="button" class="sector-tab" role="tab" data-active="true" aria-selected="true"
+          data-index="01" data-name="International Trade"
+          data-copy="Sourcing, distributing and connecting essential goods across regional and international markets, connecting suppliers with demand where it matters most."
+          data-icon-target="trade">
+          <span class="sector-tab__index">01</span>
+          <span class="sector-tab__name">International Trade</span>
+        </button>
+        <button type="button" class="sector-tab" role="tab" data-active="false" aria-selected="false"
+          data-index="02" data-name="Industrial Investment"
+          data-copy="Structuring investment across industrial ventures, building capability in sectors that anchor long-term regional growth."
+          data-icon-target="industrial">
+          <span class="sector-tab__index">02</span>
+          <span class="sector-tab__name">Industrial Investment</span>
+        </button>
+        <button type="button" class="sector-tab" role="tab" data-active="false" aria-selected="false"
+          data-index="03" data-name="Manufacturing"
+          data-copy="Investing in and operating manufacturing capacity that strengthens regional supply chains and industrial output."
+          data-icon-target="manufacturing">
+          <span class="sector-tab__index">03</span>
+          <span class="sector-tab__name">Manufacturing</span>
+        </button>
+        <button type="button" class="sector-tab" role="tab" data-active="false" aria-selected="false"
+          data-index="04" data-name="Transportation &amp; Logistics"
+          data-copy="Moving goods and people reliably across the network, from freight logistics to integrated transport services."
+          data-icon-target="transport">
+          <span class="sector-tab__index">04</span>
+          <span class="sector-tab__name">Transportation &amp; Logistics</span>
+        </button>
+        <button type="button" class="sector-tab" role="tab" data-active="false" aria-selected="false"
+          data-index="05" data-name="Agriculture &amp; Food Security"
+          data-copy="Producing quality animal feed at scale, supporting food security and agricultural resilience across the region."
+          data-icon-target="agriculture">
+          <span class="sector-tab__index">05</span>
+          <span class="sector-tab__name">Agriculture &amp; Food Security</span>
+        </button>
+        <!-- TODO: no dedicated Group company yet in Healthcare — confirm description before launch -->
+        <button type="button" class="sector-tab" role="tab" data-active="false" aria-selected="false"
+          data-index="06" data-name="Healthcare &amp; Medical Supplies"
+          data-copy="Supporting regional healthcare supply chains with reliable sourcing and distribution of medical supplies."
+          data-icon-target="healthcare">
+          <span class="sector-tab__index">06</span>
+          <span class="sector-tab__name">Healthcare &amp; Medical Supplies</span>
+        </button>
+        <!-- TODO: no dedicated Group company yet in Mobility — confirm description before launch -->
+        <button type="button" class="sector-tab" role="tab" data-active="false" aria-selected="false"
+          data-index="07" data-name="Mobility &amp; Vehicle Distribution"
+          data-copy="Connecting markets with reliable vehicle distribution and mobility solutions across the region."
+          data-icon-target="mobility">
+          <span class="sector-tab__index">07</span>
+          <span class="sector-tab__name">Mobility &amp; Vehicle Distribution</span>
+        </button>
+      </div>
+
+      <div class="sectors__panel">
+        <img class="sectors__panel-photo is-active" data-icon="trade" src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1000&q=75&auto=format&fit=crop" alt="" loading="eager" decoding="async">
+        <img class="sectors__panel-photo" data-icon="industrial" src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=1000&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        <img class="sectors__panel-photo" data-icon="manufacturing" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1000&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        <img class="sectors__panel-photo" data-icon="transport" src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1000&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        <img class="sectors__panel-photo" data-icon="agriculture" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1000&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        <img class="sectors__panel-photo" data-icon="healthcare" src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1000&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        <img class="sectors__panel-photo" data-icon="mobility" src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1000&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+
+        <div class="sectors__panel-body">
+          <div class="sectors__panel-icon" data-panel-icon>
+            <svg data-icon="trade" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18l-2.2 3.3a2 2 0 01-1.7.9H6.9a2 2 0 01-1.7-.9L3 17Z"/><path d="M6 17v-6h5v6M13 17V7h4v10"/></svg>
+            <svg data-icon="industrial" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M3 21V11l5 3v-3l5 3v-3l5 3v7H3Z"/><path d="M7 21v-3M12 21v-3M17 21v-3"/></svg>
+            <svg data-icon="manufacturing" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="hidden"><rect x="3.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.2"/></svg>
+            <svg data-icon="transport" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="hidden"><rect x="2.5" y="8" width="10.5" height="8" rx="1"/><path d="M13 11h3.8l3.2 3v3h-7"/><circle cx="6.5" cy="18.2" r="1.5"/><circle cx="16.5" cy="18.2" r="1.5"/></svg>
+            <svg data-icon="agriculture" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M12 3v11M12 3c-3 1-5 4-5 8a5 5 0 0010 0c0-4-2-7-5-8Z"/><path d="M7 21h10"/></svg>
+            <svg data-icon="healthcare" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="hidden"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+            <svg data-icon="mobility" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" class="hidden"><path d="M4 16l1.4-4.6A2 2 0 017.3 10h9.4a2 2 0 011.9 1.4L20 16"/><rect x="3" y="16" width="18" height="3.2" rx="1"/><circle cx="7" cy="19.6" r="1.4"/><circle cx="17" cy="19.6" r="1.4"/></svg>
+          </div>
+          <div class="sectors__panel-index" data-panel-index>01</div>
+          <div class="sectors__panel-name" data-panel-name>International Trade</div>
+          <p class="sectors__panel-copy" data-panel-copy>Sourcing, distributing and connecting essential goods across regional and international markets, connecting suppliers with demand where it matters most.</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="#businesses" class="btn _accent reveal">Discover Our Business</a>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     03. HOW WE CREATE VALUE — From Opportunity to Impact
+     ========================================================================== -->
+<section class="journey" id="how-we-create-value">
+  <span class="section-watermark" aria-hidden="true">03</span>
+  <div class="container">
+    <div class="strip-head">
+      <div>
+        <p class="strip-eyebrow eyebrow reveal">From Opportunity to Impact</p>
+        <h2 class="strip-title reveal">How We Create Value</h2>
+      </div>
+      <div class="strip-nav reveal">
+        <span class="strip-counter"><span data-strip-current="journey">01</span>/05</span>
+        <button type="button" class="strip-nav-btn" data-strip-prev="journey" aria-label="Previous step">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button type="button" class="strip-nav-btn" data-strip-next="journey" aria-label="Next step">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="strip-track reveal" data-strip="journey" tabindex="0" role="region" aria-label="How we create value, five steps, scroll horizontally or use the arrow buttons">
+      <div class="journey-card">
+        <img class="journey-card__photo" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=200&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        <div class="journey-card__num">01</div>
+        <h3 class="journey-card__title">Identify</h3>
+        <p class="journey-card__text">Understand markets and opportunities.</p>
+        <svg class="journey-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+      <div class="journey-card">
+        <img class="journey-card__photo" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=200&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        <div class="journey-card__num">02</div>
+        <h3 class="journey-card__title">Connect</h3>
+        <p class="journey-card__text">Connect businesses, suppliers and markets.</p>
+        <svg class="journey-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+      <div class="journey-card">
+        <img class="journey-card__photo" src="https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=200&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        <div class="journey-card__num">03</div>
+        <h3 class="journey-card__title">Invest</h3>
+        <p class="journey-card__text">Build businesses and operational capabilities.</p>
+        <svg class="journey-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+      <div class="journey-card">
+        <img class="journey-card__photo" src="https://images.unsplash.com/photo-1586528116493-a029325540fa?w=200&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        <div class="journey-card__num">04</div>
+        <h3 class="journey-card__title">Deliver</h3>
+        <p class="journey-card__text">Provide products, services and solutions.</p>
+        <svg class="journey-card__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </div>
+      <div class="journey-card">
+        <img class="journey-card__photo" src="https://images.unsplash.com/photo-1487875961445-47a00398c267?w=200&q=70&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        <div class="journey-card__num">05</div>
+        <h3 class="journey-card__title">Grow</h3>
+        <p class="journey-card__text">Create long-term value and partnerships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     04. OUR BUSINESS ECOSYSTEM — The Businesses Behind the Group
+     ========================================================================== -->
+<section class="businesses" id="businesses">
+  <span class="section-watermark" aria-hidden="true">04</span>
+  <div class="container">
+    <div class="strip-head">
+      <div>
+        <p class="strip-eyebrow eyebrow reveal">Our Companies</p>
+        <h2 class="strip-title reveal">The Businesses Behind the Group</h2>
+        <p class="strip-intro reveal">Altysier Group operates through specialized companies contributing distinct capabilities across its business portfolio.</p>
+      </div>
+      <div class="strip-nav reveal">
+        <span class="strip-counter"><span data-strip-current="businesses">01</span>/05</span>
+        <button type="button" class="strip-nav-btn" data-strip-prev="businesses" aria-label="Previous company">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button type="button" class="strip-nav-btn" data-strip-next="businesses" aria-label="Next company">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="strip-track reveal" data-strip="businesses" tabindex="0" role="region" aria-label="The businesses behind the group, five companies, scroll horizontally or use the arrow buttons">
+      <article class="business-card">
+        <div class="business-card__photo-wrap">
+          <img class="business-card__photo" src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=700&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="business-card__body">
+          <div class="business-card__top">
+            <span class="business-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18l-2.2 3.3a2 2 0 01-1.7.9H6.9a2 2 0 01-1.7-.9L3 17Z"/><path d="M6 17v-6h5v6M13 17V7h4v10"/></svg></span>
+            <span class="business-card__index">01/05</span>
+          </div>
+          <span class="business-card__tag">International Trade</span>
+          <h3 class="business-card__name">Altysier International General Trading LLC</h3>
+          <p class="business-card__text">Sourcing and distributing essential goods across regional and international markets, connecting suppliers with demand where it matters most.</p>
+          <a href="companies/altysier-general-trading.html" class="business-card__link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="business-card _accent">
+        <div class="business-card__photo-wrap">
+          <img class="business-card__photo" src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=700&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="business-card__body">
+          <div class="business-card__top">
+            <span class="business-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V11l5 3v-3l5 3v-3l5 3v7H3Z"/><path d="M7 21v-3M12 21v-3M17 21v-3"/></svg></span>
+            <span class="business-card__index">02/05</span>
+          </div>
+          <span class="business-card__tag">Industrial Investment</span>
+          <h3 class="business-card__name">Altysier International for Advanced Business Co LTD</h3>
+          <p class="business-card__text">Structuring investment across industrial ventures, building capability in sectors that anchor long-term regional growth.</p>
+          <a href="companies/altysier-advanced-business.html" class="business-card__link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="business-card">
+        <div class="business-card__photo-wrap">
+          <img class="business-card__photo" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=700&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="business-card__body">
+          <div class="business-card__top">
+            <span class="business-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.2"/></svg></span>
+            <span class="business-card__index">03/05</span>
+          </div>
+          <span class="business-card__tag">Manufacturing</span>
+          <h3 class="business-card__name">Al Mutmeiza for Industries Investment Co LTD</h3>
+          <p class="business-card__text">Investing in and operating manufacturing capacity that strengthens regional supply chains and industrial output.</p>
+          <a href="companies/al-mutmeiza-industries.html" class="business-card__link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="business-card _accent">
+        <div class="business-card__photo-wrap">
+          <img class="business-card__photo" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=700&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="business-card__body">
+          <div class="business-card__top">
+            <span class="business-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8" width="10.5" height="8" rx="1"/><path d="M13 11h3.8l3.2 3v3h-7"/><circle cx="6.5" cy="18.2" r="1.5"/><circle cx="16.5" cy="18.2" r="1.5"/></svg></span>
+            <span class="business-card__index">04/05</span>
+          </div>
+          <span class="business-card__tag">Transportation &amp; Logistics</span>
+          <h3 class="business-card__name">Altysier for Transport and Services LLC</h3>
+          <p class="business-card__text">Moving goods and people reliably across the network, from freight logistics to integrated transport services.</p>
+          <a href="companies/altysier-transport-services.html" class="business-card__link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+
+      <article class="business-card">
+        <div class="business-card__photo-wrap">
+          <img class="business-card__photo" src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=700&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+        </div>
+        <div class="business-card__body">
+          <div class="business-card__top">
+            <span class="business-card__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11M12 3c-3 1-5 4-5 8a5 5 0 0010 0c0-4-2-7-5-8Z"/><path d="M7 21h10"/></svg></span>
+            <span class="business-card__index">05/05</span>
+          </div>
+          <span class="business-card__tag">Agriculture &amp; Food Security</span>
+          <h3 class="business-card__name">Haloub Feed Mill Factory</h3>
+          <p class="business-card__text">Producing quality animal feed at scale, supporting food security and agricultural resilience across the region.</p>
+          <a href="companies/haloub-feed-mill.html" class="business-card__link">Explore <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+    </div>
+
+    <a href="group-of-companies.html" class="btn _accent reveal" style="margin-top:40rem;">Explore All Companies</a>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     05. GLOBAL REACH + IMPACT
+     ========================================================================== -->
+<section class="reach" id="reach">
+  <div class="hero__bg reach__bg route-bg" aria-hidden="true">
+    <img class="section-photo" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+    <svg viewBox="0 0 1600 1200" preserveAspectRatio="xMidYMid slice">
+      <path class="route-line" d="M40 980 Q420 300 820 640 T1560 260"/>
+      <path class="route-line" d="M100 260 Q560 820 900 480 T1500 900"/>
+      <path class="route-line" d="M200 1100 Q760 60 1400 780"/>
+      <g class="route-node">
+        <circle cx="40" cy="980" r="7"/><circle cx="820" cy="640" r="8"/><circle cx="1560" cy="260" r="7"/>
+        <circle cx="100" cy="260" r="7"/><circle cx="900" cy="480" r="7"/><circle cx="1500" cy="900" r="7"/>
+        <circle cx="200" cy="1100" r="7"/><circle cx="1400" cy="780" r="8"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="container reach__container">
+    <div class="reach__grid">
+      <div>
+        <p class="reach__eyebrow eyebrow reveal">Global Reach</p>
+        <h2 class="reach__title reveal">Connecting Opportunities Across Markets</h2>
+        <div class="reach__stats">
+          <!-- TODO: only validated figures should be used at launch -->
+          <div class="reach__stat reveal"><div class="reach__stat-value">12+</div><div class="reach__stat-label">Countries</div></div>
+          <div class="reach__stat reveal"><div class="reach__stat-value">18+</div><div class="reach__stat-label">Markets</div></div>
+          <div class="reach__stat reveal"><div class="reach__stat-value">150+</div><div class="reach__stat-label">Partners</div></div>
+          <div class="reach__stat reveal"><div class="reach__stat-value">07+</div><div class="reach__stat-label">Sectors</div></div>
+        </div>
+      </div>
+
+      <div class="reach__side">
+        <p class="reach__intro reveal">Our reach is measured not only by where we operate, but by the value we create.</p>
+        <div class="reach__pillars">
+          <div class="pillar reveal"><h3 class="pillar__title">Food Security</h3><p class="pillar__text">Agriculture, livestock and essential commodities.</p></div>
+          <div class="pillar reveal"><h3 class="pillar__title">Economic Development</h3><p class="pillar__text">Trade, employment and industry growth.</p></div>
+          <div class="pillar reveal"><h3 class="pillar__title">Communities</h3><p class="pillar__text">Responsible business and community contribution.</p></div>
+          <div class="pillar reveal"><h3 class="pillar__title">Responsible Operations</h3><p class="pillar__text">Long-term and sustainable business practices.</p></div>
+        </div>
+        <a href="csr.html" class="btn _on-dark reveal">Explore Our Impact</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     06. WHY ALTYSIER + TESTIMONIALS
+     ========================================================================== -->
+<section class="why" id="why">
+  <div class="why__bg" aria-hidden="true">
+    <img class="section-photo" src="https://images.unsplash.com/photo-1568992687947-868a62a9f521?w=1600&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+  </div>
+  <span class="section-watermark" aria-hidden="true">06</span>
+  <div class="container">
+    <p class="why__eyebrow eyebrow reveal">Why Trust Us</p>
+    <h2 class="why__title reveal">Built on Trust. Driven by Capability.</h2>
+
+    <div class="why__list">
+      <div class="principle reveal"><div class="principle__num">01</div><h3 class="principle__heading">International Perspective</h3><p class="principle__text">Connecting opportunities across markets.</p></div>
+      <div class="principle reveal"><div class="principle__num">02</div><h3 class="principle__heading">Diversified Capabilities</h3><p class="principle__text">Multiple industries and specialized businesses.</p></div>
+      <div class="principle reveal"><div class="principle__num">03</div><h3 class="principle__heading">Reliable Operations</h3><p class="principle__text">Focused on quality and execution.</p></div>
+      <div class="principle reveal"><div class="principle__num">04</div><h3 class="principle__heading">Strategic Partnerships</h3><p class="principle__text">Building long-term business relationships.</p></div>
+      <div class="principle reveal"><div class="principle__num">05</div><h3 class="principle__heading">Growth Mindset</h3><p class="principle__text">Continuously expanding capabilities and opportunities.</p></div>
+    </div>
+
+    <!-- Trusted by Our Partners: no approved client testimonials exist yet, so
+         this stays an honest empty-state component rather than a fabricated
+         quote. Swap in real, client-approved testimonials when available. -->
+    <div class="testimonials reveal">
+      <p class="testimonials__eyebrow eyebrow">Trusted by Our Partners</p>
+      <h3 class="testimonials__title">Client Testimonials</h3>
+      <p class="testimonials__note">Approved partner and client testimonials will be featured here once confirmed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     07. FAQ + PARTNERSHIP CTA
+     ========================================================================== -->
+<section class="faq" id="faq">
+  <span class="section-watermark" aria-hidden="true">07</span>
+  <div class="container">
+    <div class="faq__grid">
+      <div class="faq__col-left">
+        <p class="faq__eyebrow eyebrow reveal">Insights &amp; FAQs</p>
+        <h2 class="faq__title reveal">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="faq__list reveal">
+        <div class="faq__item" data-open="true">
+          <button type="button" class="faq__trigger" aria-expanded="true">
+            <span class="faq__question">What industries does Altysier Group operate in?</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq__panel"><div>
+            <p class="faq__answer">Altysier Group operates across international trade, industrial investment, manufacturing, transportation, agriculture, food security, healthcare and mobility, structured as a diversified portfolio of independent companies.</p>
+          </div></div>
+        </div>
+
+        <div class="faq__item" data-open="false">
+          <button type="button" class="faq__trigger" aria-expanded="false">
+            <span class="faq__question">Which companies are part of Altysier Group?</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq__panel"><div>
+            <p class="faq__answer">The Group is made up of five companies: Altysier International General Trading, Altysier International for Advanced Business, Al Mutmeiza for Industries Investment, Altysier for Transport and Services, and Haloub Feed Mill Factory.</p>
+          </div></div>
+        </div>
+
+        <div class="faq__item" data-open="false">
+          <button type="button" class="faq__trigger" aria-expanded="false">
+            <span class="faq__question">Where does Altysier Group operate?</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq__panel"><div>
+            <p class="faq__answer">Our companies operate across a growing number of regional and international markets, connecting supply chains and distribution networks across multiple countries.</p>
+          </div></div>
+        </div>
+
+        <div class="faq__item" data-open="false">
+          <button type="button" class="faq__trigger" aria-expanded="false">
+            <span class="faq__question">What types of business partnerships does Altysier Group support?</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq__panel"><div>
+            <p class="faq__answer">We work with suppliers, distributors, investors and industrial partners across trade, manufacturing, logistics and healthcare, building long-term commercial relationships grounded in trust and reliable execution.</p>
+          </div></div>
+        </div>
+
+        <div class="faq__item" data-open="false">
+          <button type="button" class="faq__trigger" aria-expanded="false">
+            <span class="faq__question">How can I contact Altysier Group?</span>
+            <svg class="faq__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq__panel"><div>
+            <p class="faq__answer">Reach our team directly through the contact details in the footer below, or send a message through our contact page to start a conversation about a partnership.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="contact" class="cta reveal">
+      <img class="section-photo" src="https://images.unsplash.com/photo-1521791055366-0d553872125f?w=1400&q=75&auto=format&fit=crop" alt="" loading="lazy" decoding="async">
+      <div class="cta__col">
+        <h2 class="cta__title">Let&rsquo;s Build What Comes Next.</h2>
+        <p class="cta__text">Whether you are looking to enter new markets, establish a strategic partnership or explore opportunities across our business portfolio, connect with Altysier Group.</p>
+      </div>
+      <a href="contact.html" class="btn _light">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <a href="index.html" class="footer__logo"><img src="img/logo-icon.png" alt="" class="footer__logo-icon">ALTYSIER<span>GROUP</span></a>
+        <p class="footer__blurb">A diversified business group building long-term value across international trade, industry and mobility.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn" class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7.5" y1="10" x2="7.5" y2="17"/><circle cx="7.5" cy="6.8" r="0.9" fill="currentColor" stroke="none"/><path d="M11.5 17v-4.2c0-1.5 1-2.3 2.2-2.3 1.2 0 2.1.8 2.1 2.3V17"/></svg></a>
+          <a href="#" aria-label="Instagram" class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="X (Twitter)" class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></a>
+          <a href="#" aria-label="Facebook" class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 21v-7h2.5l.5-3H14V9c0-.9.3-1.5 1.7-1.5H17V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H8.5v3H11v7Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Navigation</h3>
+        <a href="about.html">About</a>
+        <a href="csr.html">CSR</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Group Companies</h3>
+        <a href="companies/altysier-general-trading.html">Altysier International General Trading LLC</a>
+        <a href="companies/altysier-advanced-business.html">Altysier International for Advanced Business Co LTD</a>
+        <a href="companies/al-mutmeiza-industries.html">Al Mutmeiza for Industries Investment Co LTD</a>
+        <a href="companies/altysier-transport-services.html">Altysier for Transport and Services LLC</a>
+        <a href="companies/haloub-feed-mill.html">Haloub Feed Mill Factory</a>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Contact</h3>
+        <!-- TODO: replace with confirmed HQ address, phone and email -->
+        <span>Dubai, United Arab Emirates</span>
+        <a href="mailto:info@altysiergroup.com">info@altysiergroup.com</a>
+        <a href="tel:+97140000000">+971 4 000 0000</a>
+      </div>
+    </div>
+
+    <p class="footer__wordmark">Altysier Group</p>
+
+    <div class="footer__bottom">
+      <span class="footer__copyrights">&copy; <span id="current-year">2026</span> Altysier Group. All rights reserved.</span>
+      <span class="footer__tagline">A diversified business group.</span>
+      <button type="button" class="footer__up-btn" data-scroll-to="hero" aria-label="Back to top">
+        <span>Up</span>
+        <span class="footer__up-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

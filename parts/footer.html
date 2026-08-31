@@ -1,0 +1,66 @@
+<!-- ==========================================================================
+     TEMPLATE PART: Footer
+     Extracted from index.html for reuse across every internal page.
+     UI ported from mvplogistics.eu — see WP-CONVERSION-NOTES.md.
+
+     WordPress (Block Theme / FSE) conversion:
+       - Save as parts/footer.html inside the theme.
+       - Register in theme.json under "templateParts" (area: "footer").
+       - "Group Companies" column should pull from a custom post type
+         (e.g. "company") so it stays in sync with the homepage's
+         Businesses section instead of being hand-maintained in two places.
+       - Contact block (address / email / phone) is a good candidate for
+         an ACF Options Page or Site Editor global "Contact" template part.
+     ========================================================================== -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <a href="index.html" class="footer__logo"><img src="img/logo-icon.png" alt="" class="footer__logo-icon">ALTYSIER<span>GROUP</span></a>
+        <p class="footer__blurb">A diversified business group building long-term value across international trade, industry and mobility.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="LinkedIn" class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7.5" y1="10" x2="7.5" y2="17"/><circle cx="7.5" cy="6.8" r="0.9" fill="currentColor" stroke="none"/><path d="M11.5 17v-4.2c0-1.5 1-2.3 2.2-2.3 1.2 0 2.1.8 2.1 2.3V17"/></svg></a>
+          <a href="#" aria-label="Instagram" class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="0.8" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="X (Twitter)" class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg></a>
+          <a href="#" aria-label="Facebook" class="footer__social-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 21v-7h2.5l.5-3H14V9c0-.9.3-1.5 1.7-1.5H17V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H8.5v3H11v7Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Navigation</h3>
+        <a href="about.html">About</a>
+        <a href="csr.html">CSR</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Group Companies</h3>
+        <a href="companies/altysier-general-trading.html">Altysier International General Trading LLC</a>
+        <a href="companies/altysier-advanced-business.html">Altysier International for Advanced Business Co LTD</a>
+        <a href="companies/al-mutmeiza-industries.html">Al Mutmeiza for Industries Investment Co LTD</a>
+        <a href="companies/altysier-transport-services.html">Altysier for Transport and Services LLC</a>
+        <a href="companies/haloub-feed-mill.html">Haloub Feed Mill Factory</a>
+      </div>
+
+      <div class="footer__col">
+        <h3 class="footer__heading">Contact</h3>
+        <!-- TODO: replace with confirmed HQ address, phone and email -->
+        <span>Dubai, United Arab Emirates</span>
+        <a href="mailto:info@altysiergroup.com">info@altysiergroup.com</a>
+        <a href="tel:+97140000000">+971 4 000 0000</a>
+      </div>
+    </div>
+
+    <p class="footer__wordmark">Altysier Group</p>
+
+    <div class="footer__bottom">
+      <span class="footer__copyrights">&copy; <span id="current-year">2026</span> Altysier Group. All rights reserved.</span>
+      <span class="footer__tagline">A diversified business group.</span>
+      <button type="button" class="footer__up-btn" data-scroll-to="hero" aria-label="Back to top">
+        <span>Up</span>
+        <span class="footer__up-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
+      </button>
+    </div>
+  </div>
+</footer>
