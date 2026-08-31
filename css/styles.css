@@ -136,21 +136,38 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 /* ---------------------------------------------------------------------- */
-/* Section watermark — giant low-opacity numeral behind a section's content */
+/* Section watermark — giant subtle title watermark at top-center of each section */
 /* ---------------------------------------------------------------------- */
 .section-watermark {
   position: absolute;
+  top: -30rem;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 0;
   font-family: 'Oswald', 'Bebas Neue', sans-serif;
   font-weight: 700;
   line-height: 0.8;
-  font-size: clamp(140rem, 20vw, 320rem);
+  font-size: clamp(64rem, 11vw, 160rem);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(144, 9, 9, 0.042);
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
+  text-align: center;
 }
-@media only screen and (max-width: 768px) {
-  .section-watermark { font-size: clamp(100rem, 24vw, 180rem); opacity: 0.6; }
+@media only screen and (max-width: 1024px) {
+  .section-watermark {
+    top: -20rem;
+    font-size: clamp(48rem, 12vw, 110rem);
+  }
+}
+@media only screen and (max-width: 640px) {
+  .section-watermark {
+    top: -14rem;
+    font-size: clamp(34rem, 13vw, 68rem);
+    opacity: 0.75;
+  }
 }
 
 /* Grid items default to min-width:auto */
@@ -547,7 +564,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   height: 100%;
   justify-content: space-between;
 }
-.hero .section-watermark { z-index: 1; right: -10rem; bottom: -60rem; color: rgba(255, 255, 255, 0.14); }
+.hero .section-watermark { top: 60rem; color: rgba(144, 9, 9, 0.04); }
 .hero__eyebrow { font-family: Inter, sans-serif; font-size: 14rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #555555; margin-bottom: 22rem; }
 .hero__title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 54rem; max-width: 760rem; line-height: 1.15; color: var(--ink); margin-bottom: 24rem; letter-spacing: -0.01em; }
 .hero__text { font-family: Inter, sans-serif; font-size: 15.5rem; font-weight: 400; line-height: 1.55; max-width: 580rem; color: #4a4a4a; margin-bottom: 36rem; }
@@ -641,7 +658,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* ---------------------------------------------------------------------- */
 .group { position: relative; overflow: hidden; min-height: auto; display: flex; align-items: center; padding: 70rem 0 80rem; }
 .group > .container { position: relative; z-index: 1; width: 100%; }
-.group .section-watermark { right: -20rem; bottom: -50rem; color: rgba(144, 9, 9, 0.045); }
 .group__head { margin-bottom: 28rem; }
 .group__head-info { max-width: 780rem; }
 .group__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: #a45d5d; margin-bottom: 12rem; }
@@ -899,7 +915,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   z-index: 1;
   width: 100%;
 }
-.journey .section-watermark { right: -14rem; top: -24rem; color: rgba(144, 9, 9, 0.045); }
 .journey__head {
   display: flex;
   justify-content: space-between;
@@ -1132,7 +1147,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* ---------------------------------------------------------------------- */
 .businesses { position: relative; overflow: hidden; min-height: auto; display: flex; align-items: center; padding: 70rem 0 80rem; background-color: var(--paper); }
 .businesses > .container { position: relative; z-index: 1; width: 100%; }
-.businesses .section-watermark { left: -14rem; bottom: -60rem; color: rgba(144, 9, 9, 0.045); }
 .businesses__head { margin-bottom: 36rem; }
 .businesses__head-info { max-width: 680rem; }
 .businesses__eyebrow { font-family: Inter, sans-serif; font-size: 13rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.22em; color: #a45d5d; margin-bottom: 12rem; }
@@ -1213,7 +1227,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* 05 — Global Reach + Impact                                             */
 /* ---------------------------------------------------------------------- */
 .reach { position: relative; min-height: auto; display: flex; align-items: center; padding: 80rem 0 90rem; background-color: var(--near-black); overflow: hidden; }
-.reach .section-watermark { right: -16rem; top: -30rem; color: rgba(255, 255, 255, 0.04); }
+.reach .section-watermark,
+.why .section-watermark { color: rgba(255, 255, 255, 0.035); }
 .reach__bg { opacity: 0.9; }
 .reach__bg .section-photo { opacity: 0.22; }
 .reach__bg .route-line { stroke: rgba(255, 255, 255, 0.1); }
@@ -1286,11 +1301,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   position: relative;
   z-index: 1;
   width: 100%;
-}
-.why .section-watermark {
-  right: -10rem;
-  bottom: -40rem;
-  color: rgba(255, 255, 255, 0.03);
 }
 .why__head {
   margin-bottom: 54rem;
@@ -1620,7 +1630,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* ---------------------------------------------------------------------- */
 .faq { position: relative; overflow: hidden; min-height: auto; display: flex; align-items: center; padding: 80rem 0 90rem; }
 .faq > .container { position: relative; z-index: 1; width: 100%; }
-.faq .section-watermark { left: -14rem; top: -20rem; color: rgba(144, 9, 9, 0.045); }
 .faq__grid { display: flex; gap: 48rem; align-items: flex-start; }
 .faq__col-left { width: 440rem; flex-shrink: 0; }
 .faq__col-right { flex: 1; min-width: 0; }
