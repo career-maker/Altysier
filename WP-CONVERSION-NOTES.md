@@ -221,6 +221,30 @@ straight `src` swap with no layout changes needed.
 
 ## Notes on intentional design decisions
 
+- **One-screen-per-section (desktop only)**: every section (`.hero`,
+  `.group`, `.businesses`, `.reach`, `.why`, `.faq`) is `height: 100vh` +
+  `display: flex; align-items: center` at desktop widths (≥1025px) —
+  content is centered and sized to fit inside one viewport, no scrolling
+  within a section. `.journey` is the one exception: even after the same
+  round of size cuts its 5 cards comfortably fit in well under a screen
+  height, so forcing it to fill 100vh would just add dead whitespace — it
+  keeps natural height instead. Getting here meant cutting card/icon/text
+  sizes hard across every section (e.g. the Group section's sector-explorer
+  tab rows went from 24rem to 8rem vertical padding, the FAQ accordion's
+  question padding from 26rem to 14rem) — verified with
+  `getBoundingClientRect()` checks that nothing overflows its section's
+  `overflow: hidden` boundary at both 1440×900 and 1366×768 (a second,
+  shorter reference size) before treating any section as done.
+  **Mobile is explicitly exempt** — every `height: 100vh` rule is reset to
+  `height: auto` inside the existing `@media (max-width: 1024px)` blocks,
+  because forcing a phone's much shorter viewport to also hold a full
+  section without scrolling would mean illegibly tiny text; mobile keeps
+  natural document flow, same as before this pass.
+- **Footer "Altysier Group" wordmark is now a true watermark**: previously
+  solid white at full opacity despite being called a "wordmark" in earlier
+  notes — it was really just large branding text, not actually subtle.
+  Now `rgba(255, 255, 255, 0.08)`, in line with the `.section-watermark`
+  treatment used elsewhere on the page.
 - **Hero simplified — sector slider removed, stats moved in**: the hero
   originally paired the headline/CTA column with a full vertical
   auto-advancing sector slider ("01/07 Our Sectors International Trade…").
