@@ -47,13 +47,9 @@
      Preloader — char reveal, counted percentage, hard failsafe.
      --------------------------------------------------------------------- */
   var headerEl = document.querySelector('.header');
-  var heroSliderApi = null; // set once initHeroSlider runs
 
   function revealHeader() {
     if (headerEl) headerEl.classList.add('is-visible');
-  }
-  function startHeroSlider() {
-    if (heroSliderApi && heroSliderApi.start) heroSliderApi.start();
   }
 
   run(function () {
@@ -67,7 +63,6 @@
       done = true;
       document.documentElement.style.overflow = '';
       revealHeader();
-      startHeroSlider();
       if (preloader) {
         preloader.classList.add('is-done');
         window.setTimeout(function () {
@@ -163,48 +158,6 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
     items.forEach(function (el) { io.observe(el); });
-  });
-
-  /* ---------------------------------------------------------------------
-     Hero sector slider — plain auto-advancing carousel
-     --------------------------------------------------------------------- */
-  run(function () {
-    var track = document.querySelector('.hero-slider__track');
-    var wrap = document.querySelector('.hero-slider__track-wrap');
-    var fill = document.querySelector('.hero-slider__progressbar-fill');
-    var currentEl = document.querySelector('.hero-slider__counter-current');
-    if (!track || !wrap) return;
-    var items = track.children;
-    var total = items.length;
-    if (!total) return;
-    var index = 0;
-    var DURATION = 4200;
-    var timer = null;
-
-    function render() {
-      var itemHeight = wrap.getBoundingClientRect().height || items[0].getBoundingClientRect().height;
-      track.style.transform = 'translateY(-' + (index * itemHeight) + 'px)';
-      if (currentEl) currentEl.textContent = String(index + 1).padStart(2, '0');
-      if (fill) {
-        fill.style.transition = 'none';
-        fill.style.width = '0%';
-        void fill.offsetWidth; // force reflow so the reset above commits first
-        fill.style.transition = 'width ' + DURATION + 'ms linear';
-        fill.style.width = '100%';
-      }
-    }
-    function advance() { index = (index + 1) % total; render(); }
-    function loop() {
-      if (timer) window.clearInterval(timer);
-      if (prefersReducedMotion) return;
-      timer = window.setInterval(advance, DURATION);
-    }
-
-    render();
-    window.addEventListener('resize', render);
-
-    heroSliderApi = { start: function () { loop(); } };
-    if (!document.querySelector('.preloader') || prefersReducedMotion) loop();
   });
 
   /* ---------------------------------------------------------------------

@@ -28,8 +28,8 @@ js/main.js         → assets/js/main.js  (enqueue via wp_enqueue_script;
 
 | # | Section | Suggested WP unit |
 |---|---|---|
-| 01 | Hero | Pattern (`patterns/hero.php`); background photo as a single image field; sector slider as a `sector` CPT or repeater (name + link) |
-| 02 | The Group (statement + stats + sector explorer) | Pattern; stats as repeater; sector explorer as a `sector` CPT/repeater (icon key + name + copy + **photo field**, crossfaded per active sector) |
+| 01 | Hero | Pattern (`patterns/hero.php`); background photo as a single image field; the Group section's 4 stats (`.stat-grid`) live here too, as a repeater — see design-decisions note below |
+| 02 | The Group (statement + sector explorer) | Pattern; stats moved to Hero (see row 01); sector explorer as a `sector` CPT/repeater (icon key + name + copy + **photo field**, crossfaded per active sector) |
 | 03 | How We Create Value | Pattern, steps as a repeater field (label + short copy + **thumbnail photo**); renders as the horizontal scroll-snap strip |
 | 04 | Our Business Ecosystem | Query Loop / custom `company` CPT (name, sector, tag, excerpt, permalink, icon key, **featured image** for the card's photo header) — also feeds the footer's "Group Companies" list and a future Group Of Companies page; renders as the horizontal alternating-card strip |
 | 05 | Global Reach + Impact | Pattern; background photo as a single image field; stats as repeater; CSR pillars as repeater (title + copy) |
@@ -221,6 +221,25 @@ straight `src` swap with no layout changes needed.
 
 ## Notes on intentional design decisions
 
+- **Hero simplified — sector slider removed, stats moved in**: the hero
+  originally paired the headline/CTA column with a full vertical
+  auto-advancing sector slider ("01/07 Our Sectors International Trade…").
+  Combined with a headline sized for a 1920px canvas, this made the hero
+  feel cluttered, especially on mobile (1.6 screens of scrolling just to
+  clear it). The slider is gone entirely (markup, its dedicated CSS, and
+  the `setInterval` carousel JS all removed together — nothing dormant
+  left behind); the sector explorer two sections down already covers the
+  same 7 sectors properly, interactively. In its place, the Group
+  section's 4 stat cards now live in the hero instead — same `.stat-card`
+  markup/CSS, just relocated and given an `._on-dark` modifier (translucent
+  glass, white text) since the hero sits on a dark/photo backdrop instead
+  of Group's white ground. The wrapper class was renamed `.group__stats` →
+  `.stat-grid` since it no longer belongs to the Group section.
+- **Section title sizes reduced**: the 8 Oswald section titles (see the
+  shared selector block after `.eyebrow`) were sized quite large in the
+  original pass (up to 96rem on the hero) — trimmed by roughly 20% across
+  the board (hero 96→76rem, others similarly) for a calmer, less shouty
+  hierarchy, with matching reductions on the mobile overrides.
 - **No Tailwind**: the MVP-ported design is a bespoke system (fluid `rem`
   scale, pill buttons, split-char motion) that doesn't map cleanly onto
   utility classes, so `css/styles.css` is hand-written CSS with BEM-ish
