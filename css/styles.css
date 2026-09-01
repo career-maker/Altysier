@@ -568,6 +568,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .hero__eyebrow { font-family: Inter, sans-serif; font-size: 14rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: #555555; margin-bottom: 22rem; }
 .hero__title { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 46rem; max-width: 720rem; line-height: 1.15; color: var(--ink); margin-bottom: 22rem; letter-spacing: -0.01em; }
 .hero__text { font-family: Inter, sans-serif; font-size: 15.5rem; font-weight: 400; line-height: 1.55; max-width: 580rem; color: #4a4a4a; margin-bottom: 36rem; }
+.hero__watermark-mobile { display: none; } /* hidden on desktop; shown via mobile media query */
 .hero__actions { display: flex; gap: 16rem; flex-wrap: wrap; margin-bottom: 48rem; }
 .hero__stats { margin-top: 0; max-width: 1160rem; width: 100%; }
 
@@ -680,6 +681,24 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     padding-top: 40rem;   /* gap below header bar */
   }
   .hero .section-watermark { display: none !important; }
+  /* Mobile-only inline watermark shown below the CTA buttons */
+  .hero__watermark-mobile {
+    display: block;
+    font-family: 'Oswald', 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: clamp(36rem, 14vw, 56rem);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(144, 9, 9, 0.055);
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    text-align: left;
+    line-height: 1;
+    margin-top: 14rem;
+    margin-bottom: 0;
+    overflow: hidden;
+  }
   .hero__eyebrow { font-size: 11rem; letter-spacing: 0.14em; margin-bottom: 10rem; color: #a45d5d; }
   .hero__title { font-size: 24rem; line-height: 1.18; letter-spacing: -0.01em; margin-bottom: 12rem; max-width: 100%; }
   .hero__text { font-size: 13rem; line-height: 1.5; color: #555555; margin-bottom: 22rem; max-width: 100%; }
