@@ -295,6 +295,104 @@
   });
 
   /* ---------------------------------------------------------------------
+     Editorial Testimonials Switcher
+     --------------------------------------------------------------------- */
+  run(function () {
+    var testimonials = [
+      {
+        quote: "Altysier Group has been an exceptional partner in helping us expand our presence in new markets. Their professionalism, disciplined execution, and deep market understanding are truly commendable.",
+        author: "Sarah Johnson",
+        role: "CEO",
+        company: "Skyward Global",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&auto=format&fit=crop"
+      },
+      {
+        quote: "Their diversified expertise and unwavering commitment to operational excellence ensured the smooth rollout of our regional supply chain transformation. We look forward to many more milestones together.",
+        author: "Michael Thomas",
+        role: "Operations Director",
+        company: "Meditrade Solutions",
+        image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80&auto=format&fit=crop"
+      },
+      {
+        quote: "Working with Altysier Group has been a game changer for our cross-border logistics. Their strategic insights, execution reliability, and institutional discipline make them a partner we can always count on.",
+        author: "Ravi Lal",
+        role: "Managing Director",
+        company: "Reliant Logistics",
+        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80&auto=format&fit=crop"
+      }
+    ];
+
+    var indexEl = document.getElementById('editorial-index');
+    var quoteEl = document.getElementById('editorial-quote');
+    var avatarEl = document.getElementById('editorial-avatar');
+    var nameEl = document.getElementById('editorial-name');
+    var roleTextEl = document.getElementById('editorial-role-text');
+    var companyEl = document.getElementById('editorial-company');
+    var counterEl = document.getElementById('editorial-counter');
+    var lineBtns = document.querySelectorAll('.editorial-line-btn');
+    var prevBtn = document.getElementById('editorial-prev-btn');
+    var nextBtn = document.getElementById('editorial-next-btn');
+    var contentWrap = document.querySelector('.editorial-main');
+
+    if (!quoteEl || !testimonials.length) return;
+
+    var active = 0;
+    var isTransitioning = false;
+
+    function render(index) {
+      if (index === active || isTransitioning) return;
+      isTransitioning = true;
+      if (contentWrap) contentWrap.classList.add('is-transitioning');
+      if (indexEl) indexEl.classList.add('is-transitioning');
+
+      setTimeout(function () {
+        active = index;
+        var item = testimonials[active];
+        var numStr = String(active + 1).padStart(2, '0');
+
+        if (indexEl) indexEl.textContent = numStr;
+        if (quoteEl) quoteEl.innerHTML = '&ldquo;' + item.quote + '&rdquo;';
+        if (avatarEl) { avatarEl.src = item.image; avatarEl.alt = item.author; }
+        if (nameEl) nameEl.textContent = item.author;
+        if (roleTextEl) roleTextEl.textContent = item.role;
+        if (companyEl) companyEl.textContent = item.company;
+        if (counterEl) counterEl.textContent = numStr + ' / ' + String(testimonials.length).padStart(2, '0');
+
+        lineBtns.forEach(function (btn, i) {
+          var isAct = i === active;
+          btn.classList.toggle('active', isAct);
+          btn.setAttribute('aria-selected', String(isAct));
+        });
+
+        if (contentWrap) contentWrap.classList.remove('is-transitioning');
+        if (indexEl) indexEl.classList.remove('is-transitioning');
+        setTimeout(function () { isTransitioning = false; }, 50);
+      }, 280);
+    }
+
+    lineBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var idx = parseInt(btn.getAttribute('data-index'), 10);
+        if (!isNaN(idx)) render(idx);
+      });
+    });
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function () {
+        var prev = active === 0 ? testimonials.length - 1 : active - 1;
+        render(prev);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function () {
+        var next = active === testimonials.length - 1 ? 0 : active + 1;
+        render(next);
+      });
+    }
+  });
+
+  /* ---------------------------------------------------------------------
      Misc: back-to-top, footer year
      --------------------------------------------------------------------- */
   run(function () {
