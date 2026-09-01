@@ -668,7 +668,70 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .group__accent-line { display: block; width: 44rem; height: 2.5rem; background-color: var(--ink); margin-bottom: 20rem; border-radius: 2rem; }
 .group__intro { font-family: Inter, sans-serif; font-size: 15rem; line-height: 1.55; color: #555555; max-width: 600rem; }
 
-.group__ticker-wrap { margin: 20rem 0 28rem; padding: 10rem 0; border-top: 1rem solid rgba(144, 9, 9, 0.14); border-bottom: 1rem solid rgba(144, 9, 9, 0.14); overflow: hidden; font-size: 16rem; text-transform: uppercase; color: rgba(144, 9, 9, 0.4); }
+/* Marquee / Ticker Strip with Hover Pause */
+.group__ticker-wrap {
+  margin: 20rem 0 32rem;
+  padding: 12rem 0;
+  border-top: 1px solid rgba(144, 9, 9, 0.12);
+  border-bottom: 1px solid rgba(144, 9, 9, 0.12);
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  cursor: default;
+}
+.group__ticker-wrap::before,
+.group__ticker-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60rem;
+  z-index: 2;
+  pointer-events: none;
+}
+.group__ticker-wrap::before {
+  left: 0;
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+.group__ticker-wrap::after {
+  right: 0;
+  background: linear-gradient(270deg, #ffffff 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.ticker {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  animation: marqueeScroll 28s linear infinite;
+}
+.group__ticker-wrap:hover .ticker {
+  animation-play-state: paused;
+}
+
+.ticker__item {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 15rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(144, 9, 9, 0.55);
+  padding-right: 28rem;
+  transition: color 0.3s ease;
+}
+.group__ticker-wrap:hover .ticker__item {
+  color: var(--ink);
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333333%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker { animation: none; }
+}
 
 .sectors__head {
   display: flex;
