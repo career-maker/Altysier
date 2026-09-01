@@ -262,8 +262,20 @@
       var ticking = false;
       function updateState() {
         ticking = false;
+        var maxScroll = track.scrollWidth - track.clientWidth;
+        var isScrollable = maxScroll > 4;
+
+        if (prevBtn) prevBtn.style.display = isScrollable ? '' : 'none';
+        if (nextBtn) nextBtn.style.display = isScrollable ? '' : 'none';
+        if (currentEl) {
+          var counterWrap = currentEl.closest('.strip-counter, .journey__counter');
+          if (counterWrap) counterWrap.style.display = isScrollable ? '' : 'none';
+        }
+
+        if (!isScrollable) return;
+
         var atStart = track.scrollLeft <= 1;
-        var atEnd = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
+        var atEnd = track.scrollLeft >= maxScroll - 1;
         if (currentEl) {
           // At either end, the nearest-card-to-left heuristic below can miss
           // by a card or two when the last card can't reach the snap-left

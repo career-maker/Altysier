@@ -674,23 +674,36 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 20rem;
-  margin-bottom: 24rem;
+  gap: 24rem;
+  margin-bottom: 36rem;
   flex-wrap: wrap;
 }
+.sectors__head-info {
+  max-width: 680rem;
+}
 .sectors__title {
-  font-family: 'Oswald', 'Bebas Neue', sans-serif;
-  font-size: 30rem;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 38rem;
   color: var(--ink);
   line-height: 1.15;
-  margin-bottom: 6rem;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
+  margin-bottom: 14rem;
+}
+.sectors__accent-line {
+  display: block;
+  width: 44rem;
+  height: 2.5rem;
+  background-color: var(--ink);
+  margin-bottom: 20rem;
+  border-radius: 2rem;
 }
 .sectors__intro {
   font-family: Inter, sans-serif;
-  font-size: 14.5rem;
+  font-size: 15.5rem;
+  line-height: 1.6;
   color: #555555;
-  max-width: 520rem;
+  max-width: 620rem;
 }
 .sectors__nav {
   display: flex;
