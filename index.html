@@ -32,7 +32,53 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css?v=2.5">
+<style>
+/* Hero Watermark Marquee — STRICTLY mobile only (<640px) */
+.hero__marquee { display: none !important; }
+@media only screen and (max-width: 640px) {
+  .hero__marquee {
+    display: block !important;
+    width: calc(100% + 40rem);
+    margin-left: -20rem;
+    margin-right: -20rem;
+    overflow: hidden;
+    user-select: none;
+    pointer-events: none;
+    white-space: nowrap;
+    margin-top: 0;
+    margin-bottom: 24rem;
+    line-height: 1;
+    z-index: 1;
+  }
+  .hero__marquee__track {
+    display: inline-flex;
+    width: max-content;
+    white-space: nowrap;
+    will-change: transform;
+    animation: heroMarqueeScroll 20s linear infinite;
+  }
+  .hero__marquee__track span {
+    display: inline-block;
+    flex-shrink: 0;
+    font-family: 'Oswald', 'Bebas Neue', sans-serif;
+    font-weight: 700;
+    font-size: clamp(34rem, 11vw, 46rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(144, 9, 9, 0.055);
+    white-space: nowrap;
+  }
+  @keyframes heroMarqueeScroll {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__marquee__track { animation: none; }
+  }
+}
+</style>
 </head>
 <body class="home">
 
@@ -115,8 +161,8 @@
   <span class="section-watermark" aria-hidden="true">ALTYSIER GROUP</span>
 
   <div class="container hero__container">
-    <!-- Marquee watermark — visible on mobile only, above the content block -->
-    <div class="hero__marquee" aria-hidden="true">
+    <!-- Marquee watermark — STRICTLY mobile only (<640px), never shown on desktop -->
+    <div class="hero__marquee" style="display: none;" aria-hidden="true">
       <div class="hero__marquee__track">
         <span>ALTYSIER GROUP&nbsp;&nbsp;•&nbsp;&nbsp;ALTYSIER GROUP&nbsp;&nbsp;•&nbsp;&nbsp;ALTYSIER GROUP&nbsp;&nbsp;•&nbsp;&nbsp;</span>
         <span>ALTYSIER GROUP&nbsp;&nbsp;•&nbsp;&nbsp;ALTYSIER GROUP&nbsp;&nbsp;•&nbsp;&nbsp;ALTYSIER GROUP&nbsp;&nbsp;•&nbsp;&nbsp;</span>
