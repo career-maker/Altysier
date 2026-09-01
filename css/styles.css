@@ -669,22 +669,24 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     padding-bottom: 28rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     overflow: hidden;
   }
   .hero__container {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    padding-top: 40rem;   /* gap below header bar */
   }
   .hero .section-watermark { display: none !important; }
-  .hero__eyebrow { font-size: 11rem; letter-spacing: 0.14em; margin-bottom: 8rem; color: #a45d5d; }
-  .hero__title { font-size: 24rem; line-height: 1.18; letter-spacing: -0.01em; margin-bottom: 10rem; max-width: 100%; }
-  .hero__text { font-size: 13rem; line-height: 1.5; color: #555555; margin-bottom: 18rem; max-width: 100%; }
-  .hero__actions { display: flex; flex-direction: row; gap: 10rem; width: 100%; margin-bottom: 20rem; }
+  .hero__eyebrow { font-size: 11rem; letter-spacing: 0.14em; margin-bottom: 10rem; color: #a45d5d; }
+  .hero__title { font-size: 24rem; line-height: 1.18; letter-spacing: -0.01em; margin-bottom: 12rem; max-width: 100%; }
+  .hero__text { font-size: 13rem; line-height: 1.5; color: #555555; margin-bottom: 22rem; max-width: 100%; }
+  .hero__actions { display: flex; flex-direction: row; gap: 10rem; width: 100%; margin-bottom: 0; }
   .hero__actions .btn { flex: 1; min-width: 0; height: 42rem; padding: 0 10rem; font-size: 13rem; border-radius: 999rem; justify-content: center; text-align: center; white-space: nowrap; }
-  .hero__stats { margin-top: auto; }
+  /* Stats pin to the bottom of the viewport */
+  .hero__stats { margin-top: auto; padding-top: 24rem; }
   .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 8rem; }
   .stat-card { padding: 10rem 12rem; border-radius: 14rem; background: rgba(255, 255, 255, 0.95); }
   .stat-card__icon { width: 20rem; height: 20rem; margin-left: 4rem; opacity: 0.8; }
