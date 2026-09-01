@@ -641,18 +641,23 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 @media only screen and (max-width: 640px) {
-  .hero { padding-top: 110rem; padding-bottom: 36rem; }
-  .hero__title { font-size: 28rem; }
-  .hero__actions { flex-direction: column; width: 100%; gap: 10rem; }
-  .hero__actions .btn { width: 100%; justify-content: center; }
+  .hero { padding-top: 100rem; padding-bottom: 32rem; min-height: auto; }
+  .hero .section-watermark { display: none !important; }
+  .hero__eyebrow { font-size: 11.5rem; letter-spacing: 0.16em; margin-bottom: 10rem; color: #a45d5d; }
+  .hero__title { font-size: 25rem; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 12rem; max-width: 100%; }
+  .hero__text { font-size: 13.5rem; line-height: 1.52; color: #555555; margin-bottom: 22rem; max-width: 100%; }
+  .hero__actions { display: flex; flex-direction: row; gap: 10rem; width: 100%; margin-bottom: 24rem; }
+  .hero__actions .btn { flex: 1; min-width: 0; height: 44rem; padding: 0 12rem; font-size: 13.5rem; border-radius: 999rem; justify-content: center; text-align: center; white-space: nowrap; }
   .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 8rem; }
-  .stat-card { padding: 14rem 14rem; border-radius: 14rem; }
-  .stat-card__icon { width: 28rem; height: 28rem; margin-left: 8rem; }
-  .stat-card__value { font-size: 30rem; }
-  .stat-card__label { font-size: 10.5rem; margin-top: 4rem; }
+  .stat-card { padding: 12rem 12rem; border-radius: 14rem; background: rgba(255, 255, 255, 0.95); }
+  .stat-card__icon { width: 22rem; height: 22rem; margin-left: 4rem; opacity: 0.8; }
+  .stat-card__value { font-size: 26rem; }
+  .stat-card__label { font-size: 10.5rem; line-height: 1.25; margin-top: 4rem; }
 }
 
 @media only screen and (max-width: 380px) {
+  .hero__title { font-size: 23rem; }
+  .hero__actions { flex-direction: column; }
   .stat-grid { grid-template-columns: 1fr; gap: 8rem; }
 }
 
@@ -2261,3 +2266,175 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* Misc                                                                     */
 /* ---------------------------------------------------------------------- */
 .btn-tap:active { transform: scale(0.98); }
+
+/* ---------------------------------------------------------------------- */
+/* Comprehensive Entrance & Scroll Reveal Animation System                */
+/* ---------------------------------------------------------------------- */
+.reveal,
+.reveal-fade,
+.reveal-up,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+  opacity: 0;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal,
+.reveal-up {
+  transform: translateY(32rem);
+}
+.reveal-fade {
+  transform: none;
+}
+.reveal-left {
+  transform: translateX(-36rem);
+}
+.reveal-right {
+  transform: translateX(36rem);
+}
+.reveal-scale {
+  transform: scale(0.94);
+}
+
+.reveal.in-view,
+.reveal-fade.in-view,
+.reveal-up.in-view,
+.reveal-left.in-view,
+.reveal-right.in-view,
+.reveal-scale.in-view,
+.in-view.reveal,
+.in-view.stat-card,
+.in-view.sector-card,
+.in-view.value-step,
+.in-view.business-card,
+.in-view.principle__item,
+.in-view.faq__item {
+  opacity: 1 !important;
+  transform: translate(0, 0) scale(1) !important;
+}
+
+/* Stagger support on cards */
+.stat-card,
+.sector-card,
+.value-step,
+.business-card,
+.principle__item,
+.faq__item {
+  opacity: 0;
+  transform: translateY(28rem);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) var(--delay, 0s),
+              border-color var(--t-fast),
+              box-shadow var(--t-fast),
+              background-color var(--t-fast);
+  will-change: opacity, transform;
+}
+
+.in-view .stat-card,
+.in-view .sector-card,
+.in-view .value-step,
+.in-view .business-card,
+.in-view .principle__item,
+.in-view .faq__item,
+.stat-card.in-view,
+.sector-card.in-view,
+.value-step.in-view,
+.business-card.in-view,
+.principle__item.in-view,
+.faq__item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accent Lines Expanding on Scroll Reveal */
+.group__accent-line,
+.sectors__accent-line,
+.journey__accent-line,
+.businesses__accent-line,
+.reach__accent-line,
+.why__accent-line,
+.faq__accent-line {
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.in-view .group__accent-line,
+.in-view .sectors__accent-line,
+.in-view .journey__accent-line,
+.in-view .businesses__accent-line,
+.in-view .reach__accent-line,
+.in-view .why__accent-line,
+.in-view .faq__accent-line,
+.group__accent-line.in-view,
+.sectors__accent-line.in-view,
+.journey__accent-line.in-view,
+.businesses__accent-line.in-view,
+.reach__accent-line.in-view,
+.why__accent-line.in-view,
+.faq__accent-line.in-view {
+  transform: scaleX(1);
+}
+
+/* Hero Section Choreographed Initial Entrance */
+.hero__eyebrow {
+  animation: heroInFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+.hero__title {
+  animation: heroInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+}
+.hero__text {
+  animation: heroInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+}
+.hero__actions {
+  animation: heroInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+}
+.hero__stats {
+  animation: heroInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
+}
+
+@keyframes heroInFade {
+  from { opacity: 0; transform: translateY(14rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroInUp {
+  from { opacity: 0; transform: translateY(32rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-fade,
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale,
+  .stat-card,
+  .sector-card,
+  .value-step,
+  .business-card,
+  .principle__item,
+  .faq__item,
+  .hero__eyebrow,
+  .hero__title,
+  .hero__text,
+  .hero__actions,
+  .hero__stats {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+  .group__accent-line,
+  .sectors__accent-line,
+  .journey__accent-line,
+  .businesses__accent-line,
+  .reach__accent-line,
+  .why__accent-line,
+  .faq__accent-line {
+    transform: none !important;
+  }
+}

@@ -142,13 +142,28 @@
   });
 
   /* ---------------------------------------------------------------------
-     Scroll reveal — IntersectionObserver
+     Scroll reveal — Comprehensive IntersectionObserver with Stagger
      --------------------------------------------------------------------- */
   run(function () {
-    if (!('IntersectionObserver' in window)) return;
-    var items = document.querySelectorAll('.reveal');
-    if (!items.length) return;
-    items.forEach(function (el) { el.classList.add('js-reveal-ready'); });
+    if (!('IntersectionObserver' in window)) {
+      document.querySelectorAll('.reveal, .stat-card, .sector-card, .value-step, .business-card, .principle__item, .faq__item').forEach(function (el) {
+        el.classList.add('in-view');
+      });
+      return;
+    }
+
+    // Auto-calculate stagger delays for sibling cards and items
+    var containers = document.querySelectorAll('.stat-grid, .sectors__track, .value-pipeline, .strip-track, .why__list, .faq__list');
+    containers.forEach(function (container) {
+      var children = container.querySelectorAll('.stat-card, .sector-card, .value-step, .business-card, .principle__item, .faq__item');
+      children.forEach(function (card, idx) {
+        card.style.setProperty('--delay', (idx * 0.08) + 's');
+      });
+    });
+
+    var targets = document.querySelectorAll('.reveal, .stat-card, .sector-card, .value-step, .business-card, .principle__item, .faq__item, .testimonials-editorial');
+    if (!targets.length) return;
+
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -156,8 +171,9 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-    items.forEach(function (el) { io.observe(el); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    targets.forEach(function (el) { io.observe(el); });
   });
 
   /* ---------------------------------------------------------------------
