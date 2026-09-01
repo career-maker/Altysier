@@ -356,10 +356,31 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   position: fixed;
   inset: 0;
   z-index: 100;
-  background-color: var(--paper);
+  background-color: #000;          /* fallback while video loads */
   opacity: 1;
   visibility: visible;
   transition: opacity var(--t-med) var(--ease-out), visibility 0s var(--t-med);
+  overflow: hidden;
+}
+/* Full-bleed background video */
+.preloader__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+  pointer-events: none;
+}
+/* Subtle dark scrim so text always reads cleanly */
+.preloader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1;
+  pointer-events: none;
 }
 .preloader.is-done { opacity: 0; visibility: hidden; }
 .preloader__container {
@@ -368,10 +389,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   align-items: flex-end;
   width: 100%;
   position: relative;
+  z-index: 2;                      /* above video + scrim */
   font-size: 34rem;
   line-height: 0.9;
   text-transform: uppercase;
   padding-bottom: 20rem;
+  color: #ffffff;
 }
 .preloader__text.js-split .char {
   display: inline-block;
@@ -387,12 +410,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   bottom: 0;
   left: 0;
   height: 2rem;
-  background-color: rgba(97, 9, 8, 0.15);
+  background-color: rgba(255, 255, 255, 0.45);
   width: 0%;
   transition: width 1.4s var(--ease-brand);
 }
 .preloader.is-counting .preloader__container-line { width: 100%; }
-.preloader__progress { text-align: right; color: var(--ink); }
+.preloader__progress { text-align: right; color: #ffffff; }
 @media only screen and (max-width: 1024px) { .preloader__container { font-size: 24rem; } }
 @media (prefers-reduced-motion: reduce) {
   .preloader { transition: none; }
