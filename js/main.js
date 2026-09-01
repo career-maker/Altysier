@@ -234,6 +234,22 @@
   });
 
   /* ---------------------------------------------------------------------
+     Footer mobile expandable columns
+     --------------------------------------------------------------------- */
+  run(function () {
+    document.querySelectorAll('.footer__accordion').forEach(function (col) {
+      var trigger = col.querySelector('.footer__heading-btn');
+      if (!trigger) return;
+      trigger.addEventListener('click', function () {
+        if (window.innerWidth > 640) return;
+        var isOpen = col.getAttribute('data-open') === 'true';
+        col.setAttribute('data-open', isOpen ? 'false' : 'true');
+        trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      });
+    });
+  });
+
+  /* ---------------------------------------------------------------------
      Horizontal scroll-snap strips ("How We Create Value", "Our Business
      Ecosystem") — native CSS scroll-snap does the actual scrolling, so
      this works even without JS. JS only adds prev/next buttons and a
