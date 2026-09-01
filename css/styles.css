@@ -723,8 +723,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     overflow: hidden;
   }
   .hero__eyebrow { font-size: 11rem; letter-spacing: 0.14em; margin-bottom: 10rem; color: #a45d5d; }
-  .hero__title { font-size: 24rem; line-height: 1.18; letter-spacing: -0.01em; margin-bottom: 12rem; max-width: 100%; }
-  .hero__text { font-size: 13rem; line-height: 1.5; color: #555555; margin-bottom: 22rem; max-width: 100%; }
+  .hero__title { font-size: 28rem; line-height: 1.18; letter-spacing: -0.01em; margin-bottom: 12rem; max-width: 100%; }
+  .hero__text { font-size: 14rem; line-height: 1.5; color: #555555; margin-bottom: 22rem; max-width: 100%; }
   .hero__actions { display: flex; flex-direction: row; gap: 10rem; width: 100%; margin-bottom: 0; }
   .hero__actions .btn { flex: 1; min-width: 0; height: 42rem; padding: 0 10rem; font-size: 13rem; border-radius: 999rem; justify-content: center; text-align: center; white-space: nowrap; }
   /* Stats pin to the bottom of the viewport */
@@ -738,7 +738,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 @media only screen and (max-width: 380px) {
-  .hero__title { font-size: 21rem; }
+  .hero__title { font-size: 28rem; }
   .hero__actions { flex-direction: column; }
   .stat-grid { grid-template-columns: 1fr; gap: 6rem; }
 }
