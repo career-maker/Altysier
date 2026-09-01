@@ -1114,11 +1114,14 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   border: 1.5rem solid rgba(144, 9, 9, 0.12);
   box-shadow: 0 4rem 16rem rgba(0, 0, 0, 0.03);
   background: #ffffff;
+  position: relative;
 }
 .value-step__image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover !important;
+  object-position: center;
+  display: block;
   transition: transform 0.5s var(--ease-out);
 }
 .value-step:hover .value-step__image {
@@ -1213,8 +1216,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   }
   .value-step__node svg { width: 22rem; height: 22rem; }
   .value-step__image-wrap {
-    width: 140rem;
-    height: 95rem;
+    width: 150rem;
+    height: 105rem;
     flex-shrink: 0;
     margin-bottom: 0;
   }
@@ -1228,22 +1231,77 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 @media only screen and (max-width: 640px) {
   .journey__title { font-size: 28rem; }
   .journey__intro { font-size: 14rem; }
-  .value-pipeline { padding-left: 0; }
+  .value-pipeline {
+    display: flex;
+    flex-direction: column;
+    gap: 18rem;
+    padding-left: 0;
+    margin-top: 28rem;
+  }
   .value-pipeline::before { display: none; }
   .value-step {
     flex-direction: column;
     align-items: flex-start;
+    text-align: left;
     background: #ffffff;
-    border: 1.5rem solid rgba(144, 9, 9, 0.12);
-    border-radius: 18rem;
-    padding: 22rem 18rem;
-    box-shadow: 0 4rem 14rem rgba(0, 0, 0, 0.02);
+    border: 1.5rem solid rgba(144, 9, 9, 0.14);
+    border-radius: 20rem;
+    padding: 22rem 18rem 24rem;
+    box-shadow: 0 4rem 18rem rgba(0, 0, 0, 0.03);
+    gap: 0;
+    width: 100%;
   }
-  .value-step__node-wrap { margin-bottom: 14rem; }
+  .value-step__node-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 14rem;
+  }
+  .value-step__node {
+    width: 46rem;
+    height: 46rem;
+    border-radius: 12rem;
+    border: 1.5rem solid rgba(144, 9, 9, 0.18);
+    background: rgba(144, 9, 9, 0.06);
+    color: var(--ink);
+    box-shadow: none;
+  }
+  .value-step__node svg { width: 20rem; height: 20rem; }
   .value-step__image-wrap {
     width: 100%;
-    height: 120rem;
-    margin-bottom: 14rem;
+    height: 155rem;
+    border-radius: 14rem;
+    margin-bottom: 16rem;
+    flex-shrink: 0;
+  }
+  .value-step__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    object-position: center;
+    display: block;
+  }
+  .value-step__body {
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+  }
+  .value-step__title {
+    font-size: 21rem;
+    margin-bottom: 8rem;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  .value-step__text {
+    font-size: 14rem;
+    line-height: 1.55;
+    color: #555555;
+    max-width: 100%;
+  }
+  .value-step__indicator {
+    margin-top: 14rem;
+    align-self: flex-start;
   }
 }
 
@@ -2117,7 +2175,17 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 
 .footer__wordmark { margin-top: 60rem; padding-top: 24rem; border-top: 1rem solid rgba(255, 255, 255, 0.15); font-size: clamp(36rem, 8vw, 130rem); line-height: 0.9; text-transform: uppercase; color: rgba(255, 255, 255, 0.08); }
 .footer__bottom { margin-top: 24rem; padding: 20rem 0; border-top: 1rem solid rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12rem; }
-.footer__copyrights, .footer__tagline { font-family: Inter, sans-serif; font-size: 13rem; color: rgba(255, 255, 255, 0.55); }
+.footer__copyrights, .footer__tagline, .footer__credit { font-family: Inter, sans-serif; font-size: 13rem; color: rgba(255, 255, 255, 0.55); }
+.footer__credit a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: underline;
+  text-underline-offset: 3rem;
+  font-weight: 500;
+  transition: color var(--t-fast);
+}
+.footer__credit a:hover {
+  color: #ffffff;
+}
 .footer__up-btn { display: flex; align-items: center; gap: 10rem; font-family: Inter, sans-serif; font-size: 13rem; text-transform: none; color: rgba(255, 255, 255, 0.55); }
 .footer__up-icon { width: 32rem; height: 32rem; border-radius: 999rem; background-color: rgba(255, 255, 255, 0.08); display: flex; align-items: center; justify-content: center; transition: background-color var(--t-fast); }
 .footer__up-icon svg { width: 15rem; height: 15rem; }
