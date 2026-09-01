@@ -1180,38 +1180,56 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     margin-bottom: 14rem;
   }
 }
-}
-
-@media only screen and (max-width: 1024px) {
-  .journey { padding: 50rem 0 60rem; }
-  .journey__title { font-size: 34rem; }
-  .journey__head { margin-bottom: 28rem; }
-}
-
-@media only screen and (max-width: 768px) {
-  .journey__track {
-    scroll-padding-left: 20rem;
-    gap: 12rem;
-  }
-}
-
-@media only screen and (max-width: 640px) {
-  .journey__title { font-size: 28rem; }
-  .journey__intro { font-size: 14rem; }
-  .journey-card {
-    flex: 0 0 250rem;
-    min-height: 280rem;
-    padding: 20rem 18rem;
-  }
-  .journey-card__num { font-size: 38rem; }
-  .journey-card__photo { width: 48rem; height: 48rem; border-radius: 12rem; }
-  .journey-card__title { font-size: 20rem; }
-}
 
 /* ---------------------------------------------------------------------- */
-/* 04 — Our Business Ecosystem (horizontal, alternating navy/light cards) */
+/* 04 — Our Business Ecosystem (horizontal, alternating light cards)      */
 /* ---------------------------------------------------------------------- */
 .businesses { position: relative; overflow: hidden; min-height: auto; display: flex; align-items: center; padding: 70rem 0 80rem; background-color: var(--paper); }
+.businesses > .container { position: relative; z-index: 1; width: 100%; }
+.businesses__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24rem;
+  margin-bottom: 36rem;
+}
+.businesses__head-info {
+  max-width: 680rem;
+}
+.businesses__eyebrow {
+  font-family: Inter, sans-serif;
+  font-size: 13rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.08em;
+  color: #a45d5d;
+  margin-bottom: 12rem;
+}
+.businesses__title {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 46rem;
+  line-height: 1.15;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 16rem;
+}
+.businesses__accent-line {
+  display: block;
+  width: 44rem;
+  height: 2.5rem;
+  background-color: var(--ink);
+  margin-bottom: 22rem;
+  border-radius: 2rem;
+}
+.businesses__intro {
+  font-family: Inter, sans-serif;
+  font-size: 15.5rem;
+  line-height: 1.6;
+  color: #555555;
+  max-width: 620rem;
+}
+
 .strip-head {
   display: flex;
   justify-content: space-between;
