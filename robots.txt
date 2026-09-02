@@ -1,0 +1,11 @@
+# robots.txt for Altysier Group (https://altysier.com/)
+User-agent: *
+Allow: /
+Disallow: /parts/
+Disallow: /templates/
+Disallow: /scratch/
+Disallow: /.agents/
+Disallow: /.git/
+
+# Sitemap location
+Sitemap: https://altysier.com/sitemap.xml

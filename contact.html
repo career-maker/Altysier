@@ -17,7 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Master Stylesheet with cache bust -->
-<link rel="stylesheet" href="css/styles.css?v=2.9">
+<link rel="stylesheet" href="css/styles.min.css?v=3.0">
 </head>
 <body class="inner-page contact-page">
 
@@ -444,6 +444,21 @@
 </main>
 
 <!-- Footer (Template Part: parts/footer.html) -->
+<!-- ==========================================================================
+     TEMPLATE PART: Footer
+     Extracted from index.html for reuse across every internal page.
+     UI ported from mvplogistics.eu — see WP-CONVERSION-NOTES.md.
+
+     WordPress (Block Theme / FSE) conversion:
+       - Save as parts/footer.html inside the theme.
+       - Register in theme.json under "templateParts" (area: "footer").
+       - "Group Companies" column should pull from a custom post type
+         (e.g. "company") so it stays in sync with the homepage's
+         Businesses section instead of being hand-maintained in two places.
+       - Contact block (address / email / phone) is a good candidate for
+         an ACF Options Page or Site Editor global "Contact" template part.
+     ========================================================================== -->
+
 <footer class="footer">
   <div class="container">
     <div class="footer__top">
@@ -467,7 +482,9 @@
           <div class="footer__content">
             <a href="about.html">About Us</a>
             <a href="csr.html">CSR &amp; Sustainability</a>
-            <a href="contact.html" style="color: var(--accent);">Contact Us</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Use</a>
           </div>
         </div>
       </div>
@@ -530,8 +547,13 @@
     <div class="footer__bottom">
       <span class="footer__copyrights">&copy; <span id="current-year">2026</span> Altysier Group. All rights reserved.</span>
       <span class="footer__tagline">A diversified business group.</span>
+      <div class="footer__legal-links">
+        <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
+        <span class="footer__sep" aria-hidden="true">•</span>
+        <a href="terms.html" class="footer__legal-link">Terms of Use</a>
+      </div>
       <span class="footer__credit">Designed By <a href="https://www.intersmart.ae/" target="_blank" rel="noopener noreferrer">InterSmart</a></span>
-      <button type="button" class="footer__up-btn" data-scroll-to="contact-hero" aria-label="Back to top">
+      <button type="button" class="footer__up-btn" data-scroll-to="hero" aria-label="Back to top">
         <span>Up</span>
         <span class="footer__up-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
       </button>
@@ -540,7 +562,7 @@
 </footer>
 
 <!-- Shared JavaScript -->
-<script src="js/main.js?v=2.9"></script>
+<script src="js/main.min.js?v=3.0"></script>
 <script>
   // Interactive Map Tabs
   document.querySelectorAll('.maps-tab-btn').forEach(function(btn) {
