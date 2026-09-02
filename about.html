@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/styles.css?v=3.8">
+<link rel="stylesheet" href="css/styles.css?v=3.9">
 </head>
 <body class="inner-page about-page">
 
@@ -41,12 +41,46 @@
           <span class="text-hover__elem text-hover__elem-2">About</span>
         </span>
       </a>
-      <a href="group-of-companies.html" class="header__menu-item text-hover">
-        <span class="text-hover__inner">
-          <span class="text-hover__elem text-hover__elem-1">Group Of Companies</span>
-          <span class="text-hover__elem text-hover__elem-2">Group Of Companies</span>
-        </span>
-      </a>
+
+      <!-- Group Of Companies with Dropdown Submenu -->
+      <div class="header__menu-dropdown">
+        <a href="group-of-companies.html" class="header__menu-item text-hover header__dropdown-toggle">
+          <span class="text-hover__inner">
+            <span class="text-hover__elem text-hover__elem-1">Group Of Companies</span>
+            <span class="text-hover__elem text-hover__elem-2">Group Of Companies</span>
+          </span>
+          <svg class="header__dropdown-arrow" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg>
+        </a>
+
+        <div class="header__dropdown-panel" role="menu">
+          <a href="companies/altysier-general-trading.html" class="header__dropdown-link" role="menuitem">
+            <span class="header__dropdown-name">Altysier International General Trading LLC</span>
+            <span class="header__dropdown-sector">International Trade &amp; Commodities</span>
+          </a>
+          <a href="companies/altysier-advanced-business.html" class="header__dropdown-link" role="menuitem">
+            <span class="header__dropdown-name">Altysier International for Advanced Business Co LTD</span>
+            <span class="header__dropdown-sector">Commodities &amp; Healthcare Essentials</span>
+          </a>
+          <a href="companies/al-mutmeiza-industries.html" class="header__dropdown-link" role="menuitem">
+            <span class="header__dropdown-name">Al Mutmeiza for Industries Investment Co LTD</span>
+            <span class="header__dropdown-sector">Industrial Investment &amp; BAJAJ Mobility</span>
+          </a>
+          <a href="companies/al-taysir-gulf.html" class="header__dropdown-link" role="menuitem">
+            <span class="header__dropdown-name">Al Taysir Al Mutamayyiza Gulf Co.</span>
+            <span class="header__dropdown-sector">Transportation &amp; Ground Logistics</span>
+          </a>
+          <a href="companies/haloub-feed-mill.html" class="header__dropdown-link" role="menuitem">
+            <span class="header__dropdown-name">Haloub Feed Mill Factory</span>
+            <span class="header__dropdown-sector">Animal Feed Manufacturing &amp; Agriculture</span>
+          </a>
+          <a href="companies/tasabih-services.html" class="header__dropdown-link" role="menuitem">
+            <span class="header__dropdown-name">TASABIH for Service and Transportation Co. Ltd.</span>
+            <span class="header__dropdown-sector">Logistics, Fleet &amp; Corporate Procurement</span>
+          </a>
+          <a href="group-of-companies.html" class="header__dropdown-all">View All Companies &rarr;</a>
+        </div>
+      </div>
+
       <a href="csr.html" class="header__menu-item text-hover">
         <span class="text-hover__inner">
           <span class="text-hover__elem text-hover__elem-1">CSR</span>
@@ -71,7 +105,21 @@
 <div class="header__hamburger" id="mobile-menu">
   <nav class="header__hamburger-menu" aria-label="Mobile primary">
     <a href="about.html" aria-current="page">About</a>
-    <a href="group-of-companies.html">Group Of Companies</a>
+    <div class="header__hamburger-accordion">
+      <button type="button" class="header__hamburger-parent" aria-expanded="false">
+        <span>Group Of Companies</span>
+        <svg class="header__hamburger-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="header__hamburger-sub">
+        <a href="group-of-companies.html" class="header__hamburger-subitem _all">Overview: All Companies &rarr;</a>
+        <a href="companies/altysier-general-trading.html" class="header__hamburger-subitem">Altysier International General Trading LLC</a>
+        <a href="companies/altysier-advanced-business.html" class="header__hamburger-subitem">Altysier International for Advanced Business Co LTD</a>
+        <a href="companies/al-mutmeiza-industries.html" class="header__hamburger-subitem">Al Mutmeiza for Industries Investment Co LTD</a>
+        <a href="companies/al-taysir-gulf.html" class="header__hamburger-subitem">Al Taysir Al Mutamayyiza Gulf Co.</a>
+        <a href="companies/haloub-feed-mill.html" class="header__hamburger-subitem">Haloub Feed Mill Factory</a>
+        <a href="companies/tasabih-services.html" class="header__hamburger-subitem">TASABIH for Service and Transportation Co. Ltd.</a>
+      </div>
+    </div>
     <a href="csr.html">CSR</a>
     <a href="contact.html">Contact</a>
   </nav>
@@ -412,11 +460,11 @@
         <div class="footer__panel">
           <div class="footer__content">
             <a href="companies/altysier-general-trading.html">Altysier International General Trading LLC</a>
-            <a href="companies/altysier-transport-services.html">Al Taysir Al Mutamayyiza Gulf Co.</a>
-            <a href="companies/haloub-feed-mill.html">Haloub Feed Mill Factory</a>
-            <a href="companies/al-mutmeiza-industries.html">Al Mutmeiza for Industries Investment Co LTD</a>
             <a href="companies/altysier-advanced-business.html">Altysier International for Advanced Business Co LTD</a>
-            <a href="companies/altysier-transport-services.html">TASABIH for Service and Transportation Co. Ltd.</a>
+            <a href="companies/al-mutmeiza-industries.html">Al Mutmeiza for Industries Investment Co LTD</a>
+            <a href="companies/al-taysir-gulf.html">Al Taysir Al Mutamayyiza Gulf Co.</a>
+            <a href="companies/haloub-feed-mill.html">Haloub Feed Mill Factory</a>
+            <a href="companies/tasabih-services.html">TASABIH for Service and Transportation Co. Ltd.</a>
           </div>
         </div>
       </div>
@@ -467,6 +515,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=2.4"></script>
+<script src="js/main.js?v=2.5"></script>
 </body>
 </html>
