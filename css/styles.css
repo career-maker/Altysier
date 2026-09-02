@@ -513,10 +513,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   align-items: center;
   gap: 36rem;
   padding: 0 38rem;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 18.5rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
   box-shadow: 0 4rem 20rem rgba(0, 0, 0, 0.06);
 }
 .header__menu-item { color: var(--ink); }
@@ -648,9 +649,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   justify-content: center;
   height: 52rem;
   padding: 0 22rem;
-  font-size: 14rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15rem;
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: none;
+  letter-spacing: 0.01em;
   background-color: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -713,7 +716,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .header__hamburger.active { transform: translateX(0); visibility: visible; }
 .header__hamburger-menu { display: flex; flex-direction: column; gap: 14rem; padding-top: 10rem; padding-bottom: 40rem; }
-.header__hamburger-menu > a { font-size: 32rem; text-transform: uppercase; color: #fff; padding-bottom: 10rem; border-bottom: 1rem solid rgba(255, 255, 255, 0.15); }
+.header__hamburger-menu > a { font-family: 'Inter', sans-serif; font-size: 24rem; font-weight: 600; text-transform: none; color: #fff; padding-bottom: 10rem; border-bottom: 1rem solid rgba(255, 255, 255, 0.15); }
 
 /* Mobile Hamburger Dropdown */
 .header__hamburger-accordion {
@@ -729,9 +732,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   background: none;
   border: none;
   padding: 0 0 10rem;
-  font-family: inherit;
-  font-size: 32rem;
-  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-size: 24rem;
+  font-weight: 600;
+  text-transform: none;
   color: #fff;
   cursor: pointer;
   text-align: left;
