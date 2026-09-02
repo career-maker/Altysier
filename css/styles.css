@@ -671,38 +671,79 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 @media only screen and (max-width: 1024px) {
-  .hero { padding-top: 130rem; padding-bottom: 44rem; min-height: auto; height: auto; }
+  .hero {
+    padding-top: 130rem;
+    padding-bottom: 50rem;
+    min-height: auto;
+    height: auto;
+  }
   .hero > .hero__bg .section-photo { opacity: 0.35; }
-  .hero__scrim { background: linear-gradient(180deg, #fff 0%, #fff 64%, rgba(255, 255, 255, 0.92) 80%, rgba(255, 255, 255, 0.6) 100%); }
+  .hero__scrim {
+    background: linear-gradient(180deg, #fff 0%, #fff 64%, rgba(255, 255, 255, 0.92) 80%, rgba(255, 255, 255, 0.6) 100%);
+  }
+  .hero__container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
   .hero__eyebrow { margin-bottom: 14rem; }
-  .hero__title { font-size: 34rem; line-height: 1.15; margin-bottom: 18rem; max-width: 100%; }
-  .hero__text { font-size: 15rem; line-height: 1.32; margin-bottom: 26rem; max-width: 100%; }
-  .hero__actions { gap: 12rem; margin-bottom: 32rem; }
-  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 12rem; }
-  .stat-card { padding: 18rem 20rem; }
-  .stat-card__value { font-size: 36rem; }
+  .hero__title { font-size: 34rem; line-height: 1.15; margin-bottom: 18rem; max-width: 680rem; }
+  .hero__text { font-size: 15rem; line-height: 1.35; margin-bottom: 28rem; max-width: 560rem; }
+  .hero__actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 14rem;
+    margin-bottom: 36rem;
+  }
+  .hero__actions .btn {
+    width: auto;
+    min-width: 180rem;
+    height: 50rem;
+    font-size: 15.5rem;
+    padding: 0 28rem;
+    border-radius: 999rem;
+  }
+  .hero__stats {
+    margin-top: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+  .stat-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12rem;
+  }
+  .stat-card {
+    padding: 16rem 16rem;
+    border-radius: 14rem;
+  }
+  .stat-card__value { font-size: 32rem; }
+  .stat-card__label { font-size: 11rem; line-height: 1.25; margin-top: 4rem; }
+  .stat-card__icon { width: 26rem; height: 26rem; margin-left: 8rem; }
   .hero__scroll-cue { display: none; }
 }
 
 @media only screen and (max-width: 640px) {
-  /* Fill full visible viewport — no next-section bleed */
+  /* Fill visible viewport cleanly with centered, gap-free arrangement */
   .hero {
     min-height: 100vh;
     min-height: 100dvh;
     min-height: 100svh;
-    padding-top: 80rem;
-    padding-bottom: 28rem;
+    padding-top: 75rem;
+    padding-bottom: 24rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    overflow: hidden;
+    justify-content: center;
+    overflow-x: hidden;
   }
   .hero__container {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 40rem;   /* gap below header bar */
+    justify-content: center;
+    padding-top: 0;
+    width: 100%;
   }
   .hero .section-watermark { display: none !important; }
   /* Mobile-only auto-scrolling watermark marquee above content block */
@@ -716,11 +757,12 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     pointer-events: none;
     white-space: nowrap;
     margin-top: 0;
-    margin-bottom: 26rem;
+    margin-bottom: 18rem;
   }
   .hero__marquee__track {
-    display: flex;
+    display: inline-flex;
     width: max-content;
+    white-space: nowrap;
     will-change: transform;
     animation: heroMarqueeScroll 20s linear infinite;
   }
@@ -729,22 +771,57 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     flex-shrink: 0;
     font-family: 'Oswald', 'Bebas Neue', sans-serif;
     font-weight: 700;
-    font-size: clamp(34rem, 11vw, 48rem);
+    font-size: clamp(32rem, 11vw, 44rem);
     line-height: 0.9;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     color: rgba(144, 9, 9, 0.065);
     white-space: nowrap;
   }
-  .hero__eyebrow { font-size: 11rem; letter-spacing: 0.14em; margin-bottom: 10rem; color: #a45d5d; }
-  .hero__title { font-size: 28rem; line-height: 1.18; letter-spacing: -0.01em; margin-bottom: 12rem; max-width: 100%; }
-  .hero__text { font-size: 14rem; line-height: 1.32; color: #555555; margin-bottom: 22rem; max-width: 100%; }
-  .hero__actions { display: flex; flex-direction: row; gap: 10rem; width: 100%; margin-bottom: 0; }
-  .hero__actions .btn { flex: 1; min-width: 0; height: 42rem; padding: 0 10rem; font-size: 13rem; border-radius: 999rem; justify-content: center; text-align: center; white-space: nowrap; }
-  /* Stats pin to the bottom of the viewport */
-  .hero__stats { margin-top: auto; padding-top: 24rem; }
-  .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 8rem; }
-  .stat-card { padding: 10rem 12rem; border-radius: 14rem; background: rgba(255, 255, 255, 0.95); }
+  .hero__eyebrow { font-size: 11rem; letter-spacing: 0.14em; margin-bottom: 8rem; color: #a45d5d; }
+  .hero__title { font-size: 26rem; line-height: 1.16; letter-spacing: -0.01em; margin-bottom: 10rem; max-width: 100%; }
+  .hero__text { font-size: 13.5rem; line-height: 1.35; color: #555555; margin-bottom: 18rem; max-width: 100%; }
+
+  /* CTAs: Side-by-side pills with locked height and no squashing */
+  .hero__actions {
+    display: flex;
+    flex-direction: row;
+    gap: 10rem;
+    width: 100%;
+    margin-bottom: 20rem;
+  }
+  .hero__actions .btn {
+    flex: 1;
+    min-width: 0;
+    height: 44rem;
+    min-height: 44rem;
+    flex-shrink: 0;
+    padding: 0 12rem;
+    font-size: 13.5rem;
+    font-weight: 600;
+    border-radius: 999rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  /* Counters: Arranged neatly right under the CTAs with NO huge gap */
+  .hero__stats {
+    margin-top: 0;
+    padding-top: 0;
+    width: 100%;
+  }
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8rem;
+  }
+  .stat-card {
+    padding: 10rem 12rem;
+    border-radius: 14rem;
+    background: rgba(255, 255, 255, 0.95);
+  }
   .stat-card__icon { width: 20rem; height: 20rem; margin-left: 4rem; opacity: 0.8; }
   .stat-card__value { font-size: 24rem; }
   .stat-card__label { font-size: 10rem; line-height: 1.25; margin-top: 3rem; }
@@ -752,9 +829,46 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 @media only screen and (max-width: 380px) {
-  .hero__title { font-size: 28rem; }
-  .hero__actions { flex-direction: column; }
-  .stat-grid { grid-template-columns: 1fr; gap: 6rem; }
+  .hero {
+    padding-top: 70rem;
+    padding-bottom: 16rem;
+  }
+  .hero__marquee {
+    margin-bottom: 14rem;
+  }
+  .hero__title {
+    font-size: 23rem;
+    line-height: 1.16;
+    margin-bottom: 8rem;
+  }
+  .hero__text {
+    font-size: 12.5rem;
+    line-height: 1.3;
+    margin-bottom: 14rem;
+  }
+  .hero__actions {
+    gap: 8rem;
+    margin-bottom: 16rem;
+  }
+  .hero__actions .btn {
+    height: 42rem;
+    min-height: 42rem;
+    flex-shrink: 0;
+    font-size: 12rem;
+    padding: 0 8rem;
+  }
+  /* Keep 2x2 grid so counters don't blow up vertically into 4 giant stacked cards */
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6rem;
+  }
+  .stat-card {
+    padding: 8rem 10rem;
+    border-radius: 12rem;
+  }
+  .stat-card__value { font-size: 21rem; }
+  .stat-card__label { font-size: 9.5rem; }
+  .stat-card__icon { width: 18rem; height: 18rem; }
 }
 
 @keyframes heroMarqueeScroll {
