@@ -4090,9 +4090,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .other-companies-strip {
   display: flex;
-  gap: 14rem;
+  gap: 16rem;
   overflow-x: auto;
-  padding-bottom: 12rem;
+  margin-top: 26rem;
+  padding-top: 6rem;
+  padding-bottom: 16rem;
   scrollbar-width: thin;
 }
 .other-company-card {
@@ -4100,15 +4102,17 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   background: #ffffff;
   border-radius: 16rem;
   border: 1.5rem solid rgba(144, 9, 9, 0.12);
-  padding: 20rem;
+  padding: 22rem 20rem;
   display: flex;
   flex-direction: column;
-  transition: transform var(--t-fast), border-color var(--t-fast);
+  box-shadow: 0 4rem 16rem rgba(0, 0, 0, 0.03);
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
   text-decoration: none;
 }
 .other-company-card:hover {
   transform: translateY(-4rem);
   border-color: var(--ink);
+  box-shadow: 0 10rem 26rem rgba(144, 9, 9, 0.08);
 }
 .other-company-card__name {
   font-family: 'Oswald', sans-serif;
