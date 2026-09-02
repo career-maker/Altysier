@@ -807,24 +807,32 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     white-space: nowrap;
   }
 
-  /* Counters: Arranged neatly right under the CTAs with NO huge gap */
+  /* Counters: Arranged vertically one by one to cleanly fill the space and eliminate the gap */
   .hero__stats {
     margin-top: 0;
     padding-top: 0;
     width: 100%;
   }
   .stat-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 8rem;
+    width: 100%;
   }
   .stat-card {
-    padding: 10rem 12rem;
+    padding: 11rem 16rem;
     border-radius: 14rem;
     background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .stat-card__icon { width: 20rem; height: 20rem; margin-left: 4rem; opacity: 0.8; }
-  .stat-card__value { font-size: 24rem; }
-  .stat-card__label { font-size: 10rem; line-height: 1.25; margin-top: 3rem; }
+  .stat-card__content {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-card__value { font-size: 24rem; font-weight: 700; line-height: 1; }
+  .stat-card__label { font-size: 11rem; line-height: 1.25; margin-top: 2rem; color: #555555; }
+  .stat-card__icon { width: 22rem; height: 22rem; margin-left: 8rem; opacity: 0.8; }
   .hero__scroll-cue { display: none; }
 }
 
@@ -857,17 +865,16 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     font-size: 12rem;
     padding: 0 8rem;
   }
-  /* Keep 2x2 grid so counters don't blow up vertically into 4 giant stacked cards */
   .stat-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 6rem;
   }
   .stat-card {
-    padding: 8rem 10rem;
+    padding: 9rem 14rem;
     border-radius: 12rem;
   }
   .stat-card__value { font-size: 21rem; }
-  .stat-card__label { font-size: 9.5rem; }
+  .stat-card__label { font-size: 10rem; }
   .stat-card__icon { width: 18rem; height: 18rem; }
 }
 
