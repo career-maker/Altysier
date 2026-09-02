@@ -4483,6 +4483,520 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .csr-feature__statement { font-size: 22rem; }
 }
 
+/* ==========================================================================
+   CONTACT US PAGE STYLES
+   ========================================================================== */
+/* Section 02: Dual Locations Split */
+.contact-locations-section {
+  position: relative;
+  padding: 100rem 0 110rem;
+  background-color: var(--paper);
+}
+.locations-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28rem;
+  margin-top: 44rem;
+}
+.location-card {
+  position: relative;
+  border-radius: 28rem;
+  overflow: hidden;
+  border: 1.5rem solid rgba(144, 9, 9, 0.16);
+  min-height: 520rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 44rem 36rem;
+  color: #ffffff;
+  box-shadow: 0 12rem 36rem rgba(0, 0, 0, 0.08);
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.location-card:hover {
+  transform: translateY(-6rem);
+  border-color: rgba(144, 9, 9, 0.4);
+  box-shadow: 0 20rem 48rem rgba(0, 0, 0, 0.14);
+}
+.location-card__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.location-card__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+.location-card:hover .location-card__bg img {
+  transform: scale(1.04);
+}
+.location-card__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.25) 0%, rgba(17, 17, 17, 0.7) 45%, rgba(17, 17, 17, 0.95) 100%);
+  z-index: 2;
+}
+.location-card__content {
+  position: relative;
+  z-index: 3;
+}
+.location-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8rem;
+  padding: 8rem 16rem;
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+  border-radius: 999rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 13rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  margin-bottom: 20rem;
+}
+.location-card__badge-dot {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10rem var(--accent);
+}
+.location-card__city {
+  font-family: 'Oswald', sans-serif;
+  font-size: 42rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin-bottom: 8rem;
+}
+.location-card__role {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 24rem;
+}
+.location-card__address {
+  font-family: Inter, sans-serif;
+  font-size: 15rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  margin-bottom: 24rem;
+  padding-bottom: 20rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+.location-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12rem;
+}
+.location-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 12rem;
+  font-family: Inter, sans-serif;
+  font-size: 14.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  transition: color var(--t-fast);
+}
+.location-card__meta-item:hover {
+  color: #ffffff;
+}
+.location-card__meta-item svg {
+  width: 18rem;
+  height: 18rem;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+/* Section 03: Contact / Enquiry Form */
+.contact-form-section {
+  position: relative;
+  padding: 110rem 0 120rem;
+  background-color: #FAF4F4;
+}
+.contact-form-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 60rem;
+  align-items: flex-start;
+  margin-top: 44rem;
+}
+.contact-form-intro {
+  display: flex;
+  flex-direction: column;
+}
+.contact-form-intro__statement {
+  font-family: 'Oswald', sans-serif;
+  font-size: 32rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 20rem;
+}
+.contact-form-intro__text {
+  font-family: Inter, sans-serif;
+  font-size: 15.5rem;
+  line-height: 1.7;
+  color: #555555;
+  margin-bottom: 32rem;
+}
+.contact-form-guarantees {
+  display: flex;
+  flex-direction: column;
+  gap: 16rem;
+  padding-top: 24rem;
+  border-top: 1px solid rgba(144, 9, 9, 0.12);
+}
+.contact-guarantee-item {
+  display: flex;
+  align-items: center;
+  gap: 14rem;
+  font-family: Inter, sans-serif;
+  font-size: 14.5rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+.contact-guarantee-icon {
+  width: 24rem;
+  height: 24rem;
+  border-radius: 50%;
+  background: rgba(144, 9, 9, 0.1);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.contact-guarantee-icon svg {
+  width: 13rem;
+  height: 13rem;
+}
+
+/* Form Card */
+.contact-form-card {
+  background: #ffffff;
+  border-radius: 28rem;
+  border: 1.5rem solid rgba(144, 9, 9, 0.14);
+  padding: 44rem 40rem;
+  box-shadow: 0 12rem 40rem rgba(0, 0, 0, 0.04);
+}
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20rem;
+}
+.contact-form-grid .form-group._full {
+  grid-column: 1 / -1;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+.form-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+}
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  font-family: Inter, sans-serif;
+  font-size: 14.5rem;
+  color: var(--ink);
+  background: #fdfaf9;
+  border: 1.5rem solid rgba(144, 9, 9, 0.15);
+  border-radius: 12rem;
+  padding: 14rem 18rem;
+  outline: none;
+  transition: border-color var(--t-fast), background-color var(--t-fast), box-shadow var(--t-fast);
+}
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--ink);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4rem rgba(144, 9, 9, 0.08);
+}
+.form-textarea {
+  min-height: 130rem;
+  resize: vertical;
+}
+.form-submit-row {
+  margin-top: 24rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20rem;
+  flex-wrap: wrap;
+}
+.form-note {
+  font-family: Inter, sans-serif;
+  font-size: 12.5rem;
+  color: #777777;
+  line-height: 1.4;
+}
+
+/* Section 04: Business Enquiries (B2B Routes) */
+.b2b-routes-section {
+  position: relative;
+  padding: 100rem 0 110rem;
+  background-color: var(--paper);
+}
+.b2b-routes-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18rem;
+  margin-top: 44rem;
+}
+.b2b-route-card {
+  background: #ffffff;
+  border-radius: 20rem;
+  border: 1.5rem solid rgba(144, 9, 9, 0.12);
+  padding: 28rem 22rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4rem 18rem rgba(0, 0, 0, 0.03);
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.b2b-route-card:hover {
+  transform: translateY(-5rem);
+  border-color: var(--ink);
+  box-shadow: 0 12rem 30rem rgba(144, 9, 9, 0.08);
+}
+.b2b-route-card__icon {
+  width: 44rem;
+  height: 44rem;
+  border-radius: 12rem;
+  background: rgba(144, 9, 9, 0.08);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rem;
+}
+.b2b-route-card__icon svg {
+  width: 22rem;
+  height: 22rem;
+}
+.b2b-route-card__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 19rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 10rem;
+}
+.b2b-route-card__text {
+  font-family: Inter, sans-serif;
+  font-size: 13.5rem;
+  line-height: 1.55;
+  color: #555555;
+  margin-bottom: 20rem;
+  flex: 1;
+}
+.b2b-route-card__action {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6rem;
+  transition: color var(--t-fast);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.b2b-route-card__action:hover {
+  color: var(--accent);
+}
+
+/* Section 05: Find Us (Dual Map Section) */
+.contact-maps-section {
+  position: relative;
+  padding: 100rem 0 120rem;
+  background-color: #FAF4F4;
+}
+.maps-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 12rem;
+  margin: 36rem 0 32rem;
+}
+.maps-tab-btn {
+  padding: 14rem 32rem;
+  border-radius: 999rem;
+  border: 1.5rem solid rgba(144, 9, 9, 0.16);
+  background: #ffffff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 15rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+.maps-tab-btn.active,
+.maps-tab-btn:hover {
+  background: var(--ink);
+  color: #ffffff;
+  border-color: var(--ink);
+}
+.maps-panel {
+  display: none;
+  border-radius: 28rem;
+  overflow: hidden;
+  border: 1.5rem solid rgba(144, 9, 9, 0.14);
+  box-shadow: 0 12rem 36rem rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+}
+.maps-panel.active {
+  display: block;
+}
+.maps-frame {
+  width: 100%;
+  height: 480rem;
+  border: none;
+  display: block;
+}
+
+/* ==========================================================================
+   404 ERROR PAGE STYLES
+   ========================================================================== */
+.error-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 140rem 0 100rem;
+  background-color: var(--ink);
+  color: #ffffff;
+  overflow: hidden;
+  text-align: center;
+}
+.error-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.15;
+}
+.error-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.error-hero__container {
+  position: relative;
+  z-index: 3;
+  max-width: 820rem;
+  margin: 0 auto;
+}
+.error-hero__code {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(120rem, 20vw, 220rem);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.12);
+  margin-bottom: -20rem;
+}
+.error-hero__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(32rem, 5vw, 54rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin-bottom: 20rem;
+}
+.error-hero__text {
+  font-family: Inter, sans-serif;
+  font-size: 17rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 36rem;
+  max-width: 620rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.error-hero__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16rem;
+  flex-wrap: wrap;
+}
+.error-links-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14rem;
+  margin-top: 48rem;
+  text-align: left;
+}
+.error-link-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16rem;
+  padding: 18rem 20rem;
+  text-decoration: none;
+  transition: transform var(--t-fast), background-color var(--t-fast), border-color var(--t-fast);
+}
+.error-link-card:hover {
+  transform: translateY(-3rem);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.error-link-card__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 4rem;
+}
+.error-link-card__desc {
+  font-family: Inter, sans-serif;
+  font-size: 12rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media only screen and (max-width: 1100px) {
+  .locations-split { grid-template-columns: 1fr; }
+  .location-card { min-height: 440rem; }
+  .contact-form-layout { grid-template-columns: 1fr; gap: 40rem; }
+  .b2b-routes-grid { grid-template-columns: repeat(3, 1fr); }
+  .error-links-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media only screen and (max-width: 768px) {
+  .b2b-routes-grid { grid-template-columns: 1fr; }
+  .contact-form-card { padding: 32rem 24rem; }
+  .contact-form-grid { grid-template-columns: 1fr; }
+  .error-links-grid { grid-template-columns: 1fr; }
+  .maps-frame { height: 380rem; }
+}
+
 /* Accessibility fallback */
 @media (prefers-reduced-motion: reduce) {
   .eyebrow,

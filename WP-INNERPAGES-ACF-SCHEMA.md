@@ -174,4 +174,40 @@ Similarly, `about.html` maps to `page-about.php` with modular layouts:
 7. `csr_cta` (Partner With Purpose CTA):
    - Editable background image, watermark, eyebrow, heading, text, button label & link
 
+## 6. Contact Us Page (`page-contact.php`)
+
+`contact.html` maps to `page-contact.php` with modular layouts:
+1. `template-parts/banner-inner.php`: Reusable Inner Hero (`banner_bg_image`, `watermark_text`, `breadcrumbs`, `page_title`, `lead_text`).
+2. `contact_locations` (Section 02 · Our Strategic Locations):
+   - Eyebrow (`locations_eyebrow` - Text)
+   - Title (`locations_heading` - Text)
+   - Subheading (`locations_subheading` - Textarea)
+   - Watermark (`locations_watermark` - Text): "PRESENCE"
+   - Dubai Card (`dubai_location` - Group): `bg_image`, `city`, `role`, `address`, `phone`, `email`
+   - Khartoum Card (`khartoum_location` - Group): `bg_image`, `city`, `role`, `address`, `phone`, `email`
+3. `contact_form` (Section 03 · Direct Engagement):
+   - Eyebrow (`form_eyebrow` - Text)
+   - Title (`form_heading` - Text)
+   - Statement (`statement` - Textarea)
+   - Description (`description` - Textarea)
+   - Form Shortcode (`form_embed` - Text): WPForms / Contact Form 7 integration
+4. `b2b_enquiries` (Section 04 · Engagement Pathways):
+   - Eyebrow, Title, Subheading
+   - Routes Repeater (`b2b_routes` - Repeater): `icon`, `title`, `text`, `action_label`, `action_subject`
+5. `contact_maps` (Section 05 · Geographic Coordinates):
+   - Dubai Map Embed (`dubai_map_embed` - Textarea / iframe)
+   - Khartoum Map Embed (`khartoum_map_embed` - Textarea / iframe)
+6. `contact_cta` (Section 06 · Final Partnership CTA):
+   - Editable background, watermark, eyebrow, heading, text, button
+
+---
+
+## 7. 404 Error Page (`404.php`)
+
+`404.html` maps directly to `404.php`:
+- Editable background image
+- Error code (`404`) and title (`Destination Unavailable`)
+- Explanation copy
+- Dynamic quick links pointing to core site areas (Home, About, Companies, CSR, Contact)
+
 All sections include corresponding `data-wp-section` and `data-wp-field` semantic attributes in the static markup for zero-guesswork developer implementation.
