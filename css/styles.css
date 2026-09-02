@@ -2188,9 +2188,32 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   width: 100%;
   max-width: 920rem;
   margin: 0 auto;
+  overflow: hidden;
+}
+
+.editorial-watermark {
+  position: absolute;
+  top: 50%;
+  right: -90rem;
+  transform: translateY(-50%);
+  width: 320rem;
+  max-width: 45%;
+  height: auto;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.14;
+  mix-blend-mode: multiply;
+  user-select: none;
+}
+.editorial-watermark img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .editorial-body {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: flex-start;
   gap: 32rem;
@@ -2297,6 +2320,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 
 /* Bottom Navigation Bar */
 .editorial-nav {
+  position: relative;
+  z-index: 1;
   margin-top: 40rem;
   padding-top: 24rem;
   border-top: 1px solid rgba(144, 9, 9, 0.12);
@@ -2393,6 +2418,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .why__title { font-size: 34rem; margin-bottom: 16rem; }
   .why__list { grid-template-columns: repeat(2, 1fr); gap: 12rem; }
   .testimonials-editorial { padding: 36rem 32rem 30rem; border-radius: 22rem; }
+  .editorial-watermark { width: 240rem; right: -70rem; opacity: 0.11; }
   .editorial-body { gap: 24rem; }
   .editorial-index { font-size: 80rem; }
   .editorial-quote { font-size: 19rem; }
@@ -2406,6 +2432,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .why__intro { font-size: 14rem; }
   .why__list { grid-template-columns: 1fr; gap: 10rem; }
   .testimonials-editorial { padding: 26rem 20rem 22rem; }
+  .editorial-watermark { width: 180rem; right: -55rem; opacity: 0.08; }
   .editorial-body { flex-direction: column; gap: 8rem; }
   .editorial-index { font-size: 56rem; line-height: 1; }
   .editorial-main { padding-top: 0; }
