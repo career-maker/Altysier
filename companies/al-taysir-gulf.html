@@ -119,154 +119,158 @@
 <main>
 
 <!-- ==========================================================================
-     01. COMPANY HERO
+     01. COMPANY HERO / BANNER (WordPress Template Part: template-parts/banner-company.php)
+     ACF Group: company_banner_fields
+     Editable: Background Image, Watermark, Breadcrumbs, Sector Tag, Title, Positioning
      ========================================================================== -->
-<section class="company-hero" id="company-hero">
-  <div class="company-hero__bg" aria-hidden="true">
+<section class="company-hero" id="company-hero" data-wp-section="company_banner">
+  <div class="company-hero__bg" aria-hidden="true" data-wp-field="banner_bg_image">
     <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=2000&q=80&auto=format&fit=crop" alt="" loading="eager" decoding="async">
     <div class="company-hero__scrim"></div>
   </div>
-  <span class="section-watermark" aria-hidden="true">AL TAYSIR GULF</span>
+  <span class="section-watermark" aria-hidden="true" data-wp-field="watermark_text">AL TAYSIR GULF</span>
 
   <div class="container company-hero__container">
-    <nav class="breadcrumb reveal" aria-label="Breadcrumbs">
+    <nav class="breadcrumb reveal" aria-label="Breadcrumbs" data-wp-field="breadcrumbs">
       <a href="../index.html">Home</a>
       <span class="breadcrumb__sep">/</span>
       <a href="../group-of-companies.html">Group Of Companies</a>
       <span class="breadcrumb__sep">/</span>
-      <span aria-current="page">Al Taysir Gulf</span>
+      <span aria-current="page" data-wp-field="breadcrumb_current">Al Taysir Gulf</span>
     </nav>
-    <div class="company-hero__sector-tag reveal">Transportation &amp; Ground Logistics</div>
-    <h1 class="company-hero__title reveal">Al Taysir Al Mutamayyiza Gulf Co.</h1>
-    <p class="company-hero__text reveal">Connecting trade corridors with seamless ground logistics, secure warehousing, customs handling, and airport ground freight services across Saudi Arabia and the GCC.</p>
+    <div class="company-hero__sector-tag reveal" data-wp-field="sector_tag">Transportation &amp; Ground Logistics</div>
+    <h1 class="company-hero__title reveal" data-wp-field="company_title">Al Taysir Al Mutamayyiza Gulf Co.</h1>
+    <p class="company-hero__text reveal" data-wp-field="positioning_statement">Connecting trade corridors with seamless ground logistics, secure warehousing, customs handling, and airport ground freight services across Saudi Arabia and the GCC.</p>
   </div>
 </section>
 
 <!-- ==========================================================================
-     02. COMPANY INTRODUCTION
+     02. COMPANY INTRODUCTION (WordPress Layout: company_intro)
      ========================================================================== -->
-<section class="about-intro" id="about-company">
-  <span class="section-watermark" aria-hidden="true">OVERVIEW</span>
+<section class="about-intro" id="about-company" data-wp-section="company_intro">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="intro_watermark">OVERVIEW</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Company Overview</p>
-      <h2 class="group__title reveal">About Al Taysir Al Mutamayyiza Gulf Co.</h2>
+      <p class="eyebrow reveal" data-wp-field="intro_eyebrow">Company Overview</p>
+      <h2 class="group__title reveal" data-wp-field="intro_heading">About Al Taysir Al Mutamayyiza Gulf Co.</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
     </div>
 
     <div class="about-intro__grid">
-      <div class="about-intro__statement reveal">
-        A premier logistical powerhouse operating an advanced commercial fleet, bonded warehouses, and cross-border transport corridors.
+      <div class="about-intro__statement reveal" data-wp-field="intro_statement">
+        A precision overland transport and freight provider operating critical supply pipelines across Saudi Arabia and cross-border GCC corridors.
       </div>
-      <div class="about-intro__narrative reveal">
-        <p>Headquartered in Saudi Arabia, Al Taysir Al Mutamayyiza Gulf Co. provides end-to-end transport and logistics services for industrial manufacturers, retail distributors, and international shipping entities. Our operations bridge critical land ports, maritime terminals, and dry cargo hubs.</p>
-        <p>Driven by precision fleet management and strict regulatory compliance, we deliver time-critical, temperature-sensitive, and oversized industrial cargo with complete visibility and operational transparency.</p>
+      <div class="about-intro__narrative reveal" data-wp-field="intro_narrative">
+        <p>Al Taysir Al Mutamayyiza Gulf Co. provides scalable, technology-driven transportation and freight forwarding solutions. From heavy industrial transport to fast airport ground logistics, we ensure seamless flow of goods between seaports, air cargo hubs, and industrial distribution terminals.</p>
+        <p>Our fleet features advanced GPS telematics, temperature-controlled trailers, and certified logistics professionals who handle customs clearance, containerized transport, and contracted project cargo under uncompromising safety protocols.</p>
       </div>
     </div>
 
-    <div class="about-intro__photo-wrap reveal">
-      <img class="about-intro__photo" src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1600&q=80&auto=format&fit=crop" alt="Fleet Transportation and Logistics" loading="lazy" decoding="async">
+    <div class="about-intro__photo-wrap reveal" data-wp-field="intro_photo">
+      <img class="about-intro__photo" src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1600&q=80&auto=format&fit=crop" alt="Ground Transportation and Fleet Logistics" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     03. COMPANY STORY / HISTORY (Origin -> Development -> Current Role)
+     03. COMPANY STORY / HISTORY (WordPress Layout: company_story)
+     ACF Repeater: story_steps (badge, title, text)
      ========================================================================== -->
-<section class="company-story" id="company-story">
-  <span class="section-watermark" aria-hidden="true">PURPOSE</span>
+<section class="company-story" id="company-story" data-wp-section="company_story">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="story_watermark">PURPOSE</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Our Journey</p>
-      <h2 class="group__title reveal">Built With Purpose</h2>
+      <p class="eyebrow reveal" data-wp-field="story_eyebrow">Our Journey</p>
+      <h2 class="group__title reveal" data-wp-field="story_heading">Built With Purpose</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">From specialized regional trucking to an integrated regional logistics and freight network.</p>
+      <p class="group__intro reveal" data-wp-field="story_subheading">Expanding transport corridors with reliable fleet execution and Gulf-wide connectivity.</p>
     </div>
 
-    <div class="story-timeline">
+    <div class="story-timeline" data-wp-repeater="story_steps">
       <!-- 01 Origin -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 01 / Logistics Foundation</span>
-        <h3 class="story-step__title">Origin</h3>
-        <p class="story-step__text">Established in the Kingdom of Saudi Arabia to satisfy accelerating industrial transport demands between major seaport gateways and inland commercial manufacturing zones.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 01 / Fleet Inception</span>
+        <h3 class="story-step__title" data-wp-field="title">Origin</h3>
+        <p class="story-step__text" data-wp-field="text">Established to service rapid overland transport demands across the Kingdom of Saudi Arabia, connecting major dry ports and shipping hubs with dedicated cargo fleets.</p>
       </div>
 
       <!-- 02 Development -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 02 / Fleet &amp; Hub Scale</span>
-        <h3 class="story-step__title">Development</h3>
-        <p class="story-step__text">Expanded modern heavy-haul fleets, invested in ambient and temperature-controlled warehousing, and established dedicated customs-clearance desks at key borders.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 02 / Cross-Border Corridors</span>
+        <h3 class="story-step__title" data-wp-field="title">Development</h3>
+        <p class="story-step__text" data-wp-field="text">Introduced cross-border GCC trucking permits, refrigerated cold-chain trailers, airport air-freight ground handling contracts, and centralized bonded warehousing facilities.</p>
       </div>
 
       <!-- 03 Current Role -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 03 / Regional Supply Spine</span>
-        <h3 class="story-step__title">Current Role</h3>
-        <p class="story-step__text">Serves as a strategic logistics partner across the Gulf region, managing daily scheduled freight runs, port transshipment, and high-value project logistics.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 03 / Strategic Logistics</span>
+        <h3 class="story-step__title" data-wp-field="title">Current Role</h3>
+        <p class="story-step__text" data-wp-field="text">Acts as the physical logistics backbone for Altysier Group and independent corporate clients, delivering timely transport solutions for commercial cargo, FMCG, and heavy machinery.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     04. KEY SERVICE AREAS (4 Large Visual Panels)
+     04. KEY LOGISTICS AREAS (WordPress Layout: company_areas)
+     ACF Repeater: area_panels (photo, number, title, description)
      ========================================================================== -->
-<section class="company-areas" id="service-areas">
-  <span class="section-watermark" aria-hidden="true">SERVICES</span>
+<section class="company-areas" id="logistics-areas" data-wp-section="company_areas">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="areas_watermark">TRANSPORT</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Core Capabilities</p>
-      <h2 class="group__title reveal">Key Service Areas</h2>
+      <p class="eyebrow reveal" data-wp-field="areas_eyebrow">Core Business</p>
+      <h2 class="group__title reveal" data-wp-field="areas_heading">Key Logistics Areas</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">Comprehensive ground, air, and marine logistics solutions customized for modern supply chains.</p>
+      <p class="group__intro reveal" data-wp-field="areas_subheading">Modern transport, warehousing, and freight management engineered for reliability.</p>
     </div>
 
-    <div class="areas-grid">
-      <!-- 01 End-to-end Logistics -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
-          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800&q=80&auto=format&fit=crop" alt="Ground Fleet Transport" loading="lazy">
-          <span class="area-panel__num">01</span>
+    <div class="areas-grid" data-wp-repeater="area_panels">
+      <!-- 01 Overland Transport -->
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
+          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=800&q=80&auto=format&fit=crop" alt="Overland Cargo Transport" loading="lazy">
+          <span class="area-panel__num" data-wp-field="number">01</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">End-to-End Logistics &amp; Transport</h3>
-          <p class="area-panel__desc">Full truckload (FTL), less-than-truckload (LTL), and specialized flatbed heavy-haul transport across interconnected highways throughout Saudi Arabia and the GCC.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Overland Road Transportation</h3>
+          <p class="area-panel__desc" data-wp-field="description">Long-haul intercity freight and cross-border GCC trucking using flatbeds, curtain-siders, bulk grain trailers, and temperature-controlled reefer trucks.</p>
         </div>
       </div>
 
-      <!-- 02 Warehousing -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
-          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop" alt="Warehousing and Storage" loading="lazy">
-          <span class="area-panel__num">02</span>
+      <!-- 02 Airport Ground Freight -->
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
+          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80&auto=format&fit=crop" alt="Airport Freight Services" loading="lazy">
+          <span class="area-panel__num" data-wp-field="number">02</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Warehousing &amp; Storage Solutions</h3>
-          <p class="area-panel__desc">Secured, modern warehousing facilities equipped with digital WMS inventory tracking, pallet racking, climate control, and pick-and-pack fulfillment systems.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Airport Ground Freight &amp; Services</h3>
+          <p class="area-panel__desc" data-wp-field="description">Air-side and land-side freight transfers, unit load device (ULD) transport, expedited customs transit, and time-critical medical or perishable air cargo shuttles.</p>
         </div>
       </div>
 
-      <!-- 03 Port & Free Zone -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
-          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80&auto=format&fit=crop" alt="Port and Customs Storage" loading="lazy">
-          <span class="area-panel__num">03</span>
+      <!-- 03 Customs & Clearance -->
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
+          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80&auto=format&fit=crop" alt="Customs Brokerage" loading="lazy">
+          <span class="area-panel__num" data-wp-field="number">03</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Port, Customs &amp; Free Zone Storage</h3>
-          <p class="area-panel__desc">Expedited customs clearance, bonded cargo storage, container handling, and seamless port-to-warehouse drayage at major coastal gateways and dry ports.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Customs Brokerage &amp; Clearance</h3>
+          <p class="area-panel__desc" data-wp-field="description">Expert regulatory documentation, duty assessment, and expedited port-of-entry clearance across King Abdulaziz Port, Jeddah Islamic Port, and King Fahd Causeway.</p>
         </div>
       </div>
 
-      <!-- 04 Airport Logistics -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
-          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80&auto=format&fit=crop" alt="Airport Logistics" loading="lazy">
-          <span class="area-panel__num">04</span>
+      <!-- 04 Warehousing -->
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
+          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop" alt="Warehousing & Storage" loading="lazy">
+          <span class="area-panel__num" data-wp-field="number">04</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Airport Logistics &amp; Ground Services</h3>
-          <p class="area-panel__desc">Air freight coordination, tarmac cargo dispatch, priority courier expediting, and time-critical medical and high-tech component transport from major international airports.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Warehousing &amp; Cargo Staging</h3>
+          <p class="area-panel__desc" data-wp-field="description">Secure, 24/7 monitored dry and climate-controlled storage hubs enabling cross-docking, consolidation, barcode pallet tracking, and flexible distribution buffering.</p>
         </div>
       </div>
     </div>
@@ -274,85 +278,86 @@
 </section>
 
 <!-- ==========================================================================
-     05. KEY CAPABILITY / VALUE PROPOSITION
+     05. KEY CAPABILITY / VALUE PROPOSITION (WordPress Layout: company_value_prop)
      ========================================================================== -->
-<section class="company-value" id="value-prop">
-  <span class="section-watermark" aria-hidden="true">CAPABILITY</span>
+<section class="company-value" id="value-prop" data-wp-section="company_value_prop">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="value_watermark">CAPABILITY</span>
   <div class="container">
     <div class="company-value__box reveal">
-      <p class="eyebrow" style="color: rgba(255,255,255,0.7);">Core Advantage</p>
-      <h2 class="company-value__heading">Operational Fleet Reliability &amp; Regional Precision</h2>
-      <p class="company-value__desc">Equipped with telematics-monitored vehicles, dedicated safety protocols, and veteran drivers, we guarantee on-time delivery across extensive desert and urban corridors, minimizing downtime and supply friction for our corporate partners.</p>
+      <p class="eyebrow" style="color: rgba(255,255,255,0.7);" data-wp-field="value_eyebrow">Core Advantage</p>
+      <h2 class="company-value__heading" data-wp-field="value_heading">Cross-Border Efficiency &amp; Real-Time Fleet Telematics</h2>
+      <p class="company-value__desc" data-wp-field="value_description">Every vehicle in our modern fleet is outfitted with GPS tracking and cold-chain temperature telemetry, giving our commercial clients live transit visibility, route optimization, and assured delivery compliance across high-value shipments.</p>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     06. MARKETS / OPERATIONAL REACH
+     06. MARKETS / OPERATIONAL REACH (WordPress Layout: company_markets)
+     ACF Repeater: markets_list (icon, title, text)
      ========================================================================== -->
-<section class="company-markets" id="markets">
-  <span class="section-watermark" aria-hidden="true">REACH</span>
+<section class="company-markets" id="markets" data-wp-section="company_markets">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="markets_watermark">REACH</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Geographic Footprint</p>
-      <h2 class="group__title reveal">Markets &amp; Operational Reach</h2>
+      <p class="eyebrow reveal" data-wp-field="markets_eyebrow">Geographic Footprint</p>
+      <h2 class="group__title reveal" data-wp-field="markets_heading">Markets &amp; Operational Reach</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">Strategically located hubs ensuring rapid turnaround across the Arabian Peninsula.</p>
+      <p class="group__intro reveal" data-wp-field="markets_subheading">Connecting domestic routes and international corridors across the Gulf.</p>
     </div>
 
-    <div class="markets-grid">
+    <div class="markets-grid" data-wp-repeater="markets_list">
       <!-- Market 01 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
-        <h3 class="market-card__title">Saudi Arabia (Kingdom-wide)</h3>
-        <p class="market-card__text">Operational centers in Riyadh, Jeddah, Dammam, and Jubail industrial city, linking major industrial manufacturing complexes with domestic distribution.</p>
+        <h3 class="market-card__title" data-wp-field="title">Kingdom of Saudi Arabia</h3>
+        <p class="market-card__text" data-wp-field="text">Comprehensive route coverage connecting Riyadh, Dammam, Jeddah, Jubail industrial cities, and regional logistical parks.</p>
       </div>
 
       <!-- Market 02 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M2 12h20"/></svg>
         </div>
-        <h3 class="market-card__title">GCC Cross-Border Corridors</h3>
-        <p class="market-card__text">Regular bonded cross-border freight routes connecting Saudi Arabia with the United Arab Emirates, Bahrain, Kuwait, Qatar, and Oman.</p>
+        <h3 class="market-card__title" data-wp-field="title">Cross-Border GCC Highways</h3>
+        <p class="market-card__text" data-wp-field="text">Scheduled line-haul runs connecting Saudi Arabia with UAE, Bahrain, Kuwait, and Oman under simplified TIR customs procedures.</p>
       </div>
 
       <!-- Market 03 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18l-2.2 3.3a2 2 0 01-1.7.9H6.9a2 2 0 01-1.7-.9L3 17Z"/><path d="M6 17v-6h5v6M13 17V7h4v10"/></svg>
         </div>
-        <h3 class="market-card__title">Free Zone Interconnects</h3>
-        <p class="market-card__text">Seamless integration with port free zones and airport cargo villages, simplifying customs documentation and multi-carrier transfers.</p>
+        <h3 class="market-card__title" data-wp-field="title">Major Ports &amp; Cargo Terminals</h3>
+        <p class="market-card__text" data-wp-field="text">Direct drayage and container shuttles operating 24/7 out of primary sea terminals and airport air-cargo zones.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     07. COMPANY VISUAL SHOWCASE
+     07. COMPANY VISUAL SHOWCASE (WordPress Layout: company_showcase)
      ========================================================================== -->
-<section class="company-showcase" id="showcase">
-  <span class="section-watermark" aria-hidden="true">OPERATIONS</span>
+<section class="company-showcase" id="showcase" data-wp-section="company_showcase">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="showcase_watermark">OPERATIONS</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Operations in Motion</p>
-      <h2 class="group__title reveal">Logistics &amp; Transport Showcase</h2>
+      <p class="eyebrow reveal" data-wp-field="showcase_eyebrow">Operations in Motion</p>
+      <h2 class="group__title reveal" data-wp-field="showcase_heading">Logistics &amp; Transport Showcase</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
     </div>
 
     <div class="showcase-grid reveal">
-      <div class="showcase-lead">
-        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1200&q=80&auto=format&fit=crop" alt="Heavy Haulage Transportation Fleet" loading="lazy">
+      <div class="showcase-lead" data-wp-field="lead_photo">
+        <img src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?w=1200&q=80&auto=format&fit=crop" alt="Heavy Road Freight Fleet" loading="lazy">
       </div>
       <div class="showcase-side">
-        <div class="showcase-side-item">
-          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop" alt="Bonded Warehouse Logistics" loading="lazy">
+        <div class="showcase-side-item" data-wp-field="side_photo_1">
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=800&q=80&auto=format&fit=crop" alt="Airport Cargo Ground Handling" loading="lazy">
         </div>
-        <div class="showcase-side-item">
-          <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80&auto=format&fit=crop" alt="Port Container Terminal Transfer" loading="lazy">
+        <div class="showcase-side-item" data-wp-field="side_photo_2">
+          <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop" alt="Warehouse Staging Center" loading="lazy">
         </div>
       </div>
     </div>
@@ -360,31 +365,32 @@
 </section>
 
 <!-- ==========================================================================
-     08. PART OF THE ALTYSIER GROUP
+     08. PART OF THE ALTYSIER GROUP (WordPress Layout: company_ecosystem)
+     ACF Relationship: related_companies (CPT: company)
      ========================================================================== -->
-<section class="company-ecosystem" id="ecosystem">
-  <span class="section-watermark" aria-hidden="true">ECOSYSTEM</span>
+<section class="company-ecosystem" id="ecosystem" data-wp-section="company_ecosystem">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="ecosystem_watermark">ECOSYSTEM</span>
   <div class="container">
     <div class="about-intro__head text-center" style="text-align: center;">
-      <p class="eyebrow reveal" style="justify-content: center;">Group Integration</p>
-      <h2 class="group__title reveal">Part of a Bigger Business Ecosystem</h2>
+      <p class="eyebrow reveal" style="justify-content: center;" data-wp-field="ecosystem_eyebrow">Group Integration</p>
+      <h2 class="group__title reveal" data-wp-field="ecosystem_heading">Part of a Bigger Business Ecosystem</h2>
       <span class="group__accent-line reveal" style="margin-left: auto; margin-right: auto;" aria-hidden="true"></span>
-      <p class="group__intro reveal" style="margin-left: auto; margin-right: auto;">Providing specialized logistics infrastructure across Altysier Group&rsquo;s network.</p>
+      <p class="group__intro reveal" style="margin-left: auto; margin-right: auto;" data-wp-field="ecosystem_subheading">Powering ground freight and supply chain flow under Altysier Group.</p>
     </div>
 
     <div class="ecosystem-chain reveal">
-      <div class="ecosystem-node">Al Taysir Al Mutamayyiza Gulf</div>
+      <div class="ecosystem-node" data-wp-field="node_company">Al Taysir Al Mutamayyiza Gulf</div>
       <span class="ecosystem-arrow">&rarr;</span>
-      <div class="ecosystem-node">Transportation &amp; Logistics</div>
+      <div class="ecosystem-node" data-wp-field="node_sector">Transportation &amp; Logistics</div>
       <span class="ecosystem-arrow">&rarr;</span>
-      <div class="ecosystem-node" style="color: var(--accent);">Altysier Group</div>
+      <div class="ecosystem-node" style="color: var(--accent);" data-wp-field="node_group">Altysier Group</div>
     </div>
 
     <div class="about-intro__head" style="margin-top: 50rem;">
-      <p class="eyebrow reveal">Explore Other Companies</p>
+      <p class="eyebrow reveal" data-wp-field="other_heading">Explore Other Companies</p>
     </div>
 
-    <div class="other-companies-strip reveal">
+    <div class="other-companies-strip reveal" data-wp-relationship="related_companies">
       <a href="altysier-general-trading.html" class="other-company-card">
         <h4 class="other-company-card__name">Altysier General Trading</h4>
         <span class="other-company-card__sector">International Trade &amp; Import</span>
@@ -410,19 +416,19 @@
 </section>
 
 <!-- ==========================================================================
-     09. CTA
+     09. CTA (WordPress Layout: company_cta)
      ========================================================================== -->
-<section class="about-cta" id="contact">
-  <span class="section-watermark" aria-hidden="true">PARTNERSHIP</span>
-  <div class="about-cta__bg" aria-hidden="true">
+<section class="about-cta" id="contact" data-wp-section="company_cta">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="cta_watermark">PARTNERSHIP</span>
+  <div class="about-cta__bg" aria-hidden="true" data-wp-field="cta_bg_image">
     <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1800&q=75&auto=format&fit=crop" alt="" loading="lazy">
     <div class="about-cta__scrim"></div>
   </div>
   <div class="container about-cta__container">
-    <p class="eyebrow reveal" style="color: rgba(255,255,255,0.7);">Work With Us</p>
-    <h2 class="about-cta__title reveal">Let&rsquo;s Build Stronger Partnerships Together.</h2>
-    <p class="about-cta__text reveal">Connect with Al Taysir Al Mutamayyiza Gulf Co. for comprehensive freight contracts, warehousing agreements, or cross-border GCC transport.</p>
-    <a href="../contact.html" class="btn _accent reveal">Contact Us</a>
+    <p class="eyebrow reveal" style="color: rgba(255,255,255,0.7);" data-wp-field="cta_eyebrow">Work With Us</p>
+    <h2 class="about-cta__title reveal" data-wp-field="cta_heading">Let&rsquo;s Build Stronger Partnerships Together.</h2>
+    <p class="about-cta__text reveal" data-wp-field="cta_text">Connect with Al Taysir Al Mutamayyiza Gulf Co. for comprehensive freight contracts, warehousing agreements, or cross-border GCC transport.</p>
+    <a href="../contact.html" class="btn _accent reveal" data-wp-field="cta_btn">Contact Us</a>
   </div>
 </section>
 

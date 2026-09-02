@@ -1,0 +1,41 @@
+<!-- ==========================================================================
+     WORDPRESS TEMPLATE PART: template-parts/banner-company.php
+     ACF Field Group: company_banner_fields (Used on CPT "company" single template)
+     Manageable in WP:
+     - banner_bg_image (Image ID / URL)
+     - watermark_text (Text, e.g. "GENERAL TRADING")
+     - breadcrumbs (Array / Dynamic Yoast/RankMath)
+     - sector_tag (Text / Taxonomy "industry_sector")
+     - company_name / post_title (Title field)
+     - positioning_statement (Textarea / Text)
+     ========================================================================== -->
+
+<section class="company-hero" id="company-hero" data-wp-section="company_banner">
+  <div class="company-hero__bg" aria-hidden="true" data-wp-field="banner_bg_image">
+    <!-- WP: <?php echo wp_get_attachment_image( get_field('banner_bg_image'), 'full' ); ?> -->
+    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=2000&q=80&auto=format&fit=crop" alt="" loading="eager" decoding="async">
+    <div class="company-hero__scrim"></div>
+  </div>
+
+  <!-- WP: <?php the_field('watermark_text'); ?> -->
+  <span class="section-watermark" aria-hidden="true" data-wp-field="watermark_text">GENERAL TRADING</span>
+
+  <div class="container company-hero__container">
+    <nav class="breadcrumb reveal" aria-label="Breadcrumbs" data-wp-field="breadcrumbs">
+      <a href="../index.html">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <a href="../group-of-companies.html">Group Of Companies</a>
+      <span class="breadcrumb__sep">/</span>
+      <span aria-current="page" data-wp-field="breadcrumb_current">Company Name</span>
+    </nav>
+
+    <!-- WP: <?php the_field('sector_tag'); ?> -->
+    <div class="company-hero__sector-tag reveal" data-wp-field="sector_tag">International Import &amp; Export</div>
+
+    <!-- WP: <?php the_title(); ?> -->
+    <h1 class="company-hero__title reveal" data-wp-field="company_title">Altysier International General Trading LLC</h1>
+
+    <!-- WP: <?php the_field('positioning_statement'); ?> -->
+    <p class="company-hero__text reveal" data-wp-field="positioning_statement">Creating global opportunities through reliable international trade, connecting essential commodity flows and specialized industrial markets worldwide.</p>
+  </div>
+</section>

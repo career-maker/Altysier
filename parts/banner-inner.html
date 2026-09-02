@@ -1,0 +1,38 @@
+<!-- ==========================================================================
+     WORDPRESS TEMPLATE PART: template-parts/banner-inner.php
+     ACF Field Group: page_banner_fields
+     Manageable in WP:
+     - banner_bg_image (Image / URL)
+     - banner_watermark (Text, e.g. "ABOUT US", "CSR", "CONTACT")
+     - breadcrumbs (Array / Yoast / RankMath breadcrumb function)
+     - banner_title (Text, supports HTML/spans)
+     - banner_subtitle (Textarea / WYSIWYG)
+     ========================================================================== -->
+
+<section class="about-hero" id="page-hero" data-wp-section="page_banner">
+  <div class="about-hero__bg" aria-hidden="true" data-wp-field="banner_bg_image">
+    <!-- WP: <?php echo wp_get_attachment_image( get_field('banner_bg_image'), 'full' ); ?> -->
+    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=2000&q=80&auto=format&fit=crop" alt="" loading="eager" decoding="async">
+    <div class="about-hero__scrim"></div>
+  </div>
+
+  <!-- WP: <?php the_field('banner_watermark'); ?> -->
+  <span class="section-watermark" aria-hidden="true" data-wp-field="banner_watermark">ABOUT US</span>
+
+  <div class="container about-hero__container">
+    <!-- Breadcrumb: Can be generated via Yoast/RankMath or custom ACF repeater -->
+    <nav class="breadcrumb reveal" aria-label="Breadcrumbs" data-wp-field="breadcrumbs">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb__sep">/</span>
+      <span aria-current="page">About Us</span>
+    </nav>
+
+    <!-- WP: <?php the_field('banner_title'); ?> -->
+    <h1 class="about-hero__title reveal" data-wp-field="banner_title">Creating Opportunities Across Markets</h1>
+
+    <!-- WP: <?php the_field('banner_subtitle'); ?> -->
+    <p class="about-hero__text reveal" data-wp-field="banner_subtitle">
+      Altysier Group brings together specialized businesses across international trade, industrial investment, manufacturing and distribution, supporting essential industries across international markets.
+    </p>
+  </div>
+</section>

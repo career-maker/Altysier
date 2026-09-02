@@ -119,154 +119,158 @@
 <main>
 
 <!-- ==========================================================================
-     01. COMPANY HERO
+     01. COMPANY HERO / BANNER (WordPress Template Part: template-parts/banner-company.php)
+     ACF Group: company_banner_fields
+     Editable: Background Image, Watermark, Breadcrumbs, Sector Tag, Title, Positioning
      ========================================================================== -->
-<section class="company-hero" id="company-hero">
-  <div class="company-hero__bg" aria-hidden="true">
+<section class="company-hero" id="company-hero" data-wp-section="company_banner">
+  <div class="company-hero__bg" aria-hidden="true" data-wp-field="banner_bg_image">
     <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=2000&q=80&auto=format&fit=crop" alt="" loading="eager" decoding="async">
     <div class="company-hero__scrim"></div>
   </div>
-  <span class="section-watermark" aria-hidden="true">HALOUB FACTORY</span>
+  <span class="section-watermark" aria-hidden="true" data-wp-field="watermark_text">HALOUB FACTORY</span>
 
   <div class="container company-hero__container">
-    <nav class="breadcrumb reveal" aria-label="Breadcrumbs">
+    <nav class="breadcrumb reveal" aria-label="Breadcrumbs" data-wp-field="breadcrumbs">
       <a href="../index.html">Home</a>
       <span class="breadcrumb__sep">/</span>
       <a href="../group-of-companies.html">Group Of Companies</a>
       <span class="breadcrumb__sep">/</span>
-      <span aria-current="page">Haloub Feed Mill</span>
+      <span aria-current="page" data-wp-field="breadcrumb_current">Haloub Feed Mill</span>
     </nav>
-    <div class="company-hero__sector-tag reveal">Agricultural Manufacturing &amp; Food Security</div>
-    <h1 class="company-hero__title reveal">Haloub Feed Mill Factory</h1>
-    <p class="company-hero__text reveal">Pioneering animal nutrition, livestock health, and regional food security through automated industrial feed milling, sustainable raw materials, and precision science.</p>
+    <div class="company-hero__sector-tag reveal" data-wp-field="sector_tag">Agricultural Manufacturing &amp; Food Security</div>
+    <h1 class="company-hero__title reveal" data-wp-field="company_title">Haloub Feed Mill Factory</h1>
+    <p class="company-hero__text reveal" data-wp-field="positioning_statement">Pioneering animal nutrition, livestock health, and regional food security through automated industrial feed milling, sustainable raw materials, and precision science.</p>
   </div>
 </section>
 
 <!-- ==========================================================================
-     02. COMPANY INTRODUCTION
+     02. COMPANY INTRODUCTION (WordPress Layout: company_intro)
      ========================================================================== -->
-<section class="about-intro" id="about-company">
-  <span class="section-watermark" aria-hidden="true">OVERVIEW</span>
+<section class="about-intro" id="about-company" data-wp-section="company_intro">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="intro_watermark">OVERVIEW</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Company Overview</p>
-      <h2 class="group__title reveal">About Haloub Feed Mill Factory</h2>
+      <p class="eyebrow reveal" data-wp-field="intro_eyebrow">Company Overview</p>
+      <h2 class="group__title reveal" data-wp-field="intro_heading">About Haloub Feed Mill Factory</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
     </div>
 
     <div class="about-intro__grid">
-      <div class="about-intro__statement reveal">
-        A modern industrial manufacturing complex producing nutritionally balanced, high-yield feed formulations for cattle, poultry, and sheep.
+      <div class="about-intro__statement reveal" data-wp-field="intro_statement">
+        A premier agro-industrial manufacturing asset delivering scientifically formulated, bio-secure nutrition for commercial livestock and poultry operations.
       </div>
-      <div class="about-intro__narrative reveal">
-        <p>Haloub Feed Mill Factory operates state-of-the-art milling, mixing, pelleting, and bagging lines. Built to bolster national agriculture, the plant processes locally harvested sorghum, bran, oilseed meal, and imported premixes into scientifically verified animal feed.</p>
-        <p>By providing commercial livestock breeders, dairy farms, and poultry producers with cost-effective, high-protein nutrition, Haloub directly supports meat production yields, milk output, and food sovereignty across the region.</p>
+      <div class="about-intro__narrative reveal" data-wp-field="intro_narrative">
+        <p>Haloub Feed Mill Factory stands as a premier modern production complex dedicated to the manufacturing of pelleted, mashed, and specialty feed concentrates. Designed according to European hygienic standards, our facilities combine computerized batching, multi-stage micro-ingredient dosing, and automated steam conditioning.</p>
+        <p>We work directly with commercial poultry integrators, dairy producers, and livestock pastoralists, formulating balanced rations that optimize animal conversion ratios, health resilience, and economic yields for local and export markets.</p>
       </div>
     </div>
 
-    <div class="about-intro__photo-wrap reveal">
-      <img class="about-intro__photo" src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=1600&q=80&auto=format&fit=crop" alt="Haloub Industrial Feed Mill Complex" loading="lazy" decoding="async">
+    <div class="about-intro__photo-wrap reveal" data-wp-field="intro_photo">
+      <img class="about-intro__photo" src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=1600&q=80&auto=format&fit=crop" alt="Industrial Feed Mill Production Plant" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     03. COMPANY STORY / HISTORY (Origin -> Development -> Current Role)
+     03. COMPANY STORY / HISTORY (WordPress Layout: company_story)
+     ACF Repeater: story_steps (badge, title, text)
      ========================================================================== -->
-<section class="company-story" id="company-story">
-  <span class="section-watermark" aria-hidden="true">PURPOSE</span>
+<section class="company-story" id="company-story" data-wp-section="company_story">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="story_watermark">PURPOSE</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Our Journey</p>
-      <h2 class="group__title reveal">Built With Purpose</h2>
+      <p class="eyebrow reveal" data-wp-field="story_eyebrow">Our Journey</p>
+      <h2 class="group__title reveal" data-wp-field="story_heading">Built With Purpose</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">From targeted agrarian manufacturing to an industrial agricultural anchor.</p>
+      <p class="group__intro reveal" data-wp-field="story_subheading">From local agricultural milling to an automated, high-output nutritional plant.</p>
     </div>
 
-    <div class="story-timeline">
+    <div class="story-timeline" data-wp-repeater="story_steps">
       <!-- 01 Origin -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 01 / Factory Inception</span>
-        <h3 class="story-step__title">Origin</h3>
-        <p class="story-step__text">Commissioned to substitute expensive animal feed imports by processing domestic agricultural grains into high-quality animal fodder and concentrated pellets.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 01 / Factory Foundation</span>
+        <h3 class="story-step__title" data-wp-field="title">Origin</h3>
+        <p class="story-step__text" data-wp-field="text">Established to reduce dependency on imported animal feeds and address severe feed conversion inefficiencies across domestic poultry and dairy farms.</p>
       </div>
 
       <!-- 02 Development -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 02 / Automation &amp; Capacity</span>
-        <h3 class="story-step__title">Development</h3>
-        <p class="story-step__text">Upgraded to fully automated PLC-controlled batching lines, high-temperature conditioning, computerized pellet presses, and an on-site wet chemical laboratory.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 02 / Automation &amp; Upgrades</span>
+        <h3 class="story-step__title" data-wp-field="title">Development</h3>
+        <p class="story-step__text" data-wp-field="text">Invested in advanced automated pelleting lines, high-capacity grain storage silos, and an in-house laboratory for continuous NIR protein and moisture testing.</p>
       </div>
 
       <!-- 03 Current Role -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 03 / National Food Security</span>
-        <h3 class="story-step__title">Current Role</h3>
-        <p class="story-step__text">Supplies thousands of tons of poultry, dairy, and livestock feed monthly, acting as an indispensable partner to large agribusinesses and pastoral communities.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 03 / National Food Security</span>
+        <h3 class="story-step__title" data-wp-field="title">Current Role</h3>
+        <p class="story-step__text" data-wp-field="text">Produces high-tonnage monthly feed outputs, empowering livestock farming clusters, pastoral communities, and regional food protein supply chains.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     04. KEY BUSINESS AREAS (4 Large Visual Panels)
+     04. KEY PRODUCTION AREAS (WordPress Layout: company_areas)
+     ACF Repeater: area_panels (photo, number, title, description)
      ========================================================================== -->
-<section class="company-areas" id="business-areas">
-  <span class="section-watermark" aria-hidden="true">MANUFACTURING</span>
+<section class="company-areas" id="production-areas" data-wp-section="company_areas">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="areas_watermark">PRODUCTION</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Core Operations</p>
-      <h2 class="group__title reveal">Key Business Areas</h2>
+      <p class="eyebrow reveal" data-wp-field="areas_eyebrow">Core Capabilities</p>
+      <h2 class="group__title reveal" data-wp-field="areas_heading">Key Production Areas</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">Scientific feed engineering, uncompromising safety controls, and sustainable processing.</p>
+      <p class="group__intro reveal" data-wp-field="areas_subheading">Formulating balanced, scientific feed rations across poultry, dairy, and livestock sectors.</p>
     </div>
 
-    <div class="areas-grid">
-      <!-- 01 Feed Manufacturing -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
-          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=800&q=80&auto=format&fit=crop" alt="Feed Milling Facility" loading="lazy">
-          <span class="area-panel__num">01</span>
+    <div class="areas-grid" data-wp-repeater="area_panels">
+      <!-- 01 Poultry Feeds -->
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
+          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=800&q=80&auto=format&fit=crop" alt="Poultry Feed Solutions" loading="lazy">
+          <span class="area-panel__num" data-wp-field="number">01</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Animal Feed Manufacturing</h3>
-          <p class="area-panel__desc">Industrial-scale production of specialized starter, grower, and finisher pellets for broilers and layers, as well as high-energy ruminant concentrates for dairy cows and fattening sheep.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Poultry Starter, Grower &amp; Layer Feeds</h3>
+          <p class="area-panel__desc" data-wp-field="description">High-energy, amino-acid balanced mash and crumble rations formulated for maximum broiler weight gain, low mortality, and high egg production rates.</p>
         </div>
       </div>
 
-      <!-- 02 Quality & Safety Control -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
-          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80&auto=format&fit=crop" alt="Laboratory Quality Control" loading="lazy">
-          <span class="area-panel__num">02</span>
+      <!-- 02 Livestock & Dairy -->
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
+          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&q=80&auto=format&fit=crop" alt="Cattle and Dairy Feeds" loading="lazy">
+          <span class="area-panel__num" data-wp-field="number">02</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Quality &amp; Safety Control Systems</h3>
-          <p class="area-panel__desc">Rigorous on-site testing for mycotoxins, moisture levels, digestible protein percentages, and mineral balances to ensure zero contamination and peak feed-conversion ratios (FCR).</p>
+          <h3 class="area-panel__title" data-wp-field="title">Ruminant &amp; Dairy Concentrates</h3>
+          <p class="area-panel__desc" data-wp-field="description">Steam-pelleted concentrates for dairy cows, fattening bulls, sheep, and camels, fortified with essential minerals, bypass proteins, and digestive enzymes.</p>
         </div>
       </div>
 
-      <!-- 03 Livestock & Agricultural Support -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
-          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&q=80&auto=format&fit=crop" alt="Livestock and Farmer Support" loading="lazy">
-          <span class="area-panel__num">03</span>
+      <!-- 03 Raw Material Procurement -->
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
+          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80&auto=format&fit=crop" alt="Grain & Ingredient Sourcing" loading="lazy">
+          <span class="area-panel__num" data-wp-field="number">03</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Livestock &amp; Agricultural Support</h3>
-          <p class="area-panel__desc">On-farm nutritional advisory services, herd feeding consultation, and contract grain purchasing agreements with local farming cooperatives to ensure agricultural prosperity.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Grain &amp; Ingredient Processing</h3>
+          <p class="area-panel__desc" data-wp-field="description">Direct procurement of yellow corn, soybean meal, wheat bran, and mineral premixes from certified agricultural suppliers with strict mycotoxin screening.</p>
         </div>
       </div>
 
-      <!-- 04 Sustainable Production -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
-          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80&auto=format&fit=crop" alt="Sustainable Local Production" loading="lazy">
-          <span class="area-panel__num">04</span>
+      <!-- 04 Custom Nutritional Formulations -->
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
+          <img class="area-panel__photo" src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80&auto=format&fit=crop" alt="Nutritional Formulation Laboratory" loading="lazy">
+          <span class="area-panel__num" data-wp-field="number">04</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Sustainable Local Production</h3>
-          <p class="area-panel__desc">Minimizing agro-industrial waste by upcycling oilseed byproducts, sunflower cakes, and molasses into high-value animal nutrition that supports circular local economies.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Custom Formulation &amp; Veterinary Support</h3>
+          <p class="area-panel__desc" data-wp-field="description">Bespoke feed recipes designed by veterinary nutritionists tailored to specific herd health profiles, climatic stress conditions, and target fattening cycles.</p>
         </div>
       </div>
     </div>
@@ -274,85 +278,86 @@
 </section>
 
 <!-- ==========================================================================
-     05. KEY CAPABILITY / VALUE PROPOSITION
+     05. KEY CAPABILITY / VALUE PROPOSITION (WordPress Layout: company_value_prop)
      ========================================================================== -->
-<section class="company-value" id="value-prop">
-  <span class="section-watermark" aria-hidden="true">CAPABILITY</span>
+<section class="company-value" id="value-prop" data-wp-section="company_value_prop">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="value_watermark">CAPABILITY</span>
   <div class="container">
     <div class="company-value__box reveal">
-      <p class="eyebrow" style="color: rgba(255,255,255,0.7);">Core Advantage</p>
-      <h2 class="company-value__heading">Sustainable Local Production &amp; Nutritional Precision</h2>
-      <p class="company-value__desc">Haloub delivers an optimal Feed Conversion Ratio (FCR) through laboratory-proven formulations. We lower production costs for farmers while accelerating livestock growth cycles, safeguarding herd health, and securing food chains.</p>
+      <p class="eyebrow" style="color: rgba(255,255,255,0.7);" data-wp-field="value_eyebrow">Core Advantage</p>
+      <h2 class="company-value__heading" data-wp-field="value_heading">Nutritional Precision &amp; Certified Biosecurity</h2>
+      <p class="company-value__desc" data-wp-field="value_description">From computerized ingredient weighing to thermal pellet treatment, every batch from Haloub Feed Mill undergoes rigorous laboratory validation to ensure zero salmonella contamination, optimal nutritional balance, and proven feed conversion improvements.</p>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     06. MARKETS / OPERATIONAL REACH
+     06. MARKETS / OPERATIONAL REACH (WordPress Layout: company_markets)
+     ACF Repeater: markets_list (icon, title, text)
      ========================================================================== -->
-<section class="company-markets" id="markets">
-  <span class="section-watermark" aria-hidden="true">REACH</span>
+<section class="company-markets" id="markets" data-wp-section="company_markets">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="markets_watermark">REACH</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Geographic Footprint</p>
-      <h2 class="group__title reveal">Markets &amp; Operational Reach</h2>
+      <p class="eyebrow reveal" data-wp-field="markets_eyebrow">Geographic Footprint</p>
+      <h2 class="group__title reveal" data-wp-field="markets_heading">Markets &amp; Operational Reach</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">Serving major livestock belts, commercial poultry farms, and grain-growing regions.</p>
+      <p class="group__intro reveal" data-wp-field="markets_subheading">Supplying vital animal nutrition across key agricultural and livestock territories.</p>
     </div>
 
-    <div class="markets-grid">
+    <div class="markets-grid" data-wp-repeater="markets_list">
       <!-- Market 01 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11M12 3c-3 1-5 4-5 8a5 5 0 0010 0c0-4-2-7-5-8Z"/><path d="M7 21h10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
-        <h3 class="market-card__title">Central Mill &amp; Silo Complex</h3>
-        <p class="market-card__text">Industrial manufacturing hub equipped with high-capacity bulk grain silos, pellet storage bunkers, and rapid automated truck-loading docks.</p>
+        <h3 class="market-card__title" data-wp-field="title">Sudan &amp; Regional Farming Belts</h3>
+        <p class="market-card__text" data-wp-field="text">Primary manufacturing plant supplying industrial poultry farms, state livestock ranches, and smallholder farming cooperatives.</p>
       </div>
 
       <!-- Market 02 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M2 12h20"/></svg>
         </div>
-        <h3 class="market-card__title">Poultry &amp; Dairy Belts</h3>
-        <p class="market-card__text">Direct dedicated delivery routes supplying large commercial broiler operations, egg layer facilities, and automated dairy cow farms.</p>
+        <h3 class="market-card__title" data-wp-field="title">Cross-Border Horn of Africa</h3>
+        <p class="market-card__text" data-wp-field="text">Exporting fortified pellet feeds to neighboring agricultural and pastoral markets requiring certified commercial feedstocks.</p>
       </div>
 
       <!-- Market 03 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18l-2.2 3.3a2 2 0 01-1.7.9H6.9a2 2 0 01-1.7-.9L3 17Z"/><path d="M6 17v-6h5v6M13 17V7h4v10"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
         </div>
-        <h3 class="market-card__title">Regional Agribusiness Corridors</h3>
-        <p class="market-card__text">Supplying packaged feed bags through certified agricultural distributors across pastoral zones and regional trade markets.</p>
+        <h3 class="market-card__title" data-wp-field="title">Commercial Integrators</h3>
+        <p class="market-card__text" data-wp-field="text">Contract milling partnerships with commercial egg, dairy, and broiler mega-facilities demanding high monthly delivery volumes.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     07. COMPANY VISUAL SHOWCASE
+     07. COMPANY VISUAL SHOWCASE (WordPress Layout: company_showcase)
      ========================================================================== -->
-<section class="company-showcase" id="showcase">
-  <span class="section-watermark" aria-hidden="true">OPERATIONS</span>
+<section class="company-showcase" id="showcase" data-wp-section="company_showcase">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="showcase_watermark">OPERATIONS</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Operations in Motion</p>
-      <h2 class="group__title reveal">Manufacturing &amp; Silo Showcase</h2>
+      <p class="eyebrow reveal" data-wp-field="showcase_eyebrow">Operations in Motion</p>
+      <h2 class="group__title reveal" data-wp-field="showcase_heading">Industrial Feed Milling Showcase</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
     </div>
 
     <div class="showcase-grid reveal">
-      <div class="showcase-lead">
-        <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=1200&q=80&auto=format&fit=crop" alt="Industrial Feed Silos and Mill" loading="lazy">
+      <div class="showcase-lead" data-wp-field="lead_photo">
+        <img src="https://images.unsplash.com/photo-1595246140625-573b715d11dc?w=1200&q=80&auto=format&fit=crop" alt="Feed Mill Silos and Factory" loading="lazy">
       </div>
       <div class="showcase-side">
-        <div class="showcase-side-item">
-          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80&auto=format&fit=crop" alt="Quality Testing Laboratory" loading="lazy">
+        <div class="showcase-side-item" data-wp-field="side_photo_1">
+          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80&auto=format&fit=crop" alt="Grain Intake and Cleaning" loading="lazy">
         </div>
-        <div class="showcase-side-item">
-          <img src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=800&q=80&auto=format&fit=crop" alt="Healthy Livestock Feeding" loading="lazy">
+        <div class="showcase-side-item" data-wp-field="side_photo_2">
+          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=800&q=80&auto=format&fit=crop" alt="Nutritional Quality Testing Laboratory" loading="lazy">
         </div>
       </div>
     </div>
@@ -360,31 +365,32 @@
 </section>
 
 <!-- ==========================================================================
-     08. PART OF THE ALTYSIER GROUP
+     08. PART OF THE ALTYSIER GROUP (WordPress Layout: company_ecosystem)
+     ACF Relationship: related_companies (CPT: company)
      ========================================================================== -->
-<section class="company-ecosystem" id="ecosystem">
-  <span class="section-watermark" aria-hidden="true">ECOSYSTEM</span>
+<section class="company-ecosystem" id="ecosystem" data-wp-section="company_ecosystem">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="ecosystem_watermark">ECOSYSTEM</span>
   <div class="container">
     <div class="about-intro__head text-center" style="text-align: center;">
-      <p class="eyebrow reveal" style="justify-content: center;">Group Integration</p>
-      <h2 class="group__title reveal">Part of a Bigger Business Ecosystem</h2>
+      <p class="eyebrow reveal" style="justify-content: center;" data-wp-field="ecosystem_eyebrow">Group Integration</p>
+      <h2 class="group__title reveal" data-wp-field="ecosystem_heading">Part of a Bigger Business Ecosystem</h2>
       <span class="group__accent-line reveal" style="margin-left: auto; margin-right: auto;" aria-hidden="true"></span>
-      <p class="group__intro reveal" style="margin-left: auto; margin-right: auto;">Strengthening agrarian industrialization under Altysier Group.</p>
+      <p class="group__intro reveal" style="margin-left: auto; margin-right: auto;" data-wp-field="ecosystem_subheading">Anchoring agro-industrial manufacturing and food security under Altysier Group.</p>
     </div>
 
     <div class="ecosystem-chain reveal">
-      <div class="ecosystem-node">Haloub Feed Mill Factory</div>
+      <div class="ecosystem-node" data-wp-field="node_company">Haloub Feed Mill Factory</div>
       <span class="ecosystem-arrow">&rarr;</span>
-      <div class="ecosystem-node">Agricultural Manufacturing Sector</div>
+      <div class="ecosystem-node" data-wp-field="node_sector">Agricultural Manufacturing</div>
       <span class="ecosystem-arrow">&rarr;</span>
-      <div class="ecosystem-node" style="color: var(--accent);">Altysier Group</div>
+      <div class="ecosystem-node" style="color: var(--accent);" data-wp-field="node_group">Altysier Group</div>
     </div>
 
     <div class="about-intro__head" style="margin-top: 50rem;">
-      <p class="eyebrow reveal">Explore Other Companies</p>
+      <p class="eyebrow reveal" data-wp-field="other_heading">Explore Other Companies</p>
     </div>
 
-    <div class="other-companies-strip reveal">
+    <div class="other-companies-strip reveal" data-wp-relationship="related_companies">
       <a href="altysier-general-trading.html" class="other-company-card">
         <h4 class="other-company-card__name">Altysier General Trading</h4>
         <span class="other-company-card__sector">International Trade &amp; Import</span>
@@ -410,19 +416,19 @@
 </section>
 
 <!-- ==========================================================================
-     09. CTA
+     09. CTA (WordPress Layout: company_cta)
      ========================================================================== -->
-<section class="about-cta" id="contact">
-  <span class="section-watermark" aria-hidden="true">PARTNERSHIP</span>
-  <div class="about-cta__bg" aria-hidden="true">
+<section class="about-cta" id="contact" data-wp-section="company_cta">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="cta_watermark">PARTNERSHIP</span>
+  <div class="about-cta__bg" aria-hidden="true" data-wp-field="cta_bg_image">
     <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1800&q=75&auto=format&fit=crop" alt="" loading="lazy">
     <div class="about-cta__scrim"></div>
   </div>
   <div class="container about-cta__container">
-    <p class="eyebrow reveal" style="color: rgba(255,255,255,0.7);">Work With Us</p>
-    <h2 class="about-cta__title reveal">Let&rsquo;s Build Stronger Partnerships Together.</h2>
-    <p class="about-cta__text reveal">Contact Haloub Feed Mill Factory for bulk feed procurement, customized nutritional formulation, or contract manufacturing agreements.</p>
-    <a href="../contact.html" class="btn _accent reveal">Contact Us</a>
+    <p class="eyebrow reveal" style="color: rgba(255,255,255,0.7);" data-wp-field="cta_eyebrow">Work With Us</p>
+    <h2 class="about-cta__title reveal" data-wp-field="cta_heading">Let&rsquo;s Build Stronger Partnerships Together.</h2>
+    <p class="about-cta__text reveal" data-wp-field="cta_text">Contact Haloub Feed Mill Factory for bulk feed procurement, customized nutritional formulation, or contract manufacturing agreements.</p>
+    <a href="../contact.html" class="btn _accent reveal" data-wp-field="cta_btn">Contact Us</a>
   </div>
 </section>
 

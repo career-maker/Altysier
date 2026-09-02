@@ -119,154 +119,158 @@
 <main>
 
 <!-- ==========================================================================
-     01. COMPANY HERO
+     01. COMPANY HERO / BANNER (WordPress Template Part: template-parts/banner-company.php)
+     ACF Group: company_banner_fields
+     Editable: Background Image, Watermark, Breadcrumbs, Sector Tag, Title, Positioning
      ========================================================================== -->
-<section class="company-hero" id="company-hero">
-  <div class="company-hero__bg" aria-hidden="true">
+<section class="company-hero" id="company-hero" data-wp-section="company_banner">
+  <div class="company-hero__bg" aria-hidden="true" data-wp-field="banner_bg_image">
     <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=2000&q=80&auto=format&fit=crop" alt="" loading="eager" decoding="async">
     <div class="company-hero__scrim"></div>
   </div>
-  <span class="section-watermark" aria-hidden="true">AL MUTMEIZA</span>
+  <span class="section-watermark" aria-hidden="true" data-wp-field="watermark_text">AL MUTMEIZA</span>
 
   <div class="container company-hero__container">
-    <nav class="breadcrumb reveal" aria-label="Breadcrumbs">
+    <nav class="breadcrumb reveal" aria-label="Breadcrumbs" data-wp-field="breadcrumbs">
       <a href="../index.html">Home</a>
       <span class="breadcrumb__sep">/</span>
       <a href="../group-of-companies.html">Group Of Companies</a>
       <span class="breadcrumb__sep">/</span>
-      <span aria-current="page">Al Mutmeiza Industries</span>
+      <span aria-current="page" data-wp-field="breadcrumb_current">Al Mutmeiza Industries</span>
     </nav>
-    <div class="company-hero__sector-tag reveal">Mobility &amp; Industrial Investment</div>
-    <h1 class="company-hero__title reveal">Al Mutmeiza for Industries Investment Co LTD</h1>
-    <p class="company-hero__text reveal">Powering urban mobility and local industrial growth as the authorized distributor of BAJAJ auto-rickshaws, genuine spare parts, and technical support.</p>
+    <div class="company-hero__sector-tag reveal" data-wp-field="sector_tag">Mobility &amp; Industrial Investment</div>
+    <h1 class="company-hero__title reveal" data-wp-field="company_title">Al Mutmeiza for Industries Investment Co LTD</h1>
+    <p class="company-hero__text reveal" data-wp-field="positioning_statement">Powering urban mobility and local industrial growth as the authorized distributor of BAJAJ auto-rickshaws, genuine spare parts, and technical support.</p>
   </div>
 </section>
 
 <!-- ==========================================================================
-     02. COMPANY INTRODUCTION
+     02. COMPANY INTRODUCTION (WordPress Layout: company_intro)
      ========================================================================== -->
-<section class="about-intro" id="about-company">
-  <span class="section-watermark" aria-hidden="true">OVERVIEW</span>
+<section class="about-intro" id="about-company" data-wp-section="company_intro">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="intro_watermark">OVERVIEW</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Company Overview</p>
-      <h2 class="group__title reveal">About Al Mutmeiza for Industries Investment Co LTD</h2>
+      <p class="eyebrow reveal" data-wp-field="intro_eyebrow">Company Overview</p>
+      <h2 class="group__title reveal" data-wp-field="intro_heading">About Al Mutmeiza for Industries Investment Co LTD</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
     </div>
 
     <div class="about-intro__grid">
-      <div class="about-intro__statement reveal">
+      <div class="about-intro__statement reveal" data-wp-field="intro_statement">
         A market-leading mobility powerhouse enabling accessible passenger transit, commercial light transport, and sustainable entrepreneurship.
       </div>
-      <div class="about-intro__narrative reveal">
+      <div class="about-intro__narrative reveal" data-wp-field="intro_narrative">
         <p>Al Mutmeiza for Industries Investment Co LTD is the official distributor of world-renowned BAJAJ auto-rickshaws and light commercial three-wheel vehicles. Our operations form the lifeblood of urban transport systems across major metropolitan cities and regional townships.</p>
         <p>Beyond vehicle sales, we manage an expansive network of authorized service centers, certified mechanics, and wholesale genuine spare parts distribution, keeping thousands of independent small business operators on the road every day.</p>
       </div>
     </div>
 
-    <div class="about-intro__photo-wrap reveal">
+    <div class="about-intro__photo-wrap reveal" data-wp-field="intro_photo">
       <img class="about-intro__photo" src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=1600&q=80&auto=format&fit=crop" alt="BAJAJ Mobility and Vehicle Distribution" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     03. COMPANY STORY / HISTORY (Origin -> Development -> Current Role)
+     03. COMPANY STORY / HISTORY (WordPress Layout: company_story)
+     ACF Repeater: story_steps (badge, title, text)
      ========================================================================== -->
-<section class="company-story" id="company-story">
-  <span class="section-watermark" aria-hidden="true">PURPOSE</span>
+<section class="company-story" id="company-story" data-wp-section="company_story">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="story_watermark">PURPOSE</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Our Journey</p>
-      <h2 class="group__title reveal">Built With Purpose</h2>
+      <p class="eyebrow reveal" data-wp-field="story_eyebrow">Our Journey</p>
+      <h2 class="group__title reveal" data-wp-field="story_heading">Built With Purpose</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">From establishing trusted vehicle distribution to building a comprehensive mobility ecosystem.</p>
+      <p class="group__intro reveal" data-wp-field="story_subheading">From establishing trusted vehicle distribution to building a comprehensive mobility ecosystem.</p>
     </div>
 
-    <div class="story-timeline">
+    <div class="story-timeline" data-wp-repeater="story_steps">
       <!-- 01 Origin -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 01 / Strategic Alliance</span>
-        <h3 class="story-step__title">Origin</h3>
-        <p class="story-step__text">Secured official partnership with BAJAJ Auto, recognizing the essential role of reliable, fuel-efficient three-wheelers for urban passenger transit and last-mile cargo.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 01 / Strategic Alliance</span>
+        <h3 class="story-step__title" data-wp-field="title">Origin</h3>
+        <p class="story-step__text" data-wp-field="text">Secured official partnership with BAJAJ Auto, recognizing the essential role of reliable, fuel-efficient three-wheelers for urban passenger transit and last-mile cargo.</p>
       </div>
 
       <!-- 02 Development -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 02 / Network Expansion</span>
-        <h3 class="story-step__title">Development</h3>
-        <p class="story-step__text">Built showroom facilities, central assembly lines, regional distribution centers, and trained an authorized technician workforce across key provinces.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 02 / Network Expansion</span>
+        <h3 class="story-step__title" data-wp-field="title">Development</h3>
+        <p class="story-step__text" data-wp-field="text">Built showroom facilities, central assembly lines, regional distribution centers, and trained an authorized technician workforce across key provinces.</p>
       </div>
 
       <!-- 03 Current Role -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 03 / Market Dominance</span>
-        <h3 class="story-step__title">Current Role</h3>
-        <p class="story-step__text">Maintains top-tier market share in three-wheeler distribution, supporting micro-entrepreneurs and municipal transit infrastructure through accessible financing and maintenance support.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 03 / Market Dominance</span>
+        <h3 class="story-step__title" data-wp-field="title">Current Role</h3>
+        <p class="story-step__text" data-wp-field="text">Maintains top-tier market share in three-wheeler distribution, supporting micro-entrepreneurs and municipal transit infrastructure through accessible financing and maintenance support.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     04. KEY BUSINESS AREAS (4 Large Visual Panels)
+     04. KEY BUSINESS AREAS (WordPress Layout: company_areas)
+     ACF Repeater: area_panels (photo, number, title, description)
      ========================================================================== -->
-<section class="company-areas" id="business-areas">
-  <span class="section-watermark" aria-hidden="true">MOBILITY</span>
+<section class="company-areas" id="business-areas" data-wp-section="company_areas">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="areas_watermark">MOBILITY</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Core Business</p>
-      <h2 class="group__title reveal">Key Business Areas</h2>
+      <p class="eyebrow reveal" data-wp-field="areas_eyebrow">Core Business</p>
+      <h2 class="group__title reveal" data-wp-field="areas_heading">Key Business Areas</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">End-to-end commercial operations supporting vehicles, parts, maintenance, and trade.</p>
+      <p class="group__intro reveal" data-wp-field="areas_subheading">End-to-end commercial operations supporting vehicles, parts, maintenance, and trade.</p>
     </div>
 
-    <div class="areas-grid">
+    <div class="areas-grid" data-wp-repeater="area_panels">
       <!-- 01 BAJAJ Sales -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
           <img class="area-panel__photo" src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=800&q=80&auto=format&fit=crop" alt="BAJAJ Vehicle Sales" loading="lazy">
-          <span class="area-panel__num">01</span>
+          <span class="area-panel__num" data-wp-field="number">01</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Authorized BAJAJ Rickshaw Sales</h3>
-          <p class="area-panel__desc">Direct import, assembly, and sales of the latest BAJAJ passenger and cargo auto-rickshaws, engineered for fuel efficiency, heavy durability, and high payload capacity.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Authorized BAJAJ Rickshaw Sales</h3>
+          <p class="area-panel__desc" data-wp-field="description">Direct import, assembly, and sales of the latest BAJAJ passenger and cargo auto-rickshaws, engineered for fuel efficiency, heavy durability, and high payload capacity.</p>
         </div>
       </div>
 
       <!-- 02 Distribution -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
           <img class="area-panel__photo" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop" alt="Nationwide Distribution" loading="lazy">
-          <span class="area-panel__num">02</span>
+          <span class="area-panel__num" data-wp-field="number">02</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Nationwide Distribution Network</h3>
-          <p class="area-panel__desc">Comprehensive supply chain spanning central showrooms and trusted regional dealers, ensuring steady delivery of brand-new vehicles to both urban and rural centers.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Nationwide Distribution Network</h3>
+          <p class="area-panel__desc" data-wp-field="description">Comprehensive supply chain spanning central showrooms and trusted regional dealers, ensuring steady delivery of brand-new vehicles to both urban and rural centers.</p>
         </div>
       </div>
 
       <!-- 03 Spare Parts & Service -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
           <img class="area-panel__photo" src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=800&q=80&auto=format&fit=crop" alt="Service and Spare Parts" loading="lazy">
-          <span class="area-panel__num">03</span>
+          <span class="area-panel__num" data-wp-field="number">03</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">After-Sales Service &amp; Spare Parts</h3>
-          <p class="area-panel__desc">Fully stocked genuine BAJAJ OEM spare parts, routine servicing packages, engine diagnostics, and certified technician workshops to maximize fleet uptime.</p>
+          <h3 class="area-panel__title" data-wp-field="title">After-Sales Service &amp; Spare Parts</h3>
+          <p class="area-panel__desc" data-wp-field="description">Fully stocked genuine BAJAJ OEM spare parts, routine servicing packages, engine diagnostics, and certified technician workshops to maximize fleet uptime.</p>
         </div>
       </div>
 
       <!-- 04 Industrial Investment -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
           <img class="area-panel__photo" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80&auto=format&fit=crop" alt="Industrial Investment" loading="lazy">
-          <span class="area-panel__num">04</span>
+          <span class="area-panel__num" data-wp-field="number">04</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Industrial Investment &amp; Trade Support</h3>
-          <p class="area-panel__desc">Investing in local assembly facilities, technical training institutes for mechanics, and micro-loan financing programs that empower self-employed vehicle drivers.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Industrial Investment &amp; Trade Support</h3>
+          <p class="area-panel__desc" data-wp-field="description">Investing in local assembly facilities, technical training institutes for mechanics, and micro-loan financing programs that empower self-employed vehicle drivers.</p>
         </div>
       </div>
     </div>
@@ -274,84 +278,85 @@
 </section>
 
 <!-- ==========================================================================
-     05. KEY CAPABILITY / VALUE PROPOSITION
+     05. KEY CAPABILITY / VALUE PROPOSITION (WordPress Layout: company_value_prop)
      ========================================================================== -->
-<section class="company-value" id="value-prop">
-  <span class="section-watermark" aria-hidden="true">CAPABILITY</span>
+<section class="company-value" id="value-prop" data-wp-section="company_value_prop">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="value_watermark">CAPABILITY</span>
   <div class="container">
     <div class="company-value__box reveal">
-      <p class="eyebrow" style="color: rgba(255,255,255,0.7);">Core Advantage</p>
-      <h2 class="company-value__heading">Nationwide Distribution &amp; Unrivaled After-Sales Support</h2>
-      <p class="company-value__desc">Our leadership in the urban mobility market rests on complete customer lifecycle commitment. We combine genuine OEM quality with immediate spare parts availability, warranty protection, and an expansive dealer footprint that owners can depend upon every day.</p>
+      <p class="eyebrow" style="color: rgba(255,255,255,0.7);" data-wp-field="value_eyebrow">Core Advantage</p>
+      <h2 class="company-value__heading" data-wp-field="value_heading">Nationwide Distribution &amp; Unrivaled After-Sales Support</h2>
+      <p class="company-value__desc" data-wp-field="value_description">Our leadership in the urban mobility market rests on complete customer lifecycle commitment. We combine genuine OEM quality with immediate spare parts availability, warranty protection, and an expansive dealer footprint that owners can depend upon every day.</p>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     06. MARKETS / OPERATIONAL REACH
+     06. MARKETS / OPERATIONAL REACH (WordPress Layout: company_markets)
+     ACF Repeater: markets_list (icon, title, text)
      ========================================================================== -->
-<section class="company-markets" id="markets">
-  <span class="section-watermark" aria-hidden="true">REACH</span>
+<section class="company-markets" id="markets" data-wp-section="company_markets">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="markets_watermark">REACH</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Geographic Footprint</p>
-      <h2 class="group__title reveal">Markets &amp; Operational Reach</h2>
+      <p class="eyebrow reveal" data-wp-field="markets_eyebrow">Geographic Footprint</p>
+      <h2 class="group__title reveal" data-wp-field="markets_heading">Markets &amp; Operational Reach</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">Positioned across vital transportation hubs and regional commercial centers.</p>
+      <p class="group__intro reveal" data-wp-field="markets_subheading">Positioned across vital transportation hubs and regional commercial centers.</p>
     </div>
 
-    <div class="markets-grid">
+    <div class="markets-grid" data-wp-repeater="markets_list">
       <!-- Market 01 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1 .4-1 1v7c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><path d="M9 17h6"/><circle cx="17" cy="17" r="2"/></svg>
         </div>
-        <h3 class="market-card__title">Sudan (Nationwide)</h3>
-        <p class="market-card__text">Primary distribution headquarters in Khartoum, Port Sudan assembly nodes, and certified dealership networks across all key regional states.</p>
+        <h3 class="market-card__title" data-wp-field="title">Sudan (Nationwide)</h3>
+        <p class="market-card__text" data-wp-field="text">Primary distribution headquarters in Khartoum, Port Sudan assembly nodes, and certified dealership networks across all key regional states.</p>
       </div>
 
       <!-- Market 02 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
         </div>
-        <h3 class="market-card__title">Central Assembly Centers</h3>
-        <p class="market-card__text">High-throughput semi-knocked-down (SKD) assembly facilities ensuring quality testing and certified roadworthiness before release.</p>
+        <h3 class="market-card__title" data-wp-field="title">Central Assembly Centers</h3>
+        <p class="market-card__text" data-wp-field="text">High-throughput semi-knocked-down (SKD) assembly facilities ensuring quality testing and certified roadworthiness before release.</p>
       </div>
 
       <!-- Market 03 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
         </div>
-        <h3 class="market-card__title">Regional Service Hubs</h3>
-        <p class="market-card__text">Authorized maintenance garages providing fast diagnostics, preventive tune-ups, and genuine BAJAJ replacement components.</p>
+        <h3 class="market-card__title" data-wp-field="title">Regional Service Hubs</h3>
+        <p class="market-card__text" data-wp-field="text">Authorized maintenance garages providing fast diagnostics, preventive tune-ups, and genuine BAJAJ replacement components.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     07. COMPANY VISUAL SHOWCASE
+     07. COMPANY VISUAL SHOWCASE (WordPress Layout: company_showcase)
      ========================================================================== -->
-<section class="company-showcase" id="showcase">
-  <span class="section-watermark" aria-hidden="true">OPERATIONS</span>
+<section class="company-showcase" id="showcase" data-wp-section="company_showcase">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="showcase_watermark">OPERATIONS</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Operations in Motion</p>
-      <h2 class="group__title reveal">Vehicle Assembly &amp; Distribution Showcase</h2>
+      <p class="eyebrow reveal" data-wp-field="showcase_eyebrow">Operations in Motion</p>
+      <h2 class="group__title reveal" data-wp-field="showcase_heading">Vehicle Assembly &amp; Distribution Showcase</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
     </div>
 
     <div class="showcase-grid reveal">
-      <div class="showcase-lead">
+      <div class="showcase-lead" data-wp-field="lead_photo">
         <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?w=1200&q=80&auto=format&fit=crop" alt="BAJAJ Vehicles Fleet" loading="lazy">
       </div>
       <div class="showcase-side">
-        <div class="showcase-side-item">
+        <div class="showcase-side-item" data-wp-field="side_photo_1">
           <img src="https://images.unsplash.com/photo-1486006920555-c77dce18193b?w=800&q=80&auto=format&fit=crop" alt="Automotive Workshop & Spare Parts" loading="lazy">
         </div>
-        <div class="showcase-side-item">
+        <div class="showcase-side-item" data-wp-field="side_photo_2">
           <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop" alt="Assembly and Logistics Facility" loading="lazy">
         </div>
       </div>
@@ -360,31 +365,32 @@
 </section>
 
 <!-- ==========================================================================
-     08. PART OF THE ALTYSIER GROUP
+     08. PART OF THE ALTYSIER GROUP (WordPress Layout: company_ecosystem)
+     ACF Relationship: related_companies (CPT: company)
      ========================================================================== -->
-<section class="company-ecosystem" id="ecosystem">
-  <span class="section-watermark" aria-hidden="true">ECOSYSTEM</span>
+<section class="company-ecosystem" id="ecosystem" data-wp-section="company_ecosystem">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="ecosystem_watermark">ECOSYSTEM</span>
   <div class="container">
     <div class="about-intro__head text-center" style="text-align: center;">
-      <p class="eyebrow reveal" style="justify-content: center;">Group Integration</p>
-      <h2 class="group__title reveal">Part of a Bigger Business Ecosystem</h2>
+      <p class="eyebrow reveal" style="justify-content: center;" data-wp-field="ecosystem_eyebrow">Group Integration</p>
+      <h2 class="group__title reveal" data-wp-field="ecosystem_heading">Part of a Bigger Business Ecosystem</h2>
       <span class="group__accent-line reveal" style="margin-left: auto; margin-right: auto;" aria-hidden="true"></span>
-      <p class="group__intro reveal" style="margin-left: auto; margin-right: auto;">Driving mobility and transportation development under Altysier Group.</p>
+      <p class="group__intro reveal" style="margin-left: auto; margin-right: auto;" data-wp-field="ecosystem_subheading">Driving mobility and transportation development under Altysier Group.</p>
     </div>
 
     <div class="ecosystem-chain reveal">
-      <div class="ecosystem-node">Al Mutmeiza for Industries</div>
+      <div class="ecosystem-node" data-wp-field="node_company">Al Mutmeiza for Industries</div>
       <span class="ecosystem-arrow">&rarr;</span>
-      <div class="ecosystem-node">Mobility &amp; Industrial Sector</div>
+      <div class="ecosystem-node" data-wp-field="node_sector">Mobility &amp; Industrial Sector</div>
       <span class="ecosystem-arrow">&rarr;</span>
-      <div class="ecosystem-node" style="color: var(--accent);">Altysier Group</div>
+      <div class="ecosystem-node" style="color: var(--accent);" data-wp-field="node_group">Altysier Group</div>
     </div>
 
     <div class="about-intro__head" style="margin-top: 50rem;">
-      <p class="eyebrow reveal">Explore Other Companies</p>
+      <p class="eyebrow reveal" data-wp-field="other_heading">Explore Other Companies</p>
     </div>
 
-    <div class="other-companies-strip reveal">
+    <div class="other-companies-strip reveal" data-wp-relationship="related_companies">
       <a href="altysier-general-trading.html" class="other-company-card">
         <h4 class="other-company-card__name">Altysier General Trading</h4>
         <span class="other-company-card__sector">International Trade &amp; Import</span>
@@ -410,19 +416,19 @@
 </section>
 
 <!-- ==========================================================================
-     09. CTA
+     09. CTA (WordPress Layout: company_cta)
      ========================================================================== -->
-<section class="about-cta" id="contact">
-  <span class="section-watermark" aria-hidden="true">PARTNERSHIP</span>
-  <div class="about-cta__bg" aria-hidden="true">
+<section class="about-cta" id="contact" data-wp-section="company_cta">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="cta_watermark">PARTNERSHIP</span>
+  <div class="about-cta__bg" aria-hidden="true" data-wp-field="cta_bg_image">
     <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1800&q=75&auto=format&fit=crop" alt="" loading="lazy">
     <div class="about-cta__scrim"></div>
   </div>
   <div class="container about-cta__container">
-    <p class="eyebrow reveal" style="color: rgba(255,255,255,0.7);">Work With Us</p>
-    <h2 class="about-cta__title reveal">Let&rsquo;s Build Stronger Partnerships Together.</h2>
-    <p class="about-cta__text reveal">Contact Al Mutmeiza for Industries Investment Co LTD for dealership inquiries, bulk fleet orders, or genuine BAJAJ spare parts wholesale distribution.</p>
-    <a href="../contact.html" class="btn _accent reveal">Contact Us</a>
+    <p class="eyebrow reveal" style="color: rgba(255,255,255,0.7);" data-wp-field="cta_eyebrow">Work With Us</p>
+    <h2 class="about-cta__title reveal" data-wp-field="cta_heading">Let&rsquo;s Build Stronger Partnerships Together.</h2>
+    <p class="about-cta__text reveal" data-wp-field="cta_text">Contact Al Mutmeiza for Industries Investment Co LTD for dealership inquiries, bulk fleet orders, or genuine BAJAJ spare parts wholesale distribution.</p>
+    <a href="../contact.html" class="btn _accent reveal" data-wp-field="cta_btn">Contact Us</a>
   </div>
 </section>
 

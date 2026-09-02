@@ -119,154 +119,158 @@
 <main>
 
 <!-- ==========================================================================
-     01. COMPANY HERO
+     01. COMPANY HERO / BANNER (WordPress Template Part: template-parts/banner-company.php)
+     ACF Group: company_banner_fields
+     Editable: Background Image, Watermark, Breadcrumbs, Sector Tag, Title, Positioning
      ========================================================================== -->
-<section class="company-hero" id="company-hero">
-  <div class="company-hero__bg" aria-hidden="true">
+<section class="company-hero" id="company-hero" data-wp-section="company_banner">
+  <div class="company-hero__bg" aria-hidden="true" data-wp-field="banner_bg_image">
     <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=2000&q=80&auto=format&fit=crop" alt="" loading="eager" decoding="async">
     <div class="company-hero__scrim"></div>
   </div>
-  <span class="section-watermark" aria-hidden="true">GENERAL TRADING</span>
+  <span class="section-watermark" aria-hidden="true" data-wp-field="watermark_text">GENERAL TRADING</span>
 
   <div class="container company-hero__container">
-    <nav class="breadcrumb reveal" aria-label="Breadcrumbs">
+    <nav class="breadcrumb reveal" aria-label="Breadcrumbs" data-wp-field="breadcrumbs">
       <a href="../index.html">Home</a>
       <span class="breadcrumb__sep">/</span>
       <a href="../group-of-companies.html">Group Of Companies</a>
       <span class="breadcrumb__sep">/</span>
-      <span aria-current="page">Altysier General Trading</span>
+      <span aria-current="page" data-wp-field="breadcrumb_current">Altysier General Trading</span>
     </nav>
-    <div class="company-hero__sector-tag reveal">International Import &amp; Export</div>
-    <h1 class="company-hero__title reveal">Altysier International General Trading LLC</h1>
-    <p class="company-hero__text reveal">Creating global opportunities through reliable international trade, connecting essential commodity flows and specialized industrial markets worldwide.</p>
+    <div class="company-hero__sector-tag reveal" data-wp-field="sector_tag">International Import &amp; Export</div>
+    <h1 class="company-hero__title reveal" data-wp-field="company_title">Altysier International General Trading LLC</h1>
+    <p class="company-hero__text reveal" data-wp-field="positioning_statement">Creating global opportunities through reliable international trade, connecting essential commodity flows and specialized industrial markets worldwide.</p>
   </div>
 </section>
 
 <!-- ==========================================================================
-     02. COMPANY INTRODUCTION
+     02. COMPANY INTRODUCTION (WordPress Layout: company_intro)
      ========================================================================== -->
-<section class="about-intro" id="about-company">
-  <span class="section-watermark" aria-hidden="true">OVERVIEW</span>
+<section class="about-intro" id="about-company" data-wp-section="company_intro">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="intro_watermark">OVERVIEW</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Company Overview</p>
-      <h2 class="group__title reveal">About Altysier International General Trading LLC</h2>
+      <p class="eyebrow reveal" data-wp-field="intro_eyebrow">Company Overview</p>
+      <h2 class="group__title reveal" data-wp-field="intro_heading">About Altysier International General Trading LLC</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
     </div>
 
     <div class="about-intro__grid">
-      <div class="about-intro__statement reveal">
+      <div class="about-intro__statement reveal" data-wp-field="intro_statement">
         A premier commercial engine anchoring global trade corridors, bulk commodity procurement, and mission-critical industrial supply.
       </div>
-      <div class="about-intro__narrative reveal">
+      <div class="about-intro__narrative reveal" data-wp-field="intro_narrative">
         <p>Headquartered in Dubai, UAE, Altysier International General Trading LLC stands at the nexus of major global trade lanes. We specialize in the sourcing, structured financing, and seamless physical transit of petroleum products, agricultural staples, livestock, and medical technologies.</p>
         <p>Our operational model leverages institutional risk management, direct supplier relationships, and high-capacity multimodal logistics, ensuring that businesses and municipal partners receive essential supplies on schedule and under strict quality standards.</p>
       </div>
     </div>
 
-    <div class="about-intro__photo-wrap reveal">
+    <div class="about-intro__photo-wrap reveal" data-wp-field="intro_photo">
       <img class="about-intro__photo" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&q=80&auto=format&fit=crop" alt="Global Trade Operations" loading="lazy" decoding="async">
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     03. COMPANY STORY / HISTORY (Origin -> Development -> Current Role)
+     03. COMPANY STORY / HISTORY (WordPress Layout: company_story)
+     ACF Repeater: story_steps (badge, title, text)
      ========================================================================== -->
-<section class="company-story" id="company-story">
-  <span class="section-watermark" aria-hidden="true">PURPOSE</span>
+<section class="company-story" id="company-story" data-wp-section="company_story">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="story_watermark">PURPOSE</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Our Journey</p>
-      <h2 class="group__title reveal">Built With Purpose</h2>
+      <p class="eyebrow reveal" data-wp-field="story_eyebrow">Our Journey</p>
+      <h2 class="group__title reveal" data-wp-field="story_heading">Built With Purpose</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">A progressive commercial trajectory built on trust, transparency, and international trade performance.</p>
+      <p class="group__intro reveal" data-wp-field="story_subheading">A progressive commercial trajectory built on trust, transparency, and international trade performance.</p>
     </div>
 
-    <div class="story-timeline">
+    <div class="story-timeline" data-wp-repeater="story_steps">
       <!-- 01 Origin -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 01 / Foundation</span>
-        <h3 class="story-step__title">Origin</h3>
-        <p class="story-step__text">Established to bridge market supply gaps in essential commodities, connecting trusted regional producers with international import requirements through direct trade channels.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 01 / Foundation</span>
+        <h3 class="story-step__title" data-wp-field="title">Origin</h3>
+        <p class="story-step__text" data-wp-field="text">Established to bridge market supply gaps in essential commodities, connecting trusted regional producers with international import requirements through direct trade channels.</p>
       </div>
 
       <!-- 02 Development -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 02 / Expansion</span>
-        <h3 class="story-step__title">Development</h3>
-        <p class="story-step__text">Expanded across petroleum products, agricultural supply networks, and medical logistics, building relationships with major shipping lines, financial institutions, and terminal operators.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 02 / Expansion</span>
+        <h3 class="story-step__title" data-wp-field="title">Development</h3>
+        <p class="story-step__text" data-wp-field="text">Expanded across petroleum products, agricultural supply networks, and medical logistics, building relationships with major shipping lines, financial institutions, and terminal operators.</p>
       </div>
 
       <!-- 03 Current Role -->
-      <div class="story-step reveal">
-        <span class="story-step__badge">Phase 03 / Leadership</span>
-        <h3 class="story-step__title">Current Role</h3>
-        <p class="story-step__text">Serves as Altysier Group&rsquo;s flagship international trading arm, executing high-volume cross-border transactions across the Middle East, Africa, and global commercial hubs.</p>
+      <div class="story-step reveal" data-wp-item="story_step">
+        <span class="story-step__badge" data-wp-field="badge">Phase 03 / Leadership</span>
+        <h3 class="story-step__title" data-wp-field="title">Current Role</h3>
+        <p class="story-step__text" data-wp-field="text">Serves as Altysier Group&rsquo;s flagship international trading arm, executing high-volume cross-border transactions across the Middle East, Africa, and global commercial hubs.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     04. KEY TRADING AREAS (4 Large Visual Panels)
+     04. KEY TRADING AREAS (WordPress Layout: company_areas)
+     ACF Repeater: area_panels (photo, number, title, description)
      ========================================================================== -->
-<section class="company-areas" id="trading-areas">
-  <span class="section-watermark" aria-hidden="true">TRADING</span>
+<section class="company-areas" id="trading-areas" data-wp-section="company_areas">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="areas_watermark">TRADING</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Core Business</p>
-      <h2 class="group__title reveal">Key Trading Areas</h2>
+      <p class="eyebrow reveal" data-wp-field="areas_eyebrow">Core Business</p>
+      <h2 class="group__title reveal" data-wp-field="areas_heading">Key Trading Areas</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">Specialized operations across vital global commodities and essential industrial categories.</p>
+      <p class="group__intro reveal" data-wp-field="areas_subheading">Specialized operations across vital global commodities and essential industrial categories.</p>
     </div>
 
-    <div class="areas-grid">
+    <div class="areas-grid" data-wp-repeater="area_panels">
       <!-- 01 Petroleum -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
           <img class="area-panel__photo" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80&auto=format&fit=crop" alt="Petroleum Trading" loading="lazy">
-          <span class="area-panel__num">01</span>
+          <span class="area-panel__num" data-wp-field="number">01</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Petroleum &amp; Petrochemical Trading</h3>
-          <p class="area-panel__desc">Sourcing and distribution of refined petroleum products, lubricants, base oils, and industrial petrochemical derivatives, delivered via audited tanker routes and compliant storage terminals.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Petroleum &amp; Petrochemical Trading</h3>
+          <p class="area-panel__desc" data-wp-field="description">Sourcing and distribution of refined petroleum products, lubricants, base oils, and industrial petrochemical derivatives, delivered via audited tanker routes and compliant storage terminals.</p>
         </div>
       </div>
 
       <!-- 02 Agriculture -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
           <img class="area-panel__photo" src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?w=800&q=80&auto=format&fit=crop" alt="Agricultural Trading" loading="lazy">
-          <span class="area-panel__num">02</span>
+          <span class="area-panel__num" data-wp-field="number">02</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Agricultural &amp; Livestock Trading</h3>
-          <p class="area-panel__desc">Connecting grain belts, animal feed commodities, sesame, pulses, and live livestock to regional food security programs with comprehensive veterinary and phytosanitary certifications.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Agricultural &amp; Livestock Trading</h3>
+          <p class="area-panel__desc" data-wp-field="description">Connecting grain belts, animal feed commodities, sesame, pulses, and live livestock to regional food security programs with comprehensive veterinary and phytosanitary certifications.</p>
         </div>
       </div>
 
       <!-- 03 Medical -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
           <img class="area-panel__photo" src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=800&q=80&auto=format&fit=crop" alt="Medical Supplies" loading="lazy">
-          <span class="area-panel__num">03</span>
+          <span class="area-panel__num" data-wp-field="number">03</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Medical Supplies &amp; Equipment</h3>
-          <p class="area-panel__desc">Procurement of certified medical consumables, clinical diagnostics, hospital consumables, and healthcare technology from internationally accredited manufacturers.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Medical Supplies &amp; Equipment</h3>
+          <p class="area-panel__desc" data-wp-field="description">Procurement of certified medical consumables, clinical diagnostics, hospital consumables, and healthcare technology from internationally accredited manufacturers.</p>
         </div>
       </div>
 
       <!-- 04 Supply Chain -->
-      <div class="area-panel reveal">
-        <div class="area-panel__photo-wrap">
+      <div class="area-panel reveal" data-wp-item="area_panel">
+        <div class="area-panel__photo-wrap" data-wp-field="photo">
           <img class="area-panel__photo" src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&q=80&auto=format&fit=crop" alt="Supply Chain Management" loading="lazy">
-          <span class="area-panel__num">04</span>
+          <span class="area-panel__num" data-wp-field="number">04</span>
         </div>
         <div class="area-panel__body">
-          <h3 class="area-panel__title">Supply Chain &amp; Trade Management</h3>
-          <p class="area-panel__desc">End-to-end multimodal trade execution, customs brokering, letter-of-credit coordination, cargo insurance, and just-in-time inventory buffering for large commercial enterprises.</p>
+          <h3 class="area-panel__title" data-wp-field="title">Supply Chain &amp; Trade Management</h3>
+          <p class="area-panel__desc" data-wp-field="description">End-to-end multimodal trade execution, customs brokering, letter-of-credit coordination, cargo insurance, and just-in-time inventory buffering for large commercial enterprises.</p>
         </div>
       </div>
     </div>
@@ -274,84 +278,85 @@
 </section>
 
 <!-- ==========================================================================
-     05. KEY CAPABILITY / VALUE PROPOSITION
+     05. KEY CAPABILITY / VALUE PROPOSITION (WordPress Layout: company_value_prop)
      ========================================================================== -->
-<section class="company-value" id="value-prop">
-  <span class="section-watermark" aria-hidden="true">CAPABILITY</span>
+<section class="company-value" id="value-prop" data-wp-section="company_value_prop">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="value_watermark">CAPABILITY</span>
   <div class="container">
     <div class="company-value__box reveal">
-      <p class="eyebrow" style="color: rgba(255,255,255,0.7);">Core Advantage</p>
-      <h2 class="company-value__heading">Reliable Global Supply &amp; Cross-Border Execution</h2>
-      <p class="company-value__desc">Our established procurement infrastructure ensures continuity of critical supply chains, even during volatile commodity market conditions. We bring capital strength, verified counterparty networks, and operational agility to every commercial contract.</p>
+      <p class="eyebrow" style="color: rgba(255,255,255,0.7);" data-wp-field="value_eyebrow">Core Advantage</p>
+      <h2 class="company-value__heading" data-wp-field="value_heading">Reliable Global Supply &amp; Cross-Border Execution</h2>
+      <p class="company-value__desc" data-wp-field="value_description">Our established procurement infrastructure ensures continuity of critical supply chains, even during volatile commodity market conditions. We bring capital strength, verified counterparty networks, and operational agility to every commercial contract.</p>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     06. MARKETS / OPERATIONAL REACH
+     06. MARKETS / OPERATIONAL REACH (WordPress Layout: company_markets)
+     ACF Repeater: markets_list (icon, title, text)
      ========================================================================== -->
-<section class="company-markets" id="markets">
-  <span class="section-watermark" aria-hidden="true">REACH</span>
+<section class="company-markets" id="markets" data-wp-section="company_markets">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="markets_watermark">REACH</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Geographic Footprint</p>
-      <h2 class="group__title reveal">Markets &amp; Operational Reach</h2>
+      <p class="eyebrow reveal" data-wp-field="markets_eyebrow">Geographic Footprint</p>
+      <h2 class="group__title reveal" data-wp-field="markets_heading">Markets &amp; Operational Reach</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
-      <p class="group__intro reveal">Active commercial presence bridging strategic regional and international trade hubs.</p>
+      <p class="group__intro reveal" data-wp-field="markets_subheading">Active commercial presence bridging strategic regional and international trade hubs.</p>
     </div>
 
-    <div class="markets-grid">
+    <div class="markets-grid" data-wp-repeater="markets_list">
       <!-- Market 01 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M2 12h20"/></svg>
         </div>
-        <h3 class="market-card__title">United Arab Emirates</h3>
-        <p class="market-card__text">Corporate headquarters and international trading desk in Dubai, anchoring trade finance, shipping connections, and regional re-export channels.</p>
+        <h3 class="market-card__title" data-wp-field="title">United Arab Emirates</h3>
+        <p class="market-card__text" data-wp-field="text">Corporate headquarters and international trading desk in Dubai, anchoring trade finance, shipping connections, and regional re-export channels.</p>
       </div>
 
       <!-- Market 02 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18l-2.2 3.3a2 2 0 01-1.7.9H6.9a2 2 0 01-1.7-.9L3 17Z"/><path d="M6 17v-6h5v6M13 17V7h4v10"/></svg>
         </div>
-        <h3 class="market-card__title">GCC &amp; Middle East</h3>
-        <p class="market-card__text">Supplying petroleum derivatives, food commodities, and equipment to institutional buyers in Saudi Arabia and the broader Gulf Cooperation Council.</p>
+        <h3 class="market-card__title" data-wp-field="title">GCC &amp; Middle East</h3>
+        <p class="market-card__text" data-wp-field="text">Supplying petroleum derivatives, food commodities, and equipment to institutional buyers in Saudi Arabia and the broader Gulf Cooperation Council.</p>
       </div>
 
       <!-- Market 03 -->
-      <div class="market-card reveal">
+      <div class="market-card reveal" data-wp-item="market_card">
         <div class="market-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
-        <h3 class="market-card__title">East Africa &amp; Global Hubs</h3>
-        <p class="market-card__text">Structured bilateral commodity conduits bridging African agricultural supply with European and Asian manufacturing demand.</p>
+        <h3 class="market-card__title" data-wp-field="title">East Africa &amp; Global Hubs</h3>
+        <p class="market-card__text" data-wp-field="text">Structured bilateral commodity conduits bridging African agricultural supply with European and Asian manufacturing demand.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ==========================================================================
-     07. COMPANY VISUAL SHOWCASE
+     07. COMPANY VISUAL SHOWCASE (WordPress Layout: company_showcase)
      ========================================================================== -->
-<section class="company-showcase" id="showcase">
-  <span class="section-watermark" aria-hidden="true">OPERATIONS</span>
+<section class="company-showcase" id="showcase" data-wp-section="company_showcase">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="showcase_watermark">OPERATIONS</span>
   <div class="container">
     <div class="about-intro__head">
-      <p class="eyebrow reveal">Operations in Motion</p>
-      <h2 class="group__title reveal">Trading &amp; Logistics Showcase</h2>
+      <p class="eyebrow reveal" data-wp-field="showcase_eyebrow">Operations in Motion</p>
+      <h2 class="group__title reveal" data-wp-field="showcase_heading">Trading &amp; Logistics Showcase</h2>
       <span class="group__accent-line reveal" aria-hidden="true"></span>
     </div>
 
     <div class="showcase-grid reveal">
-      <div class="showcase-lead">
+      <div class="showcase-lead" data-wp-field="lead_photo">
         <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1200&q=80&auto=format&fit=crop" alt="Container Port Operations" loading="lazy">
       </div>
       <div class="showcase-side">
-        <div class="showcase-side-item">
+        <div class="showcase-side-item" data-wp-field="side_photo_1">
           <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&q=80&auto=format&fit=crop" alt="Warehousing and Bulk Inventory" loading="lazy">
         </div>
-        <div class="showcase-side-item">
+        <div class="showcase-side-item" data-wp-field="side_photo_2">
           <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80&auto=format&fit=crop" alt="Petroleum Transfer Facilities" loading="lazy">
         </div>
       </div>
@@ -360,31 +365,32 @@
 </section>
 
 <!-- ==========================================================================
-     08. PART OF THE ALTYSIER GROUP
+     08. PART OF THE ALTYSIER GROUP (WordPress Layout: company_ecosystem)
+     ACF Relationship: related_companies (CPT: company)
      ========================================================================== -->
-<section class="company-ecosystem" id="ecosystem">
-  <span class="section-watermark" aria-hidden="true">ECOSYSTEM</span>
+<section class="company-ecosystem" id="ecosystem" data-wp-section="company_ecosystem">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="ecosystem_watermark">ECOSYSTEM</span>
   <div class="container">
     <div class="about-intro__head text-center" style="text-align: center;">
-      <p class="eyebrow reveal" style="justify-content: center;">Group Integration</p>
-      <h2 class="group__title reveal">Part of a Bigger Business Ecosystem</h2>
+      <p class="eyebrow reveal" style="justify-content: center;" data-wp-field="ecosystem_eyebrow">Group Integration</p>
+      <h2 class="group__title reveal" data-wp-field="ecosystem_heading">Part of a Bigger Business Ecosystem</h2>
       <span class="group__accent-line reveal" style="margin-left: auto; margin-right: auto;" aria-hidden="true"></span>
-      <p class="group__intro reveal" style="margin-left: auto; margin-right: auto;">Connecting sector-leading capabilities under Altysier Group&rsquo;s global umbrella.</p>
+      <p class="group__intro reveal" style="margin-left: auto; margin-right: auto;" data-wp-field="ecosystem_subheading">Connecting sector-leading capabilities under Altysier Group&rsquo;s global umbrella.</p>
     </div>
 
     <div class="ecosystem-chain reveal">
-      <div class="ecosystem-node">Altysier General Trading LLC</div>
+      <div class="ecosystem-node" data-wp-field="node_company">Altysier General Trading LLC</div>
       <span class="ecosystem-arrow">&rarr;</span>
-      <div class="ecosystem-node">International Trade Sector</div>
+      <div class="ecosystem-node" data-wp-field="node_sector">International Trade Sector</div>
       <span class="ecosystem-arrow">&rarr;</span>
-      <div class="ecosystem-node" style="color: var(--accent);">Altysier Group</div>
+      <div class="ecosystem-node" style="color: var(--accent);" data-wp-field="node_group">Altysier Group</div>
     </div>
 
     <div class="about-intro__head" style="margin-top: 50rem;">
-      <p class="eyebrow reveal">Explore Other Companies</p>
+      <p class="eyebrow reveal" data-wp-field="other_heading">Explore Other Companies</p>
     </div>
 
-    <div class="other-companies-strip reveal">
+    <div class="other-companies-strip reveal" data-wp-relationship="related_companies">
       <a href="altysier-advanced-business.html" class="other-company-card">
         <h4 class="other-company-card__name">Altysier Advanced Business</h4>
         <span class="other-company-card__sector">Commodity &amp; Healthcare Supply</span>
@@ -410,19 +416,19 @@
 </section>
 
 <!-- ==========================================================================
-     09. CTA
+     09. CTA (WordPress Layout: company_cta)
      ========================================================================== -->
-<section class="about-cta" id="contact">
-  <span class="section-watermark" aria-hidden="true">PARTNERSHIP</span>
-  <div class="about-cta__bg" aria-hidden="true">
+<section class="about-cta" id="contact" data-wp-section="company_cta">
+  <span class="section-watermark" aria-hidden="true" data-wp-field="cta_watermark">PARTNERSHIP</span>
+  <div class="about-cta__bg" aria-hidden="true" data-wp-field="cta_bg_image">
     <img src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1800&q=75&auto=format&fit=crop" alt="" loading="lazy">
     <div class="about-cta__scrim"></div>
   </div>
   <div class="container about-cta__container">
-    <p class="eyebrow reveal" style="color: rgba(255,255,255,0.7);">Work With Us</p>
-    <h2 class="about-cta__title reveal">Let&rsquo;s Build Stronger Partnerships Together.</h2>
-    <p class="about-cta__text reveal">Contact Altysier International General Trading LLC for commercial trading inquiries, bulk tenders, or cross-border supply chain collaboration.</p>
-    <a href="../contact.html" class="btn _accent reveal">Contact Us</a>
+    <p class="eyebrow reveal" style="color: rgba(255,255,255,0.7);" data-wp-field="cta_eyebrow">Work With Us</p>
+    <h2 class="about-cta__title reveal" data-wp-field="cta_heading">Let&rsquo;s Build Stronger Partnerships Together.</h2>
+    <p class="about-cta__text reveal" data-wp-field="cta_text">Contact Altysier International General Trading LLC for commercial trading inquiries, bulk tenders, or cross-border supply chain collaboration.</p>
+    <a href="../contact.html" class="btn _accent reveal" data-wp-field="cta_btn">Contact Us</a>
   </div>
 </section>
 
