@@ -374,15 +374,6 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   z-index: 0;
   pointer-events: none;
 }
-/* Subtle dark scrim so text always reads cleanly */
-.preloader::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 1;
-  pointer-events: none;
-}
 .preloader.is-done { opacity: 0; visibility: hidden; }
 .preloader__container {
   display: flex;
