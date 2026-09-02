@@ -3172,6 +3172,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   margin-top: 48rem;
 }
 .culture-card {
+  position: relative;
+  overflow: hidden;
   border-radius: 20rem;
   border: 1.5rem solid rgba(144, 9, 9, 0.14);
   background: #ffffff;
@@ -3179,33 +3181,76 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4rem 20rem rgba(0, 0, 0, 0.025);
-  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+  z-index: 1;
 }
+
+/* Color filling inside animation */
+.culture-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--ink) 0%, #680505 100%);
+  transform: translateY(100%);
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.culture-card:hover::before {
+  transform: translateY(0);
+}
+
 .culture-card:hover {
-  transform: translateY(-6rem);
+  transform: translateY(-8rem);
   border-color: var(--ink);
-  box-shadow: 0 12rem 32rem rgba(144, 9, 9, 0.12);
+  box-shadow: 0 16rem 36rem rgba(144, 9, 9, 0.28);
 }
+
 .culture-card__num {
+  position: relative;
+  z-index: 1;
   font-family: 'Oswald', sans-serif;
   font-size: 32rem;
   font-weight: 300;
-  color: rgba(144, 9, 9, 0.25);
+  color: rgba(144, 9, 9, 0.35);
   margin-bottom: 12rem;
   line-height: 1;
+  transition: color 0.35s ease, transform 0.35s ease;
 }
+.culture-card:hover .culture-card__num {
+  color: rgba(255, 255, 255, 0.45);
+  transform: translateX(2rem);
+}
+
 .culture-card__title {
+  position: relative;
+  z-index: 1;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 28rem;
   letter-spacing: 0.04em;
   color: var(--ink);
   margin-bottom: 12rem;
+  transition: color 0.35s ease, transform 0.35s ease;
 }
+.culture-card:hover .culture-card__title {
+  color: #ffffff;
+  transform: translateX(2rem);
+}
+
 .culture-card__text {
+  position: relative;
+  z-index: 1;
   font-family: Inter, sans-serif;
   font-size: 14.5rem;
   line-height: 1.5;
   color: #555555;
+  transition: color 0.35s ease;
+}
+.culture-card:hover .culture-card__text {
+  color: rgba(255, 255, 255, 0.92);
 }
 
 /* 05. Vision / Mission / Motto (Three-Stage Editorial) */
