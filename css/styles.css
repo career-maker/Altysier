@@ -4254,6 +4254,16 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   border: 1.5rem solid rgba(144, 9, 9, 0.12);
   box-shadow: 0 12rem 36rem rgba(0, 0, 0, 0.06);
   height: 520rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.csr-feature__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(17, 17, 17, 0.25) 0%, rgba(17, 17, 17, 0.45) 50%, rgba(17, 17, 17, 0.65) 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 .csr-feature__photo {
   width: 100%;
@@ -4263,23 +4273,32 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   transition: transform 0.8s ease;
 }
 .csr-feature__photo-wrap:hover .csr-feature__photo {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 .csr-feature__badge {
   position: absolute;
-  bottom: 24rem;
-  left: 24rem;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(12px);
-  padding: 10rem 20rem;
-  border-radius: 999rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  width: calc(100% - 48rem);
+  max-width: 440rem;
   font-family: 'Oswald', sans-serif;
-  font-size: 13rem;
-  font-weight: 600;
+  font-size: clamp(28rem, 3.8vw, 40rem);
+  font-weight: 700;
   text-transform: uppercase;
-  color: var(--ink);
-  letter-spacing: 0.06em;
-  border: 1px solid rgba(144, 9, 9, 0.12);
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-shadow: 0 4rem 20rem rgba(0, 0, 0, 0.75), 0 2rem 6rem rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 .csr-feature__statement {
   font-family: 'Oswald', sans-serif;
