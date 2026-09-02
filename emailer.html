@@ -3,15 +3,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Email Newsletter &amp; Announcement Template — Altysier Group</title>
+<title>Contact Form Enquiry — Altysier Group</title>
 <style type="text/css">
-  /* Client-specific Resets */
+  /* Client Resets */
   body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
   table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
   img { -ms-interpolation-mode: bicubic; border: 0; outline: none; text-decoration: none; display: block; }
-  body { margin: 0; padding: 0; width: 100% !important; height: 100% !important; background-color: #f4f4f5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+  body { margin: 0; padding: 0; width: 100% !important; height: 100% !important; background-color: #f3f3f5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
 
-  /* iOS Blue Links & Clean Links */
+  /* iOS link color reset */
   a[x-apple-data-detectors] {
     color: inherit !important;
     text-decoration: none !important;
@@ -21,60 +21,61 @@
     line-height: inherit !important;
   }
 
-  /* Interactive Elements */
-  .btn-hover:hover {
-    background-color: #b00c0c !important;
-  }
-  .card-hover:hover {
-    border-color: #900909 !important;
-  }
-
   /* Responsive Rules */
   @media only screen and (max-width: 620px) {
-    .wrapper { width: 100% !important; max-width: 100% !important; border-radius: 0 !important; }
+    .email-container { width: 100% !important; max-width: 100% !important; border-radius: 0 !important; }
     .mobile-padding { padding-left: 20px !important; padding-right: 20px !important; }
-    .col-stack { display: block !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
-    .col-stack-gap { height: 18px !important; }
-    .hero-heading { font-size: 26px !important; line-height: 32px !important; }
-    .hero-text { font-size: 15px !important; line-height: 22px !important; }
-    .featured-photo { height: 180px !important; }
+    .meta-col-stack { display: block !important; width: 100% !important; box-sizing: border-box !important; }
+    .nav-links a { display: inline-block !important; margin: 4px 8px !important; }
   }
 </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #f4f4f5;">
+<body style="margin: 0; padding: 0; background-color: #f3f3f5;">
 
-<!-- Preheader Preview Text (Hidden in body, visible in inbox list) -->
-<div style="display: none; font-size: 1px; color: #f4f4f5; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all;">
-  [Preheader Text: Brief 1-2 sentence preview text displayed in email client inbox summaries...]
+<!-- Preheader summary text (visible in email client preview) -->
+<div style="display: none; font-size: 1px; color: #f3f3f5; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all;">
+  New website enquiry received via Altysier Group contact portal. View sender details, subject, and message.
 </div>
 
-<!-- Background Outer Wrapper -->
-<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f4f4f5;">
+<!-- Outer Wrapper Table -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #f3f3f5;">
   <tr>
-    <td align="center" style="padding: 30px 12px;">
+    <td align="center" style="padding: 36px 12px;">
 
       <!-- Main Email Container (600px standard) -->
-      <table class="wrapper" border="0" cellpadding="0" cellspacing="0" width="600" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06);">
+      <table class="email-container" border="0" cellpadding="0" cellspacing="0" width="600" style="background-color: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #e5e5e8;">
 
-        <!-- ============================================================
-             01. TOP BRAND HEADER
-             ============================================================ -->
+        <!-- 01. Top Accent Brand Bar -->
         <tr>
-          <td align="center" style="background-color: #111111; padding: 22px 32px; border-bottom: 3px solid #900909;">
+          <td height="5" style="background: linear-gradient(90deg, #900909 0%, #b81414 50%, #900909 100%); line-height: 5px; font-size: 5px;">&nbsp;</td>
+        </tr>
+
+        <!-- 02. Header & Logo -->
+        <tr>
+          <td style="padding: 28px 36px; background-color: #141414;" class="mobile-padding">
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
               <tr>
-                <td align="left">
-                  <!-- Brand Logo / Name Placeholder -->
-                  <a href="#" target="_blank" style="text-decoration: none;">
-                    <span style="font-family: Arial, Helvetica, sans-serif; font-size: 20px; font-weight: 800; letter-spacing: 2px; color: #ffffff; text-transform: uppercase;">
-                      ALTYSIER <span style="font-size: 12px; font-weight: 600; color: #900909; letter-spacing: 4px;">GROUP</span>
-                    </span>
+                <td align="left" valign="middle">
+                  <a href="https://altysier.com/" target="_blank" style="text-decoration: none; display: inline-block;">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td valign="middle" style="padding-right: 12px;">
+                          <!-- Logo mark fallback -->
+                          <div style="width: 38px; height: 38px; border-radius: 8px; background-color: #900909; text-align: center; line-height: 38px; color: #ffffff; font-weight: 700; font-size: 16px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                            AG
+                          </div>
+                        </td>
+                        <td valign="middle">
+                          <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 20px; font-weight: 800; letter-spacing: 0.06em; color: #ffffff; display: block; line-height: 1.1;">ALTYSIER</span>
+                          <span style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.28em; color: #900909; display: block; line-height: 1.1; margin-top: 2px;">GROUP</span>
+                        </td>
+                      </tr>
+                    </table>
                   </a>
                 </td>
-                <td align="right">
-                  <!-- Category / Issue Date Placeholder -->
-                  <span style="font-family: Arial, sans-serif; font-size: 11px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 1px;">
-                    [Issue # / Date / Category]
+                <td align="right" valign="middle">
+                  <span style="display: inline-block; background-color: rgba(144, 9, 9, 0.2); border: 1px solid rgba(144, 9, 9, 0.4); color: #ff6b6b; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 5px 12px; border-radius: 999px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+                    Website Enquiry
                   </span>
                 </td>
               </tr>
@@ -82,179 +83,123 @@
           </td>
         </tr>
 
-        <!-- ============================================================
-             02. HERO BANNER
-             ============================================================ -->
+        <!-- 03. Notification Intro -->
         <tr>
-          <td align="center" style="background-color: #1a1a1a; padding: 48px 36px 42px; background-image: linear-gradient(180deg, #222222 0%, #111111 100%);" class="mobile-padding">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-              <tr>
-                <td align="center">
-                  <!-- Tag / Category Eyebrow Placeholder -->
-                  <span style="display: inline-block; padding: 6px 14px; background-color: rgba(144, 9, 9, 0.25); border: 1px solid #900909; border-radius: 20px; font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; color: #ff6b6b; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px;">
-                    [Topic / Announcement Category]
-                  </span>
-                </td>
-              </tr>
-              <tr>
-                <td align="center" style="padding-top: 10px;">
-                  <!-- Main Hero Headline Placeholder -->
-                  <h1 class="hero-heading" style="margin: 0; font-family: 'Oswald', Arial, sans-serif; font-size: 32px; font-weight: 700; line-height: 40px; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px;">
-                    [Main Headline: Insert Your Primary Subject or Announcement Title Here]
-                  </h1>
-                </td>
-              </tr>
-              <tr>
-                <td align="center" style="padding-top: 16px;">
-                  <!-- Subheading / Lead Copy Placeholder -->
-                  <p class="hero-text" style="margin: 0; font-family: Arial, sans-serif; font-size: 15.5px; line-height: 24px; color: #cccccc; max-width: 480px;">
-                    [Insert a concise supporting sentence or overview here describing what this communication is about and why it matters to your reader.]
-                  </p>
-                </td>
-              </tr>
-              <tr>
-                <td align="center" style="padding-top: 26px;">
-                  <!-- Hero CTA Button Placeholder -->
-                  <table border="0" cellpadding="0" cellspacing="0">
-                    <tr>
-                      <td align="center" style="border-radius: 30px; background-color: #900909;">
-                        <a href="#" target="_blank" class="btn-hover" style="display: inline-block; padding: 13px 32px; font-family: Arial, sans-serif; font-size: 13.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #ffffff; text-decoration: none; border-radius: 30px; background-color: #900909;">
-                          [Primary Action Button &rarr;]
-                        </a>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
-        <!-- ============================================================
-             03. INTRODUCTORY BODY CONTENT
-             ============================================================ -->
-        <tr>
-          <td style="padding: 38px 36px 28px;" class="mobile-padding">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-              <tr>
-                <td>
-                  <span style="font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; color: #900909; text-transform: uppercase; letter-spacing: 1.5px;">
-                    [Section Subhead]
-                  </span>
-                  <h2 style="margin: 6px 0 14px; font-family: 'Oswald', Arial, sans-serif; font-size: 22px; font-weight: 700; color: #111111; line-height: 28px; text-transform: uppercase;">
-                    [Secondary Section Title Goes Here]
-                  </h2>
-                  <p style="margin: 0 0 16px; font-family: Arial, sans-serif; font-size: 14.5px; line-height: 23px; color: #444444;">
-                    [First paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.]
-                  </p>
-                  <p style="margin: 0; font-family: Arial, sans-serif; font-size: 14.5px; line-height: 23px; color: #444444;">
-                    [Second paragraph: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.]
-                  </p>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
-        <!-- ============================================================
-             04. 2-COLUMN FEATURED CARDS / HIGHLIGHTS
-             ============================================================ -->
-        <tr>
-          <td style="background-color: #faf4f4; padding: 34px 36px 36px; border-top: 1px solid #f0e4e4; border-bottom: 1px solid #f0e4e4;" class="mobile-padding">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-              <tr>
-                <td align="center" style="padding-bottom: 22px;">
-                  <span style="font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; color: #900909; text-transform: uppercase; letter-spacing: 1.5px;">
-                    [Featured Items]
-                  </span>
-                  <h3 style="margin: 4px 0 0; font-family: 'Oswald', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #111111; text-transform: uppercase;">
-                    [Key Highlights or Updates]
-                  </h3>
-                </td>
-              </tr>
-
-              <!-- Cards Row -->
-              <tr>
-                <td>
-                  <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                    <tr>
-                      <!-- Feature Card 1 -->
-                      <td class="col-stack" width="48%" valign="top" style="background-color: #ffffff; border: 1.5rem solid rgba(144,9,9,0.12); border-radius: 12px; padding: 20px;">
-                        <span style="font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; color: #900909; text-transform: uppercase; letter-spacing: 1px;">
-                          [FEATURE 01]
-                        </span>
-                        <h4 style="margin: 6px 0 8px; font-family: Arial, sans-serif; font-size: 15px; font-weight: 700; color: #111111; line-height: 19px;">
-                          [Feature Title 01]
-                        </h4>
-                        <p style="margin: 0 0 14px; font-family: Arial, sans-serif; font-size: 13px; line-height: 19px; color: #666666;">
-                          [Short descriptive summary of this update, product, milestone, or initiative explaining key benefits.]
-                        </p>
-                        <a href="#" target="_blank" style="font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; color: #900909; text-decoration: none; text-transform: uppercase;">
-                          [Learn More &rarr;]
-                        </a>
-                      </td>
-
-                      <td class="col-stack col-stack-gap" width="4%"></td>
-
-                      <!-- Feature Card 2 -->
-                      <td class="col-stack" width="48%" valign="top" style="background-color: #ffffff; border: 1.5rem solid rgba(144,9,9,0.12); border-radius: 12px; padding: 20px;">
-                        <span style="font-family: Arial, sans-serif; font-size: 10px; font-weight: 700; color: #900909; text-transform: uppercase; letter-spacing: 1px;">
-                          [FEATURE 02]
-                        </span>
-                        <h4 style="margin: 6px 0 8px; font-family: Arial, sans-serif; font-size: 15px; font-weight: 700; color: #111111; line-height: 19px;">
-                          [Feature Title 02]
-                        </h4>
-                        <p style="margin: 0 0 14px; font-family: Arial, sans-serif; font-size: 13px; line-height: 19px; color: #666666;">
-                          [Short descriptive summary of this update, product, milestone, or initiative explaining key benefits.]
-                        </p>
-                        <a href="#" target="_blank" style="font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; color: #900909; text-decoration: none; text-transform: uppercase;">
-                          [Learn More &rarr;]
-                        </a>
-                      </td>
-                    </tr>
-                  </table>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
-        <!-- ============================================================
-             05. CALLOUT QUOTE / STATISTIC BOX
-             ============================================================ -->
-        <tr>
-          <td style="padding: 34px 36px;" class="mobile-padding">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #ffffff; border-left: 4px solid #900909; padding: 18px 22px; border-radius: 4px;">
-              <tr>
-                <td>
-                  <p style="margin: 0 0 6px; font-family: Georgia, serif; font-size: 16px; font-style: italic; line-height: 24px; color: #222222;">
-                    &ldquo;[Insert an inspiring quote, key milestone statistic, executive takeaway, or important policy notice here.]&rdquo;
-                  </p>
-                  <span style="font-family: Arial, sans-serif; font-size: 12px; font-weight: 700; color: #777777; text-transform: uppercase; letter-spacing: 0.5px;">
-                    &mdash; [Author Name / Title / Department]
-                  </span>
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
-        <!-- ============================================================
-             06. FINAL CALL TO ACTION BOX
-             ============================================================ -->
-        <tr>
-          <td align="center" style="background-color: #111111; padding: 36px 30px; text-align: center;" class="mobile-padding">
-            <h3 style="margin: 0 0 10px; font-family: 'Oswald', Arial, sans-serif; font-size: 22px; font-weight: 700; color: #ffffff; text-transform: uppercase; letter-spacing: 0.5px;">
-              [Ready to Take the Next Step?]
-            </h3>
-            <p style="margin: 0 0 20px; font-family: Arial, sans-serif; font-size: 14px; line-height: 22px; color: #bbbbbb; max-width: 440px;">
-              [Insert final closing call to action text encouraging the recipient to connect, schedule a consultation, or review project documentation.]
+          <td style="padding: 32px 36px 20px;" class="mobile-padding">
+            <h1 style="margin: 0 0 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 22px; font-weight: 700; color: #141414; line-height: 1.3;">
+              New Contact Enquiry Received
+            </h1>
+            <p style="margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14.5px; line-height: 1.55; color: #555555;">
+              A user has submitted a commercial enquiry through the <strong>Altysier Group</strong> official website. The complete contact information and submitted details are provided below:
             </p>
+          </td>
+        </tr>
+
+        <!-- 04. Enquiry Information Table -->
+        <tr>
+          <td style="padding: 10px 36px 24px;" class="mobile-padding">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #fafafa; border: 1px solid #ebebeb; border-radius: 8px; overflow: hidden;">
+              
+              <!-- Sender Name -->
+              <tr>
+                <td width="36%" style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.04em;">
+                  Full Name
+                </td>
+                <td width="64%" style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14.5px; font-weight: 600; color: #141414;">
+                  {{ full_name }}
+                </td>
+              </tr>
+
+              <!-- Email Address -->
+              <tr>
+                <td style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.04em;">
+                  Email Address
+                </td>
+                <td style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14.5px; font-weight: 600; color: #900909;">
+                  <a href="mailto:{{ email }}" style="color: #900909; text-decoration: none;">{{ email }}</a>
+                </td>
+              </tr>
+
+              <!-- Phone / Mobile -->
+              <tr>
+                <td style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.04em;">
+                  Phone / Mobile
+                </td>
+                <td style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14.5px; color: #141414;">
+                  {{ phone }}
+                </td>
+              </tr>
+
+              <!-- Company / Organization -->
+              <tr>
+                <td style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.04em;">
+                  Company
+                </td>
+                <td style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14.5px; color: #141414;">
+                  {{ company }}
+                </td>
+              </tr>
+
+              <!-- Area of Interest / Subsidiary -->
+              <tr>
+                <td style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.04em;">
+                  Area / Company
+                </td>
+                <td style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14.5px; color: #141414;">
+                  {{ interest }}
+                </td>
+              </tr>
+
+              <!-- Subject -->
+              <tr>
+                <td style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.04em;">
+                  Subject
+                </td>
+                <td style="padding: 14px 18px; border-bottom: 1px solid #ebebeb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14.5px; font-weight: 600; color: #141414;">
+                  {{ subject }}
+                </td>
+              </tr>
+
+              <!-- Submission Date -->
+              <tr>
+                <td style="padding: 14px 18px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.04em;">
+                  Submitted At
+                </td>
+                <td style="padding: 14px 18px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13.5px; color: #666666;">
+                  {{ date_time }}
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+
+        <!-- 05. Enquiry Message Box -->
+        <tr>
+          <td style="padding: 0 36px 28px;" class="mobile-padding">
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #888888; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 8px;">
+              Enquiry Message
+            </div>
+            <div style="background-color: #ffffff; border-left: 4px solid #900909; border-top: 1px solid #ebebeb; border-right: 1px solid #ebebeb; border-bottom: 1px solid #ebebeb; border-radius: 0 8px 8px 0; padding: 18px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14.5px; line-height: 1.65; color: #222222; white-space: pre-line;">
+{{ message }}
+            </div>
+          </td>
+        </tr>
+
+        <!-- 06. Action Buttons -->
+        <tr>
+          <td align="center" style="padding: 0 36px 36px;" class="mobile-padding">
             <table border="0" cellpadding="0" cellspacing="0">
               <tr>
-                <td align="center" style="border-radius: 30px; background-color: #900909;">
-                  <a href="#" target="_blank" style="display: inline-block; padding: 12px 30px; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #ffffff; text-decoration: none; border-radius: 30px;">
-                    [Secondary Action Button &rarr;]
+                <td align="center" style="border-radius: 999px; background-color: #900909;">
+                  <a href="mailto:{{ email }}" target="_blank" style="display: inline-block; padding: 14px 32px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 600; color: #ffffff; text-decoration: none; border-radius: 999px; letter-spacing: 0.02em;">
+                    Reply to Sender &rarr;
+                  </a>
+                </td>
+                <td width="14">&nbsp;</td>
+                <td align="center" style="border-radius: 999px; background-color: #f0f0f2; border: 1px solid #e0e0e4;">
+                  <a href="https://altysier.com/contact.html" target="_blank" style="display: inline-block; padding: 14px 26px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 14px; font-weight: 600; color: #141414; text-decoration: none; border-radius: 999px; letter-spacing: 0.02em;">
+                    Visit Contact Page
                   </a>
                 </td>
               </tr>
@@ -262,40 +207,63 @@
           </td>
         </tr>
 
-        <!-- ============================================================
-             07. EMAIL FOOTER & LEGAL NOTICES
-             ============================================================ -->
+        <!-- 07. Quick Website Navigation Bar -->
         <tr>
-          <td style="background-color: #fcfcfc; padding: 28px 36px; border-top: 1px solid #eeeeee;" class="mobile-padding">
+          <td style="padding: 20px 36px; background-color: #fafafa; border-top: 1px solid #ebebeb; text-align: center;" class="mobile-padding nav-links">
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #888888; margin-bottom: 10px;">
+              Quick Links
+            </div>
+            <a href="https://altysier.com/" target="_blank" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #141414; text-decoration: none; margin: 0 10px;">Home</a>
+            <span style="color: #cccccc;">&bull;</span>
+            <a href="https://altysier.com/about.html" target="_blank" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #141414; text-decoration: none; margin: 0 10px;">About Us</a>
+            <span style="color: #cccccc;">&bull;</span>
+            <a href="https://altysier.com/about.html#businesses" target="_blank" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #141414; text-decoration: none; margin: 0 10px;">Group Companies</a>
+            <span style="color: #cccccc;">&bull;</span>
+            <a href="https://altysier.com/csr.html" target="_blank" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #141414; text-decoration: none; margin: 0 10px;">CSR</a>
+            <span style="color: #cccccc;">&bull;</span>
+            <a href="https://altysier.com/contact.html" target="_blank" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13px; font-weight: 600; color: #900909; text-decoration: none; margin: 0 10px;">Contact Us</a>
+          </td>
+        </tr>
+
+        <!-- 08. Group Companies Direct Links -->
+        <tr>
+          <td style="padding: 18px 36px; background-color: #f5f5f7; border-top: 1px solid #ebebeb; text-align: center;" class="mobile-padding">
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #888888; margin-bottom: 8px;">
+              Altysier Group Operating Entities
+            </div>
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; line-height: 1.8; color: #555555;">
+              <a href="https://altysier.com/companies/altysier-general-trading.html" target="_blank" style="color: #444444; text-decoration: none;">Altysier General Trading LLC</a> &bull;
+              <a href="https://altysier.com/companies/altysier-advanced-business.html" target="_blank" style="color: #444444; text-decoration: none;">Advanced Business Co LTD</a> &bull;
+              <a href="https://altysier.com/companies/al-mutmeiza-industries.html" target="_blank" style="color: #444444; text-decoration: none;">Al Mutmeiza Industries</a><br>
+              <a href="https://altysier.com/companies/al-taysir-gulf.html" target="_blank" style="color: #444444; text-decoration: none;">Al Taysir Al Mutamayyiza Gulf</a> &bull;
+              <a href="https://altysier.com/companies/haloub-feed-mill.html" target="_blank" style="color: #444444; text-decoration: none;">Haloub Feed Mill Factory</a> &bull;
+              <a href="https://altysier.com/companies/tasabih-services.html" target="_blank" style="color: #444444; text-decoration: none;">TASABIH Services &amp; Transportation</a>
+            </div>
+          </td>
+        </tr>
+
+        <!-- 09. Corporate Footer -->
+        <tr>
+          <td style="padding: 28px 36px 32px; background-color: #141414; color: #ffffff; text-align: center;" class="mobile-padding">
+            <p style="margin: 0 0 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 13.5px; font-weight: 700; letter-spacing: 0.04em; color: #ffffff;">
+              ALTYSIER GROUP
+            </p>
+            <p style="margin: 0 0 14px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 12px; line-height: 1.6; color: #888888;">
+              Al Barsha, Dubai, United Arab Emirates<br>
+              Email: <a href="mailto:info@altysier.com" style="color: #ff6b6b; text-decoration: none;">info@altysier.com</a> | Phone: <a href="tel:+97142680666" style="color: #cccccc; text-decoration: none;">+971 4 268 0666</a> | WhatsApp: <a href="https://wa.me/971561442525" target="_blank" style="color: #cccccc; text-decoration: none;">+971 56 144 2525</a>
+            </p>
+
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
               <tr>
-                <td class="col-stack" width="50%" valign="top" style="font-family: Arial, sans-serif; font-size: 12px; color: #666666; line-height: 18px;">
-                  <strong style="color: #111111; text-transform: uppercase;">[Office Location 01]</strong><br />
-                  [Building Name / Suite / Street Address]<br />
-                  [City, Postal Code, Country]<br />
-                  <a href="mailto:info@yourcompany.com" style="color: #900909; text-decoration: none;">[email@company.com]</a>
-                </td>
-                <td class="col-stack col-stack-gap" width="6%"></td>
-                <td class="col-stack" width="44%" valign="top" style="font-family: Arial, sans-serif; font-size: 12px; color: #666666; line-height: 18px;">
-                  <strong style="color: #111111; text-transform: uppercase;">[Office Location 02]</strong><br />
-                  [Regional Operations / Branch Office]<br />
-                  [City, Postal Code, Country]<br />
-                  <a href="tel:+1234567890" style="color: #900909; text-decoration: none;">[+00 000 000 0000]</a>
-                </td>
-              </tr>
-              <tr>
-                <td colspan="3" align="center" style="padding-top: 24px; border-top: 1px solid #f0f0f0; margin-top: 20px;">
-                  <p style="margin: 0 0 10px; font-family: Arial, sans-serif; font-size: 11px; color: #999999; line-height: 16px;">
-                    &copy; 2026 [Company Name / Group]. All rights reserved.<br />
-                    [You are receiving this email because you subscribed to updates or have an active commercial relationship with us.]
-                  </p>
-                  <p style="margin: 0; font-family: Arial, sans-serif; font-size: 11px; line-height: 16px;">
-                    <a href="#" target="_blank" style="color: #777777; text-decoration: underline;">[View in Browser]</a>
-                    &nbsp;&bull;&nbsp;
-                    <a href="#" target="_blank" style="color: #777777; text-decoration: underline;">[Update Preferences]</a>
-                    &nbsp;&bull;&nbsp;
-                    <a href="#" target="_blank" style="color: #777777; text-decoration: underline;">[Unsubscribe]</a>
-                  </p>
+                <td align="center" style="padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.12); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 11.5px; color: #777777;">
+                  <a href="https://altysier.com/privacy.html" target="_blank" style="color: #888888; text-decoration: none; margin: 0 8px;">Privacy Policy</a>
+                  &bull;
+                  <a href="https://altysier.com/terms.html" target="_blank" style="color: #888888; text-decoration: none; margin: 0 8px;">Terms of Use</a>
+                  &bull;
+                  <a href="https://altysier.com/" target="_blank" style="color: #888888; text-decoration: none; margin: 0 8px;">Official Website</a>
+                  <div style="margin-top: 8px;">
+                    &copy; 2026 Altysier Group. All rights reserved. Confidential transmission.
+                  </div>
                 </td>
               </tr>
             </table>
