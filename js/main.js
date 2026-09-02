@@ -455,60 +455,70 @@
   });
 
   /* ---------------------------------------------------------------------
-     Hero Stat Counter Numbers Animation
-     Counts up smoothly (00 -> 06, 00+ -> 07+, 00+ -> 18+, 00+ -> 20+)
+     Stat Counter Numbers Animation (Hero & Reach Sections)
+     Counts up smoothly (00 -> 06, 00+ -> 07+, 00+ -> 18+, 00+ -> 20+, 150+, etc.)
      --------------------------------------------------------------------- */
+  function animateCounterElements(elements, baseDelay, stagger, duration) {
+    if (!elements || !elements.length) return;
+    elements.forEach(function (el, index) {
+      var raw = el.textContent.trim();
+      var match = raw.match(/^(\D*)(\d+)(\D*)$/);
+      if (!match) return;
+
+      var prefix = match[1] || '';
+      var numStr = match[2];
+      var suffix = match[3] || '';
+      var target = parseInt(numStr, 10);
+      var padLength = numStr.length;
+      var hasLeadingZero = numStr.startsWith('0') && padLength > 1;
+
+      if (prefersReducedMotion) {
+        el.textContent = raw;
+        return;
+      }
+
+      el.textContent = prefix + (hasLeadingZero ? '0'.repeat(padLength) : '0') + suffix;
+
+      var delay = (baseDelay || 200) + index * (stagger || 120);
+      var animDuration = duration || 1600;
+
+      window.setTimeout(function () {
+        var startTime = null;
+        function tick(now) {
+          if (!startTime) startTime = now;
+          var elapsed = now - startTime;
+          var p = Math.min(1, elapsed / animDuration);
+          var easeOut = 1 - Math.pow(1 - p, 3);
+          var current = Math.round(target * easeOut);
+          var currentStr = hasLeadingZero ? String(current).padStart(padLength, '0') : String(current);
+          el.textContent = prefix + currentStr + suffix;
+
+          if (p < 1) {
+            window.requestAnimationFrame(tick);
+          } else {
+            el.textContent = raw;
+          }
+        }
+        window.requestAnimationFrame(tick);
+      }, delay);
+    });
+  }
+
   var animateHeroCounters = (function () {
     var hasRun = false;
     return function () {
       if (hasRun) return;
       hasRun = true;
+      animateCounterElements(document.querySelectorAll('.hero__stats .stat-card__value'), 350, 140, 1600);
+    };
+  })();
 
-      var statValues = document.querySelectorAll('.hero__stats .stat-card__value');
-      if (!statValues.length) return;
-
-      statValues.forEach(function (el, index) {
-        var raw = el.textContent.trim();
-        var match = raw.match(/^(\D*)(\d+)(\D*)$/);
-        if (!match) return;
-
-        var prefix = match[1] || '';
-        var numStr = match[2];
-        var suffix = match[3] || '';
-        var target = parseInt(numStr, 10);
-        var padLength = numStr.length;
-        var hasLeadingZero = numStr.startsWith('0') && padLength > 1;
-
-        if (prefersReducedMotion) {
-          el.textContent = raw;
-          return;
-        }
-
-        el.textContent = prefix + (hasLeadingZero ? '0'.repeat(padLength) : '0') + suffix;
-
-        var delay = 350 + index * 140; // slight stagger between cards
-        var duration = 1600;
-
-        window.setTimeout(function () {
-          var startTime = null;
-          function tick(now) {
-            if (!startTime) startTime = now;
-            var elapsed = now - startTime;
-            var p = Math.min(1, elapsed / duration);
-            var easeOut = 1 - Math.pow(1 - p, 3);
-            var current = Math.round(target * easeOut);
-            var currentStr = hasLeadingZero ? String(current).padStart(padLength, '0') : String(current);
-            el.textContent = prefix + currentStr + suffix;
-
-            if (p < 1) {
-              window.requestAnimationFrame(tick);
-            } else {
-              el.textContent = raw;
-            }
-          }
-          window.requestAnimationFrame(tick);
-        }, delay);
-      });
+  var animateReachCounters = (function () {
+    var hasRun = false;
+    return function () {
+      if (hasRun) return;
+      hasRun = true;
+      animateCounterElements(document.querySelectorAll('.reach__stats .reach__stat-value'), 150, 110, 1500);
     };
   })();
 
@@ -661,10 +671,23 @@
 
       var heroStats = document.querySelector('.hero__stats');
       if (heroStats) statsObserver.observe(heroStats);
+
+      var reachObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateReachCounters();
+            reachObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      var reachStats = document.querySelector('.reach__stats');
+      if (reachStats) reachObserver.observe(reachStats);
     } else {
       // Fallback if no IntersectionObserver
       items.forEach(function (item) { typeTitle(item); });
       animateHeroCounters();
+      animateReachCounters();
     }
 
     // Hero Title & Hero Counters Trigger
