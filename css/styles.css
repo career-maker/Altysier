@@ -706,7 +706,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  padding: 110rem 24rem 60rem;
+  padding: 110rem 28rem 60rem;
   transform: translateX(100%);
   transition: transform var(--t-med) var(--ease-out), visibility var(--t-med);
   visibility: hidden;
@@ -715,15 +715,31 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   -webkit-overflow-scrolling: touch;
 }
 .header__hamburger.active { transform: translateX(0); visibility: visible; }
-.header__hamburger-menu { display: flex; flex-direction: column; gap: 14rem; padding-top: 10rem; padding-bottom: 40rem; }
-.header__hamburger-menu > a { font-family: 'Inter', sans-serif; font-size: 24rem; font-weight: 600; text-transform: none; color: #fff; padding-bottom: 10rem; border-bottom: 1rem solid rgba(255, 255, 255, 0.15); }
+.header__hamburger-menu { display: flex; flex-direction: column; gap: 20rem; padding-top: 24rem; padding-bottom: 50rem; }
+.header__hamburger-menu > a {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(30rem, 7.5vw, 38rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  text-transform: none;
+  color: #fff;
+  padding-bottom: 16rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  transition: color var(--t-fast), padding-left var(--t-fast);
+}
+.header__hamburger-menu > a:hover,
+.header__hamburger-menu > a:active {
+  color: #ffffff;
+  padding-left: 6rem;
+}
 
 /* Mobile Hamburger Dropdown */
 .header__hamburger-accordion {
   display: flex;
   flex-direction: column;
-  border-bottom: 1rem solid rgba(255, 255, 255, 0.15);
-  padding-bottom: 8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 16rem;
 }
 .header__hamburger-parent {
   display: flex;
@@ -731,20 +747,29 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   justify-content: space-between;
   background: none;
   border: none;
-  padding: 0 0 10rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 24rem;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: clamp(30rem, 7.5vw, 38rem);
   font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
   text-transform: none;
   color: #fff;
   cursor: pointer;
   text-align: left;
   width: 100%;
+  transition: color var(--t-fast);
+}
+.header__hamburger-parent:hover,
+.header__hamburger-parent:active {
+  color: #ffffff;
 }
 .header__hamburger-arrow {
-  width: 18rem;
-  height: 18rem;
+  width: 24rem;
+  height: 24rem;
   transition: transform var(--t-fast);
+  flex-shrink: 0;
+  margin-left: 12rem;
 }
 .header__hamburger-parent.active .header__hamburger-arrow {
   transform: rotate(180deg);
@@ -752,23 +777,29 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .header__hamburger-sub {
   display: none;
   flex-direction: column;
-  gap: 8rem;
-  padding: 8rem 0 6rem 12rem;
+  gap: 12rem;
+  padding: 16rem 0 6rem 16rem;
+  margin-top: 10rem;
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
 }
 .header__hamburger-sub.active {
   display: flex;
 }
 .header__hamburger-subitem {
-  font-family: Inter, sans-serif !important;
-  font-size: 14rem !important;
-  color: rgba(255, 255, 255, 0.82) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 16.5rem !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.85) !important;
   text-transform: none !important;
-  padding-bottom: 6rem !important;
+  padding: 4rem 0 !important;
   border-bottom: none !important;
-  line-height: 1.35 !important;
+  line-height: 1.4 !important;
+  transition: color var(--t-fast), transform var(--t-fast) !important;
 }
-.header__hamburger-subitem:hover {
+.header__hamburger-subitem:hover,
+.header__hamburger-subitem:active {
   color: #fff !important;
+  transform: translateX(4px);
 }
 .header__hamburger-subitem._all {
   font-family: 'Bebas Neue', sans-serif !important;
