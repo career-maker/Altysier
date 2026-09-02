@@ -112,6 +112,7 @@
     var ticking = false;
     var THRESHOLD = 90;
     function onScroll() {
+      if (headerEl.classList.contains('is-menu-open')) return;
       var y = window.scrollY;
       if (y > THRESHOLD && y > lastY) headerEl.classList.add('is-hidden-scroll');
       else headerEl.classList.remove('is-hidden-scroll');
@@ -124,7 +125,7 @@
   });
 
   /* ---------------------------------------------------------------------
-     Mobile hamburger menu
+     Mobile hamburger menu — Touch and click resilient for iOS & Android
      --------------------------------------------------------------------- */
   run(function () {
     var btn = document.querySelector('.header__hamburger-btn');
@@ -134,26 +135,46 @@
     function setOpen(open) {
       btn.classList.toggle('active', open);
       panel.classList.toggle('active', open);
+      if (headerEl) headerEl.classList.toggle('is-menu-open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.style.overflow = open ? 'hidden' : '';
       document.documentElement.style.overflow = open ? 'hidden' : '';
     }
 
-    btn.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
+    var lastToggleTime = 0;
+    function toggleMenu(e) {
+      if (e) {
+        if (e.cancelable) e.preventDefault();
+        e.stopPropagation();
+      }
+      var now = Date.now();
+      if (now - lastToggleTime < 350) return; // Prevent double trigger from touchend + click
+      lastToggleTime = now;
       setOpen(!btn.classList.contains('active'));
-    });
+    }
+
+    btn.addEventListener('touchend', toggleMenu, { passive: false });
+    btn.addEventListener('click', toggleMenu);
 
     var parentBtn = panel.querySelector('.header__hamburger-parent');
     var subMenu = panel.querySelector('.header__hamburger-sub');
     if (parentBtn && subMenu) {
-      parentBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+      var lastParentToggleTime = 0;
+      function toggleParent(e) {
+        if (e) {
+          if (e.cancelable) e.preventDefault();
+          e.stopPropagation();
+        }
+        var now = Date.now();
+        if (now - lastParentToggleTime < 350) return;
+        lastParentToggleTime = now;
         var isOpen = parentBtn.classList.toggle('active');
         subMenu.classList.toggle('active', isOpen);
         parentBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
+      }
+
+      parentBtn.addEventListener('touchend', toggleParent, { passive: false });
+      parentBtn.addEventListener('click', toggleParent);
     }
 
     panel.querySelectorAll('a').forEach(function (a) {
