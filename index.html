@@ -19,20 +19,24 @@
      Who We Are → What We Do → How We Create Value → Our Companies →
      Our Reach & Impact → Why Trust Us → Insights & FAQs → Partnership.
      See WP-CONVERSION-NOTES.md. No external animation library — see
-     css/styles.min.css?v=3.3 and js/main.min.js?v=3.3 header comments.
+     css/styles.min.css?v=3.4 and js/main.min.js?v=3.4 header comments.
 
      Brand palette + logo (img/logo-icon.png, img/logo-full.png) are the
      client's own supplied assets — colors sampled directly from the logo
-     file, see the :root comment in css/styles.min.css?v=3.3
+     file, see the :root comment in css/styles.min.css?v=3.4
      ========================================================================== -->
 
 <link rel="icon" type="image/png" href="img/favicon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Roboto+Condensed:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Non-render-blocking fonts: only Inter + Roboto Condensed (Bebas Neue & Oswald removed) -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Condensed:wght@400;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
 
-<link rel="stylesheet" href="css/styles.min.css?v=3.3">
+<!-- Preload LCP hero image for faster First/Largest Contentful Paint -->
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=2000&q=80&auto=format&fit=crop" fetchpriority="high">
+<link rel="stylesheet" href="css/styles.min.css?v=3.4">
 <style>
 /* Hero Watermark Marquee — STRICTLY mobile only (<640px) */
 .hero__marquee { display: none !important; }
@@ -210,7 +214,7 @@
      ========================================================================== -->
 <section class="hero" id="hero">
   <div class="hero__bg" aria-hidden="true">
-    <img class="section-photo" src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=2000&q=80&auto=format&fit=crop" alt="" loading="eager" decoding="async">
+    <img class="section-photo" src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=2000&q=80&auto=format&fit=crop" alt="" loading="eager" decoding="async" fetchpriority="high">
     <div class="hero__scrim"></div>
   </div>
   <span class="section-watermark" aria-hidden="true">ALTYSIER GROUP</span>
@@ -447,7 +451,7 @@
       </div>
     </div>
 
-    <div class="group__actions" style="text-align: center; margin-top: 40rem; opacity: 1;">
+    <div class="group__actions" style="display:flex;justify-content:center;margin-top:40rem;opacity:1;">
       <a href="about.html" class="btn _accent" style="opacity:1!important;transform:none!important;">Learn About Our Group &rarr;</a>
     </div>
   </div>
@@ -571,7 +575,7 @@
       </div>
     </div>
     <div class="journey__actions reveal" style="text-align: center; margin-top: 48rem;">
-      <a href="about.html" class="btn _accent">Explore Group Capabilities</a>
+      <a href="about.html" class="btn _accent">Explore Group Capabilities &rarr;</a>
     </div>
   </div>
 </section>
@@ -699,7 +703,7 @@
     </div>
 
     <div class="businesses__actions reveal" style="text-align: center; margin-top: 48rem;">
-      <a href="companies/altysier-general-trading.html" class="btn _accent">Explore Group Companies</a>
+      <a href="companies/altysier-general-trading.html" class="btn _accent">Explore Group Companies &rarr;</a>
     </div>
   </div>
 </section>
@@ -805,7 +809,7 @@
           </div>
         </div>
         <div class="reach__action reveal">
-          <a href="csr.html" class="btn _accent">Explore Our Impact</a>
+          <a href="csr.html" class="btn _accent">Explore Our Impact &rarr;</a>
         </div>
       </div>
     </div>
@@ -936,7 +940,7 @@
       </div>
     </div>
     <div class="why__actions reveal" style="text-align: center; margin-top: 48rem;">
-      <a href="about.html" class="btn _accent">Why Trust Altysier Group</a>
+      <a href="about.html" class="btn _accent">Why Trust Altysier Group &rarr;</a>
     </div>
   </div>
 </section>
@@ -1031,7 +1035,7 @@
           </div></div>
         </div>
         <div class="faq__action reveal" style="margin-top: 36rem;">
-          <a href="contact.html" class="btn _accent">Contact Our Group</a>
+          <a href="contact.html" class="btn _accent">Contact Our Group &rarr;</a>
         </div>
       </div>
     </div>
@@ -1160,6 +1164,6 @@
   </div>
 </footer>
 
-<script src="js/main.min.js?v=3.3"></script>
+<script src="js/main.min.js?v=3.4" defer></script>
 </body>
 </html>
