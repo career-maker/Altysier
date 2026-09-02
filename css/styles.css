@@ -57,6 +57,38 @@ html { scroll-behavior: smooth; overflow-x: hidden; }
 @media only screen and (min-width: 1025px) { html { scroll-padding-top: 110px; } }
 @media only screen and (max-width: 1024px) { html { scroll-padding-top: 76px; } }
 
+/* ---------------------------------------------------------------------- */
+/* Custom Sleek Scrollbar (Brand Red, Slim Height & Width, All Browsers)  */
+/* ---------------------------------------------------------------------- */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #900909 #f1f1f1;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #900909;
+  border-radius: 999px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6d0606;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 body, h1, h2, h3, h4, h5, h6, p, ul, ol, figure { margin: 0; padding: 0; }
 p { line-height: 1.35; }
 ul, ol { list-style: none; }
