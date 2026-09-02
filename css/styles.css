@@ -2717,6 +2717,37 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ---------------------------------------------------------------------- */
+/* Typewriter In-Animation & Cursor                                       */
+/* ---------------------------------------------------------------------- */
+.tw-char {
+  opacity: 0;
+  display: inline;
+  transition: opacity 0.04s ease-out;
+}
+.tw-char.tw-visible {
+  opacity: 1;
+}
+.tw-cursor {
+  display: inline-block;
+  width: 2.5px;
+  height: 0.82em;
+  background-color: var(--ink, #900909);
+  margin-left: 3px;
+  vertical-align: -0.04em;
+  animation: twCursorBlink 0.65s step-start infinite;
+  transition: opacity 0.4s ease;
+  border-radius: 1px;
+}
+.tw-cursor.tw-hidden {
+  opacity: 0;
+  animation: none;
+}
+@keyframes twCursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-fade,
@@ -2734,11 +2765,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .hero__title,
   .hero__text,
   .hero__actions,
-  .hero__stats {
+  .hero__stats,
+  .tw-char {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
     transition: none !important;
+  }
+  .tw-cursor {
+    display: none !important;
   }
   .group__accent-line,
   .sectors__accent-line,

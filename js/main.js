@@ -63,6 +63,7 @@
       done = true;
       document.documentElement.style.overflow = '';
       revealHeader();
+      try { window.dispatchEvent(new CustomEvent('altysier:page-ready')); } catch (e) {}
       if (preloader) {
         preloader.classList.add('is-done');
         window.setTimeout(function () {
@@ -451,5 +452,240 @@
   run(function () {
     var yearEl = document.getElementById('current-year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
+  });
+
+  /* ---------------------------------------------------------------------
+     Hero Stat Counter Numbers Animation
+     Counts up smoothly (00 -> 06, 00+ -> 07+, 00+ -> 18+, 00+ -> 20+)
+     --------------------------------------------------------------------- */
+  var animateHeroCounters = (function () {
+    var hasRun = false;
+    return function () {
+      if (hasRun) return;
+      hasRun = true;
+
+      var statValues = document.querySelectorAll('.hero__stats .stat-card__value');
+      if (!statValues.length) return;
+
+      statValues.forEach(function (el, index) {
+        var raw = el.textContent.trim();
+        var match = raw.match(/^(\D*)(\d+)(\D*)$/);
+        if (!match) return;
+
+        var prefix = match[1] || '';
+        var numStr = match[2];
+        var suffix = match[3] || '';
+        var target = parseInt(numStr, 10);
+        var padLength = numStr.length;
+        var hasLeadingZero = numStr.startsWith('0') && padLength > 1;
+
+        if (prefersReducedMotion) {
+          el.textContent = raw;
+          return;
+        }
+
+        el.textContent = prefix + (hasLeadingZero ? '0'.repeat(padLength) : '0') + suffix;
+
+        var delay = 350 + index * 140; // slight stagger between cards
+        var duration = 1600;
+
+        window.setTimeout(function () {
+          var startTime = null;
+          function tick(now) {
+            if (!startTime) startTime = now;
+            var elapsed = now - startTime;
+            var p = Math.min(1, elapsed / duration);
+            var easeOut = 1 - Math.pow(1 - p, 3);
+            var current = Math.round(target * easeOut);
+            var currentStr = hasLeadingZero ? String(current).padStart(padLength, '0') : String(current);
+            el.textContent = prefix + currentStr + suffix;
+
+            if (p < 1) {
+              window.requestAnimationFrame(tick);
+            } else {
+              el.textContent = raw;
+            }
+          }
+          window.requestAnimationFrame(tick);
+        }, delay);
+      });
+    };
+  })();
+
+  /* ---------------------------------------------------------------------
+     Typewriter In-Animation for Hero Title and Section Titles
+     --------------------------------------------------------------------- */
+  run(function () {
+    var titleSelectors = '.hero__title, .group__title, .sectors__title, .journey__title, .businesses__title, .reach__title, .why__title, .faq__title';
+    var titles = document.querySelectorAll(titleSelectors);
+    if (!titles.length) return;
+
+    var items = [];
+
+    titles.forEach(function (titleEl) {
+      var rawText = titleEl.textContent.replace(/\s+/g, ' ').trim();
+      titleEl.setAttribute('aria-label', rawText);
+      titleEl.classList.add('js-typewriter');
+
+      var charList = [];
+      var frag = document.createDocumentFragment();
+
+      function walk(node, container) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          var text = node.textContent;
+          for (var i = 0; i < text.length; i++) {
+            var ch = text[i];
+            var span = document.createElement('span');
+            span.className = 'tw-char';
+            span.textContent = ch;
+            span.setAttribute('aria-hidden', 'true');
+            if (ch === ' ') span.classList.add('tw-space');
+            container.appendChild(span);
+            charList.push({ el: span, char: ch });
+          }
+        } else if (node.nodeType === Node.ELEMENT_NODE) {
+          if (node.tagName.toLowerCase() === 'br') {
+            var br = document.createElement('br');
+            container.appendChild(br);
+            charList.push({ isBreak: true });
+          } else {
+            var elClone = node.cloneNode(false);
+            container.appendChild(elClone);
+            Array.from(node.childNodes).forEach(function (child) {
+              walk(child, elClone);
+            });
+          }
+        }
+      }
+
+      Array.from(titleEl.childNodes).forEach(function (child) {
+        walk(child, frag);
+      });
+
+      titleEl.innerHTML = '';
+      titleEl.appendChild(frag);
+
+      var cursor = document.createElement('span');
+      cursor.className = 'tw-cursor';
+      cursor.setAttribute('aria-hidden', 'true');
+      titleEl.appendChild(cursor);
+
+      items.push({
+        el: titleEl,
+        chars: charList,
+        cursor: cursor,
+        isHero: titleEl.classList.contains('hero__title'),
+        hasTyped: false
+      });
+    });
+
+    function typeTitle(item, onComplete) {
+      if (item.hasTyped) return;
+      item.hasTyped = true;
+      item.el.classList.add('in-view');
+
+      if (prefersReducedMotion) {
+        item.chars.forEach(function (c) {
+          if (c.el) c.el.classList.add('tw-visible');
+        });
+        item.cursor.classList.add('tw-hidden');
+        if (onComplete) onComplete();
+        return;
+      }
+
+      var idx = 0;
+      var chars = item.chars;
+      var cursor = item.cursor;
+
+      function step() {
+        if (idx >= chars.length) {
+          window.setTimeout(function () {
+            cursor.classList.add('tw-hidden');
+            if (onComplete) onComplete();
+          }, 1400);
+          return;
+        }
+
+        var cur = chars[idx];
+        var delay = item.isHero ? 32 : 24;
+
+        if (cur.isBreak) {
+          delay = 200;
+        } else if (cur.el) {
+          cur.el.classList.add('tw-visible');
+          cur.el.after(cursor);
+
+          var ch = cur.char;
+          if (ch === '.' || ch === '?' || ch === '!') {
+            delay = 180;
+          } else if (ch === ',') {
+            delay = 90;
+          }
+        }
+
+        idx++;
+        window.setTimeout(step, delay);
+      }
+
+      window.setTimeout(step, item.isHero ? 120 : 60);
+    }
+
+    // IntersectionObserver for section titles & hero stats
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var match = items.find(function (it) { return it.el === entry.target; });
+            if (match && !match.hasTyped) {
+              typeTitle(match);
+              observer.unobserve(entry.target);
+            }
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+      items.forEach(function (item) {
+        if (!item.isHero) {
+          observer.observe(item.el);
+        }
+      });
+
+      var statsObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateHeroCounters();
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+
+      var heroStats = document.querySelector('.hero__stats');
+      if (heroStats) statsObserver.observe(heroStats);
+    } else {
+      // Fallback if no IntersectionObserver
+      items.forEach(function (item) { typeTitle(item); });
+      animateHeroCounters();
+    }
+
+    // Hero Title & Hero Counters Trigger
+    var heroDone = false;
+    function triggerHero() {
+      if (heroDone) return;
+      heroDone = true;
+      var heroItem = items.find(function (it) { return it.isHero; });
+      if (heroItem) {
+        typeTitle(heroItem);
+      }
+      animateHeroCounters();
+    }
+
+    window.addEventListener('altysier:page-ready', triggerHero);
+    // Backup trigger if no preloader or after timeout
+    window.setTimeout(function () {
+      if (!document.querySelector('.preloader:not(.is-done)')) {
+        triggerHero();
+      }
+    }, 1200);
+    window.setTimeout(triggerHero, 4600);
   });
 })();
