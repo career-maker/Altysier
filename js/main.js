@@ -154,15 +154,15 @@
     }
 
     // Auto-calculate stagger delays for sibling cards and items
-    var containers = document.querySelectorAll('.stat-grid, .sectors__track, .value-pipeline, .strip-track, .why__list, .faq__list');
+    var containers = document.querySelectorAll('.stat-grid, .sectors__track, .value-pipeline, .strip-track, .why__list, .faq__list, .about-culture__grid, .about-vmm__flow, .about-ecosystem__grid');
     containers.forEach(function (container) {
-      var children = container.querySelectorAll('.stat-card, .sector-card, .value-step, .business-card, .principle__item, .faq__item');
+      var children = container.querySelectorAll('.stat-card, .sector-card, .value-step, .business-card, .principle__item, .faq__item, .culture-card, .vmm-stage, .ecosystem-pill');
       children.forEach(function (card, idx) {
         card.style.setProperty('--delay', (idx * 0.08) + 's');
       });
     });
 
-    var targets = document.querySelectorAll('.reveal, .stat-card, .sector-card, .value-step, .business-card, .principle__item, .faq__item, .testimonials-editorial, .eyebrow, .reach__stat, .hero__actions, .group__actions, .reach__action, .contact-form__submit');
+    var targets = document.querySelectorAll('.reveal, .stat-card, .sector-card, .value-step, .business-card, .principle__item, .faq__item, .testimonials-editorial, .eyebrow, .reach__stat, .hero__actions, .group__actions, .reach__action, .contact-form__submit, .culture-card, .vmm-stage, .ecosystem-pill, .leadership-spread, .about-intro__statement, .about-intro__narrative, .about-intro__photo-wrap');
     if (!targets.length) return;
 
     var io = new IntersectionObserver(function (entries) {
@@ -533,7 +533,7 @@
      | Statistic cards | Fade-up stagger        |     0.5s |
      --------------------------------------------------------------------- */
   run(function () {
-    var titleSelectors = '.hero__title, .group__title, .sectors__title, .journey__title, .businesses__title, .reach__title, .why__title, .faq__title';
+    var titleSelectors = '.hero__title, .group__title, .sectors__title, .journey__title, .businesses__title, .reach__title, .why__title, .faq__title, .inner-hero__title, .about-statement__heading, .about-cta__title, [data-masked-title]';
     var titles = document.querySelectorAll(titleSelectors);
 
     titles.forEach(function (titleEl) {
@@ -561,7 +561,7 @@
       }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
       titles.forEach(function (titleEl) {
-        if (!titleEl.classList.contains('hero__title')) {
+        if (!titleEl.classList.contains('hero__title') && !titleEl.classList.contains('inner-hero__title')) {
           titleObserver.observe(titleEl);
         }
       });
@@ -595,14 +595,14 @@
       animateReachCounters();
     }
 
-    // Hero Entrance Trigger (fires on preloader completion or immediate timeout fallback)
+    // Hero / Inner Hero Entrance Trigger
     var heroDone = false;
     function triggerHero() {
       if (heroDone) return;
       heroDone = true;
-      var hero = document.getElementById('hero');
+      var hero = document.getElementById('hero') || document.querySelector('.inner-hero');
       if (hero) hero.classList.add('is-revealed');
-      var heroTitle = document.querySelector('.hero__title');
+      var heroTitle = document.querySelector('.hero__title') || document.querySelector('.inner-hero__title');
       if (heroTitle) heroTitle.classList.add('in-view');
       animateHeroCounters();
     }

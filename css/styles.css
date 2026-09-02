@@ -2979,6 +2979,500 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .hero__stats .stat-card:nth-child(3), .reach__stats .reach__stat:nth-child(3) { --stat-delay: 0.2s; }
 .hero__stats .stat-card:nth-child(4), .reach__stats .reach__stat:nth-child(4) { --stat-delay: 0.3s; }
 
+/* ==========================================================================
+   INNER PAGES — Common & About Page Specific Layouts
+   ========================================================================== */
+
+/* Breadcrumbs */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+  font-family: Inter, sans-serif;
+  font-size: 13rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 24rem;
+  letter-spacing: 0.02em;
+}
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.85);
+  transition: color var(--t-fast);
+}
+.breadcrumb a:hover {
+  color: #ffffff;
+}
+.breadcrumb__sep {
+  opacity: 0.4;
+}
+
+/* 01. Inner Hero */
+.inner-hero {
+  position: relative;
+  min-height: 520rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 180rem 0 70rem;
+  background-color: var(--near-black);
+  color: #ffffff;
+  overflow: hidden;
+}
+.inner-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.inner-hero__bg .section-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.35;
+  filter: saturate(0.8);
+}
+.inner-hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.7) 0%, rgba(20, 20, 20, 0.92) 100%);
+}
+.inner-hero__container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+.inner-hero__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 58rem;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  max-width: 880rem;
+  margin-bottom: 20rem;
+}
+.inner-hero__text {
+  font-family: Inter, sans-serif;
+  font-size: 17rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 720rem;
+}
+
+/* 02. Who We Are */
+.about-intro {
+  position: relative;
+  padding: 100rem 0 110rem;
+  background-color: var(--paper);
+  overflow: hidden;
+}
+.about-intro__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 56rem;
+  align-items: flex-start;
+  margin-bottom: 50rem;
+}
+.about-intro__statement {
+  font-family: 'Oswald', sans-serif;
+  font-size: 34rem;
+  font-weight: 600;
+  line-height: 1.26;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.about-intro__narrative {
+  font-family: Inter, sans-serif;
+  font-size: 16rem;
+  line-height: 1.6;
+  color: #555555;
+}
+.about-intro__narrative p + p {
+  margin-top: 16rem;
+}
+.about-intro__photo-wrap {
+  position: relative;
+  width: 100%;
+  height: 480rem;
+  border-radius: 24rem;
+  overflow: hidden;
+  box-shadow: 0 16rem 40rem rgba(0, 0, 0, 0.08);
+  border: 1.5rem solid rgba(144, 9, 9, 0.12);
+}
+.about-intro__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.about-intro__photo-wrap:hover .about-intro__photo {
+  transform: scale(1.04);
+}
+
+/* 03. What Defines Altysier (Statement Banner) */
+.about-statement {
+  position: relative;
+  padding: 120rem 0;
+  background-color: var(--near-black);
+  color: #ffffff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.about-statement__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.about-statement__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.22;
+}
+.about-statement__scrim {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(144, 9, 9, 0.25) 0%, rgba(20, 20, 20, 0.95) 75%);
+}
+.about-statement__container {
+  position: relative;
+  z-index: 2;
+  max-width: 960rem;
+  margin: 0 auto;
+}
+.about-statement__heading {
+  font-family: 'Oswald', sans-serif;
+  font-size: 54rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 24rem;
+}
+.about-statement__text {
+  font-family: Inter, sans-serif;
+  font-size: 19rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 760rem;
+  margin: 0 auto;
+}
+
+/* 04. Our Culture (Interactive Composition) */
+.about-culture {
+  position: relative;
+  padding: 100rem 0 110rem;
+  background-color: #FAF4F4;
+  overflow: hidden;
+}
+.about-culture__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rem;
+  margin-top: 48rem;
+}
+.culture-card {
+  border-radius: 20rem;
+  border: 1.5rem solid rgba(144, 9, 9, 0.14);
+  background: #ffffff;
+  padding: 34rem 28rem 32rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4rem 20rem rgba(0, 0, 0, 0.025);
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.culture-card:hover {
+  transform: translateY(-6rem);
+  border-color: var(--ink);
+  box-shadow: 0 12rem 32rem rgba(144, 9, 9, 0.12);
+}
+.culture-card__num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 32rem;
+  font-weight: 300;
+  color: rgba(144, 9, 9, 0.25);
+  margin-bottom: 12rem;
+  line-height: 1;
+}
+.culture-card__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  margin-bottom: 12rem;
+}
+.culture-card__text {
+  font-family: Inter, sans-serif;
+  font-size: 14.5rem;
+  line-height: 1.5;
+  color: #555555;
+}
+
+/* 05. Vision / Mission / Motto (Three-Stage Editorial) */
+.about-vmm {
+  position: relative;
+  padding: 100rem 0 110rem;
+  background-color: var(--paper);
+  overflow: hidden;
+}
+.about-vmm__flow {
+  display: flex;
+  flex-direction: column;
+  gap: 24rem;
+  margin-top: 48rem;
+  max-width: 1080rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+.vmm-stage {
+  display: grid;
+  grid-template-columns: 220rem 1fr;
+  gap: 36rem;
+  align-items: center;
+  padding: 38rem 44rem;
+  background: #ffffff;
+  border-radius: 24rem;
+  border: 1.5rem solid rgba(144, 9, 9, 0.14);
+  box-shadow: 0 6rem 24rem rgba(0, 0, 0, 0.02);
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.vmm-stage:hover {
+  transform: translateY(-4rem);
+  border-color: var(--ink);
+  box-shadow: 0 12rem 32rem rgba(144, 9, 9, 0.1);
+}
+.vmm-stage._accent {
+  background: #FAF4F4;
+  border-color: rgba(144, 9, 9, 0.2);
+}
+.vmm-stage__header {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+}
+.vmm-stage__num {
+  font-family: Inter, sans-serif;
+  font-size: 12rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(144, 9, 9, 0.6);
+}
+.vmm-stage__name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38rem;
+  color: var(--ink);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+.vmm-stage__statement {
+  font-family: 'Oswald', sans-serif;
+  font-size: 24rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* 06. Leadership Spread */
+.about-leadership {
+  position: relative;
+  padding: 100rem 0 110rem;
+  background-color: #FAF4F4;
+  overflow: hidden;
+}
+.leadership-spread {
+  display: grid;
+  grid-template-columns: 380rem 1fr;
+  gap: 60rem;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 28rem;
+  padding: 48rem;
+  border: 1.5rem solid rgba(144, 9, 9, 0.14);
+  box-shadow: 0 10rem 36rem rgba(0, 0, 0, 0.04);
+}
+.leadership-spread__photo-wrap {
+  position: relative;
+  width: 100%;
+  height: 440rem;
+  border-radius: 20rem;
+  overflow: hidden;
+  border: 1.5rem solid rgba(144, 9, 9, 0.12);
+}
+.leadership-spread__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.leadership-spread__content {
+  display: flex;
+  flex-direction: column;
+}
+.leadership-spread__quote {
+  font-family: Inter, sans-serif;
+  font-size: 19rem;
+  line-height: 1.6;
+  color: var(--ink);
+  font-weight: 400;
+  margin-bottom: 28rem;
+  font-style: italic;
+}
+.leadership-spread__meta {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20rem;
+  border-top: 1.5rem solid rgba(144, 9, 9, 0.12);
+}
+.leadership-spread__name {
+  font-family: 'Oswald', sans-serif;
+  font-size: 26rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+}
+.leadership-spread__role {
+  font-family: Inter, sans-serif;
+  font-size: 13.5rem;
+  color: #666666;
+  margin-top: 4rem;
+  font-weight: 500;
+}
+
+/* 07. Business Ecosystem Overview */
+.about-ecosystem {
+  position: relative;
+  padding: 100rem 0 110rem;
+  background-color: var(--paper);
+  overflow: hidden;
+}
+.about-ecosystem__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16rem;
+  margin: 44rem 0 40rem;
+}
+.ecosystem-pill {
+  display: flex;
+  align-items: center;
+  gap: 14rem;
+  padding: 18rem 22rem;
+  background: #ffffff;
+  border-radius: 16rem;
+  border: 1.5rem solid rgba(144, 9, 9, 0.14);
+  box-shadow: 0 4rem 16rem rgba(0, 0, 0, 0.02);
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+}
+.ecosystem-pill:hover {
+  transform: translateY(-4rem);
+  border-color: var(--ink);
+  box-shadow: 0 8rem 24rem rgba(144, 9, 9, 0.1);
+}
+.ecosystem-pill__icon {
+  width: 36rem;
+  height: 36rem;
+  border-radius: 10rem;
+  background: rgba(144, 9, 9, 0.08);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ecosystem-pill__icon svg {
+  width: 18rem;
+  height: 18rem;
+}
+.ecosystem-pill__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16.5rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+/* 08. About CTA Banner */
+.about-cta {
+  position: relative;
+  padding: 110rem 0 120rem;
+  background-color: var(--near-black);
+  color: #ffffff;
+  overflow: hidden;
+  text-align: center;
+}
+.about-cta__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.about-cta__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+}
+.about-cta__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.85) 0%, rgba(144, 9, 9, 0.45) 100%);
+}
+.about-cta__container {
+  position: relative;
+  z-index: 2;
+  max-width: 860rem;
+  margin: 0 auto;
+}
+.about-cta__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48rem;
+  font-weight: 700;
+  line-height: 1.15;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin-bottom: 20rem;
+}
+.about-cta__text {
+  font-family: Inter, sans-serif;
+  font-size: 17rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 680rem;
+  margin: 0 auto 36rem;
+}
+
+/* Responsive Overrides for About Page */
+@media only screen and (max-width: 1024px) {
+  .inner-hero { min-height: 440rem; padding: 140rem 0 50rem; }
+  .inner-hero__title { font-size: 42rem; }
+  .about-intro { padding: 60rem 0; }
+  .about-intro__grid { grid-template-columns: 1fr; gap: 28rem; }
+  .about-intro__photo-wrap { height: 340rem; }
+  .about-statement { padding: 80rem 0; }
+  .about-statement__heading { font-size: 38rem; }
+  .about-culture { padding: 60rem 0; }
+  .about-culture__grid { grid-template-columns: repeat(2, 1fr); }
+  .about-vmm { padding: 60rem 0; }
+  .vmm-stage { grid-template-columns: 1fr; gap: 16rem; padding: 28rem; }
+  .about-leadership { padding: 60rem 0; }
+  .leadership-spread { grid-template-columns: 1fr; padding: 32rem; gap: 32rem; }
+  .leadership-spread__photo-wrap { height: 360rem; }
+  .about-ecosystem { padding: 60rem 0; }
+  .about-ecosystem__grid { grid-template-columns: repeat(2, 1fr); }
+  .about-cta { padding: 80rem 0 90rem; }
+  .about-cta__title { font-size: 36rem; }
+}
+
+@media only screen and (max-width: 640px) {
+  .inner-hero { min-height: 380rem; padding: 120rem 0 40rem; }
+  .inner-hero__title { font-size: 32rem; }
+  .about-intro__statement { font-size: 24rem; }
+  .about-statement__heading { font-size: 28rem; }
+  .about-culture__grid { grid-template-columns: 1fr; }
+  .about-ecosystem__grid { grid-template-columns: 1fr; }
+  .leadership-spread__quote { font-size: 16rem; }
+}
+
 /* Accessibility fallback */
 @media (prefers-reduced-motion: reduce) {
   .eyebrow,
@@ -2999,6 +3493,9 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .contact-form__submit,
   .stat-card,
   .reach__stat,
+  .culture-card,
+  .vmm-stage,
+  .ecosystem-pill,
   .group__accent-line,
   .sectors__accent-line,
   .journey__accent-line,
