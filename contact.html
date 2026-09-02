@@ -121,26 +121,25 @@
 <main>
 
 <!-- ==========================================================================
-     01. CONTACT HERO / BANNER (WordPress Template Part: template-parts/banner-inner.php)
-     ACF Group: inner_banner_fields
-     Editable: Background Image, Watermark, Breadcrumbs, Page Title, Positioning Statement
+     01. INNER HERO / BANNER (WordPress Template Part: template-parts/banner-inner.php)
+     ACF Group: banner_fields
+     Editable: Background Image, Watermark, Breadcrumbs, Title, Subtitle
      ========================================================================== -->
-<section class="inner-hero about-hero" id="contact-hero" data-wp-section="inner_banner">
-  <div class="inner-hero__bg about-hero__bg" aria-hidden="true" data-wp-field="banner_bg_image">
+<section class="inner-hero" id="contact-hero" data-wp-section="page_banner">
+  <div class="inner-hero__bg" aria-hidden="true" data-wp-field="banner_bg_image">
     <img class="section-photo" src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=2000&q=80&auto=format&fit=crop" alt="" loading="eager" decoding="async">
-    <div class="inner-hero__scrim about-hero__scrim"></div>
+    <div class="inner-hero__scrim"></div>
   </div>
-  <span class="section-watermark" aria-hidden="true" data-wp-field="watermark_text">CONNECT</span>
+  <span class="section-watermark" aria-hidden="true" data-wp-field="banner_watermark">CONNECT</span>
 
-  <div class="container inner-hero__container about-hero__container">
+  <div class="container inner-hero__container">
     <nav class="breadcrumb reveal" aria-label="Breadcrumbs" data-wp-field="breadcrumbs">
       <a href="index.html">Home</a>
       <span class="breadcrumb__sep">/</span>
       <span aria-current="page" data-wp-field="breadcrumb_current">Contact Us</span>
     </nav>
-    <p class="eyebrow reveal" style="color: rgba(255, 255, 255, 0.85);" data-wp-field="banner_eyebrow">Get In Touch</p>
-    <h1 class="inner-hero__title about-hero__title reveal" data-wp-field="page_title">Let&rsquo;s Start a Conversation.</h1>
-    <p class="inner-hero__text about-hero__text reveal" data-wp-field="lead_text">Whether you are exploring a business opportunity, partnership, supply requirement or general enquiry, connect with our team across our global headquarters and regional offices.</p>
+    <h1 class="inner-hero__title reveal" data-wp-field="banner_title">Let&rsquo;s Start a Conversation.</h1>
+    <p class="inner-hero__text reveal" data-wp-field="banner_subtitle">Whether you are exploring a business opportunity, partnership, supply requirement or general enquiry, connect with our team across our global headquarters and regional offices.</p>
   </div>
 </section>
 
