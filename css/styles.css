@@ -513,10 +513,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   align-items: center;
   gap: 36rem;
   padding: 0 38rem;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 15rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 18rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   text-transform: none;
   box-shadow: 0 4rem 20rem rgba(0, 0, 0, 0.06);
 }
@@ -649,11 +649,11 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   justify-content: center;
   height: 52rem;
   padding: 0 22rem;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 15rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16.5rem;
   font-weight: 600;
   text-transform: none;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.02em;
   background-color: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -717,10 +717,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 .header__hamburger.active { transform: translateX(0); visibility: visible; }
 .header__hamburger-menu { display: flex; flex-direction: column; gap: 20rem; padding-top: 24rem; padding-bottom: 50rem; }
 .header__hamburger-menu > a {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(30rem, 7.5vw, 38rem);
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(34rem, 8.5vw, 42rem);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
   line-height: 1.15;
   text-transform: none;
   color: #fff;
@@ -748,10 +748,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   background: none;
   border: none;
   padding: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: clamp(30rem, 7.5vw, 38rem);
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(34rem, 8.5vw, 42rem);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
   line-height: 1.15;
   text-transform: none;
   color: #fff;
@@ -786,14 +786,15 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   display: flex;
 }
 .header__hamburger-subitem {
-  font-family: 'Inter', sans-serif !important;
-  font-size: 16.5rem !important;
+  font-family: 'Oswald', sans-serif !important;
+  font-size: 17rem !important;
   font-weight: 500 !important;
-  color: rgba(255, 255, 255, 0.85) !important;
+  letter-spacing: 0.01em !important;
+  color: rgba(255, 255, 255, 0.88) !important;
   text-transform: none !important;
-  padding: 4rem 0 !important;
+  padding: 5rem 0 !important;
   border-bottom: none !important;
-  line-height: 1.4 !important;
+  line-height: 1.35 !important;
   transition: color var(--t-fast), transform var(--t-fast) !important;
 }
 .header__hamburger-subitem:hover,
