@@ -76,7 +76,7 @@
 
     document.documentElement.style.overflow = 'hidden';
     // Absolute worst case: never let the page stay stuck longer than this.
-    window.setTimeout(finish, 4500);
+    window.setTimeout(finish, 3000);
 
     if (prefersReducedMotion) { finish(); return; }
 
@@ -88,15 +88,15 @@
         preloader.classList.add('is-counting');
         var target = numberEl ? Number(numberEl.getAttribute('data-num') || 100) : 100;
         var start = performance.now();
-        var duration = 1400;
+        var duration = 900;
         function tick(now) {
           var p = Math.min(1, (now - start) / duration);
           if (numberEl) numberEl.textContent = String(Math.ceil(p * target));
           if (p < 1) window.requestAnimationFrame(tick);
-          else window.setTimeout(finish, 250);
+          else window.setTimeout(finish, 150);
         }
         window.requestAnimationFrame(tick);
-      }, 650);
+      }, 400);
     };
 
     if (document.readyState === 'complete') begin();

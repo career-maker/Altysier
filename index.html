@@ -19,11 +19,11 @@
      Who We Are → What We Do → How We Create Value → Our Companies →
      Our Reach & Impact → Why Trust Us → Insights & FAQs → Partnership.
      See WP-CONVERSION-NOTES.md. No external animation library — see
-     css/styles.min.css?v=3.4 and js/main.min.js?v=3.4 header comments.
+     css/styles.min.css?v=3.5 and js/main.min.js?v=3.5 header comments.
 
      Brand palette + logo (img/logo-icon.png, img/logo-full.png) are the
      client's own supplied assets — colors sampled directly from the logo
-     file, see the :root comment in css/styles.min.css?v=3.4
+     file, see the :root comment in css/styles.min.css?v=3.5
      ========================================================================== -->
 
 <link rel="icon" type="image/png" href="img/favicon.png">
@@ -35,8 +35,8 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Condensed:wght@400;600;700;800&display=swap" rel="stylesheet"></noscript>
 
 <!-- Preload LCP hero image for faster First/Largest Contentful Paint -->
-<link rel="preload" as="image" href="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=2000&q=80&auto=format&fit=crop" fetchpriority="high">
-<link rel="stylesheet" href="css/styles.min.css?v=3.4">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1400&q=80&auto=format&fit=crop" fetchpriority="high">
+<link rel="stylesheet" href="css/styles.min.css?v=3.5">
 <style>
 /* Hero Watermark Marquee — STRICTLY mobile only (<640px) */
 .hero__marquee { display: none !important; }
@@ -116,7 +116,7 @@
      ========================================================================== -->
 <header class="header">
   <div class="container header__container">
-    <a href="index.html" class="header__logo"><img src="img/logo-icon.png" alt="" class="header__logo-icon">ALTYSIER<span>GROUP</span></a>
+    <a href="index.html" class="header__logo"><img src="img/logo-icon.png" alt="" class="header__logo-icon" width="59" height="52">ALTYSIER<span>GROUP</span></a>
 
     <nav class="header__menu" aria-label="Primary">
       <a href="about.html" class="header__menu-item text-hover">
@@ -214,7 +214,7 @@
      ========================================================================== -->
 <section class="hero" id="hero">
   <div class="hero__bg" aria-hidden="true">
-    <img class="section-photo" src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=2000&q=80&auto=format&fit=crop" alt="" loading="eager" decoding="async" fetchpriority="high">
+    <img class="section-photo" src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1400&q=80&auto=format&fit=crop" srcset="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800&q=75&auto=format&fit=crop 800w, https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1400&q=80&auto=format&fit=crop 1400w" sizes="100vw" alt="" loading="eager" decoding="async" fetchpriority="high">
     <div class="hero__scrim"></div>
   </div>
   <span class="section-watermark" aria-hidden="true">ALTYSIER GROUP</span>
@@ -319,7 +319,7 @@
         <!-- 01 International Trade -->
         <div class="sector-card">
           <div class="sector-card__photo-wrap">
-            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1000&q=75&auto=format&fit=crop" alt="International Trade" loading="lazy">
+            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=500&q=65&auto=format&fit=crop" alt="International Trade" loading="lazy">
             <div class="sector-card__badge">
               <div class="sector-card__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h18l-2.2 3.3a2 2 0 01-1.7.9H6.9a2 2 0 01-1.7-.9L3 17Z"/><path d="M6 17v-6h5v6M13 17V7h4v10"/></svg>
@@ -338,7 +338,7 @@
         <!-- 02 Industrial Investment -->
         <div class="sector-card">
           <div class="sector-card__photo-wrap">
-            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1000&q=75&auto=format&fit=crop" alt="Industrial Investment" loading="lazy">
+            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&q=65&auto=format&fit=crop" alt="Industrial Investment" loading="lazy">
             <div class="sector-card__badge">
               <div class="sector-card__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V11l5 3v-3l5 3v-3l5 3v7H3Z"/><path d="M7 21v-3M12 21v-3M17 21v-3"/></svg>
@@ -357,7 +357,7 @@
         <!-- 03 Manufacturing -->
         <div class="sector-card">
           <div class="sector-card__photo-wrap">
-            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1000&q=75&auto=format&fit=crop" alt="Manufacturing" loading="lazy">
+            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&q=65&auto=format&fit=crop" alt="Manufacturing" loading="lazy">
             <div class="sector-card__badge">
               <div class="sector-card__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.2"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.2"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.2"/></svg>
@@ -376,7 +376,7 @@
         <!-- 04 Transportation & Logistics -->
         <div class="sector-card">
           <div class="sector-card__photo-wrap">
-            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=1000&q=75&auto=format&fit=crop" alt="Transportation & Logistics" loading="lazy">
+            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=500&q=65&auto=format&fit=crop" alt="Transportation & Logistics" loading="lazy">
             <div class="sector-card__badge">
               <div class="sector-card__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="8" width="10.5" height="8" rx="1"/><path d="M13 11h3.8l3.2 3v3h-7"/><circle cx="6.5" cy="18.2" r="1.5"/><circle cx="16.5" cy="18.2" r="1.5"/></svg>
@@ -395,7 +395,7 @@
         <!-- 05 Agriculture & Food Security -->
         <div class="sector-card">
           <div class="sector-card__photo-wrap">
-            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1000&q=75&auto=format&fit=crop" alt="Agriculture & Food Security" loading="lazy">
+            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=500&q=65&auto=format&fit=crop" alt="Agriculture & Food Security" loading="lazy">
             <div class="sector-card__badge">
               <div class="sector-card__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v11M12 3c-3 1-5 4-5 8a5 5 0 0010 0c0-4-2-7-5-8Z"/><path d="M7 21h10"/></svg>
@@ -414,7 +414,7 @@
         <!-- 06 Healthcare & Medical Supplies -->
         <div class="sector-card">
           <div class="sector-card__photo-wrap">
-            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=1000&q=75&auto=format&fit=crop" alt="Healthcare & Medical Supplies" loading="lazy">
+            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&q=65&auto=format&fit=crop" alt="Healthcare & Medical Supplies" loading="lazy">
             <div class="sector-card__badge">
               <div class="sector-card__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg>
@@ -433,7 +433,7 @@
         <!-- 07 Mobility & Vehicle Distribution -->
         <div class="sector-card">
           <div class="sector-card__photo-wrap">
-            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=1000&q=75&auto=format&fit=crop" alt="Mobility & Vehicle Distribution" loading="lazy">
+            <img class="sector-card__photo" src="https://images.unsplash.com/photo-1565043666747-69f6646db940?w=500&q=65&auto=format&fit=crop" alt="Mobility & Vehicle Distribution" loading="lazy">
             <div class="sector-card__badge">
               <div class="sector-card__icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l1.4-4.6A2 2 0 017.3 10h9.4a2 2 0 011.9 1.4L20 16"/><rect x="3" y="16" width="18" height="3.2" rx="1"/><circle cx="7" cy="19.6" r="1.4"/><circle cx="17" cy="19.6" r="1.4"/></svg>
@@ -486,7 +486,7 @@
           </div>
         </div>
         <div class="value-step__image-wrap">
-          <img class="value-step__image" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&q=75&auto=format&fit=crop" alt="Opportunity Identification" loading="lazy">
+          <img class="value-step__image" src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=280&q=65&auto=format&fit=crop" alt="Opportunity Identification" loading="lazy">
         </div>
         <div class="value-step__body">
           <h3 class="value-step__title">Opportunity Identification</h3>
@@ -505,7 +505,7 @@
           </div>
         </div>
         <div class="value-step__image-wrap">
-          <img class="value-step__image" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=75&auto=format&fit=crop" alt="Strategic Capital Allocation" loading="lazy">
+          <img class="value-step__image" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=280&q=65&auto=format&fit=crop" alt="Strategic Capital Allocation" loading="lazy">
         </div>
         <div class="value-step__body">
           <h3 class="value-step__title">Strategic Capital</h3>
@@ -525,7 +525,7 @@
           </div>
         </div>
         <div class="value-step__image-wrap">
-          <img class="value-step__image" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&q=75&auto=format&fit=crop" alt="Operational Excellence" loading="lazy">
+          <img class="value-step__image" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=280&q=65&auto=format&fit=crop" alt="Operational Excellence" loading="lazy">
         </div>
         <div class="value-step__body">
           <h3 class="value-step__title">Operational Excellence</h3>
@@ -546,7 +546,7 @@
           </div>
         </div>
         <div class="value-step__image-wrap">
-          <img class="value-step__image" src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=400&q=75&auto=format&fit=crop" alt="Market Integration" loading="lazy">
+          <img class="value-step__image" src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=280&q=65&auto=format&fit=crop" alt="Market Integration" loading="lazy">
         </div>
         <div class="value-step__body">
           <h3 class="value-step__title">Market Integration</h3>
@@ -565,7 +565,7 @@
           </div>
         </div>
         <div class="value-step__image-wrap">
-          <img class="value-step__image" src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=400&q=75&auto=format&fit=crop" alt="Sustainable Value" loading="lazy">
+          <img class="value-step__image" src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=280&q=65&auto=format&fit=crop" alt="Sustainable Value" loading="lazy">
         </div>
         <div class="value-step__body">
           <h3 class="value-step__title">Sustainable Value</h3>
@@ -1164,6 +1164,6 @@
   </div>
 </footer>
 
-<script src="js/main.min.js?v=3.4" defer></script>
+<script src="js/main.min.js?v=3.5" defer></script>
 </body>
 </html>
