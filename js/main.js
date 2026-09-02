@@ -130,16 +130,25 @@
     var btn = document.querySelector('.header__hamburger-btn');
     var panel = document.querySelector('.header__hamburger');
     if (!btn || !panel) return;
+
     function setOpen(open) {
       btn.classList.toggle('active', open);
       panel.classList.toggle('active', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       document.documentElement.style.overflow = open ? 'hidden' : '';
     }
+
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      setOpen(!btn.classList.contains('active'));
+    });
+
     var parentBtn = panel.querySelector('.header__hamburger-parent');
     var subMenu = panel.querySelector('.header__hamburger-sub');
     if (parentBtn && subMenu) {
       parentBtn.addEventListener('click', function (e) {
+        e.preventDefault();
         e.stopPropagation();
         var isOpen = parentBtn.classList.toggle('active');
         subMenu.classList.toggle('active', isOpen);
@@ -149,6 +158,13 @@
 
     panel.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () { setOpen(false); });
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && btn.classList.contains('active')) {
+        setOpen(false);
+      }
     });
   });
 

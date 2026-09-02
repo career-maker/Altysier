@@ -4000,25 +4000,28 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 /* 07. Visual Showcase */
 .company-showcase {
   position: relative;
-  padding: 100rem 0 110rem;
+  padding: 100rem 0 130rem;
   background-color: var(--paper);
-  overflow: hidden;
 }
 .showcase-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1.35fr 1fr;
   gap: 24rem;
   margin-top: 48rem;
-  height: 480rem;
+  margin-bottom: 24rem;
+  height: 520rem;
 }
 .showcase-lead {
   position: relative;
   border-radius: 24rem;
   overflow: hidden;
   height: 100%;
+  min-height: 0;
   border: 1.5rem solid rgba(144, 9, 9, 0.12);
+  box-shadow: 0 8rem 28rem rgba(0, 0, 0, 0.04);
 }
 .showcase-lead img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -4028,19 +4031,23 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   transform: scale(1.04);
 }
 .showcase-side {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   gap: 24rem;
   height: 100%;
+  min-height: 0;
 }
 .showcase-side-item {
   position: relative;
-  flex: 1;
   border-radius: 20rem;
   overflow: hidden;
+  height: 100%;
+  min-height: 0;
   border: 1.5rem solid rgba(144, 9, 9, 0.12);
+  box-shadow: 0 6rem 20rem rgba(0, 0, 0, 0.04);
 }
 .showcase-side-item img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -4134,6 +4141,346 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .company-hero { min-height: 400rem; padding: 130rem 0 40rem; }
   .company-hero__title { font-size: 32rem; }
   .company-value__heading { font-size: 26rem; }
+}
+
+/* ==========================================================================
+   CSR & SUSTAINABILITY PAGE STYLES
+   ========================================================================== */
+.csr-principles-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20rem;
+  margin-top: 48rem;
+}
+.csr-principle-card {
+  background: #ffffff;
+  border-radius: 20rem;
+  border: 1.5rem solid rgba(144, 9, 9, 0.12);
+  padding: 32rem 24rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6rem 24rem rgba(0, 0, 0, 0.03);
+  transition: transform var(--t-fast), border-color var(--t-fast), box-shadow var(--t-fast);
+  position: relative;
+  overflow: hidden;
+}
+.csr-principle-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+}
+.csr-principle-card:hover {
+  transform: translateY(-6rem);
+  border-color: rgba(144, 9, 9, 0.3);
+  box-shadow: 0 16rem 36rem rgba(144, 9, 9, 0.08);
+}
+.csr-principle-card:hover::before {
+  transform: scaleX(1);
+}
+.csr-principle-card__num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.12em;
+  margin-bottom: 18rem;
+}
+.csr-principle-card__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  line-height: 1.25;
+  margin-bottom: 12rem;
+}
+.csr-principle-card__text {
+  font-family: Inter, sans-serif;
+  font-size: 14rem;
+  line-height: 1.6;
+  color: #555555;
+}
+
+/* Feature 2-Column Sections (Economic Growth & Food Security) */
+.csr-feature-section {
+  position: relative;
+  padding: 110rem 0 120rem;
+  background-color: var(--paper);
+  overflow: hidden;
+}
+.csr-feature-section:nth-of-type(even) {
+  background-color: #FAF4F4;
+}
+.csr-feature-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60rem;
+  align-items: center;
+  margin-top: 40rem;
+}
+.csr-feature-grid._reverse {
+  grid-template-columns: 1fr 1.1fr;
+}
+.csr-feature-grid._reverse .csr-feature__photo-wrap {
+  order: 2;
+}
+.csr-feature-grid._reverse .csr-feature__content {
+  order: 1;
+}
+.csr-feature__photo-wrap {
+  position: relative;
+  border-radius: 28rem;
+  overflow: hidden;
+  border: 1.5rem solid rgba(144, 9, 9, 0.12);
+  box-shadow: 0 12rem 36rem rgba(0, 0, 0, 0.06);
+  height: 520rem;
+}
+.csr-feature__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+.csr-feature__photo-wrap:hover .csr-feature__photo {
+  transform: scale(1.03);
+}
+.csr-feature__badge {
+  position: absolute;
+  bottom: 24rem;
+  left: 24rem;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  padding: 10rem 20rem;
+  border-radius: 999rem;
+  font-family: 'Oswald', sans-serif;
+  font-size: 13rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--ink);
+  letter-spacing: 0.06em;
+  border: 1px solid rgba(144, 9, 9, 0.12);
+}
+.csr-feature__statement {
+  font-family: 'Oswald', sans-serif;
+  font-size: 26rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+  margin-bottom: 24rem;
+}
+.csr-feature__lead {
+  font-family: Inter, sans-serif;
+  font-size: 16rem;
+  line-height: 1.7;
+  color: #444444;
+  margin-bottom: 32rem;
+}
+.csr-feature__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16rem;
+}
+.csr-feature__item {
+  background: #ffffff;
+  border-radius: 14rem;
+  border: 1px solid rgba(144, 9, 9, 0.1);
+  padding: 16rem 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  box-shadow: 0 4rem 14rem rgba(0, 0, 0, 0.02);
+}
+.csr-feature__item-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+.csr-feature__item-desc {
+  font-family: Inter, sans-serif;
+  font-size: 13rem;
+  line-height: 1.5;
+  color: #666666;
+}
+
+/* Environmental Responsibility Cards */
+.csr-env-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24rem;
+  margin-top: 48rem;
+}
+.csr-env-card {
+  background: #ffffff;
+  border-radius: 20rem;
+  border: 1.5rem solid rgba(144, 9, 9, 0.12);
+  overflow: hidden;
+  box-shadow: 0 6rem 20rem rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--t-fast), border-color var(--t-fast);
+}
+.csr-env-card:hover {
+  transform: translateY(-5rem);
+  border-color: rgba(144, 9, 9, 0.3);
+}
+.csr-env-card__photo-wrap {
+  position: relative;
+  height: 200rem;
+  overflow: hidden;
+}
+.csr-env-card__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+.csr-env-card:hover .csr-env-card__photo {
+  transform: scale(1.05);
+}
+.csr-env-card__body {
+  padding: 24rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.csr-env-card__num {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 8rem;
+}
+.csr-env-card__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 18.5rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  line-height: 1.25;
+  margin-bottom: 10rem;
+}
+.csr-env-card__desc {
+  font-family: Inter, sans-serif;
+  font-size: 13.5rem;
+  line-height: 1.55;
+  color: #555555;
+}
+
+/* Impact Across the Group */
+.csr-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20rem;
+  margin-top: 48rem;
+}
+.csr-impact-card {
+  background: #ffffff;
+  border-radius: 20rem;
+  border: 1.5rem solid rgba(144, 9, 9, 0.14);
+  padding: 28rem 22rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 6rem 22rem rgba(0, 0, 0, 0.03);
+  transition: transform var(--t-fast), border-color var(--t-fast);
+}
+.csr-impact-card:hover {
+  transform: translateY(-5rem);
+  border-color: var(--ink);
+}
+.csr-impact-card__flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rem;
+  padding-bottom: 14rem;
+  border-bottom: 1px solid rgba(144, 9, 9, 0.1);
+}
+.csr-impact-card__source {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.csr-impact-card__arrow {
+  color: var(--ink);
+  font-size: 18rem;
+  font-weight: 700;
+}
+.csr-impact-card__target {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.csr-impact-card__title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 21rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  line-height: 1.25;
+  margin-bottom: 12rem;
+}
+.csr-impact-card__text {
+  font-family: Inter, sans-serif;
+  font-size: 13.5rem;
+  line-height: 1.6;
+  color: #555555;
+  margin-bottom: 20rem;
+  flex: 1;
+}
+.csr-impact-card__link {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6rem;
+  transition: color var(--t-fast);
+}
+.csr-impact-card__link:hover {
+  color: var(--accent);
+}
+
+@media only screen and (max-width: 1200px) {
+  .csr-principles-grid { grid-template-columns: repeat(3, 1fr); }
+  .csr-env-grid { grid-template-columns: repeat(2, 1fr); }
+  .csr-impact-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media only screen and (max-width: 900px) {
+  .csr-feature-grid, .csr-feature-grid._reverse { grid-template-columns: 1fr; gap: 32rem; }
+  .csr-feature__photo-wrap { height: 360rem; order: 1 !important; }
+  .csr-feature__content { order: 2 !important; }
+  .csr-principles-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media only screen and (max-width: 640px) {
+  .csr-principles-grid { grid-template-columns: 1fr; }
+  .csr-env-grid { grid-template-columns: 1fr; }
+  .csr-impact-grid { grid-template-columns: 1fr; }
+  .csr-feature__list { grid-template-columns: 1fr; }
+  .csr-feature__photo-wrap { height: 280rem; }
+  .csr-feature__statement { font-size: 22rem; }
 }
 
 /* Accessibility fallback */

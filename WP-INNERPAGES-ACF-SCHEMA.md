@@ -146,4 +146,32 @@ Similarly, `about.html` maps to `page-about.php` with modular layouts:
 7. `template-parts/about/ecosystem.php` (Governance & Group operating model)
 8. `template-parts/about/cta.php` (Partnership Call to Action)
 
+## 5. CSR & Sustainability Page (`page-csr.php`)
+
+`csr.html` maps to `page-csr.php` using Flexible Content layouts for the 4 established pillars plus group impact:
+1. `template-parts/banner-inner.php`: Reusable Inner Hero (`banner_bg_image`, `watermark_text`, `breadcrumbs`, `page_title`, `lead_text`).
+2. `csr_ethical_business` (Pillar 01 · Doing Business the Right Way):
+   - Eyebrow (`ethical_eyebrow` - Text)
+   - Title (`ethical_heading` - Text)
+   - Editorial Statement (`ethical_statement` - Textarea)
+   - Supporting Narrative (`ethical_narrative` - WYSIWYG)
+   - Principles Repeater (`ethical_principles` - Repeater): `number`, `title`, `text`
+3. `csr_economic_growth` (Pillar 02 · Creating Opportunity. Supporting Growth.):
+   - Statement (`economic_statement` - Textarea)
+   - Lead copy (`economic_lead` - Textarea)
+   - Photo (`economic_photo` - Image)
+   - Points Repeater (`economic_points` - Repeater): `title`, `desc`
+4. `csr_food_security` (Pillar 03 · Strengthening Food Security):
+   - Statement (`food_statement` - Textarea)
+   - Lead copy (`food_lead` - Textarea)
+   - Photo (`food_photo` - Image)
+   - Points Repeater (`food_points` - Repeater): `title`, `desc`
+5. `csr_environmental` (Pillar 04 · Operating With Greater Responsibility):
+   - Eyebrow, Heading, Subheading
+   - Operational Initiatives Repeater (`env_initiatives` - Repeater): `photo`, `number`, `title`, `desc`
+6. `csr_group_impact` (Integrated Group Impact):
+   - Group Impact Cards Repeater (`group_impact_cards` - Repeater): `source`, `arrow`, `target`, `title`, `text`, `link`
+7. `csr_cta` (Partner With Purpose CTA):
+   - Editable background image, watermark, eyebrow, heading, text, button label & link
+
 All sections include corresponding `data-wp-section` and `data-wp-field` semantic attributes in the static markup for zero-guesswork developer implementation.
