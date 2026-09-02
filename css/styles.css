@@ -2786,90 +2786,192 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   transform: scaleX(1);
 }
 
-/* Hero Section Choreographed Initial Entrance */
-.hero__eyebrow {
-  animation: heroInFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
-}
-.hero__title {
-  animation: heroInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
-}
-.hero__text {
-  animation: heroInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
-}
-.hero__actions {
-  animation: heroInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
-}
-.hero__stats {
-  animation: heroInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.7s both;
-}
+/* ==========================================================================
+   SPECIFIED IN-ANIMATIONS SYSTEM
+   | Element         | Animation              | Duration |
+   | Section label   | Fade + slight slide    |     0.5s |
+   | Main title      | Masked slide-up        |     0.8s |
+   | Each title line | Stagger                |     0.1s |
+   | Description     | Fade-up                |     0.6s |
+   | Buttons         | Fade-up + slight scale |     0.5s |
+   | Statistic cards | Fade-up stagger        |     0.5s |
+   ========================================================================== */
 
-@keyframes heroInFade {
-  from { opacity: 0; transform: translateY(14rem); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes heroInUp {
-  from { opacity: 0; transform: translateY(32rem); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------------------------------------------------------------------- */
-/* Typewriter In-Animation & Cursor                                       */
-/* ---------------------------------------------------------------------- */
-.tw-char {
+/* 1. Section label: Fade + slight slide (0.5s) */
+.eyebrow,
+.hero__eyebrow,
+.group__eyebrow,
+.sectors__eyebrow,
+.journey__eyebrow,
+.businesses__eyebrow,
+.reach__eyebrow,
+.why__eyebrow,
+.faq__eyebrow {
   opacity: 0;
-  display: inline;
-  transition: opacity 0.04s ease-out;
+  transform: translateY(14rem);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
-.tw-char.tw-visible {
+
+.in-view .eyebrow,
+.in-view .hero__eyebrow,
+.in-view .group__eyebrow,
+.in-view .sectors__eyebrow,
+.in-view .journey__eyebrow,
+.in-view .businesses__eyebrow,
+.in-view .reach__eyebrow,
+.in-view .why__eyebrow,
+.in-view .faq__eyebrow,
+.hero.is-revealed .hero__eyebrow,
+.hero.is-revealed .eyebrow,
+.eyebrow.in-view,
+.hero__eyebrow.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2. Main title: Masked slide-up (0.8s) + Each title line stagger (0.1s) */
+.title-mask-wrap {
+  display: block;
+  overflow: hidden;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+}
+.title-mask-line {
+  display: block;
+  transform: translateY(115%);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.in-view .title-mask-line,
+.is-revealed .title-mask-line,
+.hero.is-revealed .title-mask-line,
+.hero.is-revealed .hero__title .title-mask-line,
+.js-masked-title.in-view .title-mask-line {
+  transform: translateY(0);
   opacity: 1;
 }
-.tw-cursor {
-  display: inline-block;
-  width: 2.5px;
-  height: 0.82em;
-  background-color: var(--ink, #900909);
-  margin-left: 3px;
-  vertical-align: -0.04em;
-  animation: twCursorBlink 0.65s step-start infinite;
-  transition: opacity 0.4s ease;
-  border-radius: 1px;
-}
-.tw-cursor.tw-hidden {
+
+/* 0.1s stagger per title line */
+.title-mask-wrap:nth-child(1) .title-mask-line { transition-delay: 0s; }
+.title-mask-wrap:nth-child(2) .title-mask-line { transition-delay: 0.1s; }
+.title-mask-wrap:nth-child(3) .title-mask-line { transition-delay: 0.2s; }
+.title-mask-wrap:nth-child(4) .title-mask-line { transition-delay: 0.3s; }
+.title-mask-wrap:nth-child(5) .title-mask-line { transition-delay: 0.4s; }
+
+/* 3. Description: Fade-up (0.6s) */
+.hero__text,
+.group__intro,
+.sectors__intro,
+.journey__intro,
+.businesses__intro,
+.reach__intro,
+.why__intro,
+.faq__intro,
+.faq__form-text {
   opacity: 0;
-  animation: none;
-}
-@keyframes twCursorBlink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  transform: translateY(20rem);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
+.in-view .hero__text,
+.in-view .group__intro,
+.in-view .sectors__intro,
+.in-view .journey__intro,
+.in-view .businesses__intro,
+.in-view .reach__intro,
+.in-view .why__intro,
+.in-view .faq__intro,
+.in-view .faq__form-text,
+.hero.is-revealed .hero__text,
+.hero__text.in-view,
+.group__intro.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 4. Buttons: Fade-up + slight scale (0.5s) */
+.hero__actions .btn,
+.group__actions .btn,
+.reach__action .btn,
+.contact-form__submit {
+  opacity: 0;
+  transform: translateY(18rem) scale(0.96);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow var(--t-fast),
+              border-color var(--t-fast),
+              background-color var(--t-fast);
+  will-change: opacity, transform;
+}
+
+.in-view .hero__actions .btn,
+.in-view .group__actions .btn,
+.in-view .reach__action .btn,
+.in-view .contact-form__submit,
+.hero.is-revealed .hero__actions .btn,
+.hero__actions.in-view .btn,
+.btn.in-view {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.hero__actions .btn:nth-child(1) { transition-delay: 0.1s; }
+.hero__actions .btn:nth-child(2) { transition-delay: 0.2s; }
+
+/* 5. Statistic cards: Fade-up stagger (0.5s) */
+.stat-card,
+.reach__stat {
+  opacity: 0;
+  transform: translateY(24rem);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--stat-delay, 0s),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) var(--stat-delay, 0s),
+              border-color var(--t-fast),
+              box-shadow var(--t-fast),
+              background-color var(--t-fast);
+  will-change: opacity, transform;
+}
+
+.in-view .stat-card,
+.in-view .reach__stat,
+.hero.is-revealed .stat-card,
+.stat-card.in-view,
+.reach__stat.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero__stats .stat-card:nth-child(1), .reach__stats .reach__stat:nth-child(1) { --stat-delay: 0s; }
+.hero__stats .stat-card:nth-child(2), .reach__stats .reach__stat:nth-child(2) { --stat-delay: 0.1s; }
+.hero__stats .stat-card:nth-child(3), .reach__stats .reach__stat:nth-child(3) { --stat-delay: 0.2s; }
+.hero__stats .stat-card:nth-child(4), .reach__stats .reach__stat:nth-child(4) { --stat-delay: 0.3s; }
+
+/* Accessibility fallback */
 @media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal-fade,
-  .reveal-up,
-  .reveal-left,
-  .reveal-right,
-  .reveal-scale,
-  .stat-card,
-  .sector-card,
-  .value-step,
-  .business-card,
-  .principle__item,
-  .faq__item,
+  .eyebrow,
   .hero__eyebrow,
-  .hero__title,
+  .title-mask-line,
   .hero__text,
-  .hero__actions,
-  .hero__stats,
-  .tw-char {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-    transition: none !important;
-  }
-  .tw-cursor {
-    display: none !important;
-  }
+  .group__intro,
+  .sectors__intro,
+  .journey__intro,
+  .businesses__intro,
+  .reach__intro,
+  .why__intro,
+  .faq__intro,
+  .faq__form-text,
+  .hero__actions .btn,
+  .group__actions .btn,
+  .reach__action .btn,
+  .contact-form__submit,
+  .stat-card,
+  .reach__stat,
   .group__accent-line,
   .sectors__accent-line,
   .journey__accent-line,
@@ -2877,6 +2979,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   .reach__accent-line,
   .why__accent-line,
   .faq__accent-line {
+    opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
   }
 }
