@@ -3190,7 +3190,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 /* 01. Inner Hero */
-.inner-hero {
+.inner-hero,
+.about-hero {
   position: relative;
   min-height: 520rem;
   display: flex;
@@ -3200,29 +3201,36 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   color: #ffffff;
   overflow: hidden;
 }
-.inner-hero__bg {
+.inner-hero__bg,
+.about-hero__bg {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
-.inner-hero__bg .section-photo {
+.inner-hero__bg img,
+.inner-hero__bg .section-photo,
+.about-hero__bg img,
+.about-hero__bg .section-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0.35;
   filter: saturate(0.8);
 }
-.inner-hero__scrim {
+.inner-hero__scrim,
+.about-hero__scrim {
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, rgba(20, 20, 20, 0.7) 0%, rgba(20, 20, 20, 0.92) 100%);
 }
-.inner-hero__container {
+.inner-hero__container,
+.about-hero__container {
   position: relative;
   z-index: 2;
   width: 100%;
 }
-.inner-hero__title {
+.inner-hero__title,
+.about-hero__title {
   font-family: 'Oswald', sans-serif;
   font-size: 58rem;
   font-weight: 700;
@@ -3232,7 +3240,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   max-width: 880rem;
   margin-bottom: 20rem;
 }
-.inner-hero__text {
+.inner-hero__text,
+.about-hero__text {
   font-family: Inter, sans-serif;
   font-size: 17rem;
   line-height: 1.55;
@@ -3669,10 +3678,10 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
   margin: 0 auto 36rem;
 }
 
-/* Responsive Overrides for About Page */
+/* Responsive Overrides for About & Inner Pages */
 @media only screen and (max-width: 1024px) {
-  .inner-hero { min-height: 440rem; padding: 140rem 0 50rem; }
-  .inner-hero__title { font-size: 42rem; }
+  .inner-hero, .about-hero { min-height: 440rem; padding: 140rem 0 50rem; }
+  .inner-hero__title, .about-hero__title { font-size: 42rem; }
   .about-intro { padding: 60rem 0; }
   .about-intro__grid { grid-template-columns: 1fr; gap: 28rem; }
   .about-intro__photo-wrap { height: 340rem; }
@@ -3692,8 +3701,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 
 @media only screen and (max-width: 640px) {
-  .inner-hero { min-height: 380rem; padding: 120rem 0 40rem; }
-  .inner-hero__title { font-size: 32rem; }
+  .inner-hero, .about-hero { min-height: 380rem; padding: 120rem 0 40rem; }
+  .inner-hero__title, .about-hero__title { font-size: 32rem; }
   .about-intro__statement { font-size: 24rem; }
   .about-statement__heading { font-size: 28rem; }
   .about-culture__grid { grid-template-columns: 1fr; }
