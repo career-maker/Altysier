@@ -3549,12 +3549,17 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
 }
 .leadership-spread__quote {
   font-family: Inter, sans-serif;
-  font-size: 19rem;
-  line-height: 1.6;
-  color: var(--ink);
+  font-size: 16rem;
+  line-height: 1.68;
+  color: #2b2b2b;
   font-weight: 400;
   margin-bottom: 28rem;
-  font-style: italic;
+}
+.leadership-spread__quote p {
+  margin-bottom: 14rem;
+}
+.leadership-spread__quote p:last-child {
+  margin-bottom: 0;
 }
 .leadership-spread__meta {
   display: flex;
