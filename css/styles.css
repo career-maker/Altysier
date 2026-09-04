@@ -988,16 +988,18 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     opacity: 1;
     object-position: right center;
   }
-  /* Soft white gradient localized specifically behind lower-middle content area */
+  /* Smooth white gradient overlay: top image partially visible, transitioning to solid white behind title/text/stats */
   .hero__scrim {
+    display: block !important;
     background: linear-gradient(180deg, 
       rgba(255, 255, 255, 0) 0%, 
-      rgba(255, 255, 255, 0) 24%, 
-      rgba(255, 255, 255, 0.32) 36%, 
-      rgba(255, 255, 255, 0.76) 48%, 
-      rgba(255, 255, 255, 0.90) 65%, 
-      rgba(255, 255, 255, 0.95) 100%
-    );
+      rgba(255, 255, 255, 0) 18%, 
+      rgba(255, 255, 255, 0.35) 24%, 
+      rgba(255, 255, 255, 0.85) 30%, 
+      rgba(255, 255, 255, 0.98) 36%, 
+      #ffffff 42%, 
+      #ffffff 100%
+    ) !important;
   }
   .hero__container {
     flex: 1;
@@ -1078,16 +1080,18 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
     opacity: 1;
     object-position: 65% center;
   }
-  /* Soft white gradient localized specifically behind lower-middle text area */
+  /* Smooth white gradient overlay: top image partially visible, transitioning to solid white behind title/text/stats */
   .hero__scrim {
+    display: block !important;
     background: linear-gradient(180deg, 
       rgba(255, 255, 255, 0) 0%, 
-      rgba(255, 255, 255, 0) 20%, 
-      rgba(255, 255, 255, 0.28) 30%, 
-      rgba(255, 255, 255, 0.72) 42%, 
-      rgba(255, 255, 255, 0.88) 55%, 
-      rgba(255, 255, 255, 0.94) 100%
-    );
+      rgba(255, 255, 255, 0) 16%, 
+      rgba(255, 255, 255, 0.38) 22%, 
+      rgba(255, 255, 255, 0.88) 28%, 
+      rgba(255, 255, 255, 0.98) 34%, 
+      #ffffff 40%, 
+      #ffffff 100%
+    ) !important;
   }
   .hero__container {
     flex: 1;

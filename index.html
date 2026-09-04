@@ -36,7 +36,7 @@
 
 <!-- Preload LCP hero image for faster First/Largest Contentful Paint -->
 <link rel="preload" as="image" href="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1400&q=80&auto=format&fit=crop" fetchpriority="high">
-<link rel="stylesheet" href="css/styles.min.css?v=3.5">
+<link rel="stylesheet" href="css/styles.min.css?v=3.6">
 <style>
 /* Hero Watermark Marquee — STRICTLY mobile only (<640px) */
 .hero__marquee { display: none !important; }
@@ -82,6 +82,42 @@
     .hero__marquee__track { animation: none; }
   }
 }
+
+/* Hero Smooth White Gradient Overlay — Mobile & Tablet (<=1024px) */
+@media only screen and (max-width: 1024px) {
+  .hero > .hero__bg .section-photo {
+    opacity: 1;
+    object-position: right center;
+  }
+  .hero__scrim {
+    display: block !important;
+    background: linear-gradient(180deg, 
+      rgba(255, 255, 255, 0) 0%, 
+      rgba(255, 255, 255, 0) 15%, 
+      rgba(255, 255, 255, 0.45) 22%, 
+      rgba(255, 255, 255, 0.92) 28%, 
+      #ffffff 34%, 
+      #ffffff 100%
+    ) !important;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .hero > .hero__bg .section-photo {
+    opacity: 1;
+    object-position: 65% center;
+  }
+  .hero__scrim {
+    display: block !important;
+    background: linear-gradient(180deg, 
+      rgba(255, 255, 255, 0) 0%, 
+      rgba(255, 255, 255, 0) 14%, 
+      rgba(255, 255, 255, 0.50) 20%, 
+      rgba(255, 255, 255, 0.94) 26%, 
+      #ffffff 32%, 
+      #ffffff 100%
+    ) !important;
+  }
+}
 </style>
 </head>
 <body class="home">
@@ -91,13 +127,23 @@
      ========================================================================== -->
 <div class="preloader">
   <video class="preloader__video" autoplay muted loop playsinline aria-hidden="true">
-    <source src="img/preloader-bg-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
     <source src="img/preloader-bg.mp4" type="video/mp4">
   </video>
   <script>
     (function() {
       var v = document.querySelector('.preloader__video');
-      if (v) v.src = (window.innerWidth <= 768) ? 'img/preloader-bg-mobile.mp4' : 'img/preloader-bg.mp4';
+      if (v) {
+        var w = window.innerWidth || document.documentElement.clientWidth || (window.screen && window.screen.width) || 0;
+        var h = window.innerHeight || document.documentElement.clientHeight || (window.screen && window.screen.height) || 0;
+        var isPhone = ((w > 0 && w <= 540) && (h > w)) || 
+          (window.matchMedia && window.matchMedia('(max-width: 540px) and (orientation: portrait)').matches);
+        if (isPhone) {
+          v.src = 'img/preloader-bg-mobile.mp4';
+          v.load();
+        } else {
+          v.src = 'img/preloader-bg.mp4';
+        }
+      }
     })();
   </script>
   <div class="container">
