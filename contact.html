@@ -275,10 +275,30 @@
               <input type="email" id="user_email" name="user_email" class="form-input" placeholder="name@company.com" required>
             </div>
 
-            <!-- Phone Number -->
+            <!-- Phone Number with Country Code Dropdown -->
             <div class="form-group">
               <label for="user_phone" class="form-label">Phone Number *</label>
-              <input type="tel" id="user_phone" name="user_phone" class="form-input" placeholder="+971 50 000 0000" required>
+              <div class="phone-input-group" id="phone-input-group">
+                <div class="country-picker" id="country-picker">
+                  <button type="button" class="country-picker-btn" id="country-picker-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select Country Code">
+                    <span class="country-flag-icon" id="current-country-flag">
+                      <svg class="flag-svg" viewBox="0 0 640 480" width="24" height="16" aria-hidden="true"><rect width="640" height="160" fill="#00732f"/><rect y="160" width="640" height="160" fill="#ffffff"/><rect y="320" width="640" height="160" fill="#000000"/><rect width="180" height="480" fill="#ff0000"/></svg>
+                    </span>
+                    <span class="country-code-text" id="current-country-code">+971</span>
+                    <svg class="country-arrow-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                  </button>
+                  <div class="country-dropdown-menu" id="country-dropdown-menu" role="listbox">
+                    <div class="country-search-box">
+                      <svg class="country-search-icon" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                      <input type="text" class="country-search-input" id="country-search-input" placeholder="Search country or code..." autocomplete="off">
+                    </div>
+                    <ul class="country-list" id="country-list"></ul>
+                  </div>
+                </div>
+                <input type="tel" id="user_phone" name="user_phone" class="form-input phone-number-input" placeholder="50 000 0000" required autocomplete="tel-national">
+                <input type="hidden" id="country_dial_code" name="country_dial_code" value="+971">
+                <input type="hidden" id="full_phone_number" name="full_phone_number" value="+971 ">
+              </div>
             </div>
 
             <!-- Company / Organization -->
@@ -290,22 +310,27 @@
             <!-- Subject / Inquiry Type -->
             <div class="form-group _full">
               <label for="user_subject" class="form-label">Nature of Inquiry *</label>
-              <select id="user_subject" name="user_subject" class="form-select" required>
-                <option value="" disabled selected>Select Inquiry Category</option>
-                <option value="International Trade & Commodities">International Trade &amp; Commodities</option>
-                <option value="Industrial Investment & Mobility">Industrial Investment &amp; BAJAJ Mobility</option>
-                <option value="Ground Logistics & Fleet Haulage">Ground Logistics &amp; Fleet Haulage</option>
-                <option value="Animal Feed Manufacturing & Haloub">Animal Feed Manufacturing &amp; Haloub Supply</option>
-                <option value="Corporate Procurement & Fleet Leasing">Corporate Procurement &amp; Fleet Leasing</option>
-                <option value="Supplier / Vendor Registration">Supplier / Vendor Registration</option>
-                <option value="General Corporate Inquiry">General Corporate Inquiry</option>
-              </select>
+              <div class="form-select-wrapper">
+                <select id="user_subject" name="user_subject" class="form-select" required>
+                  <option value="" disabled selected>Select Inquiry Category</option>
+                  <option value="International Trade & Commodities">International Trade &amp; Commodities</option>
+                  <option value="Industrial Investment & Mobility">Industrial Investment &amp; BAJAJ Mobility</option>
+                  <option value="Ground Logistics & Fleet Haulage">Ground Logistics &amp; Fleet Haulage</option>
+                  <option value="Animal Feed Manufacturing & Haloub">Animal Feed Manufacturing &amp; Haloub Supply</option>
+                  <option value="Corporate Procurement & Fleet Leasing">Corporate Procurement &amp; Fleet Leasing</option>
+                  <option value="Supplier / Vendor Registration">Supplier / Vendor Registration</option>
+                  <option value="General Corporate Inquiry">General Corporate Inquiry</option>
+                </select>
+                <span class="form-select-arrow" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                </span>
+              </div>
             </div>
 
             <!-- Message -->
             <div class="form-group _full">
-              <label for="user_message" class="form-label">Message / Requirement Details *</label>
-              <textarea id="user_message" name="user_message" class="form-textarea" placeholder="Please outline your requirement, commodity volumes, destination port, or partnership proposal..." required></textarea>
+              <label for="user_message" class="form-label">Message / Requirement Details</label>
+              <textarea id="user_message" name="user_message" class="form-textarea" placeholder="Please outline your requirement, commodity volumes, destination port, or partnership proposal..."></textarea>
             </div>
           </div>
 
@@ -484,8 +509,6 @@
             <a href="about.html">About Us</a>
             <a href="csr.html">CSR &amp; Sustainability</a>
             <a href="contact.html">Contact Us</a>
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Use</a>
           </div>
         </div>
       </div>
@@ -548,11 +571,6 @@
     <div class="footer__bottom">
       <span class="footer__copyrights">&copy; <span id="current-year">2026</span> Altysier Group. All rights reserved.</span>
       <span class="footer__tagline">A diversified business group.</span>
-      <div class="footer__legal-links">
-        <a href="privacy.html" class="footer__legal-link">Privacy Policy</a>
-        <span class="footer__sep" aria-hidden="true">•</span>
-        <a href="terms.html" class="footer__legal-link">Terms of Use</a>
-      </div>
       <span class="footer__credit">Designed By <a href="https://www.intersmart.ae/" target="_blank" rel="noopener noreferrer">InterSmart</a></span>
       <button type="button" class="footer__up-btn" data-scroll-to="hero" aria-label="Back to top">
         <span>Up</span>
@@ -591,6 +609,189 @@
       }
     });
   });
+
+  // International Country Data with crisp SVG flags
+  var COUNTRIES = [
+    { name: 'United Arab Emirates', code: '+971', iso: 'ae', placeholder: '50 000 0000', flag: '<rect width="640" height="160" fill="#00732f"/><rect y="160" width="640" height="160" fill="#ffffff"/><rect y="320" width="640" height="160" fill="#000000"/><rect width="180" height="480" fill="#ff0000"/>' },
+    { name: 'Saudi Arabia', code: '+966', iso: 'sa', placeholder: '50 000 0000', flag: '<rect width="640" height="480" fill="#006c35"/><path d="M190 280h260v12H190z" fill="#fff"/><circle cx="320" cy="230" r="34" fill="none" stroke="#fff" stroke-width="7"/><path d="M250 230h140" stroke="#fff" stroke-width="5"/>' },
+    { name: 'Sudan', code: '+249', iso: 'sd', placeholder: '91 234 5678', flag: '<rect width="640" height="160" fill="#d21034"/><rect y="160" width="640" height="160" fill="#ffffff"/><rect y="320" width="640" height="160" fill="#000000"/><polygon points="0,0 240,240 0,480" fill="#007229"/>' },
+    { name: 'Qatar', code: '+974', iso: 'qa', placeholder: '3312 3456', flag: '<rect width="640" height="480" fill="#8d1b3d"/><polygon points="0,0 180,0 230,26 180,53 230,80 180,106 230,133 180,160 230,186 180,213 230,240 180,266 230,293 180,320 230,346 180,373 230,400 180,426 230,453 180,480 0,480" fill="#ffffff"/>' },
+    { name: 'Oman', code: '+968', iso: 'om', placeholder: '9123 4567', flag: '<rect width="640" height="160" fill="#ffffff"/><rect y="160" width="640" height="160" fill="#db161e"/><rect y="320" width="640" height="160" fill="#008000"/><rect width="180" height="480" fill="#db161e"/>' },
+    { name: 'Kuwait', code: '+965', iso: 'kw', placeholder: '5123 4567', flag: '<rect width="640" height="160" fill="#007a3d"/><rect y="160" width="640" height="160" fill="#ffffff"/><rect y="320" width="640" height="160" fill="#ce1126"/><polygon points="0,0 180,160 180,320 0,480" fill="#000000"/>' },
+    { name: 'Bahrain', code: '+973', iso: 'bh', placeholder: '3612 3456', flag: '<rect width="640" height="480" fill="#ce1126"/><polygon points="0,0 160,0 220,48 160,96 220,144 160,192 220,240 160,288 220,336 160,384 220,432 160,480 0,480" fill="#ffffff"/>' },
+    { name: 'Egypt', code: '+20', iso: 'eg', placeholder: '100 123 4567', flag: '<rect width="640" height="160" fill="#ce1126"/><rect y="160" width="640" height="160" fill="#ffffff"/><rect y="320" width="640" height="160" fill="#000000"/><circle cx="320" cy="240" r="30" fill="#c09300"/>' },
+    { name: 'United Kingdom', code: '+44', iso: 'gb', placeholder: '7911 123456', flag: '<rect width="640" height="480" fill="#012169"/><path d="M0,0 L640,480 M640,0 L0,480" stroke="#fff" stroke-width="60"/><path d="M0,0 L640,480 M640,0 L0,480" stroke="#c8102e" stroke-width="20"/><path d="M320,0 V480 M0,240 H640" stroke="#fff" stroke-width="100"/><path d="M320,0 V480 M0,240 H640" stroke="#c8102e" stroke-width="60"/>' },
+    { name: 'United States', code: '+1', iso: 'us', placeholder: '(555) 123-4567', flag: '<rect width="640" height="480" fill="#b22234"/><path d="M0,37h640M0,111h640M0,185h640M0,259h640M0,333h640M0,407h640" stroke="#fff" stroke-width="37"/><rect width="280" height="259" fill="#3c3b6e"/>' },
+    { name: 'India', code: '+91', iso: 'in', placeholder: '98765 43210', flag: '<rect width="640" height="160" fill="#ff9933"/><rect y="160" width="640" height="160" fill="#ffffff"/><rect y="320" width="640" height="160" fill="#138808"/><circle cx="320" cy="240" r="38" fill="none" stroke="#000088" stroke-width="6"/>' },
+    { name: 'China', code: '+86', iso: 'cn', placeholder: '138 0013 8000', flag: '<rect width="640" height="480" fill="#de2910"/><polygon points="100,60 115,105 75,78 125,78 85,105" fill="#ffde00"/>' },
+    { name: 'Germany', code: '+49', iso: 'de', placeholder: '151 12345678', flag: '<rect width="640" height="160" fill="#000000"/><rect y="160" width="640" height="160" fill="#dd0000"/><rect y="320" width="640" height="160" fill="#ffce00"/>' },
+    { name: 'France', code: '+33', iso: 'fr', placeholder: '6 12 34 56 78', flag: '<rect width="213" height="480" fill="#002395"/><rect x="213" width="214" height="480" fill="#ffffff"/><rect x="427" width="213" height="480" fill="#ed2939"/>' },
+    { name: 'Italy', code: '+39', iso: 'it', placeholder: '312 345 6789', flag: '<rect width="213" height="480" fill="#009246"/><rect x="213" width="214" height="480" fill="#ffffff"/><rect x="427" width="213" height="480" fill="#ce2b37"/>' },
+    { name: 'Turkey', code: '+90', iso: 'tr', placeholder: '532 123 4567', flag: '<rect width="640" height="480" fill="#e30a17"/><circle cx="280" cy="240" r="90" fill="#ffffff"/><circle cx="300" cy="240" r="72" fill="#e30a17"/><polygon points="390,240 440,210 415,255 415,225 440,270" fill="#ffffff"/>' },
+    { name: 'Jordan', code: '+962', iso: 'jo', placeholder: '7 9012 3456', flag: '<rect width="640" height="160" fill="#000000"/><rect y="160" width="640" height="160" fill="#ffffff"/><rect y="320" width="640" height="160" fill="#007a3d"/><polygon points="0,0 260,240 0,480" fill="#ce1126"/><polygon points="110,225 115,240 100,230 120,230 105,240" fill="#ffffff"/>' },
+    { name: 'Lebanon', code: '+961', iso: 'lb', placeholder: '70 123 456', flag: '<rect width="640" height="120" fill="#ed1c24"/><rect y="120" width="640" height="240" fill="#ffffff"/><rect y="360" width="640" height="120" fill="#ed1c24"/><polygon points="320,150 270,330 370,330" fill="#00a651"/>' },
+    { name: 'Iraq', code: '+964', iso: 'iq', placeholder: '770 123 4567', flag: '<rect width="640" height="160" fill="#ce1126"/><rect y="160" width="640" height="160" fill="#ffffff"/><rect y="320" width="640" height="160" fill="#000000"/><path d="M260 230h120" stroke="#007a3d" stroke-width="14"/>' },
+    { name: 'Kenya', code: '+254', iso: 'ke', placeholder: '712 345678', flag: '<rect width="640" height="150" fill="#000000"/><rect y="150" width="640" height="20" fill="#ffffff"/><rect y="170" width="640" height="140" fill="#bb0000"/><rect y="310" width="640" height="20" fill="#ffffff"/><rect y="330" width="640" height="150" fill="#006600"/>' },
+    { name: 'Ethiopia', code: '+251', iso: 'et', placeholder: '91 123 4567', flag: '<rect width="640" height="160" fill="#078930"/><rect y="160" width="640" height="160" fill="#fcdd09"/><rect y="320" width="640" height="160" fill="#da121a"/><circle cx="320" cy="240" r="50" fill="#0f47af"/>' },
+    { name: 'South Africa', code: '+27', iso: 'za', placeholder: '71 123 4567', flag: '<rect width="640" height="240" fill="#e03c31"/><rect y="240" width="640" height="240" fill="#001489"/><polygon points="0,0 240,240 0,480" fill="#000000"/><path d="M0,0 L270,240 L0,480" fill="none" stroke="#fcb514" stroke-width="30"/><path d="M270,240 H640" stroke="#ffffff" stroke-width="60"/><path d="M270,240 H640" stroke="#007749" stroke-width="40"/>' },
+    { name: 'Singapore', code: '+65', iso: 'sg', placeholder: '8123 4567', flag: '<rect width="640" height="240" fill="#ed2939"/><rect y="240" width="640" height="240" fill="#ffffff"/><circle cx="120" cy="120" r="50" fill="#ffffff"/><circle cx="135" cy="120" r="50" fill="#ed2939"/>' },
+    { name: 'Malaysia', code: '+60', iso: 'my', placeholder: '12-345 6789', flag: '<rect width="640" height="480" fill="#cc0000"/><path d="M0,35h640M0,105h640M0,175h640M0,245h640M0,315h640M0,385h640M0,455h640" stroke="#fff" stroke-width="35"/><rect width="320" height="280" fill="#000066"/><circle cx="160" cy="140" r="70" fill="#ffcc00"/><circle cx="180" cy="140" r="60" fill="#000066"/>' },
+    { name: 'Japan', code: '+81', iso: 'jp', placeholder: '90-1234-5678', flag: '<rect width="640" height="480" fill="#ffffff"/><circle cx="320" cy="240" r="110" fill="#bc002d"/>' },
+    { name: 'Australia', code: '+61', iso: 'au', placeholder: '412 345 678', flag: '<rect width="640" height="480" fill="#012169"/><path d="M0,0 L320,240 M320,0 L0,240" stroke="#fff" stroke-width="30"/><path d="M0,0 L320,240 M320,0 L0,240" stroke="#c8102e" stroke-width="12"/><path d="M160,0 V240 M0,120 H320" stroke="#fff" stroke-width="50"/><path d="M160,0 V240 M0,120 H320" stroke="#c8102e" stroke-width="30"/>' },
+    { name: 'Canada', code: '+1', iso: 'ca', placeholder: '(555) 123-4567', flag: '<rect width="160" height="480" fill="#ff0000"/><rect x="160" width="320" height="480" fill="#ffffff"/><rect x="480" width="160" height="480" fill="#ff0000"/><polygon points="320,150 340,210 390,200 350,240 370,290 320,260 270,290 290,240 250,200 300,210" fill="#ff0000"/>' },
+    { name: 'Pakistan', code: '+92', iso: 'pk', placeholder: '300 1234567', flag: '<rect width="160" height="480" fill="#ffffff"/><rect x="160" width="480" height="480" fill="#01411c"/><circle cx="420" cy="240" r="90" fill="#ffffff"/><circle cx="445" cy="225" r="85" fill="#01411c"/><polygon points="460,200 470,225 445,210 475,210 450,225" fill="#ffffff"/>' },
+    { name: 'Bangladesh', code: '+880', iso: 'bd', placeholder: '1712-345678', flag: '<rect width="640" height="480" fill="#006a4e"/><circle cx="280" cy="240" r="110" fill="#f42a41"/>' },
+    { name: 'Nigeria', code: '+234', iso: 'ng', placeholder: '802 123 4567', flag: '<rect width="213" height="480" fill="#008751"/><rect x="213" width="214" height="480" fill="#ffffff"/><rect x="427" width="213" height="480" fill="#008751"/>' }
+  ];
+
+  // Country Picker Logic
+  (function initCountryPicker() {
+    var picker = document.getElementById('country-picker');
+    var btn = document.getElementById('country-picker-btn');
+    var list = document.getElementById('country-list');
+    var searchInput = document.getElementById('country-search-input');
+    var flagWrap = document.getElementById('current-country-flag');
+    var codeText = document.getElementById('current-country-code');
+    var phoneInput = document.getElementById('user_phone');
+    var dialCodeInput = document.getElementById('country_dial_code');
+    var fullPhoneInput = document.getElementById('full_phone_number');
+
+    if (!picker || !btn || !list) return;
+
+    var currentSelected = COUNTRIES[0]; // UAE by default
+
+    function renderList(items) {
+      list.innerHTML = '';
+      if (!items.length) {
+        var emptyLi = document.createElement('li');
+        emptyLi.className = 'country-no-results';
+        emptyLi.textContent = 'No matching country found';
+        list.appendChild(emptyLi);
+        return;
+      }
+      items.forEach(function(c) {
+        var li = document.createElement('li');
+        li.className = 'country-option' + (c.iso === currentSelected.iso ? ' selected' : '');
+        li.setAttribute('role', 'option');
+        li.setAttribute('data-iso', c.iso);
+        li.innerHTML = '<span class="country-flag-icon"><svg class="flag-svg" viewBox="0 0 640 480" width="22" height="15" aria-hidden="true">' + c.flag + '</svg></span>' +
+                       '<span class="country-option-name">' + c.name + '</span>' +
+                       '<span class="country-option-code">' + c.code + '</span>';
+        li.addEventListener('click', function(e) {
+          e.stopPropagation();
+          selectCountry(c);
+          closePicker();
+          if (phoneInput) phoneInput.focus();
+        });
+        list.appendChild(li);
+      });
+    }
+
+    function selectCountry(country) {
+      currentSelected = country;
+      if (flagWrap) {
+        flagWrap.innerHTML = '<svg class="flag-svg" viewBox="0 0 640 480" width="24" height="16" aria-hidden="true">' + country.flag + '</svg>';
+      }
+      if (codeText) {
+        codeText.textContent = country.code;
+      }
+      if (dialCodeInput) {
+        dialCodeInput.value = country.code;
+      }
+      if (phoneInput && country.placeholder) {
+        phoneInput.placeholder = country.placeholder;
+      }
+      syncFullPhone();
+      renderList(COUNTRIES);
+    }
+
+    function syncFullPhone() {
+      if (fullPhoneInput && phoneInput) {
+        var rawNumber = phoneInput.value.trim();
+        fullPhoneInput.value = currentSelected.code + (rawNumber ? ' ' + rawNumber : '');
+      }
+    }
+
+    if (phoneInput) {
+      phoneInput.addEventListener('input', syncFullPhone);
+    }
+
+    function openPicker() {
+      picker.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+      if (searchInput) {
+        searchInput.value = '';
+        renderList(COUNTRIES);
+        setTimeout(function() { searchInput.focus(); }, 50);
+      }
+    }
+
+    function closePicker() {
+      picker.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+    }
+
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (picker.classList.contains('open')) {
+        closePicker();
+      } else {
+        openPicker();
+      }
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        var q = searchInput.value.toLowerCase().trim();
+        if (!q) {
+          renderList(COUNTRIES);
+          return;
+        }
+        var filtered = COUNTRIES.filter(function(c) {
+          return c.name.toLowerCase().indexOf(q) !== -1 ||
+                 c.code.indexOf(q) !== -1 ||
+                 c.iso.indexOf(q) !== -1;
+        });
+        renderList(filtered);
+      });
+      searchInput.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closePicker();
+          btn.focus();
+        }
+      });
+    }
+
+    document.addEventListener('click', function(e) {
+      if (!picker.contains(e.target)) {
+        closePicker();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && picker.classList.contains('open')) {
+        closePicker();
+        btn.focus();
+      }
+    });
+
+    // Initialize list & sync
+    renderList(COUNTRIES);
+    syncFullPhone();
+
+    // Reset support
+    var formEl = document.getElementById('altysier-contact-form');
+    if (formEl) {
+      formEl.addEventListener('reset', function() {
+        setTimeout(function() {
+          selectCountry(COUNTRIES[0]);
+        }, 10);
+      });
+    }
+  })();
 
   // Client-side Contact Form handling
   var form = document.getElementById('altysier-contact-form');
