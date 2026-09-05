@@ -125,6 +125,55 @@
   });
 
   /* ---------------------------------------------------------------------
+     Dark / light theme toggle — the inline snippet in <head> already set
+     data-theme before first paint (no flash); this just wires the header
+     button(s) up to flip it and remember the choice.
+     --------------------------------------------------------------------- */
+  run(function () {
+    var STORAGE_KEY = 'altysier-theme';
+    var toggles = document.querySelectorAll('[data-theme-toggle]');
+    if (!toggles.length) return;
+
+    function currentTheme() {
+      return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    }
+
+    function applyLabels(theme) {
+      var isDark = theme === 'dark';
+      toggles.forEach(function (btn) {
+        btn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+        btn.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+      });
+    }
+
+    function setTheme(theme, persist) {
+      document.documentElement.setAttribute('data-theme', theme);
+      applyLabels(theme);
+      if (persist) {
+        try { window.localStorage.setItem(STORAGE_KEY, theme); } catch (e) {}
+      }
+    }
+
+    applyLabels(currentTheme());
+
+    toggles.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setTheme(currentTheme() === 'dark' ? 'light' : 'dark', true);
+      });
+    });
+
+    // Live-follow the OS preference until the visitor picks a theme themselves.
+    var mql = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+    if (mql && mql.addEventListener) {
+      mql.addEventListener('change', function (e) {
+        var stored = null;
+        try { stored = window.localStorage.getItem(STORAGE_KEY); } catch (err) {}
+        if (!stored) setTheme(e.matches ? 'dark' : 'light', false);
+      });
+    }
+  });
+
+  /* ---------------------------------------------------------------------
      Mobile hamburger menu — Touch and click resilient for iOS & Android
      --------------------------------------------------------------------- */
   run(function () {
